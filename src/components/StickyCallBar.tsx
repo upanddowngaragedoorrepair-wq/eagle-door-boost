@@ -10,7 +10,6 @@ export function StickyCallBar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show after scrolling past hero (roughly 400px)
       setIsVisible(window.scrollY > 400);
     };
 
@@ -22,10 +21,10 @@ export function StickyCallBar() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden sticky-bar-enter">
-      <div className="bg-card/95 backdrop-blur-lg border-t border-border p-4">
+      <div className="bg-background/98 backdrop-blur-lg border-t border-primary/30 p-3 shadow-lg">
         <a
           href={phoneLink}
-          className="btn-cta w-full text-base"
+          className="btn-cta w-full text-base py-3.5"
         >
           <Phone className="w-5 h-5" />
           {text}
