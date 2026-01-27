@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Send, MapPin, Zap, Shield, Star, Lock, CheckCircle } from 'lucide-react';
 import { useUrlParams } from '@/hooks/useUrlParams';
+import teamPhoto from '@/assets/team-photo.webp';
 
 export function ContactForm() {
   const { city } = useUrlParams();
@@ -93,9 +94,18 @@ export function ContactForm() {
           </span>
         </div>
 
-        {/* Form Card - Bob's Gold Style */}
-        <div className="max-w-2xl mx-auto">
-          <div className="bg-primary rounded-3xl p-8 md:p-10 shadow-2xl relative">
+        <div className="grid lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
+          {/* Team Photo */}
+          <div className="hidden lg:block">
+            <img 
+              src={teamPhoto} 
+              alt="Eagle Gate Team" 
+              className="w-full h-full object-cover rounded-2xl"
+            />
+          </div>
+
+          {/* Form Card - Bob's Gold Style */}
+          <div className="bg-primary rounded-2xl p-8 shadow-2xl relative">
             {/* Online Now Badge */}
             <div className="absolute top-6 right-6 flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/10 border border-primary-foreground/20">
               <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
