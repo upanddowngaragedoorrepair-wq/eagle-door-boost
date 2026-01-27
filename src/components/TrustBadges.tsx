@@ -35,18 +35,18 @@ const badges = [
 
 export function TrustBadges() {
   return (
-    <section className="py-14 md:py-20 border-t border-b border-border bg-card/30">
+    <section className="py-16 md:py-20 border-t border-b border-border bg-card/50">
       <div className="container-main">
-        <div className="text-center mb-10 md:mb-12">
-          <h2 className="section-heading">
+        <div className="text-center mb-12 md:mb-14">
+          <h2 className="section-heading text-3xl md:text-4xl lg:text-5xl">
             Why Choose <span className="gold-text">Eagle Gate</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Premium service backed by experience, integrity, and a commitment to quality
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
           {badges.map((badge, index) => (
             <div
               key={index}

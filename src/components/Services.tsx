@@ -1,42 +1,48 @@
-import { Wrench, Home, ArrowRightLeft, Fingerprint, Cog, Building2, Phone } from 'lucide-react';
+import { ArrowRight, Phone, Wrench } from 'lucide-react';
 import { useUrlParams } from '@/hooks/useUrlParams';
+import gateRepair from '@/assets/gate-repair.webp';
+import gateDriveway from '@/assets/gate-driveway.webp';
+import gateSliding from '@/assets/gate-sliding.webp';
+import gateAccessControl from '@/assets/gate-access-control.webp';
+import gateSwing from '@/assets/gate-swing.webp';
+import gateCommercial from '@/assets/gate-commercial.webp';
 
 const services = [
   {
-    icon: Wrench,
+    image: gateRepair,
     title: 'Gate Repair',
-    description: 'Fast diagnosis and repair of all automatic gate systems, openers, and controls.',
-    highlight: 'Same-Day Service',
+    description: 'Complete repair for noisy, stuck, or damaged automatic gates. We fix motors, sensors, tracks, and more.',
+    tags: ['Same-day service', 'All gate types', 'Warranty included'],
   },
   {
-    icon: Home,
+    image: gateDriveway,
     title: 'Driveway Gates',
-    description: 'Custom driveway gates designed and installed to match your property\'s style.',
-    highlight: 'Free Estimates',
+    description: 'Custom driveway gate installation with professional-grade parts for smooth and secure operation.',
+    tags: ['Custom designs', 'Premium materials', 'Expert install'],
   },
   {
-    icon: ArrowRightLeft,
-    title: 'Sliding & Swing',
-    description: 'Expert installation of both sliding and swing gate systems for any property.',
-    highlight: 'All Styles',
+    image: gateSliding,
+    title: 'Sliding Gates',
+    description: 'We install and repair sliding gate systems with professional-grade parts for smooth operation.',
+    tags: ['Space efficient', 'Heavy duty', 'Quiet motors'],
   },
   {
-    icon: Fingerprint,
+    image: gateSwing,
+    title: 'Swing Gates',
+    description: 'Elegant swing gate solutions for residential and estate properties. Classic style meets modern automation.',
+    tags: ['Classic design', 'Dual systems', 'Low maintenance'],
+  },
+  {
+    image: gateAccessControl,
     title: 'Access Control',
-    description: 'Keypads, intercoms, remotes, and smart phone-controlled access solutions.',
-    highlight: 'Modern Tech',
+    description: 'Keypads, intercoms, remotes, and smartphone-controlled access for total property security.',
+    tags: ['Smart tech', 'Remote access', 'Secure entry'],
   },
   {
-    icon: Cog,
-    title: 'Openers & Motors',
-    description: 'Sales, installation, and repair of all major gate opener and motor brands.',
-    highlight: 'All Brands',
-  },
-  {
-    icon: Building2,
-    title: 'Commercial',
-    description: 'Solutions for businesses, HOAs, warehouses, and industrial properties.',
-    highlight: 'Large Scale',
+    image: gateCommercial,
+    title: 'Commercial Gates',
+    description: 'Solutions for businesses, HOAs, warehouses, and industrial properties requiring heavy-duty security.',
+    tags: ['High traffic', 'Industrial grade', '24/7 support'],
   },
 ];
 
@@ -44,47 +50,73 @@ export function Services() {
   const { phoneLink } = useUrlParams();
 
   return (
-    <section className="py-16 md:py-24">
+    <section id="services" className="py-20 md:py-28 bg-[hsl(45,30%,95%)]">
       <div className="container-main">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="section-heading">
-            Our <span className="gold-text">Services</span>
+        {/* Section Header - Bob's Style */}
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary border-2 border-primary mb-6">
+            <Wrench className="w-4 h-4 text-primary-foreground" />
+            <span className="text-sm font-bold text-primary-foreground uppercase tracking-wide">Professional Services</span>
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4">
+            <span className="text-background">Expert</span>{' '}
+            <span className="text-primary">Gate</span>{' '}
+            <span className="text-background">Solutions</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive gate and access control solutions for residential and commercial properties
+          <p className="text-lg text-background/70 max-w-2xl mx-auto">
+            From emergency repairs to complete installations, our certified technicians deliver exceptional results every time.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+        {/* Service Cards Grid - Bob's Style with Images */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (
-            <a
+            <div
               key={index}
-              href={phoneLink}
-              className="card-service group block"
+              className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
             >
-              {/* Header with icon and highlight */}
-              <div className="flex items-start justify-between mb-4">
-                <div className="w-14 h-14 rounded-2xl bg-primary/15 border border-primary/20 flex items-center justify-center group-hover:bg-primary/25 group-hover:border-primary/40 transition-all duration-300">
-                  <service.icon className="w-7 h-7 text-primary" />
+              {/* Image */}
+              <div className="relative h-52 overflow-hidden">
+                <img 
+                  src={service.image} 
+                  alt={service.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+                <h3 className="absolute bottom-4 left-5 font-display text-2xl font-bold text-foreground">
+                  {service.title}
+                </h3>
+              </div>
+              
+              {/* Content */}
+              <div className="p-6">
+                <p className="text-background/70 leading-relaxed mb-5">
+                  {service.description}
+                </p>
+                
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-5">
+                  {service.tags.map((tag, tagIndex) => (
+                    <span 
+                      key={tagIndex}
+                      className="text-xs font-medium text-background/60 bg-background/5 px-3 py-1.5 rounded-full border border-background/10"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-                <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full uppercase tracking-wide">
-                  {service.highlight}
-                </span>
+                
+                {/* CTA */}
+                <a 
+                  href={phoneLink}
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all"
+                >
+                  Learn More
+                  <ArrowRight className="w-4 h-4" />
+                </a>
               </div>
-              
-              <h3 className="font-display text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed text-sm mb-4">
-                {service.description}
-              </p>
-              
-              {/* Soft CTA */}
-              <div className="flex items-center gap-2 text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <Phone className="w-4 h-4" />
-                <span>Call for Details</span>
-              </div>
-            </a>
+            </div>
           ))}
         </div>
       </div>

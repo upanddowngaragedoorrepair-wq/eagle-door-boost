@@ -1,63 +1,53 @@
-import { Phone, ArrowRight, Clock, Shield } from 'lucide-react';
+import { Phone, Shield, Clock, ArrowRight } from 'lucide-react';
 import { useUrlParams } from '@/hooks/useUrlParams';
 
 export function MidCTA() {
-  const { phoneLink, phoneFormatted } = useUrlParams();
+  const { phoneLink } = useUrlParams();
 
   return (
-    <section className="py-16 md:py-20">
+    <section className="py-20 md:py-28 bg-secondary/50">
       <div className="container-main">
-        <div className="relative overflow-hidden rounded-3xl p-8 md:p-12 lg:p-16">
-          {/* Background */}
-          <div 
-            className="absolute inset-0"
-            style={{ background: 'linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--secondary)) 50%, hsl(var(--card)) 100%)' }}
-          />
-          <div className="absolute inset-0 border-2 border-primary/20 rounded-3xl" />
+        <div className="relative overflow-hidden rounded-3xl p-10 md:p-16 bg-gradient-to-br from-card via-card to-secondary border border-border">
+          {/* Glow effects */}
+          <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-primary/10 blur-3xl" />
+          <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-primary/5 blur-3xl" />
           
-          {/* Accent glow */}
-          <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-primary/15 blur-3xl" />
-          <div className="absolute -bottom-24 -left-24 w-56 h-56 rounded-full bg-primary/10 blur-3xl" />
+          <div className="relative text-center max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/15 border border-primary/40 mb-8">
+              <Clock className="w-4 h-4 text-primary" />
+              <span className="text-sm font-bold text-primary uppercase tracking-wide">Fast Response Guaranteed</span>
+            </div>
 
-          <div className="relative text-center">
-            <div className="flex items-center justify-center gap-4 mb-6 text-sm">
-              <span className="flex items-center gap-1.5 text-muted-foreground">
-                <Clock className="w-4 h-4 text-primary" />
+            <h2 className="section-heading text-4xl md:text-5xl lg:text-6xl mb-6">
+              Ready to Get Your Gate
+              <br />
+              <span className="gold-text">Working Perfectly?</span>
+            </h2>
+
+            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Skip the endless searching. Our certified technicians are standing by to provide expert gate repair, installation, and access control solutions.
+            </p>
+
+            <a href={phoneLink} className="btn-cta text-xl px-12 py-5 min-h-[72px] mb-8">
+              <Phone className="w-6 h-6" />
+              Call for a Quick Quote
+              <ArrowRight className="w-5 h-5" />
+            </a>
+
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
+              <span className="flex items-center gap-2">
+                <Shield className="w-5 h-5 text-primary" />
                 No obligation
               </span>
-              <span className="text-muted-foreground">•</span>
-              <span className="flex items-center gap-1.5 text-muted-foreground">
-                <Shield className="w-4 h-4 text-primary" />
+              <span className="flex items-center gap-2">
+                <Clock className="w-5 h-5 text-primary" />
                 Free estimates
               </span>
+              <span className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                Technicians available now
+              </span>
             </div>
-            
-            <h2 className="section-heading mb-6">
-              Ready to Get <span className="gold-text">Started?</span>
-            </h2>
-            
-            <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-8">
-              Our gate specialists are standing by to answer your questions and provide a free, no-pressure quote.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
-              <a href={phoneLink} className="btn-cta">
-                <Phone className="w-5 h-5" />
-                Call for a Quick Quote
-              </a>
-              <span className="text-muted-foreground hidden sm:block">or</span>
-              <a 
-                href="#quote-form" 
-                className="flex items-center gap-2 text-primary hover:text-primary/80 font-semibold transition-colors font-display uppercase tracking-wide"
-              >
-                Request a callback
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
-
-            <p className="text-sm text-muted-foreground">
-              Call now: <a href={phoneLink} className="text-foreground font-bold hover:text-primary transition-colors">{phoneFormatted}</a>
-            </p>
           </div>
         </div>
       </div>

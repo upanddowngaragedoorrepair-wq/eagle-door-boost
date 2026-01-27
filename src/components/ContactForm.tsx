@@ -1,30 +1,27 @@
 import { useState } from 'react';
-import { Send, CheckCircle } from 'lucide-react';
+import { Send, MapPin, Zap, Shield, Star, Lock, CheckCircle } from 'lucide-react';
+import { useUrlParams } from '@/hooks/useUrlParams';
 
 export function ContactForm() {
+  const { city } = useUrlParams();
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    service: '',
+    email: '',
+    zipCode: '',
+    address: '',
+    message: '',
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In production, this would send to your backend
     setSubmitted(true);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
   };
 
   if (submitted) {
     return (
-      <section id="quote-form" className="py-16 md:py-24 border-t border-border">
+      <section id="quote-form" className="py-20 md:py-28 bg-background">
         <div className="container-main">
           <div className="max-w-md mx-auto text-center">
             <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-6">
@@ -43,83 +40,143 @@ export function ContactForm() {
   }
 
   return (
-    <section id="quote-form" className="py-16 md:py-24 border-t border-border">
-      <div className="container-main">
-        <div className="max-w-lg mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="section-heading mb-4">
-              Request a <span className="gold-text">Callback</span>
-            </h2>
-            <p className="text-muted-foreground">
-              Prefer a callback? Leave your info — no pressure.
-            </p>
+    <section id="quote-form" className="py-20 md:py-28 bg-background relative overflow-hidden">
+      {/* Decorative curves */}
+      <div className="absolute top-0 left-0 right-0 h-32 overflow-hidden">
+        <svg className="absolute w-full h-full" viewBox="0 0 1440 128" preserveAspectRatio="none">
+          <path 
+            d="M0,64 C360,128 720,0 1080,64 C1260,96 1380,96 1440,64 L1440,0 L0,0 Z" 
+            fill="hsl(var(--primary) / 0.1)"
+          />
+        </svg>
+      </div>
+      <div className="absolute bottom-0 left-0 right-0 h-32 overflow-hidden rotate-180">
+        <svg className="absolute w-full h-full" viewBox="0 0 1440 128" preserveAspectRatio="none">
+          <path 
+            d="M0,64 C360,128 720,0 1080,64 C1260,96 1380,96 1440,64 L1440,0 L0,0 Z" 
+            fill="hsl(var(--primary) / 0.1)"
+          />
+        </svg>
+      </div>
+
+      <div className="container-main relative">
+        {/* Badge */}
+        <div className="flex justify-center mb-6">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground">
+            <MapPin className="w-4 h-4" />
+            <span className="text-sm font-bold uppercase tracking-wide">Serving {city} & Surrounding Areas</span>
           </div>
+        </div>
 
-          <form onSubmit={handleSubmit} className="card-premium p-6 md:p-8 rounded-2xl">
-            <div className="space-y-5">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-primary/50 focus:ring-2 focus:ring-primary/20 outline-none transition-all text-foreground placeholder:text-muted-foreground"
-                  placeholder="John Smith"
-                />
-              </div>
+        {/* Headline */}
+        <h2 className="section-heading text-4xl md:text-5xl lg:text-6xl mb-4">
+          <span className="text-foreground">Get Your</span>{' '}
+          <span className="gold-text italic">Free Estimate</span>
+        </h2>
+        <p className="text-center text-lg text-muted-foreground mb-8">
+          Professional gate services available 24/7. Fast response, fair prices.
+        </p>
 
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  required
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-primary/50 focus:ring-2 focus:ring-primary/20 outline-none transition-all text-foreground placeholder:text-muted-foreground"
-                  placeholder="(925) 555-1234"
-                />
-              </div>
+        {/* Trust Badges */}
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary border border-border text-sm font-medium text-foreground">
+            <Zap className="w-4 h-4 text-primary" />
+            30-Min Response
+          </span>
+          <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary border border-border text-sm font-medium text-foreground">
+            <Shield className="w-4 h-4 text-primary" />
+            Licensed & Insured
+          </span>
+          <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary border border-border text-sm font-medium text-foreground">
+            <Star className="w-4 h-4 text-primary" />
+            5-Star Rated
+          </span>
+        </div>
 
-              <div>
-                <label htmlFor="service" className="block text-sm font-medium text-foreground mb-2">
-                  Service Needed
-                </label>
-                <select
-                  id="service"
-                  name="service"
-                  required
-                  value={formData.service}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-primary/50 focus:ring-2 focus:ring-primary/20 outline-none transition-all text-foreground appearance-none cursor-pointer"
-                >
-                  <option value="">Select a service...</option>
-                  <option value="repair">Gate Repair</option>
-                  <option value="installation">New Gate Installation</option>
-                  <option value="access-control">Access Control System</option>
-                  <option value="maintenance">Maintenance & Inspection</option>
-                  <option value="other">Other / Not Sure</option>
-                </select>
-              </div>
-
-              <button type="submit" className="btn-cta w-full">
-                <Send className="w-5 h-5" />
-                Request Callback
-              </button>
+        {/* Form Card - Bob's Gold Style */}
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-primary rounded-3xl p-8 md:p-10 shadow-2xl relative">
+            {/* Online Now Badge */}
+            <div className="absolute top-6 right-6 flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/10 border border-primary-foreground/20">
+              <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+              <span className="text-xs font-semibold text-primary-foreground">Online Now</span>
             </div>
 
-            <p className="text-xs text-muted-foreground text-center mt-4">
-              We respect your privacy. No spam, ever.
+            <h3 className="font-display text-2xl md:text-3xl font-bold text-primary-foreground mb-2">
+              Request a Free Quote
+            </h3>
+            <p className="text-primary-foreground/80 mb-8">
+              Fill out the form and we'll get back to you in less than one minute!
             </p>
-          </form>
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid md:grid-cols-2 gap-4">
+                <input
+                  type="text"
+                  placeholder="Your Name *"
+                  required
+                  className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-background/50 border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                />
+                <input
+                  type="tel"
+                  placeholder="Phone Number *"
+                  required
+                  className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-background/50 border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                />
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-4">
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-background/50 border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                />
+                <input
+                  type="text"
+                  placeholder="Zip Code *"
+                  required
+                  className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-background/50 border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors"
+                  value={formData.zipCode}
+                  onChange={(e) => setFormData({ ...formData, zipCode: e.target.value })}
+                />
+              </div>
+
+              <input
+                type="text"
+                placeholder="Street Address"
+                className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-background/50 border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors"
+                value={formData.address}
+                onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+              />
+
+              <textarea
+                placeholder="Tell us about your issue"
+                rows={3}
+                className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-background/50 border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors resize-none"
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              />
+
+              <button
+                type="submit"
+                className="w-full flex items-center justify-center gap-3 px-8 py-5 rounded-xl bg-background text-foreground font-display font-bold text-lg uppercase tracking-wide hover:bg-background/90 transition-colors border-2 border-background/20"
+              >
+                <Send className="w-5 h-5" />
+                Get Your Free Estimate
+              </button>
+            </form>
+
+            <p className="flex items-center justify-center gap-2 text-xs text-primary-foreground/60 mt-4">
+              <Lock className="w-3 h-3" />
+              Your information is secure and will never be shared
+            </p>
+          </div>
         </div>
       </div>
     </section>

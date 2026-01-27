@@ -10,7 +10,7 @@ export function StickyCallBar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsVisible(window.scrollY > 400);
+      setIsVisible(window.scrollY > 500);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -21,15 +21,15 @@ export function StickyCallBar() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden sticky-bar-enter">
-      <div className="bg-background/98 backdrop-blur-lg border-t border-primary/30 p-3 shadow-lg">
+      <div className="bg-background/98 backdrop-blur-lg border-t-2 border-primary/40 p-4 shadow-2xl">
         <a
           href={phoneLink}
-          className="btn-cta w-full text-base py-3.5"
+          className="btn-cta w-full text-base py-4 min-h-[60px]"
         >
           <Phone className="w-5 h-5" />
           {text}
         </a>
-        <p className="text-center text-xs text-muted-foreground mt-2">
+        <p className="text-center text-xs text-muted-foreground mt-2.5">
           {subtext}
         </p>
       </div>
