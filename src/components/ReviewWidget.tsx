@@ -1,5 +1,6 @@
 import { Star, Quote, CheckCircle } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useUrlParams } from '@/hooks/useUrlParams';
 
 const reviews = [
   {
@@ -75,6 +76,7 @@ function PlatformBadge({ platform }: { platform: string }) {
 }
 
 export function ReviewWidget() {
+  const { city } = useUrlParams();
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -94,10 +96,14 @@ export function ReviewWidget() {
             <span className="text-sm font-bold text-primary uppercase tracking-wide">Verified Reviews</span>
           </div>
           
-          <h2 className="section-heading text-4xl md:text-5xl lg:text-6xl mb-6">
+          <h2 className="section-heading text-4xl md:text-5xl lg:text-6xl mb-4">
             <span className="text-foreground">Hear From Our</span>{' '}
             <span className="gold-text">Happy Customers</span>
           </h2>
+
+          <p className="text-lg text-muted-foreground mb-8">
+            Real testimonials from homeowners in {city} & surrounding areas
+          </p>
 
           {/* Star Summary - Bob's Style */}
           <div className="flex flex-col items-center gap-4 mb-8">

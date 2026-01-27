@@ -1,16 +1,19 @@
 import { useEffect, useRef } from 'react';
+import { useUrlParams } from '@/hooks/useUrlParams';
 
 const tickerItems = [
-  { emoji: '⚡', text: 'SAME-DAY SERVICE' },
-  { emoji: '🆓', text: 'FREE ESTIMATES' },
-  { emoji: '⭐', text: '5-STAR RATED' },
+  { emoji: '🔧', text: 'SAME-DAY SERVICE' },
+  { emoji: '🆓', text: 'FREE ESTIMATE' },
+  { emoji: '💵', text: '$50 OFF TODAY' },
+  { emoji: '⚡', text: '24/7 EMERGENCY' },
   { emoji: '📞', text: 'CALL NOW' },
-  { emoji: '🔧', text: 'EXPERT TECHNICIANS' },
-  { emoji: '✓', text: 'LICENSED & INSURED' },
+  { emoji: '⭐', text: '5-STAR RATED' },
+  { emoji: '⏰', text: '30-MIN RESPONSE' },
 ];
 
 export function UrgencyTicker() {
   const tickerRef = useRef<HTMLDivElement>(null);
+  const { phoneLink } = useUrlParams();
 
   useEffect(() => {
     const ticker = tickerRef.current;
@@ -43,14 +46,14 @@ export function UrgencyTicker() {
         style={{ width: '200%' }}
       >
         {items.map((item, index) => (
-          <span
+          <a
             key={index}
-            className="inline-flex items-center gap-1.5 px-6 text-sm font-bold text-primary-foreground"
+            href={phoneLink}
+            className="inline-flex items-center gap-1.5 px-6 text-sm font-bold text-primary-foreground hover:opacity-80 transition-opacity"
           >
             <span>{item.emoji}</span>
             <span>{item.text}</span>
-            <span className="mx-4 text-primary-foreground/50">•</span>
-          </span>
+          </a>
         ))}
       </div>
     </div>

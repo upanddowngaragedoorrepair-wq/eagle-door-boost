@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Clock, Phone, Scissors } from 'lucide-react';
+import { Clock, Scissors } from 'lucide-react';
 import { useUrlParams } from '@/hooks/useUrlParams';
-import couponMotor from '@/assets/coupon-motor.webp';
-import couponNewGate from '@/assets/coupon-new-gate.webp';
 import gateRepair from '@/assets/gate-repair.webp';
+import gateDriveway from '@/assets/gate-driveway.webp';
+import gateSwing from '@/assets/gate-swing.webp';
 import gateAccessControl from '@/assets/gate-access-control.webp';
 
 function getTimeUntilEndOfMonth() {
@@ -19,17 +19,17 @@ const coupons = [
     discount: '15% OFF',
   },
   {
-    image: couponMotor,
-    label: 'Motor Service',
+    image: gateAccessControl,
+    label: 'Access Control',
     discount: '10% OFF',
   },
   {
-    image: couponNewGate,
+    image: gateDriveway,
     label: 'New Gates',
     discount: '$250 OFF',
   },
   {
-    image: gateAccessControl,
+    image: gateSwing,
     label: 'New Customer',
     discount: '10% OFF',
   },
