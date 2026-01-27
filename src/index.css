@@ -12,43 +12,43 @@
 
 @layer base {
   :root {
-    /* Navy Base */
-    --background: 0 0% 100%;
-    --foreground: 265 4% 12.9%;
+    /* Dark Navy Base - Premium Dark Theme */
+    --background: 222 47% 8%;
+    --foreground: 0 0% 95%;
 
-    /* Cards & Surfaces */
-    --card: 0 0% 100%;
-    --card-foreground: 265 4% 12.9%;
-    --card-elevated: 222 47% 13%;
+    /* Cards & Surfaces - Dark elevated */
+    --card: 222 47% 11%;
+    --card-foreground: 0 0% 95%;
+    --card-elevated: 222 47% 14%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 265 4% 12.9%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 0 0% 95%;
 
-    /* Gold Accent */
-    --primary: 266 4% 20.8%;
-    --primary-foreground: 248 0.3% 98.4%;
+    /* Gold Accent - Primary */
+    --primary: 42 60% 55%;
+    --primary-foreground: 222 47% 8%;
     --primary-glow: 42 70% 65%;
 
-    /* Secondary Navy */
-    --secondary: 248 0.7% 96.8%;
-    --secondary-foreground: 266 4% 20.8%;
+    /* Secondary - Muted Navy */
+    --secondary: 222 40% 18%;
+    --secondary-foreground: 0 0% 90%;
 
-    /* Muted */
-    --muted: 248 0.7% 96.8%;
-    --muted-foreground: 257 4.6% 55.4%;
+    /* Muted - Subtle backgrounds */
+    --muted: 222 35% 15%;
+    --muted-foreground: 220 15% 65%;
 
-    /* Accent */
-    --accent: 248 0.7% 96.8%;
-    --accent-foreground: 266 4% 20.8%;
+    /* Accent - Gold tinted */
+    --accent: 42 30% 20%;
+    --accent-foreground: 42 60% 70%;
 
     /* Destructive */
-    --destructive: 27 24.5% 57.7%;
+    --destructive: 0 65% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Borders & Input */
-    --border: 256 1.3% 92.9%;
-    --input: 256 1.3% 92.9%;
-    --ring: 257 4% 70.4%;
+    /* Borders & Input - Subtle dividers */
+    --border: 222 30% 20%;
+    --input: 222 30% 18%;
+    --ring: 42 60% 55%;
 
     --radius: 0.375rem;
 
@@ -57,7 +57,7 @@
     --navy-light: 222 35% 15%;
     --gold-soft: 42 50% 50%;
     --gold-bright: 42 80% 60%;
-    --text-subtle: 215 20% 70%;
+    --text-subtle: 220 15% 70%;
 
     /* Gradients */
     --gradient-gold: linear-gradient(135deg, hsl(42, 60%, 58%) 0%, hsl(42, 70%, 50%) 100%);
@@ -66,35 +66,35 @@
     --gradient-hero: linear-gradient(135deg, hsl(222, 47%, 9%) 0%, hsl(222, 50%, 6%) 50%, hsl(222, 47%, 8%) 100%);
 
     /* Shadows */
-    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
-    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
-    --shadow-gold: 0 4px 20px -4px hsl(42 60% 58% / 0.3);
-    --shadow-card: 0 4px 24px -4px hsl(222 47% 5% / 0.5), 0 0 0 1px hsl(222 30% 20% / 0.5);
+    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.3), 0 1px 2px -1px hsl(0 0% 0% / 0.2);
+    --shadow-md: 0 2px 6px 0px hsl(0 0% 0% / 0.3), 0 2px 4px -1px hsl(0 0% 0% / 0.2);
+    --shadow-lg: 0 4px 12px 0px hsl(0 0% 0% / 0.4), 0 4px 6px -1px hsl(0 0% 0% / 0.2);
+    --shadow-gold: 0 4px 20px -4px hsl(42 60% 58% / 0.4);
+    --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.5), 0 0 0 1px hsl(222 30% 25% / 0.5);
 
     /* Sidebar */
-    --sidebar-background: 222 47% 8%;
-    --sidebar-foreground: 265 4% 12.9%;
-    --sidebar-primary: 266 4% 20.8%;
-    --sidebar-primary-foreground: 248 0.3% 98.4%;
-    --sidebar-accent: 248 0.7% 96.8%;
-    --sidebar-accent-foreground: 266 4% 20.8%;
-    --sidebar-border: 256 1.3% 92.9%;
-    --sidebar-ring: 257 4% 70.4%;
-    --chart-1: 41 22.2% 64.6%;
-    --chart-2: 185 11.8% 60%;
-    --chart-3: 227 7% 39.8%;
-    --chart-4: 84 18.9% 82.8%;
-    --chart-5: 70 18.8% 76.9%;
-    --sidebar: 248 0.3% 98.4%;
+    --sidebar-background: 222 47% 6%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 42 60% 55%;
+    --sidebar-primary-foreground: 222 47% 8%;
+    --sidebar-accent: 222 40% 18%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 222 30% 20%;
+    --sidebar-ring: 42 60% 55%;
+    --chart-1: 42 60% 55%;
+    --chart-2: 185 40% 50%;
+    --chart-3: 260 40% 55%;
+    --chart-4: 150 40% 50%;
+    --chart-5: 20 60% 55%;
+    --sidebar: 222 47% 6%;
     --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
-    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.15);
+    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.2);
+    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.3), 0 1px 2px -1px hsl(0 0% 0% / 0.2);
+    --shadow-xl: 0 8px 20px 0px hsl(0 0% 0% / 0.4), 0 8px 10px -1px hsl(0 0% 0% / 0.2);
+    --shadow-2xl: 0 12px 30px 0px hsl(0 0% 0% / 0.5);
     --tracking-normal: 0em;
     --spacing: 0.25rem;
   }
