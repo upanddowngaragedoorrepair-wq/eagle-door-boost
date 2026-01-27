@@ -21,7 +21,7 @@ export function UrgencyTicker() {
 
     let animationId: number;
     let position = 0;
-    const speed = 0.5;
+    const speed = 0.05; // Slowed down to match Bob's style
 
     const animate = () => {
       position -= speed;
