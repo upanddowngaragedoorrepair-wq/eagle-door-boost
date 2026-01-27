@@ -23,17 +23,20 @@ export default {
   				'sans-serif'
   			],
   			sans: [
-  				'Roboto',
+  				'Inter',
   				'ui-sans-serif',
   				'system-ui',
-  				'sans-serif',
-  				'Apple Color Emoji',
-  				'Segoe UI Emoji',
-  				'Segoe UI Symbol',
-  				'Noto Color Emoji'
+  				'-apple-system',
+  				'BlinkMacSystemFont',
+  				'Segoe UI',
+  				'Roboto',
+  				'Helvetica Neue',
+  				'Arial',
+  				'Noto Sans',
+  				'sans-serif'
   			],
   			serif: [
-  				'Libre Caslon Text',
+  				'Lora',
   				'ui-serif',
   				'Georgia',
   				'Cambria',
@@ -42,7 +45,7 @@ export default {
   				'serif'
   			],
   			mono: [
-  				'Roboto Mono',
+  				'Space Mono',
   				'ui-monospace',
   				'SFMono-Regular',
   				'Menlo',
@@ -117,7 +120,14 @@ export default {
   		},
   		boxShadow: {
   			gold: 'var(--shadow-gold)',
-  			card: 'var(--shadow-card)'
+  			card: 'var(--shadow-card)',
+  			'2xs': 'var(--shadow-2xs)',
+  			xs: 'var(--shadow-xs)',
+  			sm: 'var(--shadow-sm)',
+  			md: 'var(--shadow-md)',
+  			lg: 'var(--shadow-lg)',
+  			xl: 'var(--shadow-xl)',
+  			'2xl': 'var(--shadow-2xl)'
   		},
   		keyframes: {
   			'accordion-down': {
