@@ -9,7 +9,6 @@ import cardPedestrianGate from '@/assets/card-pedestrian-gate.webp';
 import cardAccessControl from '@/assets/card-access-control.jpeg';
 import cardAutomaticGate from '@/assets/card-automatic-gate.jpeg';
 import cardFences from '@/assets/card-fences.png';
-
 const serviceCards = [{
   image: cardGateRepair,
   title: 'Gate Repair',
@@ -53,7 +52,7 @@ export function Hero() {
       <div className="container-main relative">
         {/* Logo + Brand - Animated */}
         <div className="flex flex-col items-center mb-8 animate-on-load animate-fade-in-up">
-          <img src={eagleLogo} alt="Eagle Automatic Gate" className="w-24 h-24 md:w-32 md:h-32 mb-4" />
+          <img alt="Eagle Automatic Gate" className="w-24 h-24 md:w-32 md:h-32 mb-4" src="/lovable-uploads/353e787b-a42b-4be4-a8df-4e76e8960f75.png" />
           <div className="text-center">
             <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground uppercase tracking-wide">
               Eagle Automatic
@@ -69,7 +68,7 @@ export function Hero() {
             <span className="gradient-text">Affordable</span>
           </h1>
           <p className="text-2xl md:text-3xl lg:text-4xl font-display font-semibold text-foreground">
-            Services in <span className="text-primary">{city}</span> & surrounding areas
+            Repair &   Installation
           </p>
         </div>
 
