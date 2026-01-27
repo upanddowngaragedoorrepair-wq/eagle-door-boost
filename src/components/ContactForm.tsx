@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { Send, MapPin, Zap, Shield, Star, Lock, CheckCircle } from 'lucide-react';
 import { useUrlParams } from '@/hooks/useUrlParams';
 import teamPhoto from '@/assets/team-photo.webp';
-
 export function ContactForm() {
-  const { city } = useUrlParams();
+  const {
+    city
+  } = useUrlParams();
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -12,17 +13,14 @@ export function ContactForm() {
     email: '',
     zipCode: '',
     address: '',
-    message: '',
+    message: ''
   });
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
   };
-
   if (submitted) {
-    return (
-      <section id="quote-form" className="py-20 md:py-28 bg-background">
+    return <section id="quote-form" className="py-20 md:py-28 bg-background">
         <div className="container-main">
           <div className="max-w-md mx-auto text-center">
             <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-6">
@@ -36,27 +34,18 @@ export function ContactForm() {
             </p>
           </div>
         </div>
-      </section>
-    );
+      </section>;
   }
-
-  return (
-    <section id="quote-form" className="py-20 md:py-28 bg-background relative overflow-hidden">
+  return <section id="quote-form" className="py-20 md:py-28 bg-background relative overflow-hidden">
       {/* Decorative curves */}
       <div className="absolute top-0 left-0 right-0 h-32 overflow-hidden">
         <svg className="absolute w-full h-full" viewBox="0 0 1440 128" preserveAspectRatio="none">
-          <path 
-            d="M0,64 C360,128 720,0 1080,64 C1260,96 1380,96 1440,64 L1440,0 L0,0 Z" 
-            fill="hsl(var(--primary) / 0.1)"
-          />
+          <path d="M0,64 C360,128 720,0 1080,64 C1260,96 1380,96 1440,64 L1440,0 L0,0 Z" fill="hsl(var(--primary) / 0.1)" />
         </svg>
       </div>
       <div className="absolute bottom-0 left-0 right-0 h-32 overflow-hidden rotate-180">
         <svg className="absolute w-full h-full" viewBox="0 0 1440 128" preserveAspectRatio="none">
-          <path 
-            d="M0,64 C360,128 720,0 1080,64 C1260,96 1380,96 1440,64 L1440,0 L0,0 Z" 
-            fill="hsl(var(--primary) / 0.1)"
-          />
+          <path d="M0,64 C360,128 720,0 1080,64 C1260,96 1380,96 1440,64 L1440,0 L0,0 Z" fill="hsl(var(--primary) / 0.1)" />
         </svg>
       </div>
 
@@ -97,22 +86,18 @@ export function ContactForm() {
         <div className="grid lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
           {/* Team Photo */}
           <div className="hidden lg:block">
-            <img 
-              src={teamPhoto} 
-              alt="Eagle Gate Team" 
-              className="w-full h-full object-cover rounded-2xl"
-            />
+            <img src={teamPhoto} alt="Eagle Gate Team" className="w-full h-full object-cover rounded-2xl" />
           </div>
 
           {/* Form Card - Bob's Gold Style */}
           <div className="bg-primary rounded-2xl p-8 shadow-2xl relative">
             {/* Online Now Badge */}
-            <div className="absolute top-6 right-6 flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/10 border border-primary-foreground/20">
+            <div className="absolute top-6 right-6 items-center gap-2 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 flex flex-row mx-0 px-0 py-0 pr-0 pl-0 pt-0 pb-0 my-0">
               <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
               <span className="text-xs font-semibold text-primary-foreground">Online Now</span>
             </div>
 
-            <h3 className="font-display text-2xl md:text-3xl font-bold text-primary-foreground mb-2">
+            <h3 className="font-display text-2xl md:text-3xl font-bold text-primary-foreground mb-2 mx-0 px-0 py-[9px]">
               Request a Free Quote
             </h3>
             <p className="text-primary-foreground/80 mb-8">
@@ -121,62 +106,38 @@ export function ContactForm() {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
-                <input
-                  type="text"
-                  placeholder="Your Name *"
-                  required
-                  className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-background/50 border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                />
-                <input
-                  type="tel"
-                  placeholder="Phone Number *"
-                  required
-                  className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-background/50 border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                />
+                <input type="text" placeholder="Your Name *" required className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-background/50 border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors" value={formData.name} onChange={e => setFormData({
+                ...formData,
+                name: e.target.value
+              })} />
+                <input type="tel" placeholder="Phone Number *" required className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-background/50 border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors" value={formData.phone} onChange={e => setFormData({
+                ...formData,
+                phone: e.target.value
+              })} />
               </div>
               
               <div className="grid md:grid-cols-2 gap-4">
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-background/50 border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                />
-                <input
-                  type="text"
-                  placeholder="Zip Code *"
-                  required
-                  className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-background/50 border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors"
-                  value={formData.zipCode}
-                  onChange={(e) => setFormData({ ...formData, zipCode: e.target.value })}
-                />
+                <input type="email" placeholder="Email Address" className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-background/50 border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors" value={formData.email} onChange={e => setFormData({
+                ...formData,
+                email: e.target.value
+              })} />
+                <input type="text" placeholder="Zip Code *" required className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-background/50 border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors" value={formData.zipCode} onChange={e => setFormData({
+                ...formData,
+                zipCode: e.target.value
+              })} />
               </div>
 
-              <input
-                type="text"
-                placeholder="Street Address"
-                className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-background/50 border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors"
-                value={formData.address}
-                onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-              />
+              <input type="text" placeholder="Street Address" className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-background/50 border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors" value={formData.address} onChange={e => setFormData({
+              ...formData,
+              address: e.target.value
+            })} />
 
-              <textarea
-                placeholder="Tell us about your issue"
-                rows={3}
-                className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-background/50 border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors resize-none"
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              />
+              <textarea placeholder="Tell us about your issue" rows={3} className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-background/50 border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors resize-none" value={formData.message} onChange={e => setFormData({
+              ...formData,
+              message: e.target.value
+            })} />
 
-              <button
-                type="submit"
-                className="w-full flex items-center justify-center gap-3 px-8 py-5 rounded-xl bg-background text-foreground font-display font-bold text-lg uppercase tracking-wide hover:bg-background/90 transition-colors border-2 border-background/20"
-              >
+              <button type="submit" className="w-full flex items-center justify-center gap-3 px-8 py-5 rounded-xl bg-background text-foreground font-display font-bold text-lg uppercase tracking-wide hover:bg-background/90 transition-colors border-2 border-background/20">
                 <Send className="w-5 h-5" />
                 Get Your Free Estimate
               </button>
@@ -189,6 +150,5 @@ export function ContactForm() {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
