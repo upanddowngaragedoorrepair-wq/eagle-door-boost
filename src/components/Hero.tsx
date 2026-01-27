@@ -9,26 +9,41 @@ import gateSliding from '@/assets/gate-sliding.webp';
 import gateAccessControl from '@/assets/gate-access-control.webp';
 import gateSwing from '@/assets/gate-swing.webp';
 import gateCommercial from '@/assets/gate-commercial.webp';
-
-const serviceCards = [
-  { image: gateRepair, title: 'Gate Repair', link: '/gate-repair' },
-  { image: gateDriveway, title: 'Driveway Gates', link: '/driveway-gates' },
-  { image: gateSliding, title: 'Sliding Gates', link: '/automatic-gates' },
-  { image: gateSwing, title: 'Swing Gates', link: '/automatic-gates' },
-  { image: gateAccessControl, title: 'Access Control', link: '/access-control' },
-  { image: gateCommercial, title: 'Commercial', link: '/fences' },
-];
-
+const serviceCards = [{
+  image: gateRepair,
+  title: 'Gate Repair',
+  link: '/gate-repair'
+}, {
+  image: gateDriveway,
+  title: 'Driveway Gates',
+  link: '/driveway-gates'
+}, {
+  image: gateSliding,
+  title: 'Sliding Gates',
+  link: '/automatic-gates'
+}, {
+  image: gateSwing,
+  title: 'Swing Gates',
+  link: '/automatic-gates'
+}, {
+  image: gateAccessControl,
+  title: 'Access Control',
+  link: '/access-control'
+}, {
+  image: gateCommercial,
+  title: 'Commercial',
+  link: '/fences'
+}];
 export function Hero() {
-  const { city, phoneLink } = useUrlParams();
-
-  return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-28 pb-12">
+  const {
+    city,
+    phoneLink
+  } = useUrlParams();
+  return <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-28 pb-12">
       {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      />
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
+      backgroundImage: `url(${heroBg})`
+    }} />
       {/* Multi-layer gradient overlay for depth */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
       <div className="absolute inset-0 bg-gradient-to-r from-background/50 via-transparent to-background/50" />
@@ -59,32 +74,23 @@ export function Hero() {
 
         {/* Service Cards Grid - Bob's exact 6-card layout - Staggered Animation */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 mb-10">
-          {serviceCards.map((service, index) => (
-            <Link
-              key={index}
-              to={service.link}
-              className={`group relative aspect-square rounded-2xl overflow-hidden border-2 border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-on-load animate-fade-in-scale animation-delay-${(index + 3) * 100}`}
-            >
-              <img 
-                src={service.image} 
-                alt={service.title}
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent group-hover:from-background/90" />
+          {serviceCards.map((service, index) => <Link key={index} to={service.link} className={`group relative aspect-square rounded-2xl overflow-hidden border-2 border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-on-load animate-fade-in-scale animation-delay-${(index + 3) * 100}`}>
+              
+              
               <div className="absolute bottom-0 left-0 right-0 p-3 text-center">
                 <h3 className="font-display text-sm md:text-base font-bold text-foreground uppercase tracking-wide leading-tight group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
               </div>
-            </Link>
-          ))}
+            </Link>)}
         </div>
 
         {/* Trust Badges Row - Bob's style - Animated */}
         <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mb-6 animate-on-load animate-fade-in-up animation-delay-600">
-          <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-secondary/80 border border-border text-sm font-medium text-foreground hover:border-primary/50 hover:bg-secondary transition-all duration-300">
-            <CheckCircle className="w-4 h-4 text-primary" />
-            Licensed & Insured
+          <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-secondary/80 border border-border text-sm font-medium text-foreground hover:border-primary/50 hover:bg-secondary transition-all duration-300">Always On Time<CheckCircle className="w-4 h-4 text-primary" />
+            
+            Always On Tim   
+             
           </span>
           <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-secondary/80 border border-border text-sm font-medium text-foreground hover:border-primary/50 hover:bg-secondary transition-all duration-300">
             <Clock className="w-4 h-4 text-primary" />
@@ -92,7 +98,7 @@ export function Hero() {
           </span>
           <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-secondary/80 border border-border text-sm font-medium text-foreground hover:border-primary/50 hover:bg-secondary transition-all duration-300">
             <Star className="w-4 h-4 fill-primary text-primary" />
-            2,500+ 5-Star Reviews
+            189+ 5-Star Reviews
           </span>
         </div>
 
@@ -115,6 +121,5 @@ export function Hero() {
           </a>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
