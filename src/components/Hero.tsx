@@ -3,35 +3,36 @@ import { Link } from 'react-router-dom';
 import { useUrlParams } from '@/hooks/useUrlParams';
 import heroBg from '@/assets/hero-bg.webp';
 import eagleLogo from '@/assets/eagle-logo.webp';
-import gateRepair from '@/assets/gate-repair.webp';
-import gateDriveway from '@/assets/gate-driveway.webp';
-import gateSliding from '@/assets/gate-sliding.webp';
-import gateAccessControl from '@/assets/gate-access-control.webp';
-import gateSwing from '@/assets/gate-swing.webp';
-import gateCommercial from '@/assets/gate-commercial.webp';
+import cardGateRepair from '@/assets/card-gate-repair.jpeg';
+import cardDrivewayGate from '@/assets/card-driveway-gate.jpg';
+import cardPedestrianGate from '@/assets/card-pedestrian-gate.webp';
+import cardAccessControl from '@/assets/card-access-control.jpeg';
+import cardAutomaticGate from '@/assets/card-automatic-gate.jpeg';
+import cardFences from '@/assets/card-fences.png';
+
 const serviceCards = [{
-  image: gateRepair,
+  image: cardGateRepair,
   title: 'Gate Repair',
   link: '/gate-repair'
 }, {
-  image: gateDriveway,
+  image: cardDrivewayGate,
   title: 'Driveway Gates',
   link: '/driveway-gates'
 }, {
-  image: gateSliding,
-  title: 'Sliding Gates',
+  image: cardPedestrianGate,
+  title: 'Pedestrian Gates',
   link: '/automatic-gates'
 }, {
-  image: gateSwing,
-  title: 'Swing Gates',
-  link: '/automatic-gates'
-}, {
-  image: gateAccessControl,
+  image: cardAccessControl,
   title: 'Access Control',
   link: '/access-control'
 }, {
-  image: gateCommercial,
-  title: 'Commercial',
+  image: cardAutomaticGate,
+  title: 'Automatic Gates',
+  link: '/automatic-gates'
+}, {
+  image: cardFences,
+  title: 'Fences',
   link: '/fences'
 }];
 export function Hero() {
@@ -75,8 +76,8 @@ export function Hero() {
         {/* Service Cards Grid - Bob's exact 6-card layout - Staggered Animation */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 mb-10">
           {serviceCards.map((service, index) => <Link key={index} to={service.link} className={`group relative aspect-square rounded-2xl overflow-hidden border-2 border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-on-load animate-fade-in-scale animation-delay-${(index + 3) * 100}`}>
-              
-              
+              <img src={service.image} alt={service.title} className="absolute inset-0 w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-3 text-center">
                 <h3 className="font-display text-sm md:text-base font-bold text-foreground uppercase tracking-wide leading-tight group-hover:text-primary transition-colors">
                   {service.title}
