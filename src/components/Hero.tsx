@@ -1,4 +1,5 @@
 import { Phone, MessageSquare, Clock, CheckCircle, Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useUrlParams } from '@/hooks/useUrlParams';
 import heroBg from '@/assets/hero-bg.webp';
 import eagleLogo from '@/assets/eagle-logo.webp';
@@ -10,12 +11,12 @@ import gateSwing from '@/assets/gate-swing.webp';
 import gateCommercial from '@/assets/gate-commercial.webp';
 
 const serviceCards = [
-  { image: gateRepair, title: 'Gate Repair', link: '#services' },
-  { image: gateDriveway, title: 'Driveway Gates', link: '#services' },
-  { image: gateSliding, title: 'Sliding Gates', link: '#services' },
-  { image: gateSwing, title: 'Swing Gates', link: '#services' },
-  { image: gateAccessControl, title: 'Access Control', link: '#services' },
-  { image: gateCommercial, title: 'Commercial', link: '#services' },
+  { image: gateRepair, title: 'Gate Repair', link: '/gate-repair' },
+  { image: gateDriveway, title: 'Driveway Gates', link: '/driveway-gates' },
+  { image: gateSliding, title: 'Sliding Gates', link: '/automatic-gates' },
+  { image: gateSwing, title: 'Swing Gates', link: '/automatic-gates' },
+  { image: gateAccessControl, title: 'Access Control', link: '/access-control' },
+  { image: gateCommercial, title: 'Commercial', link: '/fences' },
 ];
 
 export function Hero() {
@@ -31,8 +32,8 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/85 to-background/95" />
 
       <div className="container-main relative">
-        {/* Logo + Brand */}
-        <div className="flex flex-col items-center mb-8">
+        {/* Logo + Brand - Animated */}
+        <div className="flex flex-col items-center mb-8 animate-on-load animate-fade-in-up">
           <img src={eagleLogo} alt="Eagle Automatic Gate" className="w-24 h-24 md:w-32 md:h-32 mb-4" />
           <div className="text-center">
             <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground uppercase tracking-wide">
@@ -42,8 +43,8 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Main Headline - Bob's centered style */}
-        <div className="text-center max-w-4xl mx-auto mb-10">
+        {/* Main Headline - Bob's centered style - Animated */}
+        <div className="text-center max-w-4xl mx-auto mb-10 animate-on-load animate-fade-in-up animation-delay-200">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-[1.1] mb-4">
             <span className="text-foreground">Fast, Reliable & </span>
             <span className="gradient-text">Affordable</span>
@@ -53,54 +54,54 @@ export function Hero() {
           </p>
         </div>
 
-        {/* Service Cards Grid - Bob's exact 6-card layout */}
+        {/* Service Cards Grid - Bob's exact 6-card layout - Staggered Animation */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 mb-10">
           {serviceCards.map((service, index) => (
-            <a
+            <Link
               key={index}
-              href={phoneLink}
-              className="group relative aspect-square rounded-2xl overflow-hidden border-2 border-border hover:border-primary/50 transition-all duration-300"
+              to={service.link}
+              className={`group relative aspect-square rounded-2xl overflow-hidden border-2 border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-on-load animate-fade-in-scale animation-delay-${(index + 3) * 100}`}
             >
               <img 
                 src={service.image} 
                 alt={service.title}
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent group-hover:from-background/90" />
               <div className="absolute bottom-0 left-0 right-0 p-3 text-center">
-                <h3 className="font-display text-sm md:text-base font-bold text-foreground uppercase tracking-wide leading-tight">
+                <h3 className="font-display text-sm md:text-base font-bold text-foreground uppercase tracking-wide leading-tight group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
 
-        {/* Trust Badges Row - Bob's style */}
-        <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mb-6">
-          <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-secondary/80 border border-border text-sm font-medium text-foreground">
+        {/* Trust Badges Row - Bob's style - Animated */}
+        <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mb-6 animate-on-load animate-fade-in-up animation-delay-600">
+          <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-secondary/80 border border-border text-sm font-medium text-foreground hover:border-primary/50 hover:bg-secondary transition-all duration-300">
             <CheckCircle className="w-4 h-4 text-primary" />
             Licensed & Insured
           </span>
-          <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-secondary/80 border border-border text-sm font-medium text-foreground">
+          <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-secondary/80 border border-border text-sm font-medium text-foreground hover:border-primary/50 hover:bg-secondary transition-all duration-300">
             <Clock className="w-4 h-4 text-primary" />
             Same Day Service
           </span>
-          <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-secondary/80 border border-border text-sm font-medium text-foreground">
+          <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-secondary/80 border border-border text-sm font-medium text-foreground hover:border-primary/50 hover:bg-secondary transition-all duration-300">
             <Star className="w-4 h-4 fill-primary text-primary" />
             2,500+ 5-Star Reviews
           </span>
         </div>
 
-        {/* Veteran Badge */}
-        <div className="text-center mb-8">
+        {/* Veteran Badge - Animated */}
+        <div className="text-center mb-8 animate-on-load animate-fade-in-up animation-delay-700">
           <p className="text-sm md:text-base font-semibold text-primary">
             ★ Proudly Veteran-Owned & Family-Operated — Serving Our Community with Honor ★
           </p>
         </div>
 
-        {/* CTAs - Bob's Style - CENTERED & BIG */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        {/* CTAs - Bob's Style - CENTERED & BIG - Animated */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-on-load animate-fade-in-up animation-delay-800">
           <a href={phoneLink} className="btn-cta text-lg min-h-[64px] w-full sm:w-auto">
             <Phone className="w-6 h-6" />
             Speak With a Gate Specialist
