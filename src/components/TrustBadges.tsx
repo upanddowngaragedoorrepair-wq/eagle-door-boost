@@ -55,6 +55,9 @@ export function TrustBadges() {
                 <p className="text-xs text-muted-foreground">
                   {badge.description}
                 </p>
+                {badge.title === 'Licensed & Insured' && (
+                  <p className="text-xs text-muted-foreground/70 mt-0.5">LIC#1138855</p>
+                )}
               </div>)}
           </div>
         </div>
