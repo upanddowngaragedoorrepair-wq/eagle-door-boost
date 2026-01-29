@@ -16,7 +16,7 @@ const coupons = [
   {
     image: gateRepair,
     label: 'Gate Repair',
-    discount: '15% OFF',
+    discount: '10% OFF',
   },
   {
     image: gateAccessControl,
