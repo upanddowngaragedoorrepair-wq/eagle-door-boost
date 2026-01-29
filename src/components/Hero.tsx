@@ -52,12 +52,10 @@ export function Hero() {
       <div className="container-main relative">
         {/* Logo + Brand - Animated */}
         <div className="flex flex-col items-center mb-8 animate-on-load animate-fade-in-up">
-          <img alt="Eagle Automatic Gate" className="w-24 h-24 md:w-32 md:h-32 mb-4" src="/lovable-uploads/353e787b-a42b-4be4-a8df-4e76e8960f75.png" />
+          
           <div className="text-center">
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground uppercase tracking-wide">
-              Eagle Automatic
-            </h2>
-            <p className="text-base text-primary font-semibold uppercase tracking-wider">Gate & Door</p>
+            
+            
           </div>
         </div>
 
@@ -87,9 +85,9 @@ export function Hero() {
 
         {/* Trust Badges Row - Bob's style - Animated */}
         <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mb-6 animate-on-load animate-fade-in-up animation-delay-600">
-          <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-secondary/80 border border-border text-sm font-medium text-foreground hover:border-primary/50 hover:bg-secondary transition-all duration-300">Always On Time<CheckCircle className="w-4 h-4 text-primary" />
+          <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-secondary/80 border border-border text-sm font-medium text-foreground hover:border-primary/50 hover:bg-secondary transition-all duration-300">​ <CheckCircle className="w-4 h-4 text-primary" />
             
-            Always On Tim   
+            ​0$ Check-up Fee       
              
           </span>
           <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-secondary/80 border border-border text-sm font-medium text-foreground hover:border-primary/50 hover:bg-secondary transition-all duration-300">
@@ -105,7 +103,7 @@ export function Hero() {
         {/* Veteran Badge - Animated */}
         <div className="text-center mb-8 animate-on-load animate-fade-in-up animation-delay-700">
           <p className="text-sm md:text-base font-semibold text-primary">
-            ★ Proudly Veteran-Owned & Family-Operated — Serving Our Community with Honor ★
+            ★ Proudly Family Owned & Operated — Serving Our Community with Honor ★
           </p>
         </div>
 
