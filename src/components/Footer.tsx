@@ -1,19 +1,20 @@
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { useUrlParams } from '@/hooks/useUrlParams';
 import eagleLogo from '@/assets/eagle-logo.webp';
-
 export function Footer() {
-  const { city, phoneFormatted, phoneLink } = useUrlParams();
+  const {
+    city,
+    phoneFormatted,
+    phoneLink
+  } = useUrlParams();
   const currentYear = new Date().getFullYear();
-
-  return (
-    <footer className="py-12 md:py-16 border-t border-border bg-card/30">
+  return <footer className="py-12 md:py-16 border-t border-border bg-card/30">
       <div className="container-main">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <img src={eagleLogo} alt="Eagle Automatic Gate" className="w-14 h-14" />
+              <img alt="Eagle Automatic Gate" className="w-14 h-14" src="/lovable-uploads/63204ed7-0e01-4872-934a-d80ac91915ee.png" />
               <div>
                 <h3 className="font-display text-xl font-bold text-foreground uppercase">
                   Eagle Automatic
@@ -26,7 +27,7 @@ export function Footer() {
               Serving {city} and surrounding areas with expert technicians and quality workmanship.
             </p>
             <p className="text-sm font-semibold text-primary">
-              ★ Veteran-Owned & Family-Operated ★
+              ★ Family Owned & Operated ★
             </p>
           </div>
 
@@ -55,7 +56,7 @@ export function Footer() {
               <li>
                 <span className="flex items-center gap-2 text-muted-foreground">
                   <Clock className="w-4 h-4 text-primary" />
-                  24/7 Emergency Service
+                  Open Daily 7AM-8PM  
                 </span>
               </li>
             </ul>
@@ -84,6 +85,5 @@ export function Footer() {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 }
