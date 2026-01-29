@@ -63,7 +63,9 @@ export function Hero() {
         <div className="text-center max-w-4xl mx-auto mb-10 animate-on-load animate-fade-in-up animation-delay-200">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-[1.1] mb-4">
             <span className="text-foreground">Fast, Reliable & </span>
-            <span className="gradient-text">Affordable             </span>
+            <span className="gradient-text">Repair & Installation  
+ 
+                </span>
           </h1>
           <p className="text-2xl md:text-3xl lg:text-4xl font-display font-semibold text-foreground">
             Repair &   Installation
