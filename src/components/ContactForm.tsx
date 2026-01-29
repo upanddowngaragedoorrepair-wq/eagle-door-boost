@@ -86,7 +86,7 @@ export function ContactForm() {
         <div className="grid lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
           {/* Team Photo */}
           <div className="hidden lg:block">
-            <img src={teamPhoto} alt="Eagle Gate Team" className="w-full h-full object-cover rounded-2xl" />
+            <img alt="Eagle Gate Team" className="w-full h-full object-cover rounded-2xl" src="/lovable-uploads/9f447efa-be7f-4639-8424-0ffbec5d3e2e.png" />
           </div>
 
           {/* Form Card - Bob's Gold Style */}
