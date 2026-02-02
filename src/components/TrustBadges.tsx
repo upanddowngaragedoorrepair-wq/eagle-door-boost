@@ -18,7 +18,7 @@ const badges = [{
   description: 'We respect your property & Always Plan Ahead'
 }, {
   icon: Users,
-  title: 'No Subcontractors',
+  title: '96% Of The Repairs Done In The 1st Visit',
   description: 'Our own trained team'
 }, {
   icon: DollarSign,
