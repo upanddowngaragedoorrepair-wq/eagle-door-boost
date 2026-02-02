@@ -14,7 +14,7 @@ const badges = [{
   description: 'Fast response times'
 }, {
   icon: Sparkles,
-  title: 'Clean Installations',
+  title: 'No Guess Work',
   description: 'We respect your property'
 }, {
   icon: Users,
