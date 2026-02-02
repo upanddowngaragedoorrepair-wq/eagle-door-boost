@@ -23,7 +23,7 @@ const badges = [{
 }, {
   icon: DollarSign,
   title: 'Upfront Pricing',
-  description: 'No hidden fees'
+  description: 'No hidden fees - Always Detailed Quote So You Know What You Getting'
 }];
 export function TrustBadges() {
   return <section className="py-16 md:py-20 border-t border-b border-border bg-card/50">
