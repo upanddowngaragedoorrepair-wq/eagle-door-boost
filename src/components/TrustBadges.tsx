@@ -15,7 +15,7 @@ const badges = [{
 }, {
   icon: Sparkles,
   title: 'No Guess Work',
-  description: 'We respect your property'
+  description: 'We respect your property & Always Plan Ahead'
 }, {
   icon: Users,
   title: 'No Subcontractors',
