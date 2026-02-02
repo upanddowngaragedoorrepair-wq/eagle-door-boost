@@ -282,6 +282,31 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  .shine-text {
+    background: linear-gradient(
+      90deg,
+      hsl(42, 80%, 52%) 0%,
+      hsl(42, 80%, 52%) 40%,
+      hsl(42, 90%, 75%) 50%,
+      hsl(42, 80%, 52%) 60%,
+      hsl(42, 80%, 52%) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shine-sweep 3.5s ease-in-out infinite;
+  }
+}
+
+@keyframes shine-sweep {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
 }
 
 /* Sticky bar animation */
