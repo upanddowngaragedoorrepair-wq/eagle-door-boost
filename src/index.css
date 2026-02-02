@@ -314,6 +314,12 @@
   animation: ticker 30s linear infinite;
 }
 
+@media (max-width: 768px) {
+  .animate-ticker {
+    animation: ticker 15s linear infinite;
+  }
+}
+
 /* Hero Animations - Bob's Style */
 @keyframes fadeInUp {
   from {
