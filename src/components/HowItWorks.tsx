@@ -14,22 +14,22 @@ const steps = [
   {
     icon: Search,
     number: 2,
-    title: 'Diagnosis',
-    description: 'Technician arrives with a tablet to show our portfolio and explains the issue clearly.',
+    title: 'On-Site Inspection',
+    description: 'We identify the issue and explain your options clearly.',
     highlight: null
   },
   {
     icon: FileText,
     number: 3,
     title: 'Estimation',
-    description: 'Receive a detailed quote via email or text message.',
+    description: 'You receive clear pricing before any work begins.',
     highlight: null
   },
   {
     icon: Wrench,
     number: 4,
-    title: 'Repair',
-    description: 'Same-day fix using premium parts.',
+    title: 'We Get It Done',
+    description: 'Repair or installation — completed professionally and built to last.',
     highlight: null
   }
 ];
