@@ -4,6 +4,7 @@ import { Hero } from '@/components/Hero';
 import { TrustBadges } from '@/components/TrustBadges';
 import { Services } from '@/components/Services';
 import { ReviewWidget } from '@/components/ReviewWidget';
+import { HowItWorks } from '@/components/HowItWorks';
 import { CouponCountdown } from '@/components/CouponCountdown';
 import { MidCTA } from '@/components/MidCTA';
 import { BrandLogos } from '@/components/BrandLogos';
@@ -22,6 +23,7 @@ const Index = () => {
         <TrustBadges />
         <Services />
         <ReviewWidget />
+        <HowItWorks />
         <CouponCountdown />
         <MidCTA />
         <BrandLogos />
