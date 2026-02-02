@@ -7,7 +7,7 @@ const badges = [{
 }, {
   icon: Clock,
   title: '20+ Years Experience',
-  description: 'Trusted expertise'
+  description: "We've solved every type of gate failure — nothing surprises us."
 }, {
   icon: MapPin,
   title: 'Local Technicians',
