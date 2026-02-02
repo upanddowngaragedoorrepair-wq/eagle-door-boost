@@ -104,7 +104,7 @@ export function Hero() {
 
         {/* Veteran Badge - Animated */}
         <div className="text-center mb-8 animate-on-load animate-fade-in-up animation-delay-700">
-          <p className="text-sm md:text-base font-semibold text-primary">
+          <p className="text-sm md:text-base font-semibold shine-text">
             ★ Proudly Family Owned & Operated — Serving Our Community with Honor ★
           </p>
         </div>
