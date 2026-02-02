@@ -45,9 +45,9 @@ export function Hero() {
       backgroundImage: `url(${heroBg})`
     }} />
       {/* Multi-layer gradient overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
-      <div className="absolute inset-0 bg-gradient-to-r from-background/50 via-transparent to-background/50" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_hsl(var(--background))_80%)]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/60 to-background/90" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-transparent to-background/30" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_hsl(var(--background)/0.7)_80%)]" />
 
       <div className="container-main relative">
         {/* Logo + Brand - Animated */}
