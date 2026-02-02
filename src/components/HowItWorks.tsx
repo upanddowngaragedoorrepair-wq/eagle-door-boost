@@ -1,6 +1,8 @@
 import { Phone, Search, Wrench } from 'lucide-react';
 import { useUrlParams } from '@/hooks/useUrlParams';
 
+import { FileText } from 'lucide-react';
+
 const steps = [
   {
     icon: Phone,
@@ -13,12 +15,19 @@ const steps = [
     icon: Search,
     number: 2,
     title: 'Diagnosis',
-    description: 'Technician arrives and explains the issue clearly.',
+    description: 'Technician arrives with a tablet to show our portfolio and explains the issue clearly.',
+    highlight: null
+  },
+  {
+    icon: FileText,
+    number: 3,
+    title: 'Estimation',
+    description: 'Receive a detailed quote via email or text message.',
     highlight: null
   },
   {
     icon: Wrench,
-    number: 3,
+    number: 4,
     title: 'Repair',
     description: 'Same-day fix using premium parts.',
     highlight: null
@@ -46,9 +55,9 @@ export function HowItWorks() {
         {/* Steps */}
         <div className="relative">
           {/* Connecting Line - Desktop Only */}
-          <div className="hidden md:block absolute top-10 left-1/2 -translate-x-1/2 w-[50%] h-0.5 bg-primary/40" />
+          <div className="hidden md:block absolute top-10 left-1/2 -translate-x-1/2 w-[60%] h-0.5 bg-primary/40" />
 
-          <div className="grid md:grid-cols-3 gap-8 md:gap-6">
+          <div className="grid md:grid-cols-4 gap-8 md:gap-6">
             {steps.map((step, index) => (
               <div key={index} className="flex flex-col items-center text-center">
                 {/* Icon Circle with Number Badge */}
