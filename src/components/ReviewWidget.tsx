@@ -2,99 +2,99 @@ import { Star, Quote, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-reac
 import { useState, useEffect, useCallback } from 'react';
 import { useUrlParams } from '@/hooks/useUrlParams';
 import useEmblaCarousel from 'embla-carousel-react';
+import { format } from 'date-fns';
 
 // Review data structure - easily extendable
 interface Review {
   id: string;
   name: string;
-  location: string;
   rating: number;
   text: string;
   platform: 'google' | 'yelp';
   image: string;
-  date?: string;
+  reviewDate: Date;
 }
+
+// Generate a random date within the last 7 years
+const getRandomDate = (seed: number): Date => {
+  const now = new Date();
+  const sevenYearsAgo = new Date(now.getFullYear() - 7, now.getMonth(), now.getDate());
+  const randomTime = sevenYearsAgo.getTime() + (seed * 12345678) % (now.getTime() - sevenYearsAgo.getTime());
+  return new Date(randomTime);
+};
 
 const reviews: Review[] = [
   {
     id: '1',
     name: 'Jennifer Mitchell',
-    location: 'Walnut Creek, CA',
     rating: 5,
     text: 'Fast and professional. They fixed our sliding gate in under an hour. The technician was incredibly knowledgeable and left everything spotless.',
     platform: 'google',
     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face',
-    date: '2 weeks ago'
+    reviewDate: getRandomDate(1)
   },
   {
     id: '2',
     name: 'Michael Thompson',
-    location: 'Danville, CA',
     rating: 5,
     text: 'Great service and fair prices. Highly recommend to anyone needing gate work. They showed up on time and finished quickly.',
     platform: 'yelp',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
-    date: '1 month ago'
+    reviewDate: getRandomDate(2)
   },
   {
     id: '3',
     name: 'Sarah Johnson',
-    location: 'Lafayette, CA',
     rating: 5,
     text: 'They came quickly for an emergency gate repair at 9 PM. Excellent work and very reasonable pricing for after-hours service.',
     platform: 'google',
     image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
-    date: '3 weeks ago'
+    reviewDate: getRandomDate(3)
   },
   {
     id: '4',
     name: 'David Chen',
-    location: 'Orinda, CA',
     rating: 5,
     text: "Installed a beautiful wrought iron driveway gate. The team was professional from estimate to final install. Couldn't be happier.",
     platform: 'google',
     image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
-    date: '1 week ago'
+    reviewDate: getRandomDate(4)
   },
   {
     id: '5',
     name: 'Patricia Williams',
-    location: 'Pleasant Hill, CA',
     rating: 5,
     text: 'Our automatic gate stopped working and they had it fixed the same day. Very impressed with their expertise and professionalism.',
     platform: 'yelp',
     image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face',
-    date: '5 days ago'
+    reviewDate: getRandomDate(5)
   },
   {
     id: '6',
     name: 'Robert Garcia',
-    location: 'Concord, CA',
     rating: 5,
     text: 'Best gate company in the East Bay! They installed our new access control system perfectly. The whole family is happy.',
     platform: 'google',
     image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
-    date: '2 months ago'
+    reviewDate: getRandomDate(6)
   },
   {
     id: '7',
     name: 'Linda Martinez',
-    location: 'San Ramon, CA',
     rating: 5,
     text: 'Called them for a broken gate motor and they were at my house within 2 hours. Fixed it quickly at a fair price. Highly recommend!',
     platform: 'yelp',
     image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face',
-    date: '1 month ago'
+    reviewDate: getRandomDate(7)
   },
   {
     id: '8',
     name: 'James Wilson',
-    location: 'Alamo, CA',
     rating: 5,
     text: 'Outstanding craftsmanship on our custom iron gate. They understood exactly what we wanted and delivered beyond expectations.',
     platform: 'google',
     image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face',
-    date: '3 weeks ago'
+    reviewDate: getRandomDate(8)
   }
 ];
 
@@ -163,7 +163,7 @@ function ReviewCard({ review, isCenter }: ReviewCardProps) {
           />
           <div>
             <h4 className="font-semibold text-foreground text-sm">{review.name}</h4>
-            <p className="text-xs text-muted-foreground">{review.location}</p>
+            <p className="text-xs text-muted-foreground">{format(review.reviewDate, 'MMM d, yyyy')}</p>
           </div>
         </div>
         <PlatformIcon platform={review.platform} showLabel={false} />
@@ -181,11 +181,8 @@ function ReviewCard({ review, isCenter }: ReviewCardProps) {
       </div>
 
       {/* Footer */}
-      <div className="mt-4 pt-3 border-t border-border flex items-center justify-between">
+      <div className="mt-4 pt-3 border-t border-border flex items-center justify-center">
         <PlatformIcon platform={review.platform} showLabel={true} />
-        {review.date && (
-          <span className="text-xs text-muted-foreground">{review.date}</span>
-        )}
       </div>
     </div>
   );
