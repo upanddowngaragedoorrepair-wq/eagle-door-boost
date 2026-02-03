@@ -17,7 +17,7 @@ const coupons = [{
 }, {
   image: gateAccessControl,
   label: 'Access Control',
-  discount: '10% OFF'
+  discount: '$250 Off'
 }, {
   image: gateDriveway,
   label: 'New Gates',
