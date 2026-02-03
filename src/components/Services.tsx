@@ -2,7 +2,7 @@ import { ArrowRight, Wrench } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import gateRepair from '@/assets/gate-repair.webp';
 import gateDriveway from '@/assets/gate-driveway.webp';
-import gateSliding from '@/assets/gate-sliding.webp';
+import gateSliding from '@/assets/gate-sliding.jpg';
 import gateAccessControl from '@/assets/gate-access-control.webp';
 import gateSwing from '@/assets/gate-swing.webp';
 import gateCommercial from '@/assets/gate-commercial.webp';
