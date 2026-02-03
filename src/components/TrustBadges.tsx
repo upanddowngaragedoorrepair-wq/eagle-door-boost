@@ -19,7 +19,7 @@ const badges = [{
   description: 'We respect your property & Always Plan Ahead'
 }, {
   icon: Users,
-  title: '96% First Visit Fix',
+  title: '96% First Visit Fix Rate',
   description: 'Our own trained team'
 }, {
   icon: DollarSign,
