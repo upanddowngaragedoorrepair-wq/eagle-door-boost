@@ -1,4 +1,4 @@
-import { useUrlParams } from '@/hooks/useUrlParams';
+import { useLocation2 } from '@/contexts/LocationContext';
 import { Wrench, FileCheck, Phone, Star, Clock, Shield, BadgeDollarSign, CalendarCheck } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
 
@@ -19,7 +19,7 @@ const tickerItems: TickerItem[] = [
 ];
 
 export function UrgencyTicker() {
-  const { phoneLink } = useUrlParams();
+  const { phoneLink } = useLocation2();
 
   // Duplicate items for seamless loop
   const items = [...tickerItems, ...tickerItems, ...tickerItems, ...tickerItems];
