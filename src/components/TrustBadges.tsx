@@ -37,14 +37,14 @@ export function TrustBadges() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
           {/* Service Truck Photo */}
-          <div className="hidden lg:block">
-            <img alt="Eagle Gate Service Truck" className="w-full rounded-2xl shadow-lg" src="/lovable-uploads/d9bd0eba-7cf9-43c4-a417-6d5067d76470.jpg" />
+          <div className="order-2 lg:order-1">
+            <img alt="Eagle Gate Service Truck" className="w-full max-w-md mx-auto lg:max-w-none rounded-2xl shadow-lg" src="/lovable-uploads/d9bd0eba-7cf9-43c4-a417-6d5067d76470.jpg" />
           </div>
 
           {/* Trust Badges Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4">
+          <div className="order-1 lg:order-2 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4">
             {badges.map((badge, index) => <div key={index} className="trust-badge group hover:border-primary/40 hover:bg-card transition-all duration-300">
                 <div className="trust-icon group-hover:scale-110 group-hover:bg-primary/25 transition-all duration-300">
                   <badge.icon className="w-6 h-6" />
