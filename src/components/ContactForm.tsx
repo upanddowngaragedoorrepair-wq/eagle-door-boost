@@ -64,7 +64,7 @@ export function ContactForm() {
           <span className="gold-text italic">Free Estimate</span>
         </h2>
         <p className="text-center text-lg text-muted-foreground mb-8">
-          Professional gate services available 24/7. Fast response, fair prices.
+          Professional gate services Schedule No Obligation Quote Fast response, fair prices.
         </p>
 
         {/* Trust Badges */}
@@ -94,7 +94,7 @@ export function ContactForm() {
             {/* Online Now Badge */}
             <div className="absolute top-6 right-6 items-center gap-2 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 flex flex-row mx-0 px-0 py-0 pr-0 pl-0 pt-0 pb-0 my-0">
               <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              <span className="text-xs font-semibold text-primary-foreground">Online Now</span>
+              <span className="font-semibold text-primary-foreground text-base px-[5px]">Online Now</span>
             </div>
 
             <h3 className="font-display text-2xl md:text-3xl font-bold text-primary-foreground mb-2 mx-0 px-0 py-[9px]">

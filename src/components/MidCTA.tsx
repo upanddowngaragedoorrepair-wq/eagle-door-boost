@@ -1,17 +1,15 @@
 import { Phone, Shield, Clock, ArrowRight } from 'lucide-react';
 import { useUrlParams } from '@/hooks/useUrlParams';
 import midCtaBg from '@/assets/mid-cta-bg.jpeg';
-
 export function MidCTA() {
-  const { phoneLink } = useUrlParams();
-
-  return (
-    <section className="py-20 md:py-28 relative overflow-hidden">
+  const {
+    phoneLink
+  } = useUrlParams();
+  return <section className="py-20 md:py-28 relative overflow-hidden">
       {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${midCtaBg})` }}
-      />
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
+      backgroundImage: `url(${midCtaBg})`
+    }} />
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-background/85" />
       
@@ -39,7 +37,7 @@ export function MidCTA() {
 
             <a href={phoneLink} className="btn-cta text-xl px-12 py-5 min-h-[72px] mb-8">
               <Phone className="w-6 h-6" />
-              Call for a Quick Quote
+              Call for an Instant Quote
               <ArrowRight className="w-5 h-5" />
             </a>
 
@@ -60,6 +58,5 @@ export function MidCTA() {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
