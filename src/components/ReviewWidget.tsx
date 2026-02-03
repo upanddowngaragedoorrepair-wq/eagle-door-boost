@@ -39,7 +39,7 @@ const reviews: Review[] = [
     rating: 5,
     text: "Installed a beautiful wrought iron driveway gate. The team was professional from estimate to final install. Couldn't be happier.",
     platform: 'google',
-    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=face&q=70',
+    image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=100&h=100&fit=crop&q=60',
     dateStr: '01/09/26'
   },
   {
@@ -84,7 +84,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Great service and fair prices. Highly recommend to anyone needing gate work. They showed up on time and finished quickly.',
     platform: 'google',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face&q=50',
+    image: 'https://images.unsplash.com/photo-1551524559-8af4e6624178?w=100&h=100&fit=crop&crop=face&q=55',
     dateStr: '07/14/25'
   },
   {
