@@ -2,7 +2,6 @@ import { Phone, MessageSquare, Clock, CheckCircle, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useUrlParams } from '@/hooks/useUrlParams';
 import heroBg from '@/assets/hero-bg.webp';
-import eagleLogo from '@/assets/eagle-logo.webp';
 import cardGateRepair from '@/assets/card-gate-repair.jpeg';
 import cardDrivewayGate from '@/assets/card-driveway-gate.jpg';
 import cardPedestrianGate from '@/assets/card-pedestrian-gate.webp';
@@ -40,10 +39,14 @@ export function Hero() {
     phoneLink
   } = useUrlParams();
   return <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-28 pb-12">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
-      backgroundImage: `url(${heroBg})`
-    }} />
+      {/* Background Image with Overlay - LCP optimized */}
+      <img 
+        src={heroBg} 
+        alt="" 
+        fetchPriority="high"
+        decoding="sync"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
       {/* Multi-layer gradient overlay for depth */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/60 to-background/90" />
       <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-transparent to-background/30" />
@@ -75,7 +78,7 @@ export function Hero() {
         {/* Service Cards Grid - Bob's exact 6-card layout - Staggered Animation */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 mb-10">
           {serviceCards.map((service, index) => <Link key={index} to={service.link} className={`group relative aspect-square rounded-2xl overflow-hidden border-2 border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-on-load animate-fade-in-scale animation-delay-${(index + 3) * 100}`}>
-              <img src={service.image} alt={service.title} className="absolute inset-0 w-full h-full object-cover" />
+              <img src={service.image} alt={service.title} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-3 text-center">
                 <h3 className="font-display text-sm md:text-base font-bold text-foreground uppercase tracking-wide leading-tight group-hover:text-primary transition-colors">
