@@ -162,7 +162,7 @@ const AboutUs = () => {
                 <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
                   <span className="text-foreground">Why </span>
                   <span className="gradient-text">{city}</span>
-                  <span className="text-foreground"> Trusts Us</span>
+                  <span className="text-foreground"> Customers</span>
                 </h2>
               </div>
 
