@@ -1,6 +1,5 @@
 import { Shield, Clock, MapPin, Sparkles, Users, DollarSign, CheckCircle } from 'lucide-react';
 import serviceTruckImg from '@/assets/service-truck.webp';
-
 const badges = [{
   icon: Shield,
   title: 'Licensed & Insured',
@@ -27,10 +26,8 @@ const badges = [{
   title: 'Upfront Pricing',
   description: 'No hidden fees - Always Detailed Quote'
 }];
-
 export function TrustBadges() {
-  return (
-    <section className="py-20 md:py-28 border-t border-b border-border bg-secondary/30 relative overflow-hidden">
+  return <section className="py-20 md:py-28 border-t border-b border-border bg-secondary/30 relative overflow-hidden">
       {/* Background gradient for depth */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background pointer-events-none" />
       
@@ -53,23 +50,13 @@ export function TrustBadges() {
           <div className="order-2 lg:order-1">
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-2xl rounded-3xl" />
-                <img 
-                  alt="Eagle Gate Service Truck" 
-                  loading="lazy" 
-                  decoding="async" 
-                  className="relative w-full max-w-lg mx-auto lg:max-w-none rounded-3xl shadow-2xl shadow-black/40 border border-border" 
-                  src={serviceTruckImg} 
-                />
+                <img alt="Eagle Gate Service Truck" loading="lazy" decoding="async" className="relative w-full max-w-lg mx-auto lg:max-w-none rounded-3xl shadow-2xl shadow-black/40 border border-border" src="/lovable-uploads/58a20335-c903-4006-ae63-e2e175b9a7c2.png" />
             </div>
           </div>
 
           {/* Trust Badges Grid - Enhanced */}
           <div className="order-1 lg:order-2 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-5">
-            {badges.map((badge, index) => (
-              <div 
-                key={index} 
-                className="group p-6 rounded-2xl text-center bg-card border border-border shadow-xl shadow-black/20 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-300"
-              >
+            {badges.map((badge, index) => <div key={index} className="group p-6 rounded-2xl text-center bg-card border border-border shadow-xl shadow-black/20 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-300">
                 <div className="w-14 h-14 mx-auto mb-4 rounded-xl flex items-center justify-center bg-primary/15 text-primary group-hover:scale-110 group-hover:bg-primary/25 transition-all duration-300">
                   <badge.icon className="w-7 h-7" />
                 </div>
@@ -79,14 +66,10 @@ export function TrustBadges() {
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   {badge.description}
                 </p>
-                {badge.license && (
-                  <p className="text-xs text-primary/70 mt-2 font-semibold">{badge.license}</p>
-                )}
-              </div>
-            ))}
+                {badge.license && <p className="text-xs text-primary/70 mt-2 font-semibold">{badge.license}</p>}
+              </div>)}
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
