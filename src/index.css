@@ -465,6 +465,15 @@
   }
 }
 
+@keyframes underline-shine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
 .headline-underline {
   position: relative;
   display: inline-block;
@@ -477,8 +486,18 @@
   left: 0;
   width: 0%;
   height: 4px;
-  background: linear-gradient(90deg, hsl(42, 80%, 52%) 0%, hsl(42, 90%, 62%) 50%, hsl(42, 80%, 52%) 100%);
+  background: linear-gradient(
+    90deg,
+    hsl(42, 80%, 52%) 0%,
+    hsl(42, 80%, 52%) 35%,
+    hsl(50, 100%, 75%) 50%,
+    hsl(42, 80%, 52%) 65%,
+    hsl(42, 80%, 52%) 100%
+  );
+  background-size: 200% 100%;
   border-radius: 2px;
   box-shadow: 0 0 12px hsl(42 80% 52% / 0.5), 0 0 4px hsl(42 90% 62% / 0.3);
-  animation: underline-grow 0.8s ease-out 0.4s forwards;
+  animation: 
+    underline-grow 0.8s ease-out 0.4s forwards,
+    underline-shine 2.5s ease-in-out 1.2s infinite;
 }
