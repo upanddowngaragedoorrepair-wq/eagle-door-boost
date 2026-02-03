@@ -94,7 +94,7 @@ export function Hero() {
         {/* Main Headline - Bob's centered style - BIGGER & BOLDER */}
         <div className="text-center max-w-5xl mx-auto mb-12 animate-on-load animate-fade-in-up animation-delay-200">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-display font-bold leading-[1.05] mb-6 tracking-tight">
-            <span className="text-foreground">{city}</span>
+            <span className="text-foreground">Fast & Reliable</span>
             <br />
             <span className="text-foreground">Gate </span>
             <span className="gradient-text">Experts</span>
