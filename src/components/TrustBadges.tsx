@@ -40,7 +40,7 @@ export function TrustBadges() {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
           {/* Service Truck Photo */}
           <div className="order-2 lg:order-1">
-            <img alt="Eagle Gate Service Truck" className="w-full max-w-md mx-auto lg:max-w-none rounded-2xl shadow-lg" src="/lovable-uploads/d9bd0eba-7cf9-43c4-a417-6d5067d76470.jpg" />
+            <img alt="Eagle Gate Service Truck" loading="lazy" decoding="async" className="w-full max-w-md mx-auto lg:max-w-none rounded-2xl shadow-lg" src="/lovable-uploads/d9bd0eba-7cf9-43c4-a417-6d5067d76470.jpg" />
           </div>
 
           {/* Trust Badges Grid */}

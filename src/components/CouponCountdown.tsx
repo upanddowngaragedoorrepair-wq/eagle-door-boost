@@ -107,7 +107,7 @@ export function CouponCountdown() {
         {/* Coupon Cards Grid - Bob's Exact Style */}
         <div className="grid md:grid-cols-2 gap-5 mb-10 max-w-4xl mx-auto">
           {coupons.map((coupon, index) => <a key={index} href={phoneLink} className="group relative aspect-[4/3] rounded-2xl overflow-hidden border-2 border-dashed border-primary/50 hover:border-primary transition-all duration-300">
-              <img src={coupon.image} alt={coupon.label} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img src={coupon.image} alt={coupon.label} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/40 to-transparent" />
               
               {/* Scissors Icon */}
