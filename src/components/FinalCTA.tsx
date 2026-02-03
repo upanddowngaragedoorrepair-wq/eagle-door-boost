@@ -1,42 +1,49 @@
-import { Phone, Shield, Clock, ArrowRight } from 'lucide-react';
-import { useUrlParams } from '@/hooks/useUrlParams';
+import { Phone, Shield, Clock, ArrowRight, Zap } from 'lucide-react';
+import { useLocation2 } from '@/contexts/LocationContext';
 
 export function FinalCTA() {
-  const { phoneLink, phoneFormatted } = useUrlParams();
+  const { phoneLink, phoneFormatted } = useLocation2();
 
   return (
-    <section className="py-20 md:py-28 border-t border-border bg-gradient-to-b from-background to-secondary/30">
-      <div className="container-main">
-        <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/15 border border-primary/40 mb-8">
-            <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-sm font-bold text-primary uppercase tracking-wide">Direct Line • Available Now</span>
+    <section className="py-24 md:py-32 border-t border-border bg-gradient-to-b from-background via-secondary/20 to-background relative overflow-hidden">
+      {/* Background gradient glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/5 blur-[100px] rounded-full" />
+      
+      <div className="container-main relative">
+        <div className="text-center max-w-4xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-green-500/10 border border-green-500/30 mb-10 shadow-lg">
+            <div className="w-3 h-3 rounded-full bg-green-400 animate-pulse" />
+            <span className="text-base font-bold text-green-400 uppercase tracking-wide">Direct Line • Available Now</span>
           </div>
 
-          <h2 className="section-heading text-4xl md:text-5xl lg:text-6xl mb-6">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-8 tracking-tight">
             Talk Directly With a
             <br />
             <span className="gold-text">Field Technician</span>
           </h2>
 
-          <p className="text-lg md:text-xl text-muted-foreground mb-10">
+          <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed">
             Skip the call center. Get expert answers immediately from someone who's actually worked on thousands of gates.
           </p>
 
-          <a href={phoneLink} className="btn-cta text-2xl px-14 py-6 min-h-[80px] mb-8">
-            <Phone className="w-7 h-7" />
+          <a href={phoneLink} className="btn-cta text-2xl md:text-3xl px-16 py-7 min-h-[88px] mb-10">
+            <Phone className="w-8 h-8" />
             {phoneFormatted}
-            <ArrowRight className="w-6 h-6" />
+            <ArrowRight className="w-7 h-7" />
           </a>
 
-          <div className="flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground">
+          <div className="flex flex-wrap items-center justify-center gap-10 text-base text-muted-foreground">
             <span className="flex items-center gap-2">
-              <Shield className="w-5 h-5 text-primary" />
+              <Shield className="w-6 h-6 text-primary" />
               No obligation
             </span>
             <span className="flex items-center gap-2">
-              <Clock className="w-5 h-5 text-primary" />
+              <Clock className="w-6 h-6 text-primary" />
               Free estimates
+            </span>
+            <span className="flex items-center gap-2">
+              <Zap className="w-6 h-6 text-primary" />
+              Same day service
             </span>
           </div>
         </div>

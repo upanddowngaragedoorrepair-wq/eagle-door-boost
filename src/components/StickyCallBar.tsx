@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Phone } from 'lucide-react';
-import { useUrlParams } from '@/hooks/useUrlParams';
+import { useLocation2 } from '@/contexts/LocationContext';
 import { useScrollCTA } from '@/hooks/useScrollCTA';
 
 export function StickyCallBar() {
   const [isVisible, setIsVisible] = useState(false);
-  const { phoneLink } = useUrlParams();
+  const { phoneLink, phoneFormatted } = useLocation2();
   const { text, subtext } = useScrollCTA();
 
   useEffect(() => {
@@ -24,12 +24,12 @@ export function StickyCallBar() {
       <div className="bg-background/98 backdrop-blur-lg border-t-2 border-primary/40 p-4 shadow-2xl">
         <a
           href={phoneLink}
-          className="btn-cta w-full text-base py-4 min-h-[60px]"
+          className="btn-cta w-full text-base py-4 min-h-[64px]"
         >
-          <Phone className="w-5 h-5" />
+          <Phone className="w-6 h-6" />
           {text}
         </a>
-        <p className="text-center text-xs text-muted-foreground mt-2.5">
+        <p className="text-center text-xs text-muted-foreground mt-2.5 font-medium">
           {subtext}
         </p>
       </div>
