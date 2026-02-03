@@ -1,11 +1,11 @@
 import { Phone, Shield, Clock, ArrowRight } from 'lucide-react';
 import { useUrlParams } from '@/hooks/useUrlParams';
+
 export function FinalCTA() {
-  const {
-    phoneLink,
-    phoneFormatted
-  } = useUrlParams();
-  return <section className="py-20 md:py-28 border-t border-border bg-gradient-to-b from-background to-secondary/30 text-destructive-foreground bg-secondary">
+  const { phoneLink, phoneFormatted } = useUrlParams();
+
+  return (
+    <section className="py-20 md:py-28 border-t border-border bg-gradient-to-b from-background to-secondary/30">
       <div className="container-main">
         <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/15 border border-primary/40 mb-8">
@@ -41,5 +41,6 @@ export function FinalCTA() {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }
