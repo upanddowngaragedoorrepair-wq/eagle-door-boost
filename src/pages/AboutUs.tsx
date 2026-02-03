@@ -9,10 +9,12 @@ import { ReviewWidget } from '@/components/ReviewWidget';
 import teamPhoto from '@/assets/team-photo.webp';
 import teamGroupPhoto from '@/assets/team-group-photo.webp';
 import aboutHeroBg from '@/assets/about-hero-bg.webp';
-
 const AboutUs = () => {
-  const { city, phoneLink, phoneFormatted } = useLocation2();
-  
+  const {
+    city,
+    phoneLink,
+    phoneFormatted
+  } = useLocation2();
   const values = [{
     icon: Shield,
     title: 'Integrity',
@@ -30,16 +32,16 @@ const AboutUs = () => {
     title: 'Expertise',
     description: '20+ years of combined experience in the industry.'
   }];
-  
-  return (
-    <div className="min-h-screen bg-background pb-14 md:pb-0">
+  return <div className="min-h-screen bg-background pb-14 md:pb-0">
       <UrgencyTicker />
       <Header />
       
       <main>
         {/* Hero Section - Enhanced */}
         <section className="relative min-h-[80vh] flex items-center pt-32 pb-20 overflow-hidden">
-          <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${aboutHeroBg})` }} />
+          <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
+          backgroundImage: `url(${aboutHeroBg})`
+        }} />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/70" />
           {/* Gold accent glow */}
           <div className="absolute top-1/3 left-1/4 w-[500px] h-[300px] bg-primary/5 blur-[120px] rounded-full" />
@@ -130,12 +132,7 @@ const AboutUs = () => {
               
               {/* Team Photo */}
               <div className="mt-6">
-                <img 
-                  src={teamGroupPhoto} 
-                  alt="Eagle Automatic Gate & Door Team" 
-                  className="w-full rounded-3xl shadow-xl shadow-black/10 border border-white/20"
-                  loading="lazy"
-                />
+                <img src={teamGroupPhoto} alt="Eagle Automatic Gate & Door Team" className="w-full rounded-3xl shadow-xl shadow-black/10 border border-white/20" loading="lazy" />
               </div>
             </div>
           </div>
@@ -154,25 +151,23 @@ const AboutUs = () => {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {values.map((value, index) => (
-                <div key={index} className="bg-card rounded-3xl p-8 text-center border border-border shadow-xl shadow-black/10 hover:border-primary/30 transition-all duration-300 hover:-translate-y-2">
+              {values.map((value, index) => <div key={index} className="bg-card rounded-3xl p-8 text-center border border-border shadow-xl shadow-black/10 hover:border-primary/30 transition-all duration-300 hover:-translate-y-2">
                   <div className="w-18 h-18 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
                     <value.icon className="w-9 h-9 text-primary" />
                   </div>
                   <h3 className="text-2xl font-display font-bold text-foreground mb-3">{value.title}</h3>
                   <p className="text-muted-foreground text-base leading-relaxed">{value.description}</p>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </section>
 
         {/* Why Choose Us - Enhanced */}
-        <section className="py-24 md:py-32 bg-background relative overflow-hidden">
+        <section className="py-24 md:py-32 relative overflow-hidden bg-[sidebar-accent-foreground] bg-orange-50">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/5 blur-[100px] rounded-full" />
           
           <div className="container-main relative">
-            <div className="bg-gradient-to-br from-primary/10 via-background to-primary/5 rounded-3xl p-10 md:p-14 border border-primary/20 shadow-2xl shadow-primary/5">
+            <div className="bg-gradient-to-br from-primary/10 via-background to-primary/5 rounded-3xl p-10 md:p-14 shadow-primary/5 shadow-sm opacity-100 border-solid border-4 border-primary-foreground">
               <div className="text-center mb-12">
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4 tracking-tight">
                   <span className="text-foreground">Why </span>
@@ -182,12 +177,10 @@ const AboutUs = () => {
               </div>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                {['Licensed, Bonded & Insured', 'Same-Day Service Available', 'Upfront, Honest Pricing', 'Factory-Trained Technicians', 'Warranty on All Work', 'Family-Owned Business'].map((item, index) => (
-                  <div key={index} className="flex items-center gap-4 p-4 rounded-xl bg-card/50 border border-border">
+                {['Licensed, Bonded & Insured', 'Same-Day Service Available', 'Upfront, Honest Pricing', 'Factory-Trained Technicians', 'Warranty on All Work', 'Family-Owned Business'].map((item, index) => <div key={index} className="flex items-center gap-4 p-4 rounded-xl bg-card/50 border border-border">
                     <CheckCircle className="w-7 h-7 text-primary flex-shrink-0" />
                     <span className="text-lg text-foreground font-semibold">{item}</span>
-                  </div>
-                ))}
+                  </div>)}
               </div>
 
               <div className="text-center">
@@ -226,8 +219,6 @@ const AboutUs = () => {
 
       <Footer />
       <StickyCallBar />
-    </div>
-  );
+    </div>;
 };
-
 export default AboutUs;
