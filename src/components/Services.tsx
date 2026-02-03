@@ -5,7 +5,7 @@ import gateDriveway from '@/assets/card-driveway-gate.webp';
 import gateSliding from '@/assets/card-sliding-gate.webp';
 import gateAccessControl from '@/assets/card-access-control.webp';
 import gateSwing from '@/assets/card-pedestrian-gate.webp';
-import gateCommercial from '@/assets/card-automatic-gate.webp';
+import gateCommercial from '@/assets/card-commercial-gate.webp';
 
 const services = [{
   image: gateRepair,
