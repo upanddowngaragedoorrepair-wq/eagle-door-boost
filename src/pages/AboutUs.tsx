@@ -8,6 +8,7 @@ import { ContactForm } from '@/components/ContactForm';
 import { ReviewWidget } from '@/components/ReviewWidget';
 import teamPhoto from '@/assets/team-photo.webp';
 import teamGroupPhoto from '@/assets/team-group-photo.webp';
+import aboutHeroBg from '@/assets/about-hero-bg.webp';
 
 const AboutUs = () => {
   const { city, phoneLink, phoneFormatted } = useLocation2();
@@ -38,7 +39,7 @@ const AboutUs = () => {
       <main>
         {/* Hero Section - Enhanced */}
         <section className="relative min-h-[80vh] flex items-center pt-32 pb-20 overflow-hidden">
-          <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${teamPhoto})` }} />
+          <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${aboutHeroBg})` }} />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/70" />
           {/* Gold accent glow */}
           <div className="absolute top-1/3 left-1/4 w-[500px] h-[300px] bg-primary/5 blur-[120px] rounded-full" />
