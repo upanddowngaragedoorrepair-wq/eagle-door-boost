@@ -1,13 +1,22 @@
 import { Phone, Shield, Clock, ArrowRight } from 'lucide-react';
 import { useUrlParams } from '@/hooks/useUrlParams';
+import midCtaBg from '@/assets/mid-cta-bg.jpeg';
 
 export function MidCTA() {
   const { phoneLink } = useUrlParams();
 
   return (
-    <section className="py-20 md:py-28 bg-secondary/50">
-      <div className="container-main">
-        <div className="relative overflow-hidden rounded-3xl p-10 md:p-16 bg-gradient-to-br from-card via-card to-secondary border border-border">
+    <section className="py-20 md:py-28 relative overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${midCtaBg})` }}
+      />
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-background/85" />
+      
+      <div className="container-main relative">
+        <div className="relative overflow-hidden rounded-3xl p-10 md:p-16 bg-card/80 backdrop-blur-sm border border-border">
           {/* Glow effects */}
           <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-primary/10 blur-3xl" />
           <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-primary/5 blur-3xl" />
