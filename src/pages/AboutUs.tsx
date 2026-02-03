@@ -97,16 +97,12 @@ const AboutUs = () => {
                   <span className="text-primary">Story</span>
                 </h2>
                 <div className="space-y-5 text-lg text-background/80 leading-relaxed">
-                  <p>Eagle Automatic Gate & Door was founded with a simple mission: provide honest, reliable, and exceptional gate services to our community. As a family-owned business, we bring the same discipline, integrity, and dedication to every job.</p>
+                  <p>Eagle Automatic Gate & Door wasn't built in an office — it was built in the field. Our founder, Matt, grew up helping his father, an AC repair technician, learning early what it means to work hard, show up on time, and treat every customer's property with respect. Coming from a family-run background, he understands how important it is to keep business personal and built on trust.</p>
                   <p>
-                    Today, we're proud to have helped thousands of families and businesses secure their properties 
-                    with quality automatic gates, access control systems, and fencing solutions. Every member of our 
-                    team is background-checked, factory-trained, and committed to treating your property like their own.
+                    As the company grew, Matt focused on the technical side — mastering repair, troubleshooting, and custom installations — while his family was always there supporting the business behind the scenes. Before starting Eagle, Matt worked for professional companies like Viking Gates & Garage Doors and gained experience with other established providers. Over the years, he mastered the trade — but noticed something missing: too many companies focused only on finishing the job, not on quality, timing, or the overall customer experience.
                   </p>
                   <p>
-                    We partner with industry-leading manufacturers like LiftMaster to ensure you receive the most 
-                    reliable and advanced gate systems available. From emergency repairs to custom installations, 
-                    we handle every project with care and precision.
+                    So he started his own company — building custom gates himself with minimal tools and relentless motivation. His goal was simple: create a company that delivers efficiency, precision, and top-tier quality without cutting corners. Today, Eagle Automatic Gate & Door stands for craftsmanship, integrity, and service done right the first time — built on real family values and hands-on experience.
                   </p>
                 </div>
               </div>
