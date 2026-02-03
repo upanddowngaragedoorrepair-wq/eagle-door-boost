@@ -7,6 +7,7 @@ import { StickyCallBar } from '@/components/StickyCallBar';
 import { ContactForm } from '@/components/ContactForm';
 import { ReviewWidget } from '@/components/ReviewWidget';
 import teamPhoto from '@/assets/team-photo.webp';
+import teamGroupPhoto from '@/assets/team-group-photo.webp';
 
 const AboutUs = () => {
   const { city, phoneLink, phoneFormatted } = useLocation2();
@@ -124,6 +125,16 @@ const AboutUs = () => {
                   <div className="text-4xl font-display font-bold text-primary mb-3">Fast</div>
                   <div className="text-lg text-background/70 font-semibold">Emergency Service</div>
                 </div>
+              </div>
+              
+              {/* Team Photo */}
+              <div className="mt-6">
+                <img 
+                  src={teamGroupPhoto} 
+                  alt="Eagle Automatic Gate & Door Team" 
+                  className="w-full rounded-3xl shadow-xl shadow-black/10 border border-white/20"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>
