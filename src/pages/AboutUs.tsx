@@ -8,36 +8,46 @@ import { ContactForm } from '@/components/ContactForm';
 import { ReviewWidget } from '@/components/ReviewWidget';
 import eagleLogo from '@/assets/eagle-logo.webp';
 import teamPhoto from '@/assets/team-photo.webp';
-
 const AboutUs = () => {
-  const { city, phoneLink, phoneFormatted } = useUrlParams();
-
-  const values = [
-    { icon: Shield, title: 'Integrity', description: 'We stand behind every job with honesty and transparency.' },
-    { icon: Award, title: 'Excellence', description: 'Premium quality workmanship on every installation and repair.' },
-    { icon: Heart, title: 'Customer First', description: 'Your satisfaction is our top priority, always.' },
-    { icon: Wrench, title: 'Expertise', description: '20+ years of combined experience in the industry.' },
-  ];
-
-  return (
-    <div className="min-h-screen bg-background pb-14 md:pb-0">
+  const {
+    city,
+    phoneLink,
+    phoneFormatted
+  } = useUrlParams();
+  const values = [{
+    icon: Shield,
+    title: 'Integrity',
+    description: 'We stand behind every job with honesty and transparency.'
+  }, {
+    icon: Award,
+    title: 'Excellence',
+    description: 'Premium quality workmanship on every installation and repair.'
+  }, {
+    icon: Heart,
+    title: 'Customer First',
+    description: 'Your satisfaction is our top priority, always.'
+  }, {
+    icon: Wrench,
+    title: 'Expertise',
+    description: '20+ years of combined experience in the industry.'
+  }];
+  return <div className="min-h-screen bg-background pb-14 md:pb-0">
       <UrgencyTicker />
       <Header />
       
       <main>
         {/* Hero Section */}
         <section className="relative min-h-[70vh] flex items-center pt-28 pb-16 overflow-hidden">
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${teamPhoto})` }}
-          />
+          <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
+          backgroundImage: `url(${teamPhoto})`
+        }} />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/70" />
 
           <div className="container-main relative">
             <div className="max-w-3xl animate-fade-in">
               {/* Logo */}
               <div className="flex items-center gap-3 mb-6">
-                <img src={eagleLogo} alt="Eagle Automatic Gate" className="w-14 h-14" />
+                <img alt="Eagle Automatic Gate" className="w-14 h-14" src="/lovable-uploads/5faee6f3-2cb8-4f00-b436-9852128e7ea4.png" />
                 <div>
                   <h2 className="font-display text-lg font-bold text-foreground uppercase tracking-wide">
                     Eagle Automatic
@@ -52,7 +62,7 @@ const AboutUs = () => {
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-[1.1] mb-6">
-                <span className="text-foreground">Veteran-Owned. </span>
+                <span className="text-foreground">Licensed & </span>
                 <span className="gradient-text">Family-Operated.</span>
               </h1>
 
@@ -86,11 +96,7 @@ const AboutUs = () => {
                   <span className="text-primary">Story</span>
                 </h2>
                 <div className="space-y-4 text-background/80 leading-relaxed">
-                  <p>
-                    Eagle Automatic Gate & Door was founded with a simple mission: provide honest, reliable, and 
-                    exceptional gate services to our community. As a veteran-owned business, we bring the same 
-                    discipline, integrity, and dedication to every job that we learned serving our country.
-                  </p>
+                  <p>Eagle Automatic Gate & Door was founded with a simple mission: provide honest, reliable, and exceptional gate services to our community. As a Family-owned business, we bring the same discipline, integrity, and dedication to every job that we learned serving our country.</p>
                   <p>
                     Today, we're proud to have helped thousands of families and businesses secure their properties 
                     with quality automatic gates, access control systems, and fencing solutions. Every member of our 
@@ -118,8 +124,8 @@ const AboutUs = () => {
                   <div className="text-background/70 font-medium">Average Rating</div>
                 </div>
                 <div className="bg-white rounded-2xl p-6 text-center shadow-lg">
-                  <div className="text-4xl font-display font-bold text-primary mb-2">24/7</div>
-                  <div className="text-background/70 font-medium">Emergency Service</div>
+                  <div className="text-4xl font-display font-bold text-primary mb-2">Fast Response </div>
+                  <div className="text-background/70 font-medium">Emergency Service Available</div>
                 </div>
               </div>
             </div>
@@ -137,18 +143,13 @@ const AboutUs = () => {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {values.map((value, index) => (
-                <div 
-                  key={index}
-                  className="bg-card rounded-2xl p-6 text-center border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-1"
-                >
+              {values.map((value, index) => <div key={index} className="bg-card rounded-2xl p-6 text-center border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-1">
                   <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <value.icon className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="text-xl font-display font-bold text-foreground mb-2">{value.title}</h3>
                   <p className="text-muted-foreground">{value.description}</p>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </section>
@@ -166,19 +167,10 @@ const AboutUs = () => {
               </div>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-                {[
-                  'Licensed, Bonded & Insured',
-                  'Same-Day Service Available',
-                  'Upfront, Honest Pricing',
-                  'Factory-Trained Technicians',
-                  'Warranty on All Work',
-                  'Veteran-Owned Business',
-                ].map((item, index) => (
-                  <div key={index} className="flex items-center gap-3">
+                {['Licensed, Bonded & Insured', 'Same-Day Service Available', 'Upfront, Honest Pricing', 'Factory-Trained Technicians', 'Warranty on All Work', 'Veteran-Owned Business'].map((item, index) => <div key={index} className="flex items-center gap-3">
                     <CheckCircle className="w-6 h-6 text-primary flex-shrink-0" />
                     <span className="text-foreground font-medium">{item}</span>
-                  </div>
-                ))}
+                  </div>)}
               </div>
 
               <div className="text-center">
@@ -215,8 +207,6 @@ const AboutUs = () => {
 
       <Footer />
       <StickyCallBar />
-    </div>
-  );
+    </div>;
 };
-
 export default AboutUs;
