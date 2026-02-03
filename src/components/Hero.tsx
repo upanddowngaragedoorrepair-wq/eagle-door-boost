@@ -2,11 +2,11 @@ import { Phone, MessageSquare, Clock, CheckCircle, Star, Shield, Zap } from 'luc
 import { useLocation2 } from '@/contexts/LocationContext';
 import { ParamLink } from '@/components/NavLink';
 import heroBg from '@/assets/hero-bg.webp';
-import cardGateRepair from '@/assets/card-gate-repair.jpeg';
-import cardDrivewayGate from '@/assets/card-driveway-gate.jpg';
+import cardGateRepair from '@/assets/card-gate-repair.webp';
+import cardDrivewayGate from '@/assets/card-driveway-gate.webp';
 import cardPedestrianGate from '@/assets/card-pedestrian-gate.webp';
-import cardAccessControl from '@/assets/card-access-control.jpeg';
-import cardAutomaticGate from '@/assets/card-automatic-gate.jpeg';
+import cardAccessControl from '@/assets/card-access-control.webp';
+import cardAutomaticGate from '@/assets/card-automatic-gate.webp';
 import cardFences from '@/assets/card-fences.png';
 
 const serviceCards = [{

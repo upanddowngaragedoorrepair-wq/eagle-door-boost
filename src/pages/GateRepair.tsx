@@ -1,5 +1,5 @@
 import { ServicePageLayout } from '@/components/ServicePageLayout';
-import gateRepair from '@/assets/gate-repair.webp';
+import gateRepair from '@/assets/card-gate-repair.webp';
 
 const GateRepair = () => {
   const features = [

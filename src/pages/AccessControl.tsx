@@ -1,5 +1,5 @@
 import { ServicePageLayout } from '@/components/ServicePageLayout';
-import gateAccessControl from '@/assets/gate-access-control.webp';
+import gateAccessControl from '@/assets/card-access-control.webp';
 
 const AccessControl = () => {
   const features = [

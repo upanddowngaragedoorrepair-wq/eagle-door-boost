@@ -1,5 +1,5 @@
 import { ServicePageLayout } from '@/components/ServicePageLayout';
-import gateCommercial from '@/assets/gate-commercial.webp';
+import gateCommercial from '@/assets/card-automatic-gate.webp';
 
 const Fences = () => {
   const features = [

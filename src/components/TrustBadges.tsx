@@ -1,4 +1,5 @@
 import { Shield, Clock, MapPin, Sparkles, Users, DollarSign, CheckCircle } from 'lucide-react';
+import serviceTruckImg from '@/assets/service-truck.webp';
 
 const badges = [{
   icon: Shield,
@@ -52,13 +53,13 @@ export function TrustBadges() {
           <div className="order-2 lg:order-1">
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-2xl rounded-3xl" />
-              <img 
-                alt="Eagle Gate Service Truck" 
-                loading="lazy" 
-                decoding="async" 
-                className="relative w-full max-w-lg mx-auto lg:max-w-none rounded-3xl shadow-2xl shadow-black/40 border border-border" 
-                src="/lovable-uploads/d9bd0eba-7cf9-43c4-a417-6d5067d76470.jpg" 
-              />
+                <img 
+                  alt="Eagle Gate Service Truck" 
+                  loading="lazy" 
+                  decoding="async" 
+                  className="relative w-full max-w-lg mx-auto lg:max-w-none rounded-3xl shadow-2xl shadow-black/40 border border-border" 
+                  src={serviceTruckImg} 
+                />
             </div>
           </div>
 
