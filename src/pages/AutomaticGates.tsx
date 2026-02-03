@@ -1,5 +1,5 @@
 import { ServicePageLayout } from '@/components/ServicePageLayout';
-import gateSwing from '@/assets/gate-swing.webp';
+import gateSwing from '@/assets/card-automatic-gate.webp';
 
 const AutomaticGates = () => {
   const features = [

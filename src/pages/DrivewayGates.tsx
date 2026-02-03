@@ -1,5 +1,5 @@
 import { ServicePageLayout } from '@/components/ServicePageLayout';
-import gateDriveway from '@/assets/gate-driveway.webp';
+import gateDriveway from '@/assets/card-driveway-gate.webp';
 
 const DrivewayGates = () => {
   const features = [

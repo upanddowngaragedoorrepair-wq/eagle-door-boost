@@ -1,11 +1,11 @@
 import { ArrowRight, Wrench } from 'lucide-react';
 import { ParamLink } from '@/components/NavLink';
-import gateRepair from '@/assets/gate-repair.webp';
-import gateDriveway from '@/assets/gate-driveway.jpg';
-import gateSliding from '@/assets/gate-sliding.jpg';
-import gateAccessControl from '@/assets/gate-access-control.webp';
-import gateSwing from '@/assets/gate-swing.webp';
-import gateCommercial from '@/assets/gate-commercial.jpg';
+import gateRepair from '@/assets/card-gate-repair.webp';
+import gateDriveway from '@/assets/card-driveway-gate.webp';
+import gateSliding from '@/assets/card-automatic-gate.webp';
+import gateAccessControl from '@/assets/card-access-control.webp';
+import gateSwing from '@/assets/card-pedestrian-gate.webp';
+import gateCommercial from '@/assets/card-automatic-gate.webp';
 
 const services = [{
   image: gateRepair,
