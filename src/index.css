@@ -449,3 +449,36 @@
 .animate-on-load {
   opacity: 0;
 }
+
+/* Premium animated headline underline */
+@keyframes underline-grow {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+.headline-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.headline-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(90deg, hsl(42, 80%, 52%) 0%, hsl(42, 90%, 62%) 50%, hsl(42, 80%, 52%) 100%);
+  border-radius: 2px;
+  box-shadow: 0 0 12px hsl(42 80% 52% / 0.5), 0 0 4px hsl(42 90% 62% / 0.3);
+  animation: underline-grow 0.8s ease-out 0.4s forwards;
+}

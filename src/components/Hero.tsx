@@ -99,8 +99,8 @@ export function Hero() {
             <span className="text-foreground">Gate </span>
             <span className="gradient-text">Experts</span>
           </h1>
-          <p className="text-2xl md:text-3xl lg:text-4xl font-display font-semibold text-muted-foreground">
-            Repair & Installation
+          <p className="text-2xl md:text-3xl lg:text-4xl font-display font-semibold text-muted-foreground relative inline-block headline-underline">
+            Best Price Guarantee
           </p>
         </div>
 
