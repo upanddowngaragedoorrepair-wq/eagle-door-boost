@@ -47,10 +47,10 @@ export function TrustBadges() {
 
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           {/* Service Truck Photo */}
-          <div className="order-2 lg:order-1">
+          <div className="order-2 lg:order-1 opacity-85">
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-2xl rounded-3xl" />
-                <img alt="Eagle Gate Service Truck" loading="lazy" decoding="async" className="relative w-full max-w-lg mx-auto lg:max-w-none rounded-3xl shadow-2xl shadow-black/40 border border-border" src="/lovable-uploads/58a20335-c903-4006-ae63-e2e175b9a7c2.png" />
+                <img alt="Eagle Gate Service Truck" loading="lazy" decoding="async" className="relative w-full max-w-lg mx-auto lg:max-w-none rounded-3xl shadow-2xl shadow-black/40 border border-border" src="/lovable-uploads/2ea1909f-545e-46d1-84c9-786234e8fa6e/lovable_image-2.png" />
             </div>
           </div>
 
