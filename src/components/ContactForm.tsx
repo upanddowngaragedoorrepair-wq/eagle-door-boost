@@ -106,33 +106,33 @@ export function ContactForm() {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
-                <input type="text" placeholder="Your Name *" required className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-background/50 border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors" value={formData.name} onChange={e => setFormData({
+              <input type="text" placeholder="Your Name *" required className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors" value={formData.name} onChange={e => setFormData({
                 ...formData,
                 name: e.target.value
               })} />
-                <input type="tel" placeholder="Phone Number *" required className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-background/50 border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors" value={formData.phone} onChange={e => setFormData({
+              <input type="tel" placeholder="Phone Number *" required className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors" value={formData.phone} onChange={e => setFormData({
                 ...formData,
                 phone: e.target.value
               })} />
               </div>
               
               <div className="grid md:grid-cols-2 gap-4">
-                <input type="email" placeholder="Email Address" className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-background/50 border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors" value={formData.email} onChange={e => setFormData({
+              <input type="email" placeholder="Email Address" className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors" value={formData.email} onChange={e => setFormData({
                 ...formData,
                 email: e.target.value
               })} />
-                <input type="text" placeholder="Zip Code *" required className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-background/50 border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors" value={formData.zipCode} onChange={e => setFormData({
+              <input type="text" placeholder="Zip Code *" required className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors" value={formData.zipCode} onChange={e => setFormData({
                 ...formData,
                 zipCode: e.target.value
               })} />
               </div>
 
-              <input type="text" placeholder="Street Address" className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-background/50 border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors" value={formData.address} onChange={e => setFormData({
+            <input type="text" placeholder="Street Address" className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors" value={formData.address} onChange={e => setFormData({
               ...formData,
               address: e.target.value
             })} />
 
-              <textarea placeholder="Tell us about your issue" rows={3} className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-background/50 border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors resize-none" value={formData.message} onChange={e => setFormData({
+            <textarea placeholder="Tell us about your issue" rows={3} className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors resize-none" value={formData.message} onChange={e => setFormData({
               ...formData,
               message: e.target.value
             })} />
