@@ -2,7 +2,7 @@ import { ArrowRight, Wrench } from 'lucide-react';
 import { ParamLink } from '@/components/NavLink';
 import gateRepair from '@/assets/card-gate-repair.webp';
 import gateDriveway from '@/assets/card-driveway-gate.webp';
-import gateSliding from '@/assets/card-automatic-gate.webp';
+import gateSliding from '@/assets/card-sliding-gate.webp';
 import gateAccessControl from '@/assets/card-access-control.webp';
 import gateSwing from '@/assets/card-pedestrian-gate.webp';
 import gateCommercial from '@/assets/card-automatic-gate.webp';
