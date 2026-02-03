@@ -24,7 +24,7 @@ export function Footer() {
             </div>
             <p className="text-muted-foreground max-w-md mb-4">
               Premium automatic gate installation, repair, and access control services. 
-              Serving {city} and surrounding areas with expert technicians and quality workmanship.
+              Serving {city} & The Greater Bay Area with expert technicians and quality workmanship.
             </p>
             <p className="text-sm font-semibold text-primary">
               ★ Family Owned & Operated ★

@@ -54,7 +54,7 @@ export function ContactForm() {
         <div className="flex justify-center mb-6">
           <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground">
             <MapPin className="w-4 h-4" />
-            <span className="text-sm font-bold uppercase tracking-wide">Serving {city} & Surrounding Areas</span>
+            <span className="text-sm font-bold uppercase tracking-wide">Serving {city} & The Greater Bay Area</span>
           </div>
         </div>
 

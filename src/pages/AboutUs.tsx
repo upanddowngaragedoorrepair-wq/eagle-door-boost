@@ -68,7 +68,7 @@ const AboutUs = () => {
 
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
                 For over 20 years, Eagle Automatic Gate & Door has been the trusted choice for homeowners and businesses 
-                across {city} and surrounding areas. We're not just technicians—we're neighbors committed to protecting 
+                across {city} & The Greater Bay Area. We're not just technicians—we're neighbors committed to protecting 
                 what matters most to you.
               </p>
 
