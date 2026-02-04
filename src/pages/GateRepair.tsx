@@ -1,14 +1,17 @@
 import { ServicePageLayout } from '@/components/ServicePageLayout';
+import { Wrench, Zap, Clock, ThumbsUp, Settings, Shield, Smartphone, Key, Home, Cog } from 'lucide-react';
 import gateRepair from '@/assets/card-gate-repair.webp';
+import repairTech from '@/assets/service-gate-repair-tech.webp';
+import gateMotor from '@/assets/service-gate-motor.webp';
 
 const GateRepair = () => {
   const features = [
-    { title: 'Same-Day Emergency Service', description: 'Gate stuck open or closed? We offer rapid response to get you back in operation fast.' },
-    { title: 'Motor & Operator Repair', description: 'Expert diagnosis and repair for LiftMaster, Elite, DoorKing, and all major brands.' },
-    { title: 'Sensor & Safety Repairs', description: 'Fix photo-eyes, loop detectors, and auto-reverse systems for safe operation.' },
-    { title: 'Track & Wheel Service', description: 'Bent tracks, worn wheels, and alignment issues repaired to factory specs.' },
-    { title: 'Hinge & Hardware Repair', description: 'Sagging gates, broken hinges, and rusted hardware restored or replaced.' },
-    { title: 'Control Board Replacement', description: 'Electronic board failures diagnosed and repaired with quality components.' },
+    { title: 'Same-Day Emergency Service', description: 'Gate stuck? We respond fast to get you operational.' },
+    { title: 'Motor & Operator Repair', description: 'Expert diagnosis for LiftMaster, Elite, DoorKing, and more.' },
+    { title: 'Sensor & Safety Repairs', description: 'Photo-eyes, loop detectors, and auto-reverse systems.' },
+    { title: 'Track & Wheel Service', description: 'Alignment issues and worn components fixed right.' },
+    { title: 'Hinge & Hardware Repair', description: 'Sagging gates and broken hinges restored fast.' },
+    { title: 'Control Board Replacement', description: 'Electronic failures diagnosed and repaired.' },
   ];
 
   const benefits = [
@@ -16,31 +19,41 @@ const GateRepair = () => {
     'All brands serviced',
     '90-day repair warranty',
     'Upfront pricing',
-    'Factory-trained techs',
-    '24/7 emergency line',
   ];
 
   const faqs = [
     { 
       question: 'How fast can you get here?', 
-      answer: 'We offer same-day service for most repairs. Emergency calls are typically responded to within 2-4 hours depending on your location.' 
+      answer: 'We offer same-day service for most repairs. Emergency calls are typically responded to within 2-4 hours.' 
     },
     { 
       question: 'My gate won\'t open—what should I do?', 
-      answer: 'First, check for any obstructions. If clear, call us immediately. Most gates have a manual release—we can walk you through it if needed.' 
+      answer: 'Check for obstructions first. If clear, call us—we can walk you through the manual release.' 
     },
     { 
       question: 'Do you repair all gate brands?', 
-      answer: 'Yes! Our technicians are trained on LiftMaster, Elite, DoorKing, Ramset, Viking, and all major manufacturers.' 
+      answer: 'Yes! We service LiftMaster, Elite, DoorKing, Ramset, Viking, and all major manufacturers.' 
     },
     { 
       question: 'How much do repairs typically cost?', 
-      answer: 'Repairs range from $150 for minor fixes to $800+ for major component replacements. We provide free estimates before any work begins.' 
+      answer: 'Repairs range from $150 for minor fixes to $800+ for major components. Free estimates provided.' 
     },
-    { 
-      question: 'Is there a warranty on repairs?', 
-      answer: 'All our repairs come with a 90-day workmanship warranty. Parts warranties vary by manufacturer.' 
-    },
+  ];
+
+  const trustCards = [
+    { icon: Wrench, title: 'Advanced Troubleshooting', description: 'Pinpoint issues fast with expert diagnostics.' },
+    { icon: Settings, title: 'All Major Brands Serviced', description: 'LiftMaster, Elite, DoorKing & more.' },
+    { icon: Clock, title: 'Same-Day Service Available', description: 'Emergency response when you need it.' },
+    { icon: ThumbsUp, title: 'Honest Repair Recommendations', description: 'We fix what\'s needed—nothing more.' },
+  ];
+
+  const relatedServices = [
+    { icon: Home, label: 'Driveway Gates', href: '/driveway-gates' },
+    { icon: Cog, label: 'Gate Openers', href: '/automatic-gates' },
+    { icon: Key, label: 'Access Control', href: '/access-control' },
+    { icon: Smartphone, label: 'Intercom Systems', href: '/access-control' },
+    { icon: Shield, label: 'Maintenance Plans', href: '/automatic-gates' },
+    { icon: Zap, label: 'Emergency Service', href: '/gate-repair' },
   ];
 
   return (
@@ -52,6 +65,11 @@ const GateRepair = () => {
       features={features}
       benefits={benefits}
       faqs={faqs}
+      authorityHeadline="Why We Specialize in Gate Repair"
+      authoritySubheadline="Fast diagnostics. Clean repairs. Long-term reliability."
+      authorityImages={[repairTech, gateMotor]}
+      trustCards={trustCards}
+      relatedServices={relatedServices}
     />
   );
 };

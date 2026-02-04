@@ -1,57 +1,74 @@
 import { ServicePageLayout } from '@/components/ServicePageLayout';
-import gateCommercial from '@/assets/card-automatic-gate.webp';
+import { TreePine, Shield, Paintbrush, Ruler, Home, Wrench, Key, Cog, Settings, Lock } from 'lucide-react';
+import fenceWood from '@/assets/service-fence-wood.webp';
+import fenceChain from '@/assets/service-fence-chain.webp';
 
 const Fences = () => {
   const features = [
-    { title: 'Vinyl Fencing', description: 'Low-maintenance, weather-resistant vinyl fencing that never needs painting or staining.' },
-    { title: 'Wood Fencing', description: 'Classic cedar and redwood options for a natural, timeless look with excellent privacy.' },
-    { title: 'Wrought Iron Fencing', description: 'Elegant and durable iron fencing perfect for estate properties and security needs.' },
-    { title: 'Chain Link Fencing', description: 'Affordable and practical solutions for property boundaries and commercial applications.' },
-    { title: 'Aluminum Fencing', description: 'Rust-free aluminum that mimics the look of iron at a more affordable price point.' },
-    { title: 'Privacy Fencing', description: 'Full-height privacy solutions that block views and reduce noise from neighbors.' },
+    { title: 'Vinyl Fencing', description: 'Low-maintenance and weather-resistant—never needs paint.' },
+    { title: 'Wood Fencing', description: 'Classic cedar and redwood for natural privacy.' },
+    { title: 'Wrought Iron Fencing', description: 'Elegant and durable for estates and security.' },
+    { title: 'Chain Link Fencing', description: 'Affordable and practical for property boundaries.' },
+    { title: 'Aluminum Fencing', description: 'Rust-free and mimics iron at a lower cost.' },
+    { title: 'Privacy Fencing', description: 'Full-height solutions that block views and noise.' },
   ];
 
   const benefits = [
     'Free property assessment',
     'Quality materials only',
     'Professional installation',
-    'Matches existing gates',
-    'Permit assistance',
     'Warranty coverage',
   ];
 
   const faqs = [
     { 
       question: 'What\'s the best fence material for privacy?', 
-      answer: 'For maximum privacy, we recommend vinyl or wood fencing at 6ft+ height. Both options provide full visual barrier with excellent durability.' 
+      answer: 'Vinyl or wood fencing at 6ft+ height provides full visual barrier.' 
     },
     { 
       question: 'How much does fencing cost per foot?', 
-      answer: 'Fencing costs range from $15-50 per linear foot depending on material and height. We provide free estimates with transparent pricing.' 
+      answer: 'Fencing costs range from $15-50 per linear foot depending on material.' 
     },
     { 
-      question: 'Do you need to remove my old fence?', 
-      answer: 'We offer old fence removal as part of our installation service. We\'ll dispose of materials responsibly.' 
+      question: 'Do you remove old fences?', 
+      answer: 'Yes—old fence removal is included and we dispose of materials responsibly.' 
     },
     { 
       question: 'Can you match my new fence to my gate?', 
-      answer: 'Yes! We specialize in creating cohesive looks between fencing and gate systems with matching styles and finishes.' 
+      answer: 'Absolutely! We specialize in cohesive looks with matching styles and finishes.' 
     },
-    { 
-      question: 'How long does fence installation take?', 
-      answer: 'Most residential fence installations are completed in 1-3 days depending on the linear footage and terrain.' 
-    },
+  ];
+
+  const trustCards = [
+    { icon: TreePine, title: 'Premium Material Selection', description: 'Cedar, vinyl, iron, and more.' },
+    { icon: Ruler, title: 'Precision Installation', description: 'Level, plumb, and built to last.' },
+    { icon: Paintbrush, title: 'Custom Finishes Available', description: 'Match your gate and home.' },
+    { icon: Shield, title: 'Full Warranty Protection', description: 'Materials and workmanship covered.' },
+  ];
+
+  const relatedServices = [
+    { icon: Home, label: 'Driveway Gates', href: '/driveway-gates' },
+    { icon: Cog, label: 'Automatic Gates', href: '/automatic-gates' },
+    { icon: Key, label: 'Access Control', href: '/access-control' },
+    { icon: Wrench, label: 'Gate Repair', href: '/gate-repair' },
+    { icon: Lock, label: 'Security Fencing', href: '/fences' },
+    { icon: Settings, label: 'Gate Matching', href: '/driveway-gates' },
   ];
 
   return (
     <ServicePageLayout
       title="Fence Installation"
       subtitle="Quality Fencing Solutions"
-      description="Define your property with quality fencing that complements your automatic gate. We install vinyl, wood, iron, and aluminum fencing with expert craftsmanship."
-      heroImage={gateCommercial}
+      description="Define your property with quality fencing that complements your gate. We install vinyl, wood, iron, and aluminum fencing with expert craftsmanship."
+      heroImage={fenceWood}
       features={features}
       benefits={benefits}
       faqs={faqs}
+      authorityHeadline="Why We Specialize in Fencing"
+      authoritySubheadline="Quality materials. Expert installation. Perfect finish."
+      authorityImages={[fenceWood, fenceChain]}
+      trustCards={trustCards}
+      relatedServices={relatedServices}
     />
   );
 };
