@@ -1,4 +1,5 @@
-import { Phone, MessageSquare, CheckCircle, Star, Clock, Shield, ArrowRight } from 'lucide-react';
+import { Phone, MessageSquare, CheckCircle, Star, Clock, Shield, ArrowRight, LucideIcon } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useLocation2 } from '@/contexts/LocationContext';
 import { Header } from './Header';
 import { UrgencyTicker } from './UrgencyTicker';
@@ -14,6 +15,18 @@ interface ServiceFeature {
   description: string;
 }
 
+interface TrustCard {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}
+
+interface RelatedService {
+  icon: LucideIcon;
+  label: string;
+  href: string;
+}
+
 interface ServicePageLayoutProps {
   title: string;
   subtitle: string;
@@ -22,6 +35,12 @@ interface ServicePageLayoutProps {
   features: ServiceFeature[];
   benefits: string[];
   faqs: { question: string; answer: string }[];
+  // New props for enhanced sections
+  authorityHeadline: string;
+  authoritySubheadline: string;
+  authorityImages: string[];
+  trustCards: TrustCard[];
+  relatedServices: RelatedService[];
 }
 
 export function ServicePageLayout({
@@ -32,6 +51,11 @@ export function ServicePageLayout({
   features,
   benefits,
   faqs,
+  authorityHeadline,
+  authoritySubheadline,
+  authorityImages,
+  trustCards,
+  relatedServices,
 }: ServicePageLayoutProps) {
   const { city, phoneLink, phoneFormatted } = useLocation2();
 
@@ -41,22 +65,18 @@ export function ServicePageLayout({
       <Header />
       
       <main>
-        {/* Hero Section with Animation */}
+        {/* Hero Section */}
         <section className="relative min-h-[85vh] flex items-center pt-32 pb-20 overflow-hidden">
-          {/* Background */}
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${heroImage})` }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/70" />
-          {/* Gold accent glow */}
           <div className="absolute top-1/3 left-1/4 w-[500px] h-[300px] bg-primary/5 blur-[120px] rounded-full" />
 
           <div className="container-main relative">
             <div className="grid lg:grid-cols-2 gap-14 items-center">
-              {/* Content */}
               <div className="animate-fade-in">
-                {/* Logo */}
                 <div className="flex items-center gap-4 mb-8">
                   <img src={eagleLogo} alt="Eagle Automatic Gate" className="w-16 h-16" />
                   <div>
@@ -67,13 +87,11 @@ export function ServicePageLayout({
                   </div>
                 </div>
 
-                {/* Badge */}
                 <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 border border-primary/30 mb-8 shadow-lg">
                   <Shield className="w-5 h-5 text-primary" />
                   <span className="text-sm font-bold text-primary uppercase tracking-wide">{subtitle}</span>
                 </div>
 
-                {/* Headline - BIGGER */}
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold leading-[1.05] mb-8 tracking-tight">
                   <span className="text-foreground">{title} in </span>
                   <span className="gradient-text">{city}</span>
@@ -83,7 +101,6 @@ export function ServicePageLayout({
                   {description}
                 </p>
 
-                {/* Trust Badges */}
                 <div className="flex flex-wrap gap-4 mb-10">
                   <span className="inline-flex items-center gap-2 px-4 py-3 rounded-2xl bg-card/80 border border-border text-base font-semibold shadow-lg">
                     <CheckCircle className="w-5 h-5 text-primary" />
@@ -99,7 +116,6 @@ export function ServicePageLayout({
                   </span>
                 </div>
 
-                {/* CTAs - BIGGER */}
                 <div className="flex flex-col sm:flex-row gap-5">
                   <a href={phoneLink} className="btn-cta text-xl min-h-[72px]">
                     <Phone className="w-7 h-7" />
@@ -112,7 +128,6 @@ export function ServicePageLayout({
                 </div>
               </div>
 
-              {/* Right Side - Floating CTA Card */}
               <div className="hidden lg:block animate-scale-in">
                 <div className="bg-card/95 backdrop-blur-lg rounded-3xl p-10 shadow-2xl shadow-black/30 border border-border">
                   <div className="text-center mb-8">
@@ -145,7 +160,102 @@ export function ServicePageLayout({
           </div>
         </section>
 
-        {/* Features Section - Enhanced */}
+        {/* NEW: Authority Section */}
+        <section className="py-20 md:py-28 bg-[hsl(222,47%,9%)] relative overflow-hidden">
+          {/* Subtle gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/3 pointer-events-none" />
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/5 blur-[100px] rounded-full" />
+          
+          <div className="container-main relative">
+            <div className="text-center mb-14">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4 tracking-tight text-white">
+                {authorityHeadline}
+              </h2>
+              <p className="text-xl md:text-2xl text-primary font-semibold">
+                {authoritySubheadline}
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+              {/* Left: Images */}
+              <div className="order-2 lg:order-1 space-y-5">
+                {authorityImages.map((img, idx) => (
+                  <div key={idx} className="relative group">
+                    <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/10 blur-xl rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <img 
+                      src={img} 
+                      alt={`${title} showcase ${idx + 1}`}
+                      className="relative w-full rounded-2xl shadow-2xl shadow-black/50 border border-white/10 hover:border-primary/30 transition-all duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {/* Right: Trust Cards */}
+              <div className="order-1 lg:order-2 grid grid-cols-1 sm:grid-cols-2 gap-5">
+                {trustCards.map((card, index) => (
+                  <div 
+                    key={index} 
+                    className="group p-6 rounded-2xl bg-[hsl(222,47%,12%)] border border-white/10 shadow-xl shadow-black/30 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-300"
+                  >
+                    <div className="w-14 h-14 mb-4 rounded-xl flex items-center justify-center bg-primary/15 text-primary group-hover:scale-110 group-hover:bg-primary/25 transition-all duration-300">
+                      <card.icon className="w-7 h-7" />
+                    </div>
+                    <h3 className="font-display font-bold text-lg text-white mb-2">
+                      {card.title}
+                    </h3>
+                    <p className="text-sm text-gray-400 leading-relaxed">
+                      {card.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Authority CTA */}
+            <div className="mt-14 text-center">
+              <a href={phoneLink} className="btn-cta text-xl min-h-[68px] inline-flex">
+                <Phone className="w-6 h-6" />
+                Get Expert Help Now
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* NEW: Related Services Grid */}
+        <section className="py-16 md:py-20 bg-secondary/50 relative">
+          <div className="container-main">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-3 tracking-tight">
+                <span className="text-foreground">Related </span>
+                <span className="gradient-text">Services</span>
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Complete gate & access solutions under one roof
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+              {relatedServices.map((service, index) => (
+                <Link
+                  key={index}
+                  to={service.href}
+                  className="group flex flex-col items-center p-5 rounded-xl bg-card border border-border hover:border-primary/50 hover:bg-card/80 hover:-translate-y-1 shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="w-12 h-12 mb-3 rounded-lg flex items-center justify-center bg-primary/10 text-primary group-hover:bg-primary/20 group-hover:scale-110 transition-all">
+                    <service.icon className="w-6 h-6" />
+                  </div>
+                  <span className="text-sm font-semibold text-center text-foreground group-hover:text-primary transition-colors">
+                    {service.label}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
         <section className="py-24 md:py-32 bg-[hsl(45,30%,95%)] relative">
           <div className="absolute inset-0 bg-gradient-to-b from-background/5 via-transparent to-background/10 pointer-events-none" />
           
@@ -175,7 +285,6 @@ export function ServicePageLayout({
               ))}
             </div>
 
-            {/* Mid-Section CTA */}
             <div className="mt-16 text-center">
               <a href={phoneLink} className="btn-cta text-xl min-h-[72px] inline-flex">
                 <Phone className="w-7 h-7" />
@@ -185,10 +294,9 @@ export function ServicePageLayout({
           </div>
         </section>
 
-        {/* Reviews */}
         <ReviewWidget />
 
-        {/* FAQ Section - Enhanced */}
+        {/* FAQ Section */}
         <section className="py-24 md:py-32 bg-secondary relative">
           <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/30 pointer-events-none" />
           
@@ -217,7 +325,6 @@ export function ServicePageLayout({
               ))}
             </div>
 
-            {/* FAQ CTA */}
             <div className="mt-14 text-center">
               <p className="text-xl text-muted-foreground mb-5">Still have questions?</p>
               <a href={phoneLink} className="btn-cta inline-flex text-lg">
@@ -228,13 +335,10 @@ export function ServicePageLayout({
           </div>
         </section>
 
-        {/* Coupons */}
         <CouponCountdown />
-
-        {/* Contact Form */}
         <ContactForm />
 
-        {/* Final Aggressive CTA - Enhanced */}
+        {/* Final CTA */}
         <section className="py-24 md:py-32 bg-background relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/5 blur-[100px] rounded-full" />

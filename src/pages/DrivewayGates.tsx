@@ -1,46 +1,60 @@
 import { ServicePageLayout } from '@/components/ServicePageLayout';
+import { Palette, Shield, Award, Ruler, Wrench, Key, Smartphone, Home, Cog, Settings } from 'lucide-react';
 import gateDriveway from '@/assets/card-driveway-gate.webp';
+import drivewaySwing from '@/assets/service-driveway-swing.webp';
+import drivewayBlack from '@/assets/service-driveway-black.webp';
+import swingWhite from '@/assets/service-swing-white.webp';
 
 const DrivewayGates = () => {
   const features = [
-    { title: 'Custom Design Options', description: 'Choose from wrought iron, aluminum, wood, or vinyl in styles from modern to classic estate.' },
-    { title: 'Swing & Sliding Options', description: 'We help you select the perfect gate type based on your driveway layout and slope.' },
-    { title: 'Premium Materials', description: 'Heavy-gauge steel, powder coating, and galvanized finishes for lasting durability.' },
-    { title: 'Automation Included', description: 'Every driveway gate installation includes a premium LiftMaster operator system.' },
-    { title: 'Security Integration', description: 'Add keypads, intercoms, cameras, and smartphone control for complete security.' },
-    { title: 'HOA-Compliant Designs', description: 'We work with your HOA to ensure designs meet community guidelines.' },
+    { title: 'Custom Design Options', description: 'Wrought iron, aluminum, wood, or vinyl in any style.' },
+    { title: 'Swing & Sliding Options', description: 'Perfect gate type based on your driveway layout.' },
+    { title: 'Premium Materials', description: 'Heavy-gauge steel with powder coating finishes.' },
+    { title: 'Automation Included', description: 'Premium LiftMaster operator with every install.' },
+    { title: 'Security Integration', description: 'Keypads, intercoms, cameras, and smartphone control.' },
+    { title: 'HOA-Compliant Designs', description: 'We ensure designs meet community guidelines.' },
   ];
 
   const benefits = [
     'Free design consultation',
     'Custom fabrication',
     'Premium operators included',
-    'Permit handling',
-    'Foundation & post work',
     'Lifetime structural warranty',
   ];
 
   const faqs = [
     { 
       question: 'What style of driveway gate is best?', 
-      answer: 'It depends on your space and aesthetic. Sliding gates are ideal for sloped driveways, while swing gates suit flat areas with more clearance. We\'ll help you choose.' 
+      answer: 'Sliding gates suit sloped driveways; swing gates work best on flat areas with clearance.' 
     },
     { 
       question: 'How much does a driveway gate cost?', 
-      answer: 'Driveway gate installations range from $4,000 to $20,000+ depending on size, material, and features. We offer free in-home estimates.' 
+      answer: 'Installations range from $4,000 to $20,000+ depending on size and features.' 
     },
     { 
       question: 'Do I need a permit for a driveway gate?', 
-      answer: 'Most cities require permits for automatic gate installations. We handle all permitting and inspections as part of our service.' 
+      answer: 'Most cities require permits—we handle all permitting and inspections.' 
     },
     { 
       question: 'How long does installation take?', 
-      answer: 'Most driveway gate installations are completed in 2-3 days, including foundation work, gate mounting, and automation setup.' 
+      answer: 'Most installations complete in 2-3 days including foundation and automation.' 
     },
-    { 
-      question: 'Can you match my existing fence?', 
-      answer: 'Absolutely. We offer custom fabrication to seamlessly match your existing fencing style and color.' 
-    },
+  ];
+
+  const trustCards = [
+    { icon: Palette, title: 'Custom Design Consultation', description: 'Your vision, expertly realized.' },
+    { icon: Shield, title: 'Code-Compliant Installation', description: 'Proper permits and inspections.' },
+    { icon: Award, title: 'Premium Materials Only', description: 'Heavy-gauge steel & quality finishes.' },
+    { icon: Ruler, title: 'Precision Fabrication', description: 'Built to exact specifications.' },
+  ];
+
+  const relatedServices = [
+    { icon: Cog, label: 'Gate Automation', href: '/automatic-gates' },
+    { icon: Key, label: 'Access Systems', href: '/access-control' },
+    { icon: Smartphone, label: 'Smart Integration', href: '/access-control' },
+    { icon: Wrench, label: 'Gate Repair', href: '/gate-repair' },
+    { icon: Home, label: 'Fencing', href: '/fences' },
+    { icon: Settings, label: 'Maintenance', href: '/gate-repair' },
   ];
 
   return (
@@ -52,6 +66,11 @@ const DrivewayGates = () => {
       features={features}
       benefits={benefits}
       faqs={faqs}
+      authorityHeadline="Why We Specialize in Driveway Gates"
+      authoritySubheadline="Custom-built systems. Precision setup. Built to last."
+      authorityImages={[drivewaySwing, drivewayBlack, swingWhite]}
+      trustCards={trustCards}
+      relatedServices={relatedServices}
     />
   );
 };

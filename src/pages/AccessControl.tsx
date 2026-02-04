@@ -1,57 +1,74 @@
 import { ServicePageLayout } from '@/components/ServicePageLayout';
+import { Smartphone, Lock, Video, Wifi, Key, Shield, Home, Wrench, Cog, Settings } from 'lucide-react';
 import gateAccessControl from '@/assets/card-access-control.webp';
+import accessKeypad from '@/assets/service-access-keypad.webp';
 
 const AccessControl = () => {
   const features = [
-    { title: 'Keypad Entry Systems', description: 'Secure PIN-code access for family members, guests, and service providers.' },
-    { title: 'Smartphone Control', description: 'Open gates from anywhere using our mobile app—perfect for delivery drivers and visitors.' },
-    { title: 'Video Intercom Systems', description: 'See and speak with visitors before granting access from inside your home.' },
-    { title: 'Remote Transmitters', description: 'Convenient handheld and car-mounted remotes for quick, hassle-free entry.' },
-    { title: 'Card/Fob Access', description: 'Ideal for multi-tenant properties, businesses, and HOA communities.' },
-    { title: 'Telephone Entry', description: 'Allow visitors to call your phone directly from the gate to request access.' },
+    { title: 'Keypad Entry Systems', description: 'Secure PIN-code access for family and guests.' },
+    { title: 'Smartphone Control', description: 'Open gates from anywhere using our mobile app.' },
+    { title: 'Video Intercom Systems', description: 'See and speak with visitors before granting access.' },
+    { title: 'Remote Transmitters', description: 'Convenient handheld and car-mounted remotes.' },
+    { title: 'Card/Fob Access', description: 'Ideal for multi-tenant and commercial properties.' },
+    { title: 'Telephone Entry', description: 'Visitors call your phone directly to request access.' },
   ];
 
   const benefits = [
     'Complete security solutions',
     'Multiple access methods',
     'Cloud-based management',
-    'Visitor logging & history',
-    'Integration with cameras',
     'Professional installation',
   ];
 
   const faqs = [
     { 
       question: 'Can I control my gate from my phone?', 
-      answer: 'Absolutely! We install smartphone-compatible systems that let you open, close, and monitor your gate from anywhere in the world.' 
+      answer: 'Absolutely! We install smartphone-compatible systems for remote access anywhere.' 
     },
     { 
       question: 'What\'s the best access control for a home?', 
-      answer: 'For most homes, we recommend a combination keypad and smartphone system. This gives you flexible options for family, guests, and deliveries.' 
+      answer: 'We recommend a keypad and smartphone combo for flexible family and guest access.' 
     },
     { 
       question: 'Do you install commercial access control?', 
-      answer: 'Yes! We specialize in commercial-grade systems including card readers, vehicle tags, and multi-user management platforms.' 
+      answer: 'Yes! We specialize in commercial-grade card readers and multi-user platforms.' 
     },
     { 
       question: 'Can I add access control to my existing gate?', 
-      answer: 'In most cases, yes. We can retrofit keypads, intercoms, and smart controls to your current automatic gate system.' 
+      answer: 'In most cases, yes—we retrofit keypads and smart controls to current systems.' 
     },
-    { 
-      question: 'How secure are wireless access systems?', 
-      answer: 'Modern systems use encrypted protocols that are extremely secure. We only install products that meet the highest security standards.' 
-    },
+  ];
+
+  const trustCards = [
+    { icon: Lock, title: 'Enterprise-Grade Security', description: 'Bank-level encryption protocols.' },
+    { icon: Wifi, title: 'Cloud-Based Management', description: 'Monitor and control remotely.' },
+    { icon: Video, title: 'Video Integration Ready', description: 'See who\'s at your gate anytime.' },
+    { icon: Smartphone, title: 'App-Enabled Control', description: 'Full access from your phone.' },
+  ];
+
+  const relatedServices = [
+    { icon: Home, label: 'Driveway Gates', href: '/driveway-gates' },
+    { icon: Cog, label: 'Gate Automation', href: '/automatic-gates' },
+    { icon: Video, label: 'Intercom Systems', href: '/access-control' },
+    { icon: Wrench, label: 'Gate Repair', href: '/gate-repair' },
+    { icon: Key, label: 'Keypad Systems', href: '/access-control' },
+    { icon: Settings, label: 'Smart Integration', href: '/automatic-gates' },
   ];
 
   return (
     <ServicePageLayout
       title="Access Control Systems"
       subtitle="Smart Entry Solutions"
-      description="Control who enters your property with advanced access control systems. From keypads to smartphone apps, we install complete security solutions for homes and businesses."
+      description="Control who enters your property with advanced access control systems. From keypads to smartphone apps, we install complete security solutions."
       heroImage={gateAccessControl}
       features={features}
       benefits={benefits}
       faqs={faqs}
+      authorityHeadline="Why We Specialize in Access Control"
+      authoritySubheadline="Smart security. Seamless integration. Total control."
+      authorityImages={[accessKeypad]}
+      trustCards={trustCards}
+      relatedServices={relatedServices}
     />
   );
 };
