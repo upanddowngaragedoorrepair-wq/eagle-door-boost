@@ -12,6 +12,10 @@ import profile5 from '@/assets/reviews/profile-5.webp';
 import profile6 from '@/assets/reviews/profile-6.webp';
 import profile7 from '@/assets/reviews/profile-7.webp';
 import profile8 from '@/assets/reviews/profile-8.webp';
+import profile9 from '@/assets/reviews/profile-9.webp';
+import profile10 from '@/assets/reviews/profile-10.webp';
+import profile11 from '@/assets/reviews/profile-11.webp';
+import profile12 from '@/assets/reviews/profile-12.webp';
 
 interface Review {
   id: string;
@@ -39,7 +43,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Fast and professional. They fixed our sliding gate in under an hour. The technician was incredibly knowledgeable.',
     platform: 'yelp',
-    image: profile7,
+    image: profile2,
     dateStr: '12/29/25'
   },
   {
@@ -48,7 +52,7 @@ const reviews: Review[] = [
     rating: 5,
     text: "Installed a beautiful wrought iron driveway gate. The team was professional from estimate to final install. Couldn't be happier.",
     platform: 'google',
-    image: profile2,
+    image: profile3,
     dateStr: '01/09/26'
   },
   {
@@ -66,7 +70,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Our automatic gate stopped working and they had it fixed the same day. Very impressed with their expertise.',
     platform: 'google',
-    image: profile6,
+    image: profile5,
     dateStr: '10/22/25'
   },
   {
@@ -75,7 +79,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Outstanding craftsmanship on our custom iron gate. They understood exactly what we wanted and delivered beyond expectations.',
     platform: 'google',
-    image: profile3,
+    image: profile6,
     dateStr: '09/08/25'
   },
   {
@@ -84,7 +88,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'They came quickly for an emergency gate repair at 9 PM. Excellent work and very reasonable pricing for after-hours service.',
     platform: 'yelp',
-    image: profile5,
+    image: profile7,
     dateStr: '08/31/25'
   },
   {
@@ -102,7 +106,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Very professional team. They replaced our old gate with a modern automatic one. Love the new remote access feature!',
     platform: 'yelp',
-    image: profile7,
+    image: profile9,
     dateStr: '06/03/25'
   },
   {
@@ -111,7 +115,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Had an issue with my intercom system. They diagnosed and fixed it same day. Super knowledgeable technicians.',
     platform: 'google',
-    image: profile1,
+    image: profile10,
     dateStr: '05/19/25'
   },
   {
@@ -120,7 +124,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Excellent fence installation. Clean work, no mess left behind. The crew was respectful and efficient.',
     platform: 'yelp',
-    image: profile3,
+    image: profile11,
     dateStr: '04/27/25'
   },
   {
@@ -129,7 +133,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'They installed a beautiful pedestrian gate for us. The design matches our home perfectly. Thank you!',
     platform: 'google',
-    image: profile4,
+    image: profile12,
     dateStr: '03/11/25'
   }
 ];
