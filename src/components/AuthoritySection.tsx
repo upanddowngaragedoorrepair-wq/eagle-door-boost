@@ -94,7 +94,7 @@ export function AuthoritySection({
           <div className="space-y-6 order-1">
             {images.map((img, index) => <div key={index} className="relative group">
                 <div className="absolute -inset-3 bg-gradient-to-r from-primary/20 via-primary/10 to-transparent blur-xl rounded-3xl opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
-                <img src={img} alt={`Service showcase ${index + 1}`} className="relative w-full h-auto max-h-[400px] shadow-black/50 border border-white/10 object-fill rounded-md shadow opacity-100" />
+                <img src={img} alt={`Service showcase ${index + 1}`} className="relative w-full h-auto max-h-[400px] shadow-black/50 border border-white/10 object-fill shadow opacity-100 rounded-3xl" />
               </div>)}
           </div>
 
