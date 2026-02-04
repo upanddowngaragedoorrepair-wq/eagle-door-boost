@@ -1,7 +1,8 @@
 import { ServicePageLayout } from '@/components/ServicePageLayout';
 import { TreePine, Shield, Paintbrush, Ruler, Home, Wrench, Key, Cog, Settings, Lock } from 'lucide-react';
-import fenceWood from '@/assets/service-fence-wood.webp';
-import fenceChain from '@/assets/service-fence-chain.webp';
+import fenceWood from '@/assets/fence-wood.webp';
+import fenceMetal from '@/assets/fence-metal.webp';
+import fenceHero from '@/assets/service-fence-wood.webp';
 
 const Fences = () => {
   const features = [
@@ -60,13 +61,13 @@ const Fences = () => {
       title="Fence Installation"
       subtitle="Quality Fencing Solutions"
       description="Define your property with quality fencing that complements your gate. We install vinyl, wood, iron, and aluminum fencing with expert craftsmanship."
-      heroImage={fenceWood}
+      heroImage={fenceHero}
       features={features}
       benefits={benefits}
       faqs={faqs}
       authorityHeadline="Why We Specialize in Fencing"
       authoritySubheadline="Quality materials. Expert installation. Perfect finish."
-      authorityImages={[fenceWood, fenceChain]}
+      authorityImages={[fenceWood, fenceMetal]}
       trustCards={trustCards}
       relatedServices={relatedServices}
     />
