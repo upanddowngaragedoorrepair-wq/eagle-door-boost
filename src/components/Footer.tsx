@@ -26,7 +26,7 @@ export function Footer() {
             </ParamLink>
             <p className="text-lg text-muted-foreground max-w-md mb-5 leading-relaxed">
               Premium automatic gate installation, repair, and access control services. 
-              Serving {city} & The Greater Bay Area with expert technicians and quality workmanship.
+              Serving Your Area & The Greater Bay Area with expert technicians and quality workmanship.
             </p>
             <p className="text-base font-bold text-primary">
               ★ Family Owned & Operated ★
