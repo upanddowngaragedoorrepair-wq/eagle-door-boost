@@ -16,7 +16,7 @@ const Fences = () => {
   const benefits = [
     'Free property assessment',
     'Quality materials only',
-    'Professional installation',
+    'Ask Us for a Real Client Reference',
     'Warranty coverage',
   ];
 
