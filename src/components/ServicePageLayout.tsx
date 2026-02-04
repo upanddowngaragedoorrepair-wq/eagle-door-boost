@@ -27,6 +27,11 @@ interface RelatedService {
   href: string;
 }
 
+interface MaterialType {
+  icon: LucideIcon;
+  label: string;
+}
+
 interface ServicePageLayoutProps {
   title: string;
   subtitle: string;
@@ -41,6 +46,7 @@ interface ServicePageLayoutProps {
   authorityImages: string[];
   trustCards: TrustCard[];
   relatedServices: RelatedService[];
+  materialTypes?: MaterialType[];
 }
 
 export function ServicePageLayout({
@@ -56,6 +62,7 @@ export function ServicePageLayout({
   authorityImages,
   trustCards,
   relatedServices,
+  materialTypes,
 }: ServicePageLayoutProps) {
   const { city, phoneLink, phoneFormatted } = useLocation2();
 
@@ -227,6 +234,28 @@ export function ServicePageLayout({
                 )}
               </div>
             </div>
+
+            {/* Material Types - Optional */}
+            {materialTypes && materialTypes.length > 0 && (
+              <div className="mt-12">
+                <h3 className="text-center text-lg font-semibold text-gray-400 mb-6 uppercase tracking-wider">
+                  Materials We Work With
+                </h3>
+                <div className="flex flex-wrap justify-center gap-4">
+                  {materialTypes.map((material, index) => (
+                    <div 
+                      key={index}
+                      className="flex items-center gap-3 px-6 py-4 rounded-2xl bg-[hsl(222,47%,12%)] border border-white/10 hover:border-primary/40 hover:bg-[hsl(222,47%,15%)] transition-all duration-300"
+                    >
+                      <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-primary/15 text-primary">
+                        <material.icon className="w-5 h-5" />
+                      </div>
+                      <span className="font-semibold text-white">{material.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Authority CTA */}
             <div className="mt-14 text-center">

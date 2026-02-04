@@ -1,5 +1,5 @@
 import { ServicePageLayout } from '@/components/ServicePageLayout';
-import { Palette, Shield, Award, Ruler, Wrench, Key, Smartphone, Home, Cog, Settings } from 'lucide-react';
+import { Palette, Shield, Award, Ruler, Wrench, Key, Smartphone, Home, Cog, Settings, TreePine, Layers, Fence, CircleDot } from 'lucide-react';
 import gateDriveway from '@/assets/card-driveway-gate.webp';
 import drivewaySwing from '@/assets/service-driveway-swing.webp';
 import drivewayBlack from '@/assets/service-driveway-black.webp';
@@ -57,6 +57,13 @@ const DrivewayGates = () => {
     { icon: Settings, label: 'Maintenance', href: '/gate-repair' },
   ];
 
+  const materialTypes = [
+    { icon: TreePine, label: 'Wood' },
+    { icon: Layers, label: 'Aluminum' },
+    { icon: Fence, label: 'Wrought Iron' },
+    { icon: CircleDot, label: 'Galvanized Steel' },
+  ];
+
   return (
     <ServicePageLayout
       title="Driveway Gate Installation"
@@ -71,6 +78,7 @@ const DrivewayGates = () => {
       authorityImages={[drivewaySwing, drivewayBlack, swingWhite]}
       trustCards={trustCards}
       relatedServices={relatedServices}
+      materialTypes={materialTypes}
     />
   );
 };
