@@ -7,6 +7,7 @@ import { StickyCallBar } from './StickyCallBar';
 import { ContactForm } from './ContactForm';
 import { ReviewWidget } from './ReviewWidget';
 import { CouponCountdown } from './CouponCountdown';
+import { AuthoritySection } from './AuthoritySection';
 import eagleLogo from '@/assets/eagle-logo.webp';
 interface ServiceFeature {
   title: string;
@@ -55,7 +56,12 @@ export function ServicePageLayout({
   heroImage,
   features,
   benefits,
-  faqs
+  faqs,
+  authorityHeadline,
+  authoritySubheadline,
+  authorityImages,
+  trustCards,
+  relatedServices,
 }: ServicePageLayoutProps) {
   const {
     city,
@@ -154,6 +160,17 @@ export function ServicePageLayout({
             </div>
           </div>
         </section>
+
+        {/* Authority Section - Premium trust builder */}
+        {authorityImages && authorityImages.length > 0 && (
+          <AuthoritySection
+            headline={authorityHeadline || `Why We're the Specialists in ${title}`}
+            subheadline={authoritySubheadline || "Precision installation. Clean work. Built to last."}
+            images={authorityImages}
+            trustCards={trustCards}
+            relatedServices={relatedServices}
+          />
+        )}
 
         {/* Features Section - Enhanced */}
         <section className="py-24 md:py-32 bg-[hsl(45,30%,95%)] relative">
