@@ -14,7 +14,7 @@ interface LocationContextType {
   getQueryString: () => string;
 }
 
-const DEFAULT_CITY = 'Your Area';
+const DEFAULT_CITY = 'Pros';
 const DEFAULT_PHONE = '(888) 742-2174';
 
 const COUNTY_PHONES: Record<string, string> = {
