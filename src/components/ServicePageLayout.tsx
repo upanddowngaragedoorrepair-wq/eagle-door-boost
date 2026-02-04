@@ -185,7 +185,7 @@ export function ServicePageLayout({
                     <img 
                       src={img} 
                       alt={`${title} showcase ${idx + 1}`}
-                      className="relative w-full rounded-2xl shadow-2xl shadow-black/50 border border-white/10 hover:border-primary/30 transition-all duration-300"
+                      className="relative w-full max-h-[400px] object-cover rounded-3xl shadow-lg shadow-black/25 border border-white/10 hover:border-primary/30 transition-all duration-300"
                       loading="lazy"
                     />
                   </div>
