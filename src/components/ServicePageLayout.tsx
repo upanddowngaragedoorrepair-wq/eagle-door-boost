@@ -92,10 +92,15 @@ export function ServicePageLayout({
                 {/* Logo */}
                 
 
-                {/* Badge */}
-                <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 border border-primary/30 mb-8 shadow-lg">
-                  <Shield className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-bold text-primary uppercase tracking-wide">{subtitle}</span>
+                {/* Badges */}
+                <div className="flex flex-wrap items-center gap-3 mb-8">
+                  <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 border border-primary/30 shadow-lg">
+                    <Shield className="w-5 h-5 text-primary" />
+                    <span className="text-sm font-bold text-primary uppercase tracking-wide">{subtitle}</span>
+                  </div>
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 border border-border shadow-md">
+                    <span className="text-xs font-semibold text-muted-foreground">Commercial & Residential</span>
+                  </div>
                 </div>
 
                 {/* Headline - BIGGER */}
