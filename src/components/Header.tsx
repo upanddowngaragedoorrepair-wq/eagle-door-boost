@@ -3,7 +3,6 @@ import { useLocation2 } from '@/contexts/LocationContext';
 import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { ParamLink } from '@/components/NavLink';
-
 const navItems = [{
   label: 'About Us',
   href: '/about'
@@ -33,20 +32,21 @@ const navItems = [{
   label: 'Contact',
   href: '/#quote-form'
 }];
-
 export function Header() {
-  const { phoneFormatted, phoneLink, withParams } = useLocation2();
+  const {
+    phoneFormatted,
+    phoneLink,
+    withParams
+  } = useLocation2();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const location = useLocation();
-  
-  return (
-    <header className="fixed top-8 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-2xl">
+  return <header className="fixed top-8 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-2xl">
       <div className="container-main">
         <div className="flex items-center justify-between h-18 md:h-22">
           {/* Logo */}
           <ParamLink to="/" className="flex items-center gap-3">
-            <img alt="Eagle Automatic Gate" className="w-12 h-12 md:w-16 md:h-16" src="/lovable-uploads/ecfdf4be-4e14-4bdb-b997-b4ac57b3caa1.png" />
+            <img alt="Eagle Automatic Gate" className="w-12 h-12 md:w-16 md:h-16" src="/lovable-uploads/9b6ef84e-639b-4196-91f6-4fcec82647cc.webp" />
             <div className="hidden sm:block">
               <h1 className="font-display text-lg md:text-2xl font-bold tracking-tight text-foreground uppercase">
                 Eagle Automatic
@@ -57,35 +57,21 @@ export function Header() {
 
           {/* Navigation - Desktop */}
           <nav className="hidden lg:flex items-center gap-8">
-            {navItems.map(item => item.children ? (
-              <div key={item.label} className="relative group">
+            {navItems.map(item => item.children ? <div key={item.label} className="relative group">
                 <button className="flex items-center gap-1 text-sm font-bold text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wide">
                   {item.label}
                   <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
                 </button>
                 <div className="absolute top-full left-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                   <div className="bg-card border border-border rounded-2xl shadow-2xl py-3 min-w-[220px]">
-                    {item.children.map(child => (
-                      <ParamLink 
-                        key={child.href} 
-                        to={child.href} 
-                        className={`block px-5 py-3 text-sm font-semibold transition-colors hover:bg-primary/10 hover:text-primary ${location.pathname === child.href ? 'text-primary bg-primary/5' : 'text-foreground'}`}
-                      >
+                    {item.children.map(child => <ParamLink key={child.href} to={child.href} className={`block px-5 py-3 text-sm font-semibold transition-colors hover:bg-primary/10 hover:text-primary ${location.pathname === child.href ? 'text-primary bg-primary/5' : 'text-foreground'}`}>
                         {child.label}
-                      </ParamLink>
-                    ))}
+                      </ParamLink>)}
                   </div>
                 </div>
-              </div>
-            ) : (
-              <ParamLink 
-                key={item.href} 
-                to={item.href} 
-                className={`text-sm font-bold transition-colors uppercase tracking-wide ${location.pathname === item.href ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}
-              >
+              </div> : <ParamLink key={item.href} to={item.href} className={`text-sm font-bold transition-colors uppercase tracking-wide ${location.pathname === item.href ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
                 {item.label}
-              </ParamLink>
-            ))}
+              </ParamLink>)}
           </nav>
 
           {/* Phone CTAs */}
@@ -115,44 +101,23 @@ export function Header() {
         </div>
 
         {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-card border-b border-border shadow-2xl animate-fade-in">
+        {mobileMenuOpen && <div className="lg:hidden absolute top-full left-0 right-0 bg-card border-b border-border shadow-2xl animate-fade-in">
             <nav className="container-main py-6 space-y-2">
-              {navItems.map(item => item.children ? (
-                <div key={item.label}>
+              {navItems.map(item => item.children ? <div key={item.label}>
                   <button onClick={() => setServicesOpen(!servicesOpen)} className="flex items-center justify-between w-full px-4 py-4 text-base font-bold text-foreground uppercase tracking-wide">
                     {item.label}
                     <ChevronDown className={`w-5 h-5 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
                   </button>
-                  {servicesOpen && (
-                    <div className="pl-4 space-y-1 bg-secondary/30 rounded-xl mx-2 py-2">
-                      {item.children.map(child => (
-                        <ParamLink 
-                          key={child.href} 
-                          to={child.href} 
-                          onClick={() => setMobileMenuOpen(false)} 
-                          className="block px-4 py-3 text-base font-semibold text-muted-foreground hover:text-primary transition-colors"
-                        >
+                  {servicesOpen && <div className="pl-4 space-y-1 bg-secondary/30 rounded-xl mx-2 py-2">
+                      {item.children.map(child => <ParamLink key={child.href} to={child.href} onClick={() => setMobileMenuOpen(false)} className="block px-4 py-3 text-base font-semibold text-muted-foreground hover:text-primary transition-colors">
                           {child.label}
-                        </ParamLink>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <ParamLink 
-                  key={item.href} 
-                  to={item.href} 
-                  onClick={() => setMobileMenuOpen(false)} 
-                  className="block px-4 py-4 text-base font-bold text-foreground uppercase tracking-wide hover:text-primary transition-colors"
-                >
+                        </ParamLink>)}
+                    </div>}
+                </div> : <ParamLink key={item.href} to={item.href} onClick={() => setMobileMenuOpen(false)} className="block px-4 py-4 text-base font-bold text-foreground uppercase tracking-wide hover:text-primary transition-colors">
                   {item.label}
-                </ParamLink>
-              ))}
+                </ParamLink>)}
             </nav>
-          </div>
-        )}
+          </div>}
       </div>
-    </header>
-  );
+    </header>;
 }
