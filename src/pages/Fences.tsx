@@ -24,20 +24,24 @@ const Fences = () => {
 
   const faqs = [
     { 
-      question: 'What\'s the best fence material for privacy?', 
-      answer: 'Vinyl or wood fencing at 6ft+ height provides full visual barrier.' 
+      question: 'How Do I Know Where My Property Line Is Before Installing a Fence?', 
+      answer: 'Installing a fence in the wrong location can cause costly disputes. We always recommend verifying property lines before installation. If needed, we can guide you through obtaining a professional survey to ensure your fence is placed correctly and compliantly. We build it right — the first time.' 
     },
     { 
-      question: 'How much does fencing cost per foot?', 
-      answer: 'Fencing costs range from $15-50 per linear foot depending on material.' 
+      question: 'Do I Need a Permit to Install a Fence?', 
+      answer: 'Permit requirements vary by city and fence height. Our team is familiar with local regulations and will let you know if a permit is required for your specific project. We make sure your fence meets local codes and HOA guidelines when applicable. No surprises. No compliance issues.' 
     },
     { 
-      question: 'Do you remove old fences?', 
-      answer: 'Yes—old fence removal is included and we dispose of materials responsibly.' 
+      question: 'How Long Does Fence Installation Take?', 
+      answer: 'Most residential fence installations are completed within 1–3 days, depending on size and material. We focus on efficient scheduling while maintaining high-quality workmanship — no rushed jobs, no shortcuts. Clean work. On time.' 
     },
     { 
-      question: 'Can you match my new fence to my gate?', 
-      answer: 'Absolutely! We specialize in cohesive looks with matching styles and finishes.' 
+      question: 'What Type of Fence Is Best for My Property?', 
+      answer: 'The right fence depends on your goals — privacy, security, aesthetics, or durability. We offer wood, vinyl, chain-link, and custom metal fencing options and will walk you through the best choice based on your property and budget. Practical advice. Honest recommendations.' 
+    },
+    { 
+      question: 'Do You Offer a Warranty on Fence Installation?', 
+      answer: 'Yes. We stand behind our work. Our fence installations are backed by workmanship warranties, and we use quality materials designed for long-term durability. Built to last — not just to install.' 
     },
   ];
 
