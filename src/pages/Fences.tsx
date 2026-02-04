@@ -1,7 +1,8 @@
 import { ServicePageLayout } from '@/components/ServicePageLayout';
-import { TreePine, Shield, Paintbrush, Ruler, Home, Wrench, Key, Cog, Settings, Lock } from 'lucide-react';
+import { TreePine, Shield, Paintbrush, Ruler, Home, Wrench, Key, Cog, Settings, Lock, CheckCircle, Heart } from 'lucide-react';
 import fenceWood from '@/assets/fence-wood.webp';
 import fenceMetal from '@/assets/fence-metal.webp';
+import fenceWoodHero from '@/assets/fence-wood-hero.webp';
 import fenceHero from '@/assets/service-fence-wood.webp';
 
 const Fences = () => {
@@ -41,10 +42,10 @@ const Fences = () => {
   ];
 
   const trustCards = [
-    { icon: TreePine, title: 'Premium Material Selection', description: 'Cedar, vinyl, iron, and more.' },
-    { icon: Ruler, title: 'Precision Installation', description: 'Level, plumb, and built to last.' },
-    { icon: Paintbrush, title: 'Custom Finishes Available', description: 'Match your gate and home.' },
-    { icon: Shield, title: 'Full Warranty Protection', description: 'Materials and workmanship covered.' },
+    { icon: Shield, title: 'Expert-Level Craftsmanship', description: 'Every installation and repair is performed by trained technicians with real field experience.' },
+    { icon: CheckCircle, title: 'Clean & Code-Compliant Work', description: 'Proper wiring, correct hardware, and no shortcuts — ever.' },
+    { icon: Wrench, title: 'Built for Long-Term Reliability', description: 'We use premium parts and industry-approved systems only.' },
+    { icon: Heart, title: 'Honest Recommendations', description: "If it can be repaired, we'll repair it. If it needs replacement, we'll explain why." },
   ];
 
   const relatedServices = [
@@ -65,9 +66,9 @@ const Fences = () => {
       features={features}
       benefits={benefits}
       faqs={faqs}
-      authorityHeadline="Why We Specialize in Fencing"
-      authoritySubheadline="Quality materials. Expert installation. Perfect finish."
-      authorityImages={[fenceWood, fenceMetal]}
+      authorityHeadline="Why We're the Specialists in Fencing"
+      authoritySubheadline="Precision installation. Clean work. Built to last."
+      authorityImages={[fenceWoodHero, fenceMetal]}
       trustCards={trustCards}
       relatedServices={relatedServices}
     />
