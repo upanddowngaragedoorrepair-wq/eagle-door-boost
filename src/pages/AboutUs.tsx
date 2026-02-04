@@ -163,7 +163,7 @@ const AboutUs = () => {
         </section>
 
         {/* Why Choose Us - Enhanced */}
-        <section className="py-24 md:py-32 relative overflow-hidden bg-[sidebar-accent-foreground] bg-orange-50">
+        <section className="py-24 md:py-32 relative overflow-hidden bg-[sidebar-accent-foreground] bg-secondary-foreground">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/5 blur-[100px] rounded-full" />
           
           <div className="container-main relative">
@@ -172,7 +172,7 @@ const AboutUs = () => {
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4 tracking-tight">
                   <span className="text-foreground">Why </span>
                   <span className="gradient-text">{city}</span>
-                  <span className="text-foreground"> Choose Us</span>
+                  <span className="text-foreground"> </span>
                 </h2>
               </div>
 
