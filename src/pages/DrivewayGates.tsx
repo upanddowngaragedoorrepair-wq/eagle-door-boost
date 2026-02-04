@@ -1,9 +1,7 @@
 import { ServicePageLayout } from '@/components/ServicePageLayout';
 import { Palette, Shield, Award, Ruler, Wrench, Key, Smartphone, Home, Cog, Settings, TreePine, Layers, Fence, CircleDot } from 'lucide-react';
 import gateDriveway from '@/assets/card-driveway-gate.webp';
-import drivewaySwing from '@/assets/service-driveway-swing.webp';
-import drivewayBlack from '@/assets/service-driveway-black.webp';
-import swingWhite from '@/assets/service-swing-white.webp';
+import drivewayWooden from '@/assets/service-driveway-wooden.webp';
 
 const DrivewayGates = () => {
   const features = [
@@ -75,7 +73,7 @@ const DrivewayGates = () => {
       faqs={faqs}
       authorityHeadline="Why We Specialize in Driveway Gates"
       authoritySubheadline="Custom-built systems. Precision setup. Built to last."
-      authorityImages={[drivewaySwing, drivewayBlack, swingWhite]}
+      authorityImages={[drivewayWooden]}
       trustCards={trustCards}
       relatedServices={relatedServices}
       materialTypes={materialTypes}
