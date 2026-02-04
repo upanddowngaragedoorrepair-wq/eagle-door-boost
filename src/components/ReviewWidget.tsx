@@ -3,6 +3,16 @@ import { useState, useEffect, useCallback } from 'react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import useEmblaCarousel from 'embla-carousel-react';
 
+// Profile images
+import profile1 from '@/assets/reviews/profile-1.webp';
+import profile2 from '@/assets/reviews/profile-2.webp';
+import profile3 from '@/assets/reviews/profile-3.webp';
+import profile4 from '@/assets/reviews/profile-4.webp';
+import profile5 from '@/assets/reviews/profile-5.webp';
+import profile6 from '@/assets/reviews/profile-6.webp';
+import profile7 from '@/assets/reviews/profile-7.webp';
+import profile8 from '@/assets/reviews/profile-8.webp';
+
 interface Review {
   id: string;
   name: string;
@@ -20,7 +30,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Best gate company in the East Bay! They installed our new access control system perfectly. The whole family is happy.',
     platform: 'google',
-    image: 'https://images.unsplash.com/photo-1599566150163-29194dcabd36?w=100&h=100&fit=crop&crop=face&q=60',
+    image: profile1,
     dateStr: '01/02/26'
   },
   {
@@ -29,7 +39,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Fast and professional. They fixed our sliding gate in under an hour. The technician was incredibly knowledgeable.',
     platform: 'yelp',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face&q=50&blur=1',
+    image: profile7,
     dateStr: '12/29/25'
   },
   {
@@ -38,7 +48,7 @@ const reviews: Review[] = [
     rating: 5,
     text: "Installed a beautiful wrought iron driveway gate. The team was professional from estimate to final install. Couldn't be happier.",
     platform: 'google',
-    image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=100&h=100&fit=crop&crop=face&q=60',
+    image: profile2,
     dateStr: '01/09/26'
   },
   {
@@ -47,7 +57,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Called them for a broken gate motor and they were at my house within 2 hours. Fixed it quickly at a fair price!',
     platform: 'yelp',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=face&q=55',
+    image: profile4,
     dateStr: '11/15/25'
   },
   {
@@ -56,7 +66,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Our automatic gate stopped working and they had it fixed the same day. Very impressed with their expertise.',
     platform: 'google',
-    image: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=100&h=100&fit=crop&crop=face&q=60',
+    image: profile6,
     dateStr: '10/22/25'
   },
   {
@@ -65,7 +75,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Outstanding craftsmanship on our custom iron gate. They understood exactly what we wanted and delivered beyond expectations.',
     platform: 'google',
-    image: 'https://images.unsplash.com/photo-1552058544-f2b08422138a?w=100&h=100&fit=crop&crop=face&q=45',
+    image: profile3,
     dateStr: '09/08/25'
   },
   {
@@ -74,7 +84,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'They came quickly for an emergency gate repair at 9 PM. Excellent work and very reasonable pricing for after-hours service.',
     platform: 'yelp',
-    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face&q=65',
+    image: profile5,
     dateStr: '08/31/25'
   },
   {
@@ -83,7 +93,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Great service and fair prices. Highly recommend to anyone needing gate work. They showed up on time and finished quickly.',
     platform: 'google',
-    image: 'https://images.unsplash.com/photo-1551524559-8af4e6624178?w=100&h=100&fit=crop&crop=face&q=55',
+    image: profile8,
     dateStr: '07/14/25'
   },
   {
@@ -92,7 +102,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Very professional team. They replaced our old gate with a modern automatic one. Love the new remote access feature!',
     platform: 'yelp',
-    image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop&crop=face&q=55',
+    image: profile7,
     dateStr: '06/03/25'
   },
   {
@@ -101,7 +111,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Had an issue with my intercom system. They diagnosed and fixed it same day. Super knowledgeable technicians.',
     platform: 'google',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face&q=60',
+    image: profile1,
     dateStr: '05/19/25'
   },
   {
@@ -110,7 +120,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Excellent fence installation. Clean work, no mess left behind. The crew was respectful and efficient.',
     platform: 'yelp',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face&q=45',
+    image: profile3,
     dateStr: '04/27/25'
   },
   {
@@ -119,7 +129,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'They installed a beautiful pedestrian gate for us. The design matches our home perfectly. Thank you!',
     platform: 'google',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face&q=70',
+    image: profile4,
     dateStr: '03/11/25'
   }
 ];
