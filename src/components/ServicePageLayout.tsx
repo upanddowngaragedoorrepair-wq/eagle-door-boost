@@ -179,7 +179,7 @@ export function ServicePageLayout({
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
               {/* Left: Images */}
               <div className="order-2 lg:order-1 space-y-5">
-                {authorityImages.map((img, idx) => (
+                {authorityImages.slice(0, 1).map((img, idx) => (
                   <div key={idx} className="relative group">
                     <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/10 blur-xl rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <img 
@@ -192,24 +192,39 @@ export function ServicePageLayout({
                 ))}
               </div>
 
-              {/* Right: Trust Cards */}
-              <div className="order-1 lg:order-2 grid grid-cols-1 sm:grid-cols-2 gap-5">
-                {trustCards.map((card, index) => (
-                  <div 
-                    key={index} 
-                    className="group p-6 rounded-2xl bg-[hsl(222,47%,12%)] border border-white/10 shadow-xl shadow-black/30 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-300"
-                  >
-                    <div className="w-14 h-14 mb-4 rounded-xl flex items-center justify-center bg-primary/15 text-primary group-hover:scale-110 group-hover:bg-primary/25 transition-all duration-300">
-                      <card.icon className="w-7 h-7" />
+              {/* Right: Trust Cards + Additional Image */}
+              <div className="order-1 lg:order-2 space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  {trustCards.map((card, index) => (
+                    <div 
+                      key={index} 
+                      className="group p-6 rounded-2xl bg-[hsl(222,47%,12%)] border border-white/10 shadow-xl shadow-black/30 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-300"
+                    >
+                      <div className="w-14 h-14 mb-4 rounded-xl flex items-center justify-center bg-primary/15 text-primary group-hover:scale-110 group-hover:bg-primary/25 transition-all duration-300">
+                        <card.icon className="w-7 h-7" />
+                      </div>
+                      <h3 className="font-display font-bold text-lg text-white mb-2">
+                        {card.title}
+                      </h3>
+                      <p className="text-sm text-gray-400 leading-relaxed">
+                        {card.description}
+                      </p>
                     </div>
-                    <h3 className="font-display font-bold text-lg text-white mb-2">
-                      {card.title}
-                    </h3>
-                    <p className="text-sm text-gray-400 leading-relaxed">
-                      {card.description}
-                    </p>
+                  ))}
+                </div>
+                
+                {/* Image below cards */}
+                {authorityImages.length > 1 && (
+                  <div className="relative group">
+                    <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/10 blur-xl rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <img 
+                      src={authorityImages[1]} 
+                      alt={`${title} showcase`}
+                      className="relative w-full max-h-[300px] object-cover rounded-3xl shadow-lg shadow-black/25 border border-white/10 hover:border-primary/30 transition-all duration-300"
+                      loading="lazy"
+                    />
                   </div>
-                ))}
+                )}
               </div>
             </div>
 

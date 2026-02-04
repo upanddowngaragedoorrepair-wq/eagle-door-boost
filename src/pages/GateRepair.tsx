@@ -68,7 +68,7 @@ const GateRepair = () => {
       faqs={faqs}
       authorityHeadline="Why We Specialize in Gate Repair"
       authoritySubheadline="Fast diagnostics. Clean repairs. Long-term reliability."
-      authorityImages={[repairTech]}
+      authorityImages={[gateMotor, repairTech]}
       trustCards={trustCards}
       relatedServices={relatedServices}
     />
