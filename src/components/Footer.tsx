@@ -50,9 +50,9 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <span className="flex items-center gap-3 text-muted-foreground">
+              <span className="flex items-center gap-3 text-muted-foreground">
                   <MapPin className="w-5 h-5 text-primary" />
-                  Serving {city} & Area
+                  Serving Your Area & The Greater Bay Area
                 </span>
               </li>
               <li>
