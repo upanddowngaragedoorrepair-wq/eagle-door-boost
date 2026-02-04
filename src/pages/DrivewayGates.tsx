@@ -18,7 +18,7 @@ const DrivewayGates = () => {
   const benefits = [
     'Free design consultation',
     'Custom fabrication',
-    'Premium operators included',
+    'Ask Us for a Real Client Reference',
     'Lifetime structural warranty',
   ];
 
