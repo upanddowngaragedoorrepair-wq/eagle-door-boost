@@ -12,6 +12,24 @@ interface ServiceFeature {
   title: string;
   description: string;
 }
+
+interface TrustCard {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+}
+
+interface RelatedService {
+  icon: React.ComponentType<{ className?: string }>;
+  label: string;
+  href: string;
+}
+
+interface MaterialType {
+  icon: React.ComponentType<{ className?: string }>;
+  label: string;
+}
+
 interface ServicePageLayoutProps {
   title: string;
   subtitle: string;
@@ -23,6 +41,12 @@ interface ServicePageLayoutProps {
     question: string;
     answer: string;
   }[];
+  authorityHeadline?: string;
+  authoritySubheadline?: string;
+  authorityImages?: string[];
+  trustCards?: TrustCard[];
+  relatedServices?: RelatedService[];
+  materialTypes?: MaterialType[];
 }
 export function ServicePageLayout({
   title,
@@ -76,7 +100,7 @@ export function ServicePageLayout({
 
                 {/* Headline - BIGGER */}
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold leading-[1.05] mb-8 tracking-tight">
-                  <span className="text-foreground">{title} in </span>
+                  <span className="text-foreground">Your {title} </span>
                   <span className="gradient-text">{city}</span>
                 </h1>
 
