@@ -1,8 +1,7 @@
 import { ServicePageLayout } from '@/components/ServicePageLayout';
 import { Zap, Shield, TrendingUp, Lock, Sun, Palette, Home, Key, Wrench, Cog, Smartphone, Settings } from 'lucide-react';
 import gateSwing from '@/assets/card-automatic-gate.webp';
-import automaticSwing from '@/assets/service-automatic-swing.webp';
-import automaticSliding from '@/assets/service-automatic-sliding.webp';
+import automaticLiftmaster from '@/assets/service-automatic-liftmaster.webp';
 
 const AutomaticGates = () => {
   const features = [
@@ -67,7 +66,7 @@ const AutomaticGates = () => {
       faqs={faqs}
       authorityHeadline="Why We Specialize in Automatic Gates"
       authoritySubheadline="Precision automation. Premium hardware. Expert installation."
-      authorityImages={[automaticSwing, automaticSliding]}
+      authorityImages={[automaticLiftmaster]}
       trustCards={trustCards}
       relatedServices={relatedServices}
     />
