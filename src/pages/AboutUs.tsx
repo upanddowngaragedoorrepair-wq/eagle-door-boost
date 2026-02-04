@@ -171,8 +171,7 @@ const AboutUs = () => {
               <div className="text-center mb-12">
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4 tracking-tight">
                   <span className="text-foreground">Why </span>
-                  <span className="gradient-text">{city}</span>
-                  <span className="text-foreground"> </span>
+                  <span className="gradient-text">Choose Us</span>
                 </h2>
               </div>
 
