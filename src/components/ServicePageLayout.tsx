@@ -13,24 +13,26 @@ interface ServiceFeature {
   title: string;
   description: string;
 }
-
 interface TrustCard {
-  icon: React.ComponentType<{ className?: string }>;
+  icon: React.ComponentType<{
+    className?: string;
+  }>;
   title: string;
   description: string;
 }
-
 interface RelatedService {
-  icon: React.ComponentType<{ className?: string }>;
+  icon: React.ComponentType<{
+    className?: string;
+  }>;
   label: string;
   href: string;
 }
-
 interface MaterialType {
-  icon: React.ComponentType<{ className?: string }>;
+  icon: React.ComponentType<{
+    className?: string;
+  }>;
   label: string;
 }
-
 interface ServicePageLayoutProps {
   title: string;
   subtitle: string;
@@ -61,7 +63,7 @@ export function ServicePageLayout({
   authoritySubheadline,
   authorityImages,
   trustCards,
-  relatedServices,
+  relatedServices
 }: ServicePageLayoutProps) {
   const {
     city,
@@ -88,15 +90,7 @@ export function ServicePageLayout({
               {/* Content */}
               <div className="animate-fade-in">
                 {/* Logo */}
-                <div className="flex items-center gap-4 mb-8">
-                  <img src={eagleLogo} alt="Eagle Automatic Gate" className="w-16 h-16" />
-                  <div>
-                    <h2 className="font-display text-xl font-bold text-foreground uppercase tracking-wide">
-                      Eagle Automatic
-                    </h2>
-                    <p className="text-sm text-primary font-bold uppercase tracking-wider">Gate & Door</p>
-                  </div>
-                </div>
+                
 
                 {/* Badge */}
                 <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 border border-primary/30 mb-8 shadow-lg">
@@ -162,15 +156,7 @@ export function ServicePageLayout({
         </section>
 
         {/* Authority Section - Premium trust builder */}
-        {authorityImages && authorityImages.length > 0 && (
-          <AuthoritySection
-            headline={authorityHeadline || `Why We're the Specialists in ${title}`}
-            subheadline={authoritySubheadline || "Precision installation. Clean work. Built to last."}
-            images={authorityImages}
-            trustCards={trustCards}
-            relatedServices={relatedServices}
-          />
-        )}
+        {authorityImages && authorityImages.length > 0 && <AuthoritySection headline={authorityHeadline || `Why We're the Specialists in ${title}`} subheadline={authoritySubheadline || "Precision installation. Clean work. Built to last."} images={authorityImages} trustCards={trustCards} relatedServices={relatedServices} />}
 
         {/* Features Section - Enhanced */}
         <section className="py-24 md:py-32 bg-[hsl(45,30%,95%)] relative">
