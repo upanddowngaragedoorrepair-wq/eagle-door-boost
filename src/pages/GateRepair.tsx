@@ -2,6 +2,7 @@ import { ServicePageLayout } from '@/components/ServicePageLayout';
 import { Wrench, Zap, Clock, ThumbsUp, Settings, Shield, Smartphone, Key, Home, Cog } from 'lucide-react';
 import gateRepair from '@/assets/card-gate-repair.webp';
 import repairTech from '@/assets/service-gate-repair-tech.webp';
+import repairTech2 from '@/assets/service-gate-repair-2.webp';
 import gateMotor from '@/assets/service-gate-motor.webp';
 
 const GateRepair = () => {
@@ -67,7 +68,7 @@ const GateRepair = () => {
       faqs={faqs}
       authorityHeadline="Why We Specialize in Gate Repair"
       authoritySubheadline="Fast diagnostics. Clean repairs. Long-term reliability."
-      authorityImages={[repairTech, gateMotor]}
+      authorityImages={[repairTech, repairTech2, gateMotor]}
       trustCards={trustCards}
       relatedServices={relatedServices}
     />
