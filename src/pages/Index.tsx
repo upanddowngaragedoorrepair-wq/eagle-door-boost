@@ -9,6 +9,7 @@ import { CouponCountdown } from '@/components/CouponCountdown';
 import { MidCTA } from '@/components/MidCTA';
 import { BrandLogos } from '@/components/BrandLogos';
 import { ContactForm } from '@/components/ContactForm';
+import { RecentProjects } from '@/components/RecentProjects';
 import { FinalCTA } from '@/components/FinalCTA';
 import { Footer } from '@/components/Footer';
 import { StickyCallBar } from '@/components/StickyCallBar';
@@ -28,6 +29,7 @@ const Index = () => {
         <MidCTA />
         <BrandLogos />
         <ContactForm />
+        <RecentProjects />
         <FinalCTA />
       </main>
       <Footer />
