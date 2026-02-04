@@ -66,7 +66,7 @@ const DrivewayGates = () => {
 
   return (
     <ServicePageLayout
-      title="Driveway Gate Installation"
+      title="Driveway Gate Installation & Repair"
       subtitle="Custom Entrance Gates"
       description="Make a stunning first impression with a custom driveway gate. We design, fabricate, and install premium entrance gates that enhance security and curb appeal."
       heroImage={gateDriveway}
