@@ -17,7 +17,7 @@ const AccessControl = () => {
     'Complete security solutions',
     'Multiple access methods',
     'Cloud-based management',
-    'Professional installation',
+    'Ask Us for a Real Client Reference',
   ];
 
   const faqs = [
