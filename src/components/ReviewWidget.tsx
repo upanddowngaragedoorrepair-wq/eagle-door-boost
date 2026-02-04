@@ -287,7 +287,7 @@ export function ReviewWidget() {
 
           {/* Subtext */}
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl mx-auto">
-            Real feedback from homeowners in {city} & The Greater Bay Area
+            Real feedback from homeowners in Your Area & The Greater Bay Area
           </p>
 
           {/* Large Rating Display */}
