@@ -22,20 +22,24 @@ const AutomaticGates = () => {
 
   const faqs = [
     { 
-      question: 'How much does an automatic gate cost?', 
-      answer: 'Systems range from $2,500 to $15,000+ depending on size and features.' 
+      question: 'Do You Install and Repair All Types of Automatic Gates?', 
+      answer: 'Yes. We install and repair swing gates, sliding gates, cantilever gates, and custom automatic gate systems. We also service most major brands and can upgrade existing manual gates to fully automated systems. Related services: Gate repair, access control, gate openers.' 
     },
     { 
-      question: 'How long does installation take?', 
-      answer: 'Most residential installs complete in 1-2 days. Commercial may take 3-5.' 
+      question: 'Can You Help With Permits for Automatic Gate Installation?', 
+      answer: 'Absolutely. Permit requirements vary by city and gate type. We guide you through the permitting process and make sure your gate installation meets local code and safety requirements. We handle the details — you avoid delays.' 
     },
     { 
-      question: 'What brands do you install?', 
-      answer: 'We\'re authorized LiftMaster dealers—the industry\'s most reliable operator.' 
+      question: 'What Safety Features Can Be Added to Automatic Gates?', 
+      answer: 'We can install safety loops, photo eyes, edge sensors, emergency release systems, and compliant access controls to protect vehicles, pedestrians, and children. Safety is never optional.' 
     },
     { 
-      question: 'Do automatic gates work during power outages?', 
-      answer: 'Yes! All systems include battery backup and manual release options.' 
+      question: 'Can You Upgrade an Existing Gate System?', 
+      answer: 'Yes. We frequently upgrade older systems with new motors, smart controls, keypads, intercoms, and mobile app access — without replacing the entire gate if not needed. Honest recommendations only.' 
+    },
+    { 
+      question: 'How Long Does an Automatic Gate Installation Take?', 
+      answer: 'Most installations are completed within a few days, depending on complexity and permitting. We focus on clean work, proper wiring, and long-term reliability — not rushing the job.' 
     },
   ];
 

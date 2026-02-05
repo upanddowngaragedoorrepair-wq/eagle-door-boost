@@ -22,20 +22,24 @@ const AccessControl = () => {
 
   const faqs = [
     { 
-      question: 'Can I control my gate from my phone?', 
-      answer: 'Absolutely! We install smartphone-compatible systems for remote access anywhere.' 
+      question: 'What Access Control Systems Do You Install?', 
+      answer: 'We install keypads, card readers, phone-based systems, intercoms, vehicle readers, and smart access systems for residential and commercial properties. Custom solutions for your property.' 
     },
     { 
-      question: 'What\'s the best access control for a home?', 
-      answer: 'We recommend a keypad and smartphone combo for flexible family and guest access.' 
+      question: 'Can Access Control Be Added to My Existing Gate?', 
+      answer: 'Yes. In most cases, access control systems can be integrated into your current gate or operator without full replacement. Cost-effective upgrades available.' 
     },
     { 
-      question: 'Do you install commercial access control?', 
-      answer: 'Yes! We specialize in commercial-grade card readers and multi-user platforms.' 
+      question: 'Are Access Control Systems Secure?', 
+      answer: 'Absolutely. We install encrypted systems with controlled access levels, audit logs, and optional remote management to ensure security and accountability. Security without complexity.' 
     },
     { 
-      question: 'Can I add access control to my existing gate?', 
-      answer: 'In most cases, yes—we retrofit keypads and smart controls to current systems.' 
+      question: 'Do You Install Intercom and Video Systems?', 
+      answer: 'Yes. We install audio and video intercom systems, including smartphone-connected solutions like DoorBird and similar platforms. See and speak before you open.' 
+    },
+    { 
+      question: 'Can You Help With Commercial or HOA Access Control?', 
+      answer: 'Yes. We design and install scalable access control solutions for HOAs, apartments, and commercial properties, including multi-user management and compliance features.' 
     },
   ];
 

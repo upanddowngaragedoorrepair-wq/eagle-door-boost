@@ -22,20 +22,24 @@ const DrivewayGates = () => {
 
   const faqs = [
     { 
-      question: 'What style of driveway gate is best?', 
-      answer: 'Sliding gates suit sloped driveways; swing gates work best on flat areas with clearance.' 
+      question: 'Do You Install Custom Driveway Gates?', 
+      answer: 'Yes. We install custom driveway gates in steel, wrought iron, and other materials, tailored to your property\'s layout and style. Designed for function and curb appeal.' 
     },
     { 
-      question: 'How much does a driveway gate cost?', 
-      answer: 'Installations range from $4,000 to $20,000+ depending on size and features.' 
+      question: 'Can You Handle Permits and City Requirements?', 
+      answer: 'Yes. Driveway gates often require permits due to setbacks and safety regulations. We help ensure compliance from start to finish. No guesswork.' 
     },
     { 
-      question: 'Do I need a permit for a driveway gate?', 
-      answer: 'Most cities require permits—we handle all permitting and inspections.' 
+      question: 'What Automation Options Are Available?', 
+      answer: 'We offer swing or sliding automation, smart access, keypads, remotes, vehicle sensors, and phone app control. Convenience meets security.' 
     },
     { 
-      question: 'How long does installation take?', 
-      answer: 'Most installations complete in 2-3 days including foundation and automation.' 
+      question: 'How Long Does Installation Take?', 
+      answer: 'Most driveway gate installations take several days depending on design, automation, and permitting timelines. Built right — not rushed.' 
+    },
+    { 
+      question: 'Can Driveway Gates Increase Property Value?', 
+      answer: 'Yes. A professionally installed driveway gate improves security, privacy, and curb appeal — often increasing perceived property value.' 
     },
   ];
 
