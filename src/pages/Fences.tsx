@@ -24,24 +24,24 @@ const Fences = () => {
 
   const faqs = [
     { 
-      question: 'How Do I Know Where My Property Line Is Before Installing a Fence?', 
-      answer: 'Installing a fence in the wrong location can cause costly disputes. We always recommend verifying property lines before installation. If needed, we can guide you through obtaining a professional survey to ensure your fence is placed correctly and compliantly. We build it right — the first time.' 
+      question: 'What Types of Fences Do You Install?', 
+      answer: 'We install wood, vinyl, chain-link, ornamental metal, and custom fencing solutions for residential and commercial properties. Built for durability and style.' 
     },
     { 
       question: 'Do I Need a Permit to Install a Fence?', 
-      answer: 'Permit requirements vary by city and fence height. Our team is familiar with local regulations and will let you know if a permit is required for your specific project. We make sure your fence meets local codes and HOA guidelines when applicable. No surprises. No compliance issues.' 
+      answer: 'Permit requirements vary by city and fence height. We help you determine if a permit is needed and guide you through the process. Avoid violations and disputes.' 
+    },
+    { 
+      question: 'Can You Help With Property Line Concerns?', 
+      answer: 'Yes. We recommend verifying property lines before installation and can coordinate with surveys when needed. Installed correctly the first time.' 
     },
     { 
       question: 'How Long Does Fence Installation Take?', 
-      answer: 'Most residential fence installations are completed within 1–3 days, depending on size and material. We focus on efficient scheduling while maintaining high-quality workmanship — no rushed jobs, no shortcuts. Clean work. On time.' 
+      answer: 'Most fence projects are completed within 1–3 days, depending on size and material. Clean job sites. Efficient work.' 
     },
     { 
-      question: 'What Type of Fence Is Best for My Property?', 
-      answer: 'The right fence depends on your goals — privacy, security, aesthetics, or durability. We offer wood, vinyl, chain-link, and custom metal fencing options and will walk you through the best choice based on your property and budget. Practical advice. Honest recommendations.' 
-    },
-    { 
-      question: 'Do You Offer a Warranty on Fence Installation?', 
-      answer: 'Yes. We stand behind our work. Our fence installations are backed by workmanship warranties, and we use quality materials designed for long-term durability. Built to last — not just to install.' 
+      question: 'Can Fences Be Combined With Gates or Automation?', 
+      answer: 'Yes. We frequently install fencing alongside driveway gates, pedestrian gates, and access control systems for a complete solution.' 
     },
   ];
 

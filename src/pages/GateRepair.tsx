@@ -24,20 +24,24 @@ const GateRepair = () => {
 
   const faqs = [
     { 
-      question: 'How fast can you get here?', 
-      answer: 'We offer same-day service for most repairs. Emergency calls are typically responded to within 2-4 hours.' 
+      question: 'Do You Repair All Types of Gate Issues?', 
+      answer: 'Yes. We repair motors, sensors, hinges, tracks, wiring issues, access control failures, and mechanical wear on all types of automatic gates. Fast diagnostics, honest repairs.' 
     },
     { 
-      question: 'My gate won\'t open—what should I do?', 
-      answer: 'Check for obstructions first. If clear, call us—we can walk you through the manual release.' 
+      question: 'Do You Offer Same-Day Gate Repair?', 
+      answer: 'In many cases, yes. We prioritize urgent repairs, especially when gates are stuck open, closed, or unsafe. Emergency service available.' 
     },
     { 
-      question: 'Do you repair all gate brands?', 
-      answer: 'Yes! We service LiftMaster, Elite, DoorKing, Ramset, Viking, and all major manufacturers.' 
+      question: 'Will You Recommend Repair or Replacement?', 
+      answer: 'We always start with repair. If replacement is necessary, we\'ll explain why and show you options — no pressure. If it can be fixed, we fix it.' 
     },
     { 
-      question: 'How much do repairs typically cost?', 
-      answer: 'Repairs range from $150 for minor fixes to $800+ for major components. Free estimates provided.' 
+      question: 'Do You Repair Gates Installed by Other Companies?', 
+      answer: 'Yes. We regularly service and repair gates installed by other contractors, regardless of brand or installer. Experience across systems.' 
+    },
+    { 
+      question: 'Can You Upgrade My Gate During a Repair?', 
+      answer: 'Yes. During repairs, we can upgrade safety features, motors, access control, or add smart functionality if desired.' 
     },
   ];
 
