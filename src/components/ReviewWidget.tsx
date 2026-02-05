@@ -34,7 +34,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Best gate company in the East Bay! They installed our new access control system perfectly. The whole family is happy.',
     platform: 'google',
-    image: profile1,
+    image: profile1, // Male
     dateStr: '01/02/26'
   },
   {
@@ -43,7 +43,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Fast and professional. They fixed our sliding gate in under an hour. The technician was incredibly knowledgeable.',
     platform: 'yelp',
-    image: profile2,
+    image: profile4, // Female
     dateStr: '12/29/25'
   },
   {
@@ -52,7 +52,7 @@ const reviews: Review[] = [
     rating: 5,
     text: "Installed a beautiful wrought iron driveway gate. The team was professional from estimate to final install. Couldn't be happier.",
     platform: 'google',
-    image: profile3,
+    image: profile3, // Male
     dateStr: '01/09/26'
   },
   {
@@ -61,7 +61,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Called them for a broken gate motor and they were at my house within 2 hours. Fixed it quickly at a fair price!',
     platform: 'yelp',
-    image: profile4,
+    image: profile2, // Female
     dateStr: '11/15/25'
   },
   {
@@ -70,7 +70,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Our automatic gate stopped working and they had it fixed the same day. Very impressed with their expertise.',
     platform: 'google',
-    image: profile5,
+    image: profile5, // Male
     dateStr: '10/22/25'
   },
   {
@@ -79,7 +79,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Outstanding craftsmanship on our custom iron gate. They understood exactly what we wanted and delivered beyond expectations.',
     platform: 'google',
-    image: profile6,
+    image: profile6, // Male
     dateStr: '09/08/25'
   },
   {
@@ -88,7 +88,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'They came quickly for an emergency gate repair at 9 PM. Excellent work and very reasonable pricing for after-hours service.',
     platform: 'yelp',
-    image: profile7,
+    image: profile9, // Female
     dateStr: '08/31/25'
   },
   {
@@ -97,7 +97,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Great service and fair prices. Highly recommend to anyone needing gate work. They showed up on time and finished quickly.',
     platform: 'google',
-    image: profile8,
+    image: profile8, // Male
     dateStr: '07/14/25'
   },
   {
@@ -106,7 +106,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Very professional team. They replaced our old gate with a modern automatic one. Love the new remote access feature!',
     platform: 'yelp',
-    image: profile9,
+    image: profile7, // Female
     dateStr: '06/03/25'
   },
   {
@@ -115,7 +115,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Had an issue with my intercom system. They diagnosed and fixed it same day. Super knowledgeable technicians.',
     platform: 'google',
-    image: profile10,
+    image: profile10, // Male
     dateStr: '05/19/25'
   },
   {
@@ -124,7 +124,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'Excellent fence installation. Clean work, no mess left behind. The crew was respectful and efficient.',
     platform: 'yelp',
-    image: profile11,
+    image: profile11, // Male
     dateStr: '04/27/25'
   },
   {
@@ -133,7 +133,7 @@ const reviews: Review[] = [
     rating: 5,
     text: 'They installed a beautiful pedestrian gate for us. The design matches our home perfectly. Thank you!',
     platform: 'google',
-    image: profile12,
+    image: profile12, // Female
     dateStr: '03/11/25'
   }
 ];
