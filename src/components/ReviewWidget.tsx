@@ -16,6 +16,7 @@ import profile9 from '@/assets/reviews/profile-9.webp';
 import profile10 from '@/assets/reviews/profile-10.webp';
 import profile11 from '@/assets/reviews/profile-11.webp';
 import profile12 from '@/assets/reviews/profile-12.webp';
+import yelpLogo from '@/assets/yelp-logo.webp';
 
 interface Review {
   id: string;
@@ -168,9 +169,7 @@ function PlatformIcon({ platform, showLabel = true }: { platform: 'google' | 'ye
   }
   return (
     <div className="flex items-center gap-1.5">
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="#FF1A1A">
-        <path d="M20.16 12.594c0-5.655-4.592-10.246-10.247-10.246C4.257 2.348.665 6.94.665 12.594c0 4.756 3.342 8.728 7.796 9.71v-6.871H6.01v-2.839h2.45V10.18c0-2.419 1.442-3.754 3.646-3.754 1.056 0 2.16.189 2.16.189v2.375h-1.217c-1.2 0-1.573.744-1.573 1.508v1.096h2.677l-.428 2.839h-2.249v6.871c4.454-.982 7.796-4.954 7.796-9.71z" />
-      </svg>
+      <img src={yelpLogo} alt="Yelp" className="w-5 h-5 rounded-full object-cover" loading="lazy" decoding="async" />
       {showLabel && <span className="text-sm font-semibold text-muted-foreground">Yelp</span>}
     </div>
   );
@@ -315,9 +314,7 @@ export function ReviewWidget() {
               <span className="text-base font-bold">Google</span>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-              <svg className="w-7 h-7" viewBox="0 0 24 24" fill="#FF1A1A">
-                <path d="M20.16 12.594c0-5.655-4.592-10.246-10.247-10.246C4.257 2.348.665 6.94.665 12.594c0 4.756 3.342 8.728 7.796 9.71v-6.871H6.01v-2.839h2.45V10.18c0-2.419 1.442-3.754 3.646-3.754 1.056 0 2.16.189 2.16.189v2.375h-1.217c-1.2 0-1.573.744-1.573 1.508v1.096h2.677l-.428 2.839h-2.249v6.871c4.454-.982 7.796-4.954 7.796-9.71z" />
-              </svg>
+              <img src={yelpLogo} alt="Yelp" className="w-7 h-7 rounded-full object-cover" loading="lazy" decoding="async" />
               <span className="text-base font-bold">Yelp</span>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
