@@ -1,5 +1,6 @@
 import { Phone } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
+import techWorking from '@/assets/tech-working.webp';
 
 export function CompareQuoteCTA() {
   const { phoneLink } = useLocation2();
@@ -11,6 +12,16 @@ export function CompareQuoteCTA() {
       
       <div className="container-main relative">
         <div className="max-w-4xl mx-auto text-center">
+          {/* Small technician image */}
+          <div className="mb-8 flex justify-center">
+            <img 
+              src={techWorking} 
+              alt="Eagle technician working on gate installation" 
+              className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-4 border-primary shadow-xl shadow-primary/30"
+              loading="lazy"
+            />
+          </div>
+
           {/* Headline - Large, Bold, Authoritative */}
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-8 tracking-tight text-secondary leading-[1.1]">
             Before You Accept Another Quote, Call Us Now —{' '}
