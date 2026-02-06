@@ -188,3 +188,5 @@ export function ContactForm() {
     </section>
   );
 }
+
+export default ContactForm;

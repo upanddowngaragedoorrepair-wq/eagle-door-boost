@@ -90,3 +90,5 @@ export function Footer() {
     </footer>
   );
 }
+
+export default Footer;

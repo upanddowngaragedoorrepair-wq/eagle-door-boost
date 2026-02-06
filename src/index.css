@@ -509,10 +509,11 @@
   will-change: transform;
 }
 
-/* Reduce paint on scroll */
+/* Reduce paint on scroll - optimized for carousels and tickers */
 @media (prefers-reduced-motion: no-preference) {
   .animate-ticker,
-  [style*="marquee-scroll"] {
+  [style*="marquee-scroll"],
+  .embla__container {
     will-change: transform;
     transform: translateZ(0);
     backface-visibility: hidden;
@@ -535,8 +536,35 @@
   }
 }
 
-/* Content visibility for off-screen sections */
+/* Content visibility for off-screen sections - major performance boost */
 .content-auto {
   content-visibility: auto;
   contain-intrinsic-size: auto 500px;
+}
+
+/* Section containment for paint optimization */
+section {
+  contain: layout style;
+}
+
+/* Image rendering optimization */
+img {
+  content-visibility: auto;
+}
+
+/* Lazy section placeholder */
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Optimize backdrop-blur for performance */
+.backdrop-blur-sm,
+.backdrop-blur-md,
+.backdrop-blur-lg {
+  transform: translateZ(0);
 }

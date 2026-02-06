@@ -76,13 +76,15 @@ export function Services() {
               key={index} 
               className="group bg-white rounded-3xl overflow-hidden shadow-xl shadow-black/10 hover:shadow-2xl hover:shadow-black/20 transition-all duration-500 hover:-translate-y-3"
             >
-              {/* Image */}
+            {/* Image */}
               <div className="relative h-56 overflow-hidden">
                 <img 
                   src={service.image} 
                   alt={service.title} 
                   loading="lazy" 
-                  decoding="async" 
+                  decoding="async"
+                  width={400}
+                  height={224}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
