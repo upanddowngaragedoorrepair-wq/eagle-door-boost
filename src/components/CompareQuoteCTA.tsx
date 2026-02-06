@@ -17,7 +17,7 @@ export function CompareQuoteCTA() {
             <img 
               src={techWorking} 
               alt="Eagle technician working on gate installation" 
-              className="w-28 h-28 md:w-40 md:h-40 rounded-2xl object-cover border-4 border-primary shadow-xl shadow-primary/30"
+              className="w-36 h-36 md:w-48 md:h-48 rounded-2xl object-cover border-4 border-primary shadow-xl shadow-primary/30"
               loading="lazy"
             />
           </div>
