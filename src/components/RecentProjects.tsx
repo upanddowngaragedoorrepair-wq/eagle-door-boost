@@ -29,7 +29,7 @@ export function RecentProjects() {
             <span className="gold-text">Projects</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Real installs. Real results. Built to last.
+            Every technician arrives with a tablet showing hundreds of real designs from our recent installs.
           </p>
         </div>
 
