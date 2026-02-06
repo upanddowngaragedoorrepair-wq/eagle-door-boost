@@ -80,7 +80,7 @@ export function Header() {
             <div className="hidden xl:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/30">
               <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
               <span className="text-xs font-bold text-green-400">Open Now</span>
-              <span className="text-[10px] text-muted-foreground">7am–7pm</span>
+              <span className="text-[10px] text-muted-foreground">7AM-8PM</span>
             </div>
             
             <a href={phoneLink} className="hidden md:flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
