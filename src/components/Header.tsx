@@ -1,7 +1,7 @@
-import { Phone, Menu, X, ChevronDown, Star } from 'lucide-react';
+import { Phone, Menu, X, ChevronDown, Clock } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import { useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ParamLink } from '@/components/NavLink';
 const navItems = [{
   label: 'About Us',
@@ -76,11 +76,11 @@ export function Header() {
 
           {/* Phone CTAs */}
           <div className="flex items-center gap-4">
-            {/* Trust badge in header */}
-            <div className="hidden xl:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/30">
-              <Star className="w-4 h-4 fill-primary text-primary" />
-              <span className="text-xs font-bold text-primary">4.9</span>
-              <span className="text-xs text-muted-foreground">(189+)</span>
+            {/* Open Now badge in header */}
+            <div className="hidden xl:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/30">
+              <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+              <span className="text-xs font-bold text-green-400">Open Now</span>
+              <span className="text-[10px] text-muted-foreground">7am–7pm</span>
             </div>
             
             <a href={phoneLink} className="hidden md:flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
