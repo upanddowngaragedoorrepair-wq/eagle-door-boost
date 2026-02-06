@@ -199,6 +199,8 @@ function ReviewCard({ review, isCenter }: ReviewCardProps) {
           <img
             src={review.image}
             alt={review.name}
+            loading="lazy"
+            decoding="async"
             className={`w-14 h-14 rounded-full object-cover border-2 ${isCenter ? 'border-primary' : 'border-border'}`}
           />
           <div>
@@ -263,7 +265,7 @@ export function ReviewWidget() {
 
     const interval = setInterval(() => {
       emblaApi.scrollNext();
-    }, 4500);
+    }, 6000); // Increased from 4500ms to reduce CPU usage
 
     return () => clearInterval(interval);
   }, [emblaApi, isPaused]);
@@ -271,7 +273,7 @@ export function ReviewWidget() {
   return (
     <section id="reviews" className="py-20 md:py-28 border-t border-border overflow-hidden bg-secondary/20">
       <div className="container-main">
-        {/* Review Header Block */}
+        {/* Header */}
         <div className="text-center mb-14 md:mb-18">
           {/* Verified Badge */}
           <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 border border-primary/30 mb-8 shadow-lg">
@@ -349,7 +351,7 @@ export function ReviewWidget() {
 
           {/* Carousel Container */}
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex">
+            <div className="flex will-change-transform">
               {reviews.map((review, index) => (
                 <div
                   key={review.id}

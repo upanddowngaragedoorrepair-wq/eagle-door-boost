@@ -44,6 +44,7 @@ export function RecentProjects() {
                 src={project.src}
                 alt={project.alt}
                 loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover pointer-events-none select-none"
                 draggable={false}
               />

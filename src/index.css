@@ -501,3 +501,42 @@
     underline-grow 0.8s ease-out 0.4s forwards,
     underline-shine 2.5s ease-in-out 1.2s infinite;
 }
+
+/* Performance optimizations */
+
+/* GPU acceleration for smooth animations */
+.will-change-transform {
+  will-change: transform;
+}
+
+/* Reduce paint on scroll */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-ticker,
+  [style*="marquee-scroll"] {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .animate-ticker,
+  [style*="marquee-scroll"] {
+    animation: none !important;
+  }
+}
+
+/* Content visibility for off-screen sections */
+.content-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
