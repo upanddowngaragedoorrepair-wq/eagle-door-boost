@@ -8,18 +8,36 @@
     <meta name="robots" content="index, follow" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     
+    <!-- Critical CSS - Inlined for instant render -->
+    <style>
+      /* Critical above-fold styles for instant LCP */
+      :root{--background:222 47% 8%;--foreground:0 0% 95%;--primary:42 80% 52%;--primary-foreground:222 47% 8%;--card:222 47% 11%;--border:222 30% 20%;--muted-foreground:220 15% 65%}
+      *{margin:0;padding:0;box-sizing:border-box}
+      body{background:hsl(222 47% 8%);color:hsl(0 0% 95%);font-family:system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+      h1,h2,h3{font-family:system-ui,-apple-system,sans-serif;font-weight:700}
+      .container-main{width:100%;max-width:80rem;margin:0 auto;padding:0 1rem}
+      @media(min-width:640px){.container-main{padding:0 1.5rem}}
+      /* Hero skeleton - prevents layout shift */
+      #root:empty::before{content:'';display:block;min-height:100vh;background:hsl(222 47% 8%)}
+    </style>
+    
     <!-- DNS Prefetch for performance -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     
-    <!-- Preconnect to Google Fonts -->
+    <!-- Preconnect to Google Fonts - High priority -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
-    <!-- Non-blocking font loading with display=swap for faster text render -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" /></noscript>
+    <!-- Font loading: Only load critical weights initially -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@600&display=swap" media="print" onload="this.media='all'" />
+    
+    <!-- Defer non-critical font weights -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Oswald:wght@500;600&display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" />
+    </noscript>
     
     <!-- Open Graph -->
     <meta property="og:title" content="Eagle Automatic Gate & Door | Expert Gate Repair & Installation" />

@@ -51,3 +51,5 @@ export function CompareQuoteCTA() {
     </section>
   );
 }
+
+export default CompareQuoteCTA;

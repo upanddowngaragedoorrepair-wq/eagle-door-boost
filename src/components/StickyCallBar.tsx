@@ -36,3 +36,5 @@ export function StickyCallBar() {
     </div>
   );
 }
+
+export default StickyCallBar;

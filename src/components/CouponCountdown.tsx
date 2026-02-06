@@ -174,3 +174,5 @@ export function CouponCountdown() {
     </section>
   );
 }
+
+export default CouponCountdown;

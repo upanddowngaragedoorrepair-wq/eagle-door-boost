@@ -45,6 +45,8 @@ export function RecentProjects() {
                 alt={project.alt}
                 loading="lazy"
                 decoding="async"
+                width={400}
+                height={300}
                 className="w-full h-full object-cover pointer-events-none select-none"
                 draggable={false}
               />
@@ -55,3 +57,5 @@ export function RecentProjects() {
     </section>
   );
 }
+
+export default RecentProjects;

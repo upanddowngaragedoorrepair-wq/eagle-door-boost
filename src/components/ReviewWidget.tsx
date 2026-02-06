@@ -394,3 +394,5 @@ export function ReviewWidget() {
     </section>
   );
 }
+
+export default ReviewWidget;

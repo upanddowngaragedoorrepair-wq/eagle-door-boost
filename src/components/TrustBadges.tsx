@@ -50,7 +50,15 @@ export function TrustBadges() {
           <div className="order-2 lg:order-1">
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-2xl rounded-3xl" />
-                <img alt="Eagle Gate Service Truck" loading="lazy" decoding="async" className="relative w-full max-w-lg mx-auto lg:max-w-none rounded-3xl shadow-2xl shadow-black/40 border border-border" src="/lovable-uploads/58a20335-c903-4006-ae63-e2e175b9a7c2.png" />
+                <img 
+                  alt="Eagle Gate Service Truck" 
+                  loading="lazy" 
+                  decoding="async"
+                  width={600}
+                  height={400}
+                  className="relative w-full max-w-lg mx-auto lg:max-w-none rounded-3xl shadow-2xl shadow-black/40 border border-border" 
+                  src="/lovable-uploads/58a20335-c903-4006-ae63-e2e175b9a7c2.png" 
+                />
             </div>
           </div>
 

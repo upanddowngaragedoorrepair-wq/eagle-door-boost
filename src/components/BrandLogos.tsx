@@ -27,3 +27,5 @@ const brands = [
 export function BrandLogos() {
   return <BrandMarquee logos={brands} speed={25} />;
 }
+
+export default BrandLogos;
