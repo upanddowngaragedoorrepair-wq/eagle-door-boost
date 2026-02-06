@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Send, MapPin, Zap, Shield, Star, Lock, CheckCircle } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
-
 export function ContactForm() {
-  const { city } = useLocation2();
+  const {
+    city
+  } = useLocation2();
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -13,15 +14,12 @@ export function ContactForm() {
     address: '',
     message: ''
   });
-  
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
   };
-  
   if (submitted) {
-    return (
-      <section id="quote-form" className="py-24 md:py-32 bg-background">
+    return <section id="quote-form" className="py-24 md:py-32 bg-background">
         <div className="container-main">
           <div className="max-w-md mx-auto text-center">
             <div className="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-8">
@@ -35,12 +33,9 @@ export function ContactForm() {
             </p>
           </div>
         </div>
-      </section>
-    );
+      </section>;
   }
-  
-  return (
-    <section id="quote-form" className="py-24 md:py-32 bg-background relative overflow-hidden">
+  return <section id="quote-form" className="py-24 md:py-32 bg-background relative overflow-hidden">
       {/* Decorative curves */}
       <div className="absolute top-0 left-0 right-0 h-40 overflow-hidden">
         <svg className="absolute w-full h-full" viewBox="0 0 1440 128" preserveAspectRatio="none">
@@ -92,18 +87,14 @@ export function ContactForm() {
           <div className="hidden lg:block">
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-2xl rounded-3xl" />
-              <img 
-                alt="Eagle Gate Team" 
-                className="relative w-full h-full object-cover rounded-3xl shadow-2xl shadow-black/40 border border-border" 
-                src="/lovable-uploads/9f447efa-be7f-4639-8424-0ffbec5d3e2e.png" 
-              />
+              <img alt="Eagle Gate Team" className="relative w-full h-full object-cover rounded-3xl shadow-2xl shadow-black/40 border border-border" src="/lovable-uploads/9f447efa-be7f-4639-8424-0ffbec5d3e2e.png" />
             </div>
           </div>
 
           {/* Form Card - Enhanced */}
           <div className="bg-primary rounded-3xl p-10 shadow-2xl shadow-primary/20 relative">
             {/* Online Now Badge */}
-            <div className="absolute top-6 right-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/10 border border-primary-foreground/20">
+            <div className="absolute top-6 right-6 inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 py-0 px-[5px] pb-0 pr-[10px] my-0 mb-0 mr-[4px] mt-0">
               <div className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse" />
               <span className="font-bold text-primary-foreground text-sm">Online Now</span>
             </div>
@@ -117,62 +108,38 @@ export function ContactForm() {
 
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid md:grid-cols-2 gap-4">
-                <input 
-                  type="text" 
-                  placeholder="Your Name *" 
-                  required 
-                  className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors text-base font-medium" 
-                  value={formData.name} 
-                  onChange={e => setFormData({ ...formData, name: e.target.value })} 
-                />
-                <input 
-                  type="tel" 
-                  placeholder="Phone Number *" 
-                  required 
-                  className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors text-base font-medium" 
-                  value={formData.phone} 
-                  onChange={e => setFormData({ ...formData, phone: e.target.value })} 
-                />
+                <input type="text" placeholder="Your Name *" required className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors text-base font-medium" value={formData.name} onChange={e => setFormData({
+                ...formData,
+                name: e.target.value
+              })} />
+                <input type="tel" placeholder="Phone Number *" required className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors text-base font-medium" value={formData.phone} onChange={e => setFormData({
+                ...formData,
+                phone: e.target.value
+              })} />
               </div>
               
               <div className="grid md:grid-cols-2 gap-4">
-                <input 
-                  type="email" 
-                  placeholder="Email Address" 
-                  className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors text-base font-medium" 
-                  value={formData.email} 
-                  onChange={e => setFormData({ ...formData, email: e.target.value })} 
-                />
-                <input 
-                  type="text" 
-                  placeholder="Zip Code *" 
-                  required 
-                  className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors text-base font-medium" 
-                  value={formData.zipCode} 
-                  onChange={e => setFormData({ ...formData, zipCode: e.target.value })} 
-                />
+                <input type="email" placeholder="Email Address" className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors text-base font-medium" value={formData.email} onChange={e => setFormData({
+                ...formData,
+                email: e.target.value
+              })} />
+                <input type="text" placeholder="Zip Code *" required className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors text-base font-medium" value={formData.zipCode} onChange={e => setFormData({
+                ...formData,
+                zipCode: e.target.value
+              })} />
               </div>
 
-              <input 
-                type="text" 
-                placeholder="Street Address" 
-                className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors text-base font-medium" 
-                value={formData.address} 
-                onChange={e => setFormData({ ...formData, address: e.target.value })} 
-              />
+              <input type="text" placeholder="Street Address" className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors text-base font-medium" value={formData.address} onChange={e => setFormData({
+              ...formData,
+              address: e.target.value
+            })} />
 
-              <textarea 
-                placeholder="Tell us about your issue" 
-                rows={3} 
-                className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors resize-none text-base font-medium" 
-                value={formData.message} 
-                onChange={e => setFormData({ ...formData, message: e.target.value })} 
-              />
+              <textarea placeholder="Tell us about your issue" rows={3} className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors resize-none text-base font-medium" value={formData.message} onChange={e => setFormData({
+              ...formData,
+              message: e.target.value
+            })} />
 
-              <button 
-                type="submit" 
-                className="w-full flex items-center justify-center gap-3 px-8 py-5 rounded-xl bg-background text-foreground font-display font-bold text-lg uppercase tracking-wide hover:bg-background/90 transition-colors border-2 border-background/20 shadow-lg"
-              >
+              <button type="submit" className="w-full flex items-center justify-center gap-3 px-8 py-5 rounded-xl bg-background text-foreground font-display font-bold text-lg uppercase tracking-wide hover:bg-background/90 transition-colors border-2 border-background/20 shadow-lg">
                 <Send className="w-5 h-5" />
                 Get Your Free Estimate
               </button>
@@ -185,8 +152,6 @@ export function ContactForm() {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
-
 export default ContactForm;
