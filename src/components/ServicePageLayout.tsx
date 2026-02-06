@@ -8,6 +8,7 @@ import { ContactForm } from './ContactForm';
 import { ReviewWidget } from './ReviewWidget';
 import { CouponCountdown } from './CouponCountdown';
 import { AuthoritySection } from './AuthoritySection';
+import { CompareQuoteCTA } from './CompareQuoteCTA';
 import eagleLogo from '@/assets/eagle-logo.webp';
 interface ServiceFeature {
   title: string;
@@ -241,6 +242,9 @@ export function ServicePageLayout({
 
         {/* Contact Form */}
         <ContactForm />
+
+        {/* Compare Quote CTA - High conversion interruption */}
+        <CompareQuoteCTA />
 
         {/* Final Aggressive CTA - Enhanced */}
         <section className="py-24 md:py-32 bg-background relative overflow-hidden">

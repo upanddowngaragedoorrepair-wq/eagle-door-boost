@@ -11,6 +11,7 @@ import { BrandLogos } from '@/components/BrandLogos';
 import { ContactForm } from '@/components/ContactForm';
 import { RecentProjects } from '@/components/RecentProjects';
 import { FinalCTA } from '@/components/FinalCTA';
+import { CompareQuoteCTA } from '@/components/CompareQuoteCTA';
 import { Footer } from '@/components/Footer';
 import { StickyCallBar } from '@/components/StickyCallBar';
 
@@ -30,6 +31,7 @@ const Index = () => {
         <BrandLogos />
         <ContactForm />
         <RecentProjects />
+        <CompareQuoteCTA />
         <FinalCTA />
       </main>
       <Footer />

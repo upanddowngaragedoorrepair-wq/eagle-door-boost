@@ -6,6 +6,7 @@ import { Footer } from '@/components/Footer';
 import { StickyCallBar } from '@/components/StickyCallBar';
 import { ContactForm } from '@/components/ContactForm';
 import { ReviewWidget } from '@/components/ReviewWidget';
+import { CompareQuoteCTA } from '@/components/CompareQuoteCTA';
 import teamPhoto from '@/assets/team-photo.webp';
 import teamGroupPhoto from '@/assets/team-group-photo.webp';
 import aboutHeroBg from '@/assets/about-hero-bg.webp';
@@ -194,6 +195,9 @@ const AboutUs = () => {
 
         <ReviewWidget />
         <ContactForm />
+        
+        {/* Compare Quote CTA */}
+        <CompareQuoteCTA />
 
         {/* Final CTA - Enhanced */}
         <section className="py-24 md:py-32 bg-background relative overflow-hidden">
