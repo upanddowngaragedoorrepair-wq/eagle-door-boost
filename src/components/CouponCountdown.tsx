@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { Clock, Scissors } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import gateRepair from '@/assets/gate-repair.webp';
@@ -33,22 +33,47 @@ const coupons = [{
 export function CouponCountdown() {
   const { phoneLink } = useLocation2();
   const [timeLeft, setTimeLeft] = useState(getTimeUntilEndOfMonth());
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
   
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(getTimeUntilEndOfMonth());
-    }, 1000);
-    return () => clearInterval(timer);
+    // Only run timer when component is visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          intervalRef.current = setInterval(() => {
+            setTimeLeft(getTimeUntilEndOfMonth());
+          }, 1000);
+        } else {
+          if (intervalRef.current) {
+            clearInterval(intervalRef.current);
+          }
+        }
+      },
+      { threshold: 0.1 }
+    );
+    
+    const section = document.getElementById('coupon-section');
+    if (section) observer.observe(section);
+    
+    return () => {
+      observer.disconnect();
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
   }, []);
   
-  const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-  const hours = Math.floor(timeLeft % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
-  const minutes = Math.floor(timeLeft % (1000 * 60 * 60) / (1000 * 60));
-  const seconds = Math.floor(timeLeft % (1000 * 60) / 1000);
-  const currentMonth = new Date().toLocaleString('default', { month: 'long' }).toUpperCase();
+  const { days, hours, minutes, seconds } = useMemo(() => ({
+    days: Math.floor(timeLeft / (1000 * 60 * 60 * 24)),
+    hours: Math.floor(timeLeft % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)),
+    minutes: Math.floor(timeLeft % (1000 * 60 * 60) / (1000 * 60)),
+    seconds: Math.floor(timeLeft % (1000 * 60) / 1000)
+  }), [timeLeft]);
+  
+  const currentMonth = useMemo(() => 
+    new Date().toLocaleString('default', { month: 'long' }).toUpperCase()
+  , []);
   
   return (
-    <section className="py-24 md:py-32 bg-background relative overflow-hidden">
+    <section id="coupon-section" className="py-24 md:py-32 bg-background relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 via-transparent to-secondary/30 pointer-events-none" />
       
