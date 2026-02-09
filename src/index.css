@@ -552,6 +552,43 @@ img {
   content-visibility: auto;
 }
 
+/* Form input readability on dark theme */
+input, textarea, select,
+.select-trigger {
+  color: #FFFFFF !important;
+  caret-color: #FFFFFF;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+[role="combobox"]:focus {
+  outline: none !important;
+  border-color: #F2B21B !important;
+  box-shadow: 0 0 0 3px rgba(242, 178, 27, 0.25) !important;
+}
+
+/* Fix browser autofill dark background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #FFFFFF !important;
+  -webkit-box-shadow: 0 0 0px 1000px hsl(222, 47%, 11%) inset !important;
+  box-shadow: 0 0 0px 1000px hsl(222, 47%, 11%) inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 /* Lazy section placeholder */
 .animate-pulse {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
