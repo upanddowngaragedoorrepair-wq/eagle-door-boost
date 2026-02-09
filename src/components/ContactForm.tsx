@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { Send, MapPin, Zap, Shield, Star, Lock, CheckCircle, Phone } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Send, MapPin, Zap, Shield, Star, Lock } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 
 export function ContactForm() {
   const { city, cp, phoneLink, phoneFormatted } = useLocation2();
-  const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate();
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [formData, setFormData] = useState({
@@ -39,7 +40,13 @@ export function ContactForm() {
       });
 
       if (res.ok) {
-        setSubmitted(true);
+        const params = new URLSearchParams(window.location.search);
+        const keepParams = ['city', 'cp', 'utm_source', 'utm_campaign', 'utm_medium', 'utm_term', 'utm_content', 'gclid', 'cd', 'kd'];
+        const redirectParams = new URLSearchParams();
+        keepParams.forEach(k => { const v = params.get(k); if (v) redirectParams.set(k, v); });
+        const qs = redirectParams.toString();
+        navigate(`/form-submitted${qs ? `?${qs}` : ''}`);
+        return;
       } else {
         const data = await res.json();
         setError(data?.errors?.map((err: any) => err.message).join(', ') || 'Something went wrong. Please try again.');
@@ -51,58 +58,7 @@ export function ContactForm() {
     }
   };
 
-  if (submitted) {
-    return (
-      <section id="quote-form" className="py-24 md:py-32 bg-background">
-        <div className="container-main">
-          <div className="max-w-2xl mx-auto animate-fade-in">
-            <div className="bg-primary rounded-3xl p-10 md:p-14 shadow-2xl shadow-primary/20 text-center">
-              {/* Check icon */}
-              <div className="w-20 h-20 rounded-full bg-primary-foreground/15 flex items-center justify-center mx-auto mb-8 border-2 border-primary-foreground/20">
-                <CheckCircle className="w-10 h-10 text-primary-foreground" />
-              </div>
 
-              <h3 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-4 leading-tight">
-                Your Appointment Request Has Been Received!
-              </h3>
-
-              <p className="text-lg text-primary-foreground/80 mb-8 leading-relaxed">
-                Thank you for booking your FREE estimate request with Eagle Automatic Gate &amp; Door! We're currently testing this new online scheduling system, so our technician will call you shortly to verify your details. We appreciate your patience and apologize for any delays or inconvenience this may cause.
-              </p>
-
-              <div className="text-left bg-primary-foreground/10 rounded-2xl p-6 md:p-8 mb-8 border border-primary-foreground/15">
-                <p className="text-lg font-bold text-primary-foreground mb-4">Here's what happens next:</p>
-                <div className="space-y-3">
-                  <p className="flex items-start gap-3 text-primary-foreground/90 text-base">
-                    <span className="text-lg">✔️</span>
-                    We'll review your request and confirm a convenient appointment time.
-                  </p>
-                  <p className="flex items-start gap-3 text-primary-foreground/90 text-base">
-                    <span className="text-lg">✔️</span>
-                    Our expert technician will assess your project needs.
-                  </p>
-                  <p className="flex items-start gap-3 text-primary-foreground/90 text-base">
-                    <span className="text-lg">✔️</span>
-                    You'll receive a detailed estimate with the best solutions for your home.
-                  </p>
-                </div>
-              </div>
-
-              {/* Dynamic call button */}
-              <p className="text-primary-foreground/70 font-semibold text-base mb-4">Need help now?</p>
-              <a
-                href={phoneLink}
-                className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-xl bg-background text-foreground font-display font-bold text-xl uppercase tracking-wide hover:bg-background/90 transition-colors shadow-lg"
-              >
-                <Phone className="w-6 h-6" />
-                Call {phoneFormatted}
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section id="quote-form" className="py-24 md:py-32 bg-background relative overflow-hidden">

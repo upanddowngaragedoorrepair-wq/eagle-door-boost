@@ -17,6 +17,7 @@ const AccessControl = lazy(() => import("./pages/AccessControl"));
 const GateRepair = lazy(() => import("./pages/GateRepair"));
 const DrivewayGates = lazy(() => import("./pages/DrivewayGates"));
 const Fences = lazy(() => import("./pages/Fences"));
+const FormSubmitted = lazy(() => import("./pages/FormSubmitted"));
 
 const queryClient = new QueryClient();
 
@@ -43,6 +44,7 @@ const App = () => (
               <Route path="/gate-repair" element={<GateRepair />} />
               <Route path="/driveway-gates" element={<DrivewayGates />} />
               <Route path="/fences" element={<Fences />} />
+              <Route path="/form-submitted" element={<FormSubmitted />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
