@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { Send, MapPin, Zap, Shield, Star, Lock, CheckCircle } from 'lucide-react';
+import { Send, MapPin, Zap, Shield, Star, Lock, CheckCircle, Phone } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
+
 export function ContactForm() {
-  const {
-    city
-  } = useLocation2();
+  const { city, cp, phoneLink, phoneFormatted } = useLocation2();
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -14,28 +15,97 @@ export function ContactForm() {
     address: '',
     message: ''
   });
-  const handleSubmit = (e: React.FormEvent) => {
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setError('');
+
+    try {
+      const res = await fetch('https://formspree.io/f/xdalkyzy', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          zip: formData.zipCode,
+          address: formData.address,
+          message: formData.message,
+          page_url: window.location.href,
+          city: city,
+          cp: cp
+        })
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        const data = await res.json();
+        setError(data?.errors?.map((err: any) => err.message).join(', ') || 'Something went wrong. Please try again.');
+      }
+    } catch {
+      setError('Network error. Please check your connection and try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
+
   if (submitted) {
-    return <section id="quote-form" className="py-24 md:py-32 bg-background">
+    return (
+      <section id="quote-form" className="py-24 md:py-32 bg-background">
         <div className="container-main">
-          <div className="max-w-md mx-auto text-center">
-            <div className="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-8">
-              <CheckCircle className="w-12 h-12 text-primary" />
+          <div className="max-w-2xl mx-auto animate-fade-in">
+            <div className="bg-primary rounded-3xl p-10 md:p-14 shadow-2xl shadow-primary/20 text-center">
+              {/* Check icon */}
+              <div className="w-20 h-20 rounded-full bg-primary-foreground/15 flex items-center justify-center mx-auto mb-8 border-2 border-primary-foreground/20">
+                <CheckCircle className="w-10 h-10 text-primary-foreground" />
+              </div>
+
+              <h3 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-4 leading-tight">
+                Your Appointment Request Has Been Received!
+              </h3>
+
+              <p className="text-lg text-primary-foreground/80 mb-8 leading-relaxed">
+                Thank you for booking your FREE estimate request with Eagle Automatic Gate &amp; Door! We're currently testing this new online scheduling system, so our technician will call you shortly to verify your details. We appreciate your patience and apologize for any delays or inconvenience this may cause.
+              </p>
+
+              <div className="text-left bg-primary-foreground/10 rounded-2xl p-6 md:p-8 mb-8 border border-primary-foreground/15">
+                <p className="text-lg font-bold text-primary-foreground mb-4">Here's what happens next:</p>
+                <div className="space-y-3">
+                  <p className="flex items-start gap-3 text-primary-foreground/90 text-base">
+                    <span className="text-lg">✔️</span>
+                    We'll review your request and confirm a convenient appointment time.
+                  </p>
+                  <p className="flex items-start gap-3 text-primary-foreground/90 text-base">
+                    <span className="text-lg">✔️</span>
+                    Our expert technician will assess your project needs.
+                  </p>
+                  <p className="flex items-start gap-3 text-primary-foreground/90 text-base">
+                    <span className="text-lg">✔️</span>
+                    You'll receive a detailed estimate with the best solutions for your home.
+                  </p>
+                </div>
+              </div>
+
+              {/* Dynamic call button */}
+              <p className="text-primary-foreground/70 font-semibold text-base mb-4">Need help now?</p>
+              <a
+                href={phoneLink}
+                className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-xl bg-background text-foreground font-display font-bold text-xl uppercase tracking-wide hover:bg-background/90 transition-colors shadow-lg"
+              >
+                <Phone className="w-6 h-6" />
+                Call {phoneFormatted}
+              </a>
             </div>
-            <h3 className="font-display text-3xl font-bold text-foreground mb-5">
-              Thank You!
-            </h3>
-            <p className="text-lg text-muted-foreground">
-              We've received your request and will call you back shortly.
-            </p>
           </div>
         </div>
-      </section>;
+      </section>
+    );
   }
-  return <section id="quote-form" className="py-24 md:py-32 bg-background relative overflow-hidden">
+
+  return (
+    <section id="quote-form" className="py-24 md:py-32 bg-background relative overflow-hidden">
       {/* Decorative curves */}
       <div className="absolute top-0 left-0 right-0 h-40 overflow-hidden">
         <svg className="absolute w-full h-full" viewBox="0 0 1440 128" preserveAspectRatio="none">
@@ -57,7 +127,7 @@ export function ContactForm() {
           </div>
         </div>
 
-        {/* Headline - BIGGER */}
+        {/* Headline */}
         <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-center mb-6 tracking-tight">
           <span className="text-foreground">Get Your</span>{' '}
           <span className="gold-text italic">Free Estimate</span>
@@ -87,11 +157,11 @@ export function ContactForm() {
           <div className="hidden lg:block">
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-2xl rounded-3xl" />
-              <img alt="Eagle Gate Team" className="relative w-full h-full object-cover rounded-3xl shadow-2xl shadow-black/40 border border-border" src="/lovable-uploads/9f447efa-be7f-4639-8424-0ffbec5d3e2e.png" />
+              <img alt="Eagle Gate Team" className="relative w-full h-full object-cover rounded-3xl shadow-2xl shadow-black/40 border border-border" src="/lovable-uploads/9f447efa-be7f-4639-8424-0ffbec5d3e2e.png" loading="lazy" decoding="async" />
             </div>
           </div>
 
-          {/* Form Card - Enhanced */}
+          {/* Form Card */}
           <div className="bg-primary rounded-3xl p-10 shadow-2xl shadow-primary/20 relative">
             {/* Online Now Badge */}
             <div className="absolute top-6 right-6 inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 py-0 px-[5px] pb-0 pr-[10px] my-0 mb-0 mr-[4px] mt-0">
@@ -106,42 +176,30 @@ export function ContactForm() {
               Fill out the form and we'll get back to you in less than one minute!
             </p>
 
+            {error && (
+              <div className="mb-5 p-4 rounded-xl bg-red-500/20 border border-red-400/30 text-primary-foreground text-sm font-medium">
+                {error}
+              </div>
+            )}
+
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid md:grid-cols-2 gap-4">
-                <input type="text" placeholder="Your Name *" required className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors text-base font-medium" value={formData.name} onChange={e => setFormData({
-                ...formData,
-                name: e.target.value
-              })} />
-                <input type="tel" placeholder="Phone Number *" required className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors text-base font-medium" value={formData.phone} onChange={e => setFormData({
-                ...formData,
-                phone: e.target.value
-              })} />
+                <input type="text" placeholder="Your Name *" required className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors text-base font-medium hover:text-white" value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} />
+                <input type="tel" placeholder="Phone Number *" required className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors text-base font-medium hover:text-white" value={formData.phone} onChange={e => setFormData({ ...formData, phone: e.target.value })} />
               </div>
               
               <div className="grid md:grid-cols-2 gap-4">
-                <input type="email" placeholder="Email Address" className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors text-base font-medium" value={formData.email} onChange={e => setFormData({
-                ...formData,
-                email: e.target.value
-              })} />
-                <input type="text" placeholder="Zip Code *" required className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors text-base font-medium" value={formData.zipCode} onChange={e => setFormData({
-                ...formData,
-                zipCode: e.target.value
-              })} />
+                <input type="email" placeholder="Email Address" className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors text-base font-medium hover:text-white" value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} />
+                <input type="text" placeholder="Zip Code *" required className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors text-base font-medium hover:text-white" value={formData.zipCode} onChange={e => setFormData({ ...formData, zipCode: e.target.value })} />
               </div>
 
-              <input type="text" placeholder="Street Address" className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors text-base font-medium" value={formData.address} onChange={e => setFormData({
-              ...formData,
-              address: e.target.value
-            })} />
+              <input type="text" placeholder="Street Address" className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors text-base font-medium hover:text-white" value={formData.address} onChange={e => setFormData({ ...formData, address: e.target.value })} />
 
-              <textarea placeholder="Tell us about your issue" rows={3} className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors resize-none text-base font-medium" value={formData.message} onChange={e => setFormData({
-              ...formData,
-              message: e.target.value
-            })} />
+              <textarea placeholder="Tell us about your issue" rows={3} className="w-full px-5 py-4 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none transition-colors resize-none text-base font-medium hover:text-white" value={formData.message} onChange={e => setFormData({ ...formData, message: e.target.value })} />
 
-              <button type="submit" className="w-full flex items-center justify-center gap-3 px-8 py-5 rounded-xl bg-background text-foreground font-display font-bold text-lg uppercase tracking-wide hover:bg-background/90 transition-colors border-2 border-background/20 shadow-lg">
+              <button type="submit" disabled={submitting} className="w-full flex items-center justify-center gap-3 px-8 py-5 rounded-xl bg-background text-foreground font-display font-bold text-lg uppercase tracking-wide hover:bg-background/90 transition-colors border-2 border-background/20 shadow-lg disabled:opacity-70 disabled:cursor-not-allowed">
                 <Send className="w-5 h-5" />
-                Get Your Free Estimate
+                {submitting ? 'Submitting...' : 'Get Your Free Estimate'}
               </button>
             </form>
 
@@ -152,6 +210,8 @@ export function ContactForm() {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }
+
 export default ContactForm;
