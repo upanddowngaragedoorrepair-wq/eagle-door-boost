@@ -27,10 +27,12 @@ const navItems = [{
   }]
 }, {
   label: 'Reviews',
-  href: '/#reviews'
+  href: '#reviews',
+  isAnchor: true
 }, {
   label: 'Contact',
-  href: '/#quote-form'
+  href: '#quote-form',
+  isAnchor: true
 }];
 export function Header() {
   const {
@@ -69,7 +71,9 @@ export function Header() {
                       </ParamLink>)}
                   </div>
                 </div>
-              </div> : <ParamLink key={item.href} to={item.href} className={`text-sm font-bold transition-colors uppercase tracking-wide ${location.pathname === item.href ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
+              </div> : item.isAnchor ? <a key={item.href} href={item.href} onClick={(e) => { if (location.pathname === '/') { e.preventDefault(); document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' }); } }} className="text-sm font-bold transition-colors uppercase tracking-wide text-muted-foreground hover:text-foreground cursor-pointer">
+                {item.label}
+              </a> : <ParamLink key={item.href} to={item.href} className={`text-sm font-bold transition-colors uppercase tracking-wide ${location.pathname === item.href ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
                 {item.label}
               </ParamLink>)}
           </nav>
@@ -113,7 +117,9 @@ export function Header() {
                           {child.label}
                         </ParamLink>)}
                     </div>}
-                </div> : <ParamLink key={item.href} to={item.href} onClick={() => setMobileMenuOpen(false)} className="block px-4 py-4 text-base font-bold text-foreground uppercase tracking-wide hover:text-primary transition-colors">
+                </div> : item.isAnchor ? <a key={item.href} href={item.href} onClick={(e) => { if (location.pathname === '/') { e.preventDefault(); document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' }); } setMobileMenuOpen(false); }} className="block px-4 py-4 text-base font-bold text-foreground uppercase tracking-wide hover:text-primary transition-colors cursor-pointer">
+                  {item.label}
+                </a> : <ParamLink key={item.href} to={item.href} onClick={() => setMobileMenuOpen(false)} className="block px-4 py-4 text-base font-bold text-foreground uppercase tracking-wide hover:text-primary transition-colors">
                   {item.label}
                 </ParamLink>)}
             </nav>
