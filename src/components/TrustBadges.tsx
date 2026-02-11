@@ -27,9 +27,7 @@ const badges = [{
   description: 'No hidden fees - Always Detailed Quote'
 }];
 export function TrustBadges() {
-  return <section className="py-20 md:py-28 border-t border-b border-border bg-secondary/30 relative overflow-hidden">
-      {/* Background gradient for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background pointer-events-none" />
+  return <section className="py-20 md:py-28 border-t border-b border-border bg-secondary/30 relative overflow-hidden content-auto">
       
       <div className="container-main relative">
         <div className="text-center mb-16">
@@ -49,7 +47,6 @@ export function TrustBadges() {
           {/* Service Truck Photo */}
           <div className="order-2 lg:order-1">
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-2xl rounded-3xl" />
                 <img 
                   alt="Eagle Gate Service Truck" 
                   loading="lazy" 

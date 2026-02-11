@@ -25,7 +25,7 @@ export function UrgencyTicker() {
   const items = [...tickerItems, ...tickerItems, ...tickerItems, ...tickerItems];
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-[60] bg-[hsl(42,60%,58%)] overflow-hidden">
+    <div className="fixed top-0 left-0 right-0 z-[60] bg-[hsl(42,60%,58%)] overflow-hidden" style={{ contain: 'layout style paint' }}>
       <div className="flex whitespace-nowrap py-2 animate-ticker">
         {items.map((item, index) => (
           <a

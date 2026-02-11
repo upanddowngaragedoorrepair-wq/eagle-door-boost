@@ -41,7 +41,7 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const location = useLocation();
-  return <header className="fixed top-8 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-2xl">
+  return <header className="fixed top-8 left-0 right-0 z-50 bg-background/98 border-b border-border shadow-2xl">
       <div className="container-main">
         <div className="flex items-center justify-between h-18 md:h-22">
           {/* Logo */}
