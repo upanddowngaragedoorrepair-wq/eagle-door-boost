@@ -112,6 +112,7 @@ export function ContactForm() {
           {/* Team Photo */}
           <div className="hidden lg:block">
             <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-2xl rounded-3xl" />
               <img alt="Eagle Gate Team" className="relative w-full h-full object-cover rounded-3xl shadow-2xl shadow-black/40 border border-border" src="/lovable-uploads/9f447efa-be7f-4639-8424-0ffbec5d3e2e.png" loading="lazy" decoding="async" />
             </div>
           </div>

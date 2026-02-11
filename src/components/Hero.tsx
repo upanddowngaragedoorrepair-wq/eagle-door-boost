@@ -50,8 +50,11 @@ export function Hero() {
         height={1080}
         className="absolute inset-0 w-full h-full object-cover"
       />
-      {/* Single gradient overlay - combined for fewer paint layers */}
+      {/* Multi-layer gradient overlay for depth - Simplified for performance */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/70 to-background/95" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-background/40" />
+      {/* Subtle gold accent glow - Simplified */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/5 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="container-main relative">
         {/* Trust Badges Row - VISIBLE IMMEDIATELY (no opacity:0 animation delay) */}
