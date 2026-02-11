@@ -47,9 +47,7 @@ const services = [{
 
 export function Services() {
   return (
-    <section id="services" className="py-24 md:py-32 bg-[hsl(45,30%,95%)] relative">
-      {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/5 via-transparent to-background/10 pointer-events-none" />
+    <section id="services" className="py-24 md:py-32 bg-[hsl(45,30%,95%)] relative content-auto">
       
       <div className="container-main relative">
         {/* Section Header - Bob's Style - BIGGER */}

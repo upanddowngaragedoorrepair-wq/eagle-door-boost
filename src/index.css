@@ -605,3 +605,41 @@ select:-webkit-autofill:focus {
 .backdrop-blur-lg {
   transform: translateZ(0);
 }
+
+/* Mobile-specific performance optimizations */
+@media (max-width: 768px) {
+  /* Disable hover transforms on mobile - reduces composite layers */
+  .card-service:hover,
+  .group:hover {
+    transform: none !important;
+  }
+  
+  /* Simplify shadows on mobile */
+  .shadow-2xl {
+    box-shadow: 0 4px 12px 0px hsl(0 0% 0% / 0.3) !important;
+  }
+  
+  /* Reduce animation complexity on mobile */
+  .btn-cta::after {
+    animation: none !important;
+  }
+  
+  .shine-text {
+    animation: none !important;
+    -webkit-text-fill-color: hsl(42, 80%, 52%);
+  }
+  
+  .headline-underline::after {
+    animation: underline-grow 0.8s ease-out 0.4s forwards !important;
+  }
+}
+
+/* Defer non-critical animations until after paint */
+@media (prefers-reduced-motion: no-preference) {
+  .defer-animation {
+    animation-play-state: paused;
+  }
+  .defer-animation.animate {
+    animation-play-state: running;
+  }
+}
