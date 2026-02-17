@@ -107,7 +107,7 @@ export function ServicePageLayout({
                 {/* Headline - BIGGER */}
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold leading-[1.05] mb-8 tracking-tight">
                   <span className="text-foreground">{title} </span>
-                  <span className="gradient-text">{city}</span>
+                  <span className="gradient-text">Pros</span>
                 </h1>
 
                 <p className="text-xl text-muted-foreground leading-relaxed mb-10 max-w-xl">

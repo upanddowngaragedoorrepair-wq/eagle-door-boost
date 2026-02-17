@@ -107,29 +107,44 @@ export function Hero() {
 
         {/* Service Cards Grid - Optimized with explicit dimensions */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5 mb-12">
-          {serviceCards.map((service, index) => (
-            <ParamLink 
-              key={index} 
-              to={service.link} 
-              className="group relative aspect-square rounded-2xl overflow-hidden border-2 border-border hover:border-primary/60 transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/20"
-            >
-              <img 
-                src={service.image} 
-                alt={service.title} 
-                loading={index < 3 ? "eager" : "lazy"} 
-                decoding={index < 3 ? "sync" : "async"}
-                width={200}
-                height={200}
-                className="absolute inset-0 w-full h-full object-cover" 
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
-                <h3 className="font-display text-sm md:text-base lg:text-lg font-bold text-foreground uppercase tracking-wide leading-tight group-hover:text-primary transition-colors">
-                  {service.title}
-                </h3>
-              </div>
-            </ParamLink>
-          ))}
+          {serviceCards.map((service, index) => {
+            const isDisabled = service.title === 'Pedestrian Gates';
+            const cardClasses = "group relative aspect-square rounded-2xl overflow-hidden border-2 border-border transition-all duration-300" + (isDisabled ? "" : " hover:border-primary/60 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/20");
+            
+            const cardContent = (
+              <>
+                <img 
+                  src={service.image} 
+                  alt={service.title} 
+                  loading={index < 3 ? "eager" : "lazy"} 
+                  decoding={index < 3 ? "sync" : "async"}
+                  width={200}
+                  height={200}
+                  className="absolute inset-0 w-full h-full object-cover" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
+                  <h3 className="font-display text-sm md:text-base lg:text-lg font-bold text-foreground uppercase tracking-wide leading-tight group-hover:text-primary transition-colors">
+                    {service.title}
+                  </h3>
+                </div>
+              </>
+            );
+
+            if (isDisabled) {
+              return (
+                <div key={index} className={cardClasses} aria-disabled="true">
+                  {cardContent}
+                </div>
+              );
+            }
+
+            return (
+              <ParamLink key={index} to={service.link} className={cardClasses}>
+                {cardContent}
+              </ParamLink>
+            );
+          })}
         </div>
 
         {/* Secondary Trust Row - Simplified animation */}
