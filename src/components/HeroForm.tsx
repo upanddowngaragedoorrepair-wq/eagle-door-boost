@@ -1,0 +1,140 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Send, Lock } from 'lucide-react';
+import { useLocation2 } from '@/contexts/LocationContext';
+
+const serviceOptions = [
+  'Gate Repair',
+  'Driveway Gates',
+  'Sliding Gates',
+  'Swing Gates',
+  'Access Control',
+  'Commercial Gates',
+  'Fences',
+  'Other',
+];
+
+export function HeroForm() {
+  const { city, cp } = useLocation2();
+  const navigate = useNavigate();
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    service: '',
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setError('');
+
+    try {
+      const res = await fetch('https://formspree.io/f/xdalkyzy', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          message: `Service needed: ${formData.service}`,
+          page_url: window.location.href,
+          city,
+          cp,
+        }),
+      });
+
+      if (res.ok) {
+        const params = new URLSearchParams(window.location.search);
+        const keepParams = ['city', 'cp', 'utm_source', 'utm_campaign', 'utm_medium', 'utm_term', 'utm_content', 'gclid', 'cd', 'kd'];
+        const redirectParams = new URLSearchParams();
+        keepParams.forEach(k => { const v = params.get(k); if (v) redirectParams.set(k, v); });
+        const qs = redirectParams.toString();
+        navigate(`/form-submitted${qs ? `?${qs}` : ''}`);
+      } else {
+        setError('Something went wrong. Please try again.');
+      }
+    } catch {
+      setError('Network error. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  return (
+    <div className="bg-primary rounded-3xl p-8 md:p-10 shadow-2xl shadow-primary/20 relative">
+      {/* Online badge */}
+      <div className="absolute top-5 right-5 inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 px-3 py-1">
+        <div className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse" />
+        <span className="font-bold text-primary-foreground text-sm">Online Now</span>
+      </div>
+
+      <h3 className="font-display text-2xl md:text-3xl font-bold text-primary-foreground mb-2">
+        Get Your Free Estimate
+      </h3>
+      <p className="text-base text-primary-foreground/80 mb-6">
+        No obligation • Expert advice • Fast response
+      </p>
+
+      {error && (
+        <div className="mb-4 p-3 rounded-xl bg-red-500/20 border border-red-400/30 text-primary-foreground text-sm">
+          {error}
+        </div>
+      )}
+
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <input
+          type="text"
+          placeholder="Your Name *"
+          required
+          className="w-full px-4 py-3.5 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none text-base font-medium"
+          value={formData.name}
+          onChange={e => setFormData({ ...formData, name: e.target.value })}
+        />
+        <input
+          type="tel"
+          placeholder="Phone Number *"
+          required
+          className="w-full px-4 py-3.5 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none text-base font-medium"
+          value={formData.phone}
+          onChange={e => setFormData({ ...formData, phone: e.target.value })}
+        />
+        <input
+          type="email"
+          placeholder="Email Address"
+          className="w-full px-4 py-3.5 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none text-base font-medium"
+          value={formData.email}
+          onChange={e => setFormData({ ...formData, email: e.target.value })}
+        />
+        <select
+          className="w-full px-4 py-3.5 rounded-xl bg-primary-foreground/90 text-background border-2 border-transparent focus:border-background/20 focus:outline-none text-base font-medium appearance-none"
+          value={formData.service}
+          onChange={e => setFormData({ ...formData, service: e.target.value })}
+        >
+          <option value="">Service Needed</option>
+          {serviceOptions.map(s => (
+            <option key={s} value={s}>{s}</option>
+          ))}
+        </select>
+
+        <button
+          type="submit"
+          disabled={submitting}
+          className="w-full flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-background text-foreground font-display font-bold text-lg uppercase tracking-wide hover:bg-background/90 transition-colors border-2 border-background/20 shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
+        >
+          <Send className="w-5 h-5" />
+          {submitting ? 'Submitting...' : 'Get Free Estimate'}
+        </button>
+      </form>
+
+      <p className="flex items-center justify-center gap-2 text-sm text-primary-foreground/60 mt-4">
+        <Lock className="w-4 h-4" />
+        Your information is secure and will never be shared
+      </p>
+    </div>
+  );
+}
+
+export default HeroForm;

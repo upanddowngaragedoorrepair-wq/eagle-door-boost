@@ -144,9 +144,12 @@
     scroll-behavior: smooth;
   }
 
+  #services,
   #reviews,
-  #quote-form {
-    scroll-margin-top: 100px;
+  #quote-form,
+  #service-area,
+  #why-choose-us {
+    scroll-margin-top: 120px;
   }
 
   body {
