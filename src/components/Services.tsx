@@ -123,16 +123,16 @@ export function Services() {
 
               {/* Image */}
               <div className="relative h-48 overflow-hidden">
-                <img
-                src={service.image}
-                alt={service.title}
-                loading="lazy"
-                decoding="async"
-                width={400}
-                height={192}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-
                 
+
+
+
+
+
+
+
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                 <h3 className="absolute bottom-4 left-6 font-display text-2xl md:text-3xl font-bold text-white">
                   {service.title}
                 </h3>
