@@ -50,7 +50,7 @@ export function ServiceAreaMap() {
   const displayCity = city && city !== 'Pros' ? city : 'The Bay Area';
 
   const mapSrc = useMemo(() => {
-    return `https://www.google.com/maps?q=${encodeURIComponent(mapCity)}&output=embed&z=12&t=m`;
+    return `https://www.google.com/maps?q=${encodeURIComponent(mapCity)}&output=embed&z=10&t=m`;
   }, [mapCity]);
 
   return (
