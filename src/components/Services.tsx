@@ -146,7 +146,7 @@ function DrivewayGalleryModal({ open, onClose }: { open: boolean; onClose: () =>
           </div>
         </div>
 
-        {/* Thumbnails */}
+        {/* Thumbnails — lazy loaded since they're below the main image */}
         <div className="flex gap-2 p-4 overflow-x-auto">
           {drivewayGallery.map((img, i) => (
             <button
@@ -156,7 +156,7 @@ function DrivewayGalleryModal({ open, onClose }: { open: boolean; onClose: () =>
                 i === activeIndex ? 'border-primary opacity-100' : 'border-transparent opacity-60 hover:opacity-90'
               }`}
             >
-              <img src={img} alt={`Thumbnail ${i + 1}`} className="w-full h-full object-cover" />
+              <img src={img} alt={`Thumbnail ${i + 1}`} className="w-full h-full object-cover" loading="lazy" decoding="async" width={64} height={64} />
             </button>
           ))}
         </div>
@@ -201,6 +201,7 @@ export function Services() {
 
               {/* Image */}
               <div className="relative h-48 overflow-hidden">
+                {/* PERF: explicit w/h + lazy + decoding=async prevents CLS & defers offscreen images */}
                 <img
                 src={service.image}
                 alt={service.title}

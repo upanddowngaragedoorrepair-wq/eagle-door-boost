@@ -1,3 +1,7 @@
+/*
+ * PERF: Ticker items duplicated only 2x (was 4x) — same seamless loop,
+ * half the DOM nodes, less layout work on mobile. GPU-accelerated via CSS.
+ */
 import { useLocation2 } from '@/contexts/LocationContext';
 import { Wrench, FileCheck, Phone, Star, Clock, Shield, BadgeDollarSign, CalendarCheck } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
@@ -21,11 +25,13 @@ const tickerItems: TickerItem[] = [
 export function UrgencyTicker() {
   const { phoneLink } = useLocation2();
 
-  const items = [...tickerItems, ...tickerItems, ...tickerItems, ...tickerItems];
+  // 2 copies is sufficient for a seamless infinite loop (was 4)
+  const items = [...tickerItems, ...tickerItems];
 
   return (
     <div className="fixed top-0 left-0 right-0 z-[60] overflow-hidden" style={{ background: 'hsl(200, 45%, 13%)' }}>
-      <div className="flex whitespace-nowrap py-2 animate-ticker">
+      {/* will-change:transform enables GPU compositing — avoids layout thrashing */}
+      <div className="flex whitespace-nowrap py-2 animate-ticker" style={{ willChange: 'transform' }}>
         {items.map((item, index) => (
           <a
             key={index}
@@ -40,3 +46,4 @@ export function UrgencyTicker() {
     </div>
   );
 }
+
