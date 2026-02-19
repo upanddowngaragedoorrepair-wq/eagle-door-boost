@@ -2,7 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Header } from '@/components/Header';
 import { UrgencyTicker } from '@/components/UrgencyTicker';
 import { Hero } from '@/components/Hero';
-import { PromiseBadges } from '@/components/PromiseBadges';
+import { TrustProofSection } from '@/components/TrustProofSection';
 import { Services } from '@/components/Services';
 import { LazySection, SectionPlaceholder } from '@/components/LazySection';
 
@@ -25,7 +25,7 @@ const Index = () => {
       <main>
         {/* Above-fold: Hero with inline form */}
         <Hero />
-        <PromiseBadges />
+        <TrustProofSection />
         <Services />
 
         {/* Below-fold: lazy loaded sections */}
