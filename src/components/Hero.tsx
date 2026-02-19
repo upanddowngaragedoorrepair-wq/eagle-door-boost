@@ -101,7 +101,7 @@ export function Hero() {
               'Same Day Service Available',
               'Free Estimates — No Obligation',
               '20+ Years of Experience',
-              '$0 Check-up Fee'].
+              'Residential & Commercial'].
               map((item, i) =>
               <li key={i} className="flex items-center gap-3 text-lg text-foreground/90">
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
