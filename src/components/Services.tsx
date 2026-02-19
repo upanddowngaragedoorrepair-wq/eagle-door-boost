@@ -43,13 +43,13 @@ const services = [
   },
   {
     image: gateSwing,
-    title: 'Swing Gates',
+    title: 'Pedestrian Gates',
     bullets: [
-      'Elegant solutions for residential and estate properties',
-      'Classic style meets modern automation',
-      'Classic design',
-      'Dual systems',
-      'Low maintenance',
+      'Custom pedestrian gate installation for walkways and side entries',
+      'Secure access for foot traffic without opening the main gate',
+      'Self-closing options',
+      'ADA compliant',
+      'Keypad & intercom ready',
     ],
   },
   {
