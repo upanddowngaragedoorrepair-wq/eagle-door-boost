@@ -20,7 +20,7 @@ const projects = [
   { src: project7, alt: 'Sliding gate motor installation' },
   { src: project8, alt: 'DoorBird access control system' },
   { src: project9, alt: 'Gate installation in progress by technicians' },
-  { src: project10, alt: 'Cellgate intercom access control system' },
+  { src: project10, alt: 'Cellgate intercom access control system', objectPosition: 'center top' },
   { src: project11, alt: 'Electric gate opener installation' },
 ];
 
@@ -61,6 +61,7 @@ export function RecentProjects() {
                 width={400}
                 height={300}
                 className="w-full h-full object-cover pointer-events-none select-none"
+                style={project.objectPosition ? { objectPosition: project.objectPosition } : undefined}
                 draggable={false}
               />
             </div>
