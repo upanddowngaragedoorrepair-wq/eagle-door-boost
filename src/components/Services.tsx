@@ -118,7 +118,7 @@ export function Services() {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
 
                 
-                <h3 className="absolute bottom-4 left-6 font-display text-2xl md:text-3xl font-bold text-white">
+                <h3 className="absolute bottom-4 left-6 font-display text-2xl md:text-3xl font-bold text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] [text-shadow:_0_0_1px_rgba(0,0,0,0.9),_1px_1px_0_rgba(0,0,0,0.6),-1px_-1px_0_rgba(0,0,0,0.6),_1px_-1px_0_rgba(0,0,0,0.6),-1px_1px_0_rgba(0,0,0,0.6)]">
                   {service.title}
                 </h3>
               </div>
