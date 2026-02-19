@@ -37,7 +37,7 @@ export function TrustProofSection() {
               className="w-20 h-20 md:w-28 md:h-28 object-contain relative z-10 drop-shadow-[0_0_12px_hsl(42_74%_46%/0.3)]"
               loading="lazy"
               decoding="async" />
-            <p className="text-xs text-white/50 leading-snug relative z-10 md:text-center">
+            <p className="text-xs leading-snug relative z-10 md:text-center text-popover">
               Certified contractors — Google puts its name behind our service.
             </p>
           </div>
