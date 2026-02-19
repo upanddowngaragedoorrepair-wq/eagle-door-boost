@@ -75,11 +75,6 @@ export function Hero() {
             {/* Headline */}
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold leading-[1.05] mb-4 tracking-tight text-foreground">
               {prefix}Gate Repair &amp; Installation
-              {city && (
-                <>
-                  {' '}in <span className="gradient-text">{city}</span>
-                </>
-              )}
             </h1>
 
             <p className="text-2xl md:text-3xl font-display font-semibold text-muted-foreground relative inline-block headline-underline mb-8">
