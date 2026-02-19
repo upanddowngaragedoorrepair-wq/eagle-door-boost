@@ -32,17 +32,6 @@ const services = [
 
 },
 {
-  image: gateSliding,
-  title: 'Sliding Gates',
-  bullets: [
-  'Install and repair sliding gate systems',
-  'Professional-grade parts for smooth operation',
-  'Space efficient',
-  'Heavy duty',
-  'Quiet motors']
-
-},
-{
   image: gateSwing,
   title: 'Pedestrian Gates',
   bullets: [
