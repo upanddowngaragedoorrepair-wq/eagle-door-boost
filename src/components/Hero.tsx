@@ -45,8 +45,8 @@ export function Hero() {
           alt=""
           className="w-full h-full object-cover"
           fetchPriority="high"
-          decoding="async"
-        />
+          decoding="async" />
+
         <div className="absolute inset-0 bg-background/85" />
       </div>
 
@@ -90,7 +90,7 @@ export function Hero() {
               {prefix}Gate Repair &amp; Installation
             </h1>
 
-            <p className="text-2xl md:text-3xl font-display font-semibold text-muted-foreground relative inline-block headline-underline mb-8">
+            <p className="text-2xl md:text-3xl font-display font-semibold relative inline-block headline-underline mb-8 text-sidebar-border">
               Best Price Guarantee
             </p>
 
