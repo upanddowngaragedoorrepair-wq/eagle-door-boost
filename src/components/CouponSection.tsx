@@ -3,28 +3,28 @@ import { useLocation2 } from '@/contexts/LocationContext';
 import couponBg from '@/assets/coupon-bg.webp';
 
 const coupons = [
-  {
-    id: '#2451',
-    title: 'GATE REPAIR SERVICE',
-    subtitle: 'Valid for any gate repair service',
-    discount: '5%',
-    icon: Wrench,
-  },
-  {
-    id: '#2452',
-    title: 'GATE INSTALLATION',
-    subtitle: 'Valid for any gate installation',
-    discount: '10%',
-    icon: DoorOpen,
-  },
-  {
-    id: '#2453',
-    title: 'GATE MAINTENANCE',
-    subtitle: 'Valid for any gate maintenance',
-    discount: '5%',
-    icon: Settings,
-  },
-];
+{
+  id: '#2451',
+  title: 'GATE REPAIR SERVICE',
+  subtitle: 'Valid for any gate repair service',
+  discount: '5%',
+  icon: Wrench
+},
+{
+  id: '#2452',
+  title: 'GATE INSTALLATION',
+  subtitle: 'Valid for any gate installation',
+  discount: '10%',
+  icon: DoorOpen
+},
+{
+  id: '#2453',
+  title: 'GATE MAINTENANCE',
+  subtitle: 'Valid for any gate maintenance',
+  discount: '5%',
+  icon: Settings
+}];
+
 
 export function CouponSection() {
   const { phoneFormatted, phoneLink } = useLocation2();
@@ -37,9 +37,9 @@ export function CouponSection() {
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover opacity-[0.15]"
         loading="lazy"
-        decoding="async"
-      />
-      <div className="absolute inset-0 bg-background/80" />
+        decoding="async" />
+
+      <div className="absolute inset-0 bg-background/80 opacity-50" />
       <div className="container-main relative z-10">
         <div className="text-center mb-12">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -56,8 +56,8 @@ export function CouponSection() {
             return (
               <div
                 key={coupon.id}
-                className="relative bg-card rounded-xl border-2 border-dashed border-primary/40 p-6 flex flex-col items-center text-center shadow-md hover:shadow-lg transition-shadow overflow-hidden"
-              >
+                className="relative bg-card rounded-xl border-2 border-dashed border-primary/40 p-6 flex flex-col items-center text-center shadow-md hover:shadow-lg transition-shadow overflow-hidden">
+
                 {/* Decorative scissors */}
                 <div className="absolute -top-px left-1/2 -translate-x-1/2 bg-muted px-3 py-0.5 rounded-b-lg">
                   <span className="text-xs text-muted-foreground">✂ - - - - -</span>
@@ -85,21 +85,21 @@ export function CouponSection() {
                   Free service call on all coupon offers.<br />
                   Not good with any other offer or discount.
                 </p>
-              </div>
-            );
+              </div>);
+
           })}
         </div>
 
         <div className="text-center">
           <a
             href={phoneLink}
-            className="btn-cta inline-flex items-center gap-2 px-8 py-4 text-base"
-          >
+            className="btn-cta inline-flex items-center gap-2 px-8 py-4 text-base">
+
             <Phone className="w-5 h-5" />
             Call Us {phoneFormatted}
           </a>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }
