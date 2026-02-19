@@ -39,7 +39,7 @@ const reviews: Review[] = [
   { id: '9', name: 'Anita Desai', rating: 5, text: 'Very professional team. They replaced our old gate with a modern automatic one. Love the new remote access feature!', platform: 'yelp', image: profile7, dateStr: '06/03/25' },
   { id: '10', name: 'Mike Johnson', rating: 5, text: 'Had an issue with my intercom system. They diagnosed and fixed it same day. Super knowledgeable technicians.', platform: 'google', image: profile10, dateStr: '05/19/25' },
   { id: '11', name: 'Hiroshi Tanaka', rating: 5, text: 'Excellent fence installation. Clean work, no mess left behind. The crew was respectful and efficient.', platform: 'yelp', image: profile11, dateStr: '04/27/25' },
-  { id: '12', name: 'Sofia Herrera', rating: 5, text: 'They installed a beautiful pedestrian gate for us. The design matches our home perfectly. Thank you!', platform: 'google', image: profile12, dateStr: '03/11/25' },
+  { id: '12', name: 'Ken B', rating: 5, text: 'They installed a beautiful pedestrian gate for us. The design matches our home perfectly. Thank you!', platform: 'google', image: profile12, dateStr: '03/11/25' },
 ];
 
 function StarRating({ rating, size = 'default' }: { rating: number; size?: 'default' | 'large' }) {
