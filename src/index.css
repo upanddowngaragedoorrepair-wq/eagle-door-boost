@@ -124,55 +124,43 @@
 }
 
 @layer components {
-  /* Primary CTA Button — gold, pressable */
+  /* Primary CTA Button — warm gradient, static */
   .btn-cta {
-    @apply inline-flex items-center justify-center gap-3 px-8 py-4 text-lg font-bold rounded-2xl transition-all duration-300;
+    @apply inline-flex items-center justify-center gap-3 px-8 py-4 text-lg font-bold rounded-full transition-all duration-300;
     font-family: 'Oswald', sans-serif;
-    background: var(--gradient-gold);
+    background: linear-gradient(135deg, hsl(42 90% 70%) 0%, hsl(38 85% 58%) 100%);
     color: hsl(var(--foreground));
     box-shadow:
-      0 6px 24px -6px hsl(42 74% 46% / 0.4),
-      0 3px 0 0 hsl(42 80% 36%);
+      0 4px 20px -4px hsl(42 74% 46% / 0.35),
+      inset 0 1px 0 0 hsl(42 90% 80% / 0.5);
     text-transform: uppercase;
     letter-spacing: 0.08em;
     border: none;
     position: relative;
     overflow: hidden;
-    min-height: 60px;
+    min-height: 56px;
   }
 
   .btn-cta::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, transparent 50%);
-    pointer-events: none;
-  }
-
-  .btn-cta::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%);
-    animation: btn-shine-sweep 3.5s ease-in-out infinite;
+    background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 60%);
     pointer-events: none;
   }
 
   .btn-cta:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     box-shadow:
-      0 12px 40px -8px hsl(42 74% 46% / 0.5),
-      0 5px 0 0 hsl(42 80% 36%);
+      0 8px 30px -6px hsl(42 74% 46% / 0.45),
+      inset 0 1px 0 0 hsl(42 90% 80% / 0.5);
   }
 
   .btn-cta:active {
-    transform: translateY(-1px);
+    transform: translateY(0px);
     box-shadow:
-      0 4px 16px -4px hsl(42 74% 46% / 0.35),
-      0 2px 0 0 hsl(42 80% 36%);
+      0 2px 12px -2px hsl(42 74% 46% / 0.3),
+      inset 0 1px 0 0 hsl(42 90% 80% / 0.4);
   }
 
   /* Secondary Button */
