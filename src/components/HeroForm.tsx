@@ -22,7 +22,6 @@ export function HeroForm() {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    zipCode: '',
     email: '',
     service: '',
   });
@@ -39,7 +38,6 @@ export function HeroForm() {
         body: JSON.stringify({
           name: formData.name,
           phone: formData.phone,
-          zip: formData.zipCode,
           email: formData.email,
           message: `Service needed: ${formData.service}`,
           page_url: window.location.href,
@@ -104,14 +102,6 @@ export function HeroForm() {
           className={inputClass}
           value={formData.phone}
           onChange={e => setFormData({ ...formData, phone: e.target.value })}
-        />
-        <input
-          type="text"
-          placeholder="Zip Code *"
-          required
-          className={inputClass}
-          value={formData.zipCode}
-          onChange={e => setFormData({ ...formData, zipCode: e.target.value })}
         />
         <input
           type="email"
