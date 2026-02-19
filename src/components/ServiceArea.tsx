@@ -11,7 +11,7 @@ export function ServiceArea() {
   const { city } = useLocation2();
 
   return (
-    <section id="service-area" className="py-20 md:py-28 bg-background border-t border-border">
+    <section id="service-area" className="py-[72px] md:py-24 bg-card border-t border-border">
       <div className="container-main">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-5 tracking-tight">
@@ -25,7 +25,7 @@ export function ServiceArea() {
 
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {Object.entries(areas).map(([region, cities]) => (
-            <div key={region} className="p-6 rounded-2xl bg-card border border-border shadow-lg">
+            <div key={region} className="p-6 rounded-2xl bg-background border border-border shadow-sm">
               <h3 className="font-display font-bold text-lg text-primary mb-4 flex items-center gap-2">
                 <MapPin className="w-5 h-5" />
                 {region}

@@ -3,7 +3,6 @@ import { useState, useEffect, useCallback } from 'react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import useEmblaCarousel from 'embla-carousel-react';
 
-// Profile images
 import profile1 from '@/assets/reviews/profile-1.webp';
 import profile2 from '@/assets/reviews/profile-2.webp';
 import profile3 from '@/assets/reviews/profile-3.webp';
@@ -29,114 +28,18 @@ interface Review {
 }
 
 const reviews: Review[] = [
-  {
-    id: '1',
-    name: 'Roberto Garcia',
-    rating: 5,
-    text: 'Best gate company in the East Bay! They installed our new access control system perfectly. The whole family is happy.',
-    platform: 'google',
-    image: profile1, // Male
-    dateStr: '01/02/26'
-  },
-  {
-    id: '2',
-    name: 'Priya Sharma',
-    rating: 5,
-    text: 'Fast and professional. They fixed our sliding gate in under an hour. The technician was incredibly knowledgeable.',
-    platform: 'yelp',
-    image: profile4, // Female
-    dateStr: '12/29/25'
-  },
-  {
-    id: '3',
-    name: 'David Chen',
-    rating: 5,
-    text: "Installed a beautiful wrought iron driveway gate. The team was professional from estimate to final install. Couldn't be happier.",
-    platform: 'google',
-    image: profile3, // Male
-    dateStr: '01/09/26'
-  },
-  {
-    id: '4',
-    name: 'Maria Gonzalez',
-    rating: 5,
-    text: 'Called them for a broken gate motor and they were at my house within 2 hours. Fixed it quickly at a fair price!',
-    platform: 'yelp',
-    image: profile2, // Female
-    dateStr: '11/15/25'
-  },
-  {
-    id: '5',
-    name: 'Rajesh Patel',
-    rating: 5,
-    text: 'Our automatic gate stopped working and they had it fixed the same day. Very impressed with their expertise.',
-    platform: 'google',
-    image: profile5, // Male
-    dateStr: '10/22/25'
-  },
-  {
-    id: '6',
-    name: 'James Williams',
-    rating: 5,
-    text: 'Outstanding craftsmanship on our custom iron gate. They understood exactly what we wanted and delivered beyond expectations.',
-    platform: 'google',
-    image: profile6, // Male
-    dateStr: '09/08/25'
-  },
-  {
-    id: '7',
-    name: 'Kim Nguyen',
-    rating: 5,
-    text: 'They came quickly for an emergency gate repair at 9 PM. Excellent work and very reasonable pricing for after-hours service.',
-    platform: 'yelp',
-    image: profile9, // Female
-    dateStr: '08/31/25'
-  },
-  {
-    id: '8',
-    name: 'Carlos Rodriguez',
-    rating: 5,
-    text: 'Great service and fair prices. Highly recommend to anyone needing gate work. They showed up on time and finished quickly.',
-    platform: 'google',
-    image: profile8, // Male
-    dateStr: '07/14/25'
-  },
-  {
-    id: '9',
-    name: 'Anita Desai',
-    rating: 5,
-    text: 'Very professional team. They replaced our old gate with a modern automatic one. Love the new remote access feature!',
-    platform: 'yelp',
-    image: profile7, // Female
-    dateStr: '06/03/25'
-  },
-  {
-    id: '10',
-    name: 'Mike Johnson',
-    rating: 5,
-    text: 'Had an issue with my intercom system. They diagnosed and fixed it same day. Super knowledgeable technicians.',
-    platform: 'google',
-    image: profile10, // Male
-    dateStr: '05/19/25'
-  },
-  {
-    id: '11',
-    name: 'Hiroshi Tanaka',
-    rating: 5,
-    text: 'Excellent fence installation. Clean work, no mess left behind. The crew was respectful and efficient.',
-    platform: 'yelp',
-    image: profile11, // Male
-    dateStr: '04/27/25'
-  },
-  {
-    id: '12',
-    name: 'Sofia Herrera',
-    rating: 5,
-    text: 'They installed a beautiful pedestrian gate for us. The design matches our home perfectly. Thank you!',
-    platform: 'google',
-    image: profile12, // Female
-    dateStr: '03/11/25'
-  }
+  { id: '1', name: 'Roberto Garcia', rating: 5, text: 'Best gate company in the East Bay! They installed our new access control system perfectly. The whole family is happy.', platform: 'google', image: profile1, dateStr: '01/02/26' },
+  { id: '2', name: 'Priya Sharma', rating: 5, text: 'Fast and professional. They fixed our sliding gate in under an hour. The technician was incredibly knowledgeable.', platform: 'yelp', image: profile4, dateStr: '12/29/25' },
+  { id: '3', name: 'David Chen', rating: 5, text: "Installed a beautiful wrought iron driveway gate. The team was professional from estimate to final install. Couldn't be happier.", platform: 'google', image: profile3, dateStr: '01/09/26' },
+  { id: '4', name: 'Maria Gonzalez', rating: 5, text: 'Called them for a broken gate motor and they were at my house within 2 hours. Fixed it quickly at a fair price!', platform: 'yelp', image: profile2, dateStr: '11/15/25' },
+  { id: '5', name: 'Rajesh Patel', rating: 5, text: 'Our automatic gate stopped working and they had it fixed the same day. Very impressed with their expertise.', platform: 'google', image: profile5, dateStr: '10/22/25' },
+  { id: '6', name: 'James Williams', rating: 5, text: 'Outstanding craftsmanship on our custom iron gate. They understood exactly what we wanted and delivered beyond expectations.', platform: 'google', image: profile6, dateStr: '09/08/25' },
+  { id: '7', name: 'Kim Nguyen', rating: 5, text: 'They came quickly for an emergency gate repair at 9 PM. Excellent work and very reasonable pricing for after-hours service.', platform: 'yelp', image: profile9, dateStr: '08/31/25' },
+  { id: '8', name: 'Carlos Rodriguez', rating: 5, text: 'Great service and fair prices. Highly recommend to anyone needing gate work. They showed up on time and finished quickly.', platform: 'google', image: profile8, dateStr: '07/14/25' },
+  { id: '9', name: 'Anita Desai', rating: 5, text: 'Very professional team. They replaced our old gate with a modern automatic one. Love the new remote access feature!', platform: 'yelp', image: profile7, dateStr: '06/03/25' },
+  { id: '10', name: 'Mike Johnson', rating: 5, text: 'Had an issue with my intercom system. They diagnosed and fixed it same day. Super knowledgeable technicians.', platform: 'google', image: profile10, dateStr: '05/19/25' },
+  { id: '11', name: 'Hiroshi Tanaka', rating: 5, text: 'Excellent fence installation. Clean work, no mess left behind. The crew was respectful and efficient.', platform: 'yelp', image: profile11, dateStr: '04/27/25' },
+  { id: '12', name: 'Sofia Herrera', rating: 5, text: 'They installed a beautiful pedestrian gate for us. The design matches our home perfectly. Thank you!', platform: 'google', image: profile12, dateStr: '03/11/25' },
 ];
 
 function StarRating({ rating, size = 'default' }: { rating: number; size?: 'default' | 'large' }) {
@@ -144,10 +47,7 @@ function StarRating({ rating, size = 'default' }: { rating: number; size?: 'defa
   return (
     <div className="flex gap-0.5">
       {[...Array(5)].map((_, i) => (
-        <Star
-          key={i}
-          className={`${starSize} ${i < rating ? 'fill-primary text-primary' : 'text-muted'}`}
-        />
+        <Star key={i} className={`${starSize} ${i < rating ? 'fill-primary text-primary' : 'text-border'}`} />
       ))}
     </div>
   );
@@ -175,33 +75,14 @@ function PlatformIcon({ platform, showLabel = true }: { platform: 'google' | 'ye
   );
 }
 
-interface ReviewCardProps {
-  review: Review;
-  isCenter: boolean;
-}
-
-function ReviewCard({ review, isCenter }: ReviewCardProps) {
+function ReviewCard({ review, isCenter }: { review: Review; isCenter: boolean }) {
   return (
-    <div
-      className={`
-        relative flex flex-col h-full p-6 md:p-7 rounded-2xl 
-        bg-card border transition-all duration-500
-        ${isCenter 
-          ? 'border-primary shadow-xl shadow-primary/15 scale-[1.02]' 
-          : 'border-border hover:border-primary/30 hover:shadow-lg shadow-lg shadow-black/10'
-        }
-      `}
-    >
-      {/* Header */}
+    <div className={`relative flex flex-col h-full p-6 md:p-7 rounded-2xl bg-card border transition-all duration-500 ${
+      isCenter ? 'border-primary shadow-md scale-[1.02]' : 'border-border hover:border-primary/30 hover:shadow-md shadow-sm'
+    }`}>
       <div className="flex items-start justify-between gap-3 mb-4">
         <div className="flex items-center gap-3">
-          <img
-            src={review.image}
-            alt={review.name}
-            loading="lazy"
-            decoding="async"
-            className={`w-14 h-14 rounded-full object-cover border-2 ${isCenter ? 'border-primary' : 'border-border'}`}
-          />
+          <img src={review.image} alt={review.name} loading="lazy" decoding="async" className={`w-14 h-14 rounded-full object-cover border-2 ${isCenter ? 'border-primary' : 'border-border'}`} />
           <div>
             <h4 className="font-bold text-foreground">{review.name}</h4>
             <p className="text-sm text-muted-foreground">{review.dateStr}</p>
@@ -209,19 +90,11 @@ function ReviewCard({ review, isCenter }: ReviewCardProps) {
         </div>
         <PlatformIcon platform={review.platform} showLabel={false} />
       </div>
-
-      {/* Stars */}
       <StarRating rating={review.rating} />
-
-      {/* Testimonial */}
       <div className="relative mt-4 flex-1">
         <Quote className="absolute -top-1 -left-1 w-6 h-6 text-primary/15" />
-        <p className="text-base text-muted-foreground leading-relaxed pl-5 line-clamp-4">
-          {review.text}
-        </p>
+        <p className="text-base text-muted-foreground leading-relaxed pl-5 line-clamp-4">{review.text}</p>
       </div>
-
-      {/* Footer */}
       <div className="mt-5 pt-4 border-t border-border flex items-center justify-center">
         <PlatformIcon platform={review.platform} showLabel={true} />
       </div>
@@ -234,64 +107,43 @@ export function ReviewWidget() {
   const [isPaused, setIsPaused] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    align: 'center',
-    skipSnaps: false,
-    dragFree: false,
-  });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center', skipSnaps: false, dragFree: false });
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
   useEffect(() => {
     if (!emblaApi) return;
-    
-    const onSelect = () => {
-      setSelectedIndex(emblaApi.selectedScrollSnap());
-    };
-    
+    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
     emblaApi.on('select', onSelect);
     onSelect();
-    
-    return () => {
-      emblaApi.off('select', onSelect);
-    };
+    return () => { emblaApi.off('select', onSelect); };
   }, [emblaApi]);
 
   useEffect(() => {
     if (!emblaApi || isPaused) return;
-
-    const interval = setInterval(() => {
-      emblaApi.scrollNext();
-    }, 6000); // Increased from 4500ms to reduce CPU usage
-
+    const interval = setInterval(() => emblaApi.scrollNext(), 6000);
     return () => clearInterval(interval);
   }, [emblaApi, isPaused]);
 
   return (
-    <section id="reviews" className="py-20 md:py-28 border-t border-border overflow-hidden bg-secondary/20">
+    <section id="reviews" className="py-[72px] md:py-24 border-t border-border overflow-hidden bg-card">
       <div className="container-main">
-        {/* Header */}
         <div className="text-center mb-14 md:mb-18">
-          {/* Verified Badge */}
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 border border-primary/30 mb-8 shadow-lg">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 border border-primary/30 mb-8">
             <CheckCircle className="w-5 h-5 text-primary" />
             <span className="text-sm font-bold text-primary uppercase tracking-wider">Verified Reviews</span>
           </div>
 
-          {/* Main Heading - BIGGER */}
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 tracking-tight">
             <span className="text-foreground">Hear From Our </span>
             <span className="gold-text">Happy Customers</span>
           </h2>
 
-          {/* Subtext */}
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl mx-auto">
             Real feedback from homeowners in {city} & The Greater Bay Area
           </p>
 
-          {/* Large Rating Display */}
           <div className="flex flex-col items-center gap-4 mb-10">
             <div className="flex items-center gap-5">
               <span className="text-6xl md:text-7xl font-display font-bold text-foreground">4.9</span>
@@ -302,9 +154,8 @@ export function ReviewWidget() {
             </p>
           </div>
 
-          {/* Platform Icons */}
           <div className="flex items-center justify-center gap-10 md:gap-14">
-            <div className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+            <div className="flex items-center gap-2 text-muted-foreground">
               <svg className="w-7 h-7" viewBox="0 0 24 24">
                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
                 <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
@@ -313,74 +164,47 @@ export function ReviewWidget() {
               </svg>
               <span className="text-base font-bold">Google</span>
             </div>
-            <div className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+            <div className="flex items-center gap-2 text-muted-foreground">
               <img src={yelpLogo} alt="Yelp" className="w-7 h-7 rounded-full object-cover" loading="lazy" decoding="async" />
               <span className="text-base font-bold">Yelp</span>
             </div>
-            <div className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+            <div className="flex items-center gap-2 text-muted-foreground">
               <div className="w-7 h-7 rounded bg-green-600 flex items-center justify-center text-white text-xs font-bold">A+</div>
               <span className="text-base font-bold">BBB</span>
             </div>
           </div>
         </div>
 
-        {/* Review Carousel */}
-        <div
-          className="relative"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
-          {/* Navigation Arrows */}
-          <button
-            onClick={scrollPrev}
-            className="hidden md:flex absolute -left-5 lg:-left-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-card border border-border items-center justify-center text-foreground hover:border-primary hover:text-primary transition-colors shadow-xl"
-            aria-label="Previous review"
-          >
+        <div className="relative" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
+          <button onClick={scrollPrev} className="hidden md:flex absolute -left-5 lg:-left-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-card border border-border items-center justify-center text-foreground hover:border-primary hover:text-primary transition-colors shadow-md" aria-label="Previous review">
             <ChevronLeft className="w-6 h-6" />
           </button>
-          <button
-            onClick={scrollNext}
-            className="hidden md:flex absolute -right-5 lg:-right-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-card border border-border items-center justify-center text-foreground hover:border-primary hover:text-primary transition-colors shadow-xl"
-            aria-label="Next review"
-          >
+          <button onClick={scrollNext} className="hidden md:flex absolute -right-5 lg:-right-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-card border border-border items-center justify-center text-foreground hover:border-primary hover:text-primary transition-colors shadow-md" aria-label="Next review">
             <ChevronRight className="w-6 h-6" />
           </button>
 
-          {/* Carousel Container */}
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex will-change-transform">
               {reviews.map((review, index) => (
-                <div
-                  key={review.id}
-                  className="flex-[0_0_90%] sm:flex-[0_0_48%] lg:flex-[0_0_32%] xl:flex-[0_0_25%] min-w-0 pl-5 first:pl-0"
-                >
-                  <ReviewCard
-                    review={review}
-                    isCenter={index === selectedIndex}
-                  />
+                <div key={review.id} className="flex-[0_0_90%] sm:flex-[0_0_48%] lg:flex-[0_0_32%] xl:flex-[0_0_25%] min-w-0 pl-5 first:pl-0">
+                  <ReviewCard review={review} isCenter={index === selectedIndex} />
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Carousel Dots */}
           <div className="flex justify-center gap-2 mt-10">
             {reviews.map((_, index) => (
               <button
                 key={index}
                 onClick={() => emblaApi?.scrollTo(index)}
-                className={`h-2.5 rounded-full transition-all duration-300 ${
-                  index === selectedIndex
-                    ? 'w-10 bg-primary'
-                    : 'w-2.5 bg-muted hover:bg-muted-foreground/50'
-                }`}
+                className={`h-2.5 rounded-full transition-all duration-300 ${index === selectedIndex ? 'w-10 bg-primary' : 'w-2.5 bg-border hover:bg-muted-foreground/50'}`}
                 aria-label={`Go to review ${index + 1}`}
               />
             ))}
           </div>
         </div>
 
-        {/* Credibility Footer */}
         <div className="text-center mt-10">
           <p className="text-sm text-muted-foreground">
             <CheckCircle className="w-4 h-4 inline mr-2 text-primary" />

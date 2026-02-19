@@ -20,9 +20,8 @@ const projects = [
 
 export function RecentProjects() {
   return (
-    <section className="py-16 md:py-20 border-t border-border bg-background">
+    <section className="py-[72px] md:py-24 border-t border-border bg-background">
       <div className="container-main">
-        {/* Header */}
         <div className="text-center mb-10 md:mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 tracking-tight">
             <span className="text-foreground">Our Most Recent </span>
@@ -33,12 +32,11 @@ export function RecentProjects() {
           </p>
         </div>
 
-        {/* Image Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-lg shadow-black/15 transition-transform duration-300 hover:scale-[1.02]"
+              className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02]"
             >
               <img
                 src={project.src}

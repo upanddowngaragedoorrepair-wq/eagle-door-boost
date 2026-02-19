@@ -5,15 +5,14 @@ export function FinalCTA() {
   const { phoneLink, phoneFormatted } = useLocation2();
 
   return (
-    <section className="py-24 md:py-32 border-t border-border bg-gradient-to-b from-background via-secondary/20 to-background relative overflow-hidden">
-      {/* Background gradient glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/5 blur-[100px] rounded-full" />
-      
+    <section className="py-[72px] md:py-24 border-t border-border bg-background relative overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/5 blur-[100px] rounded-full pointer-events-none" />
+
       <div className="container-main relative">
         <div className="text-center max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-green-500/10 border border-green-500/30 mb-10 shadow-lg">
-            <div className="w-3 h-3 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-base font-bold text-green-400 uppercase tracking-wide">Direct Line • Available Now</span>
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-green-50 border border-green-200 mb-10">
+            <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
+            <span className="text-base font-bold text-green-700 uppercase tracking-wide">Direct Line • Available Now</span>
           </div>
 
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-8 tracking-tight">
