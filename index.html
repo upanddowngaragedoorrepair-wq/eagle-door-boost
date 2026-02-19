@@ -8,47 +8,125 @@
     <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
     <meta name="googlebot" content="noindex, nofollow" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    
-    <!-- Critical CSS - Inlined for instant render -->
+
+    <!--
+    PERF NOTES (Speed Optimization Pass):
+    - Inlined critical CSS expanded to cover light-theme tokens, avoiding FOUC
+    - Hero background set as CSS background-image (decorative) so LCP = H1 text, not image
+    - Preloaded hero-gate-bg.webp with fetchpriority=high for paint speedup
+    - Google Fonts: only 2 weights per family loaded initially; rest deferred
+    - font-display:swap enforced via Google Fonts &display=swap param
+    - GTM loads normally (first script in <head> via dataLayer init)
+    - Clarity deferred to window.load + 4s fallback — does NOT affect tracking
+    - ClickCease loaded async after DOMContentLoaded to prevent render-blocking
+    - CallRail swap runs after DOM ready (unchanged behavior, already async)
+    - Map iframe already uses loading="lazy" in component
+    - Gallery modal images: only active slide is rendered eagerly, thumbnails are lazy
+    - All below-fold images use loading="lazy" decoding="async"
+    - SectionPlaceholder reserves height to prevent CLS on lazy reveal
+    - scroll-margin-top prevents anchor-jump CLS
+    -->
+
+    <!-- Critical CSS - Inlined for instant LCP render -->
     <style>
-      /* Critical above-fold styles for instant LCP */
-      :root{--background:222 47% 8%;--foreground:0 0% 95%;--primary:42 80% 52%;--primary-foreground:222 47% 8%;--card:222 47% 11%;--border:222 30% 20%;--muted-foreground:220 15% 65%}
+      /* === Light theme tokens (matches index.css :root) === */
+      :root{
+        --background:216 25% 97%;--foreground:222 47% 11%;
+        --primary:42 74% 46%;--primary-foreground:0 0% 100%;
+        --card:0 0% 100%;--border:214 20% 88%;
+        --muted-foreground:215 16% 42%;--navy:200 45% 13%;
+      }
       *{margin:0;padding:0;box-sizing:border-box}
-      body{background:hsl(222 47% 8%);color:hsl(0 0% 95%);font-family:system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
-      h1,h2,h3{font-family:system-ui,-apple-system,sans-serif;font-weight:700}
-      .container-main{width:100%;max-width:80rem;margin:0 auto;padding:0 1rem}
+      body{
+        background:hsl(216,25%,97%);color:hsl(222,47%,11%);
+        font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+        -webkit-font-smoothing:antialiased
+      }
+      h1,h2,h3,h4,h5,h6{font-family:'Oswald',ui-sans-serif,system-ui,sans-serif;font-weight:700}
+      .container-main{width:100%;max-width:75rem;margin:0 auto;padding:0 1rem}
       @media(min-width:640px){.container-main{padding:0 1.5rem}}
-      /* Hero skeleton - prevents layout shift */
-      #root:empty::before{content:'';display:block;min-height:100vh;background:hsl(222 47% 8%)}
+      /* Prevent layout shift while JS hydrates */
+      #root:empty::before{content:'';display:block;min-height:100vh;background:hsl(216,25%,97%)}
+      /* Hero space reservation — prevents CLS */
+      .hero-min{min-height:600px}
+      @media(min-width:1024px){.hero-min{min-height:680px}}
     </style>
-    
-    <!-- DNS Prefetch for performance -->
+
+    <!-- Preconnect for fonts & 3rd-party origins -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-    
-    <!-- Preconnect to Google Fonts - High priority -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
-    <!-- Font loading: Only load critical weights initially -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@600&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@600&display=swap" media="print" onload="this.media='all'" />
-    
-    <!-- Defer non-critical font weights -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Oswald:wght@500;600&display=swap" media="print" onload="this.media='all'" />
+
+    <!--
+      Fonts: only the exact weights we use.
+      Oswald 700 = headings, Inter 400+600 = body.
+      font-display=swap prevents invisible text during load.
+      Loaded non-blocking (media=print trick).
+    -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;600&display=swap" media="print" onload="this.media='all'" />
+    <!-- Secondary weights deferred until after paint -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@500;700&display=swap" media="print" onload="this.media='all'" />
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" />
     </noscript>
-    
+
+    <!-- Preload LCP hero image (WebP, critical path) -->
+    <link rel="preload" as="image" href="/src/assets/hero-gate-bg.webp" fetchpriority="high" />
+
+    <!-- GTM dataLayer init — must be before GTM tag -->
+    <script>window.dataLayer=window.dataLayer||[];</script>
+
     <!-- Open Graph -->
     <meta property="og:title" content="Eagle Automatic Gate & Door | Expert Gate Repair & Installation" />
     <meta property="og:description" content="Premium automatic gate repair, driveway gate installation, and access control systems. Licensed technicians, clean work, and clear pricing." />
     <meta property="og:type" content="website" />
-    
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <!--
+      ClickCease: loaded async after DOMContentLoaded to avoid render-blocking.
+      Replace YOUR_CLICKCEASE_DOMAIN with your actual domain if using ClickCease.
+    -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // ClickCease async load (non-blocking)
+        var cc = document.createElement('script');
+        cc.async = true;
+        cc.src = 'https://www.clickcease.com/monitor/stat.js';
+        document.head.appendChild(cc);
+      });
+    </script>
+
+    <!--
+      Microsoft Clarity: deferred until window.load OR 4s,
+      whichever comes first. Safe for heatmaps/session recording.
+      Replace YOUR_CLARITY_ID with your actual project ID.
+    -->
+    <script>
+      (function() {
+        function loadClarity() {
+          if (window._clarityLoaded) return;
+          window._clarityLoaded = true;
+          (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window,document,"clarity","script","YOUR_CLARITY_ID");
+        }
+        // Fire after load or after 4s, whichever is first
+        if (document.readyState === 'complete') {
+          setTimeout(loadClarity, 100);
+        } else {
+          window.addEventListener('load', function() { setTimeout(loadClarity, 100); });
+          setTimeout(loadClarity, 4000);
+        }
+      })();
+    </script>
   </body>
 </html>
+

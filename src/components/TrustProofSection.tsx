@@ -29,6 +29,7 @@ export function TrustProofSection() {
           <div className="flex flex-row md:flex-col items-center gap-4 md:gap-2 p-4 rounded-xl bg-white/[0.07] border border-white/10 backdrop-blur-sm relative overflow-hidden">
             {/* Glow behind badge */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent pointer-events-none" />
+            {/* PERF: explicit w/h prevents CLS; loading=lazy OK here (below hero) */}
             <img
               src="/assets/trust/google-guaranteed-service-provider.webp"
               alt="Google Guaranteed Service Provider"
@@ -36,7 +37,8 @@ export function TrustProofSection() {
               height={160}
               className="w-20 h-20 md:w-28 md:h-28 object-contain relative z-10 drop-shadow-[0_0_12px_hsl(42_74%_46%/0.3)]"
               loading="lazy"
-              decoding="async" />
+              decoding="async"
+            />
             <p className="text-xs leading-snug relative z-10 md:text-center text-popover">
               Certified contractors — Google puts its name behind our service.
             </p>

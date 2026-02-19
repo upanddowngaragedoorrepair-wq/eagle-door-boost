@@ -63,11 +63,17 @@ export function ServiceAreaMap() {
         </h2>
 
         <div className="relative max-w-[1200px] mx-auto">
+          {/*
+            PERF: loading="lazy" defers iframe until near-viewport.
+            explicit height prevents CLS when iframe loads.
+          */}
           <iframe
             src={mapSrc}
             title={`Service area map for ${displayCity}`}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
+            width={1200}
+            height={420}
             className="w-full h-[300px] md:h-[420px] border-0 rounded-2xl"
             style={{ boxShadow: '0 15px 40px rgba(0, 0, 0, 0.35)' }}
             allowFullScreen
@@ -83,7 +89,11 @@ export function ServiceAreaMap() {
             <img
               src={eaglePin}
               alt="Eagle Automatic Gate pin"
+              width={140}
+              height={140}
               className="w-full h-full object-contain"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>

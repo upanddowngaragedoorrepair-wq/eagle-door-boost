@@ -1,3 +1,8 @@
+/*
+ * PERF: fetchPriority="high" on hero bg img — ensures browser fetches it first.
+ * The H1 text is the true LCP element (not the image) since the image is decorative overlay.
+ * explicit width/height on img avoids CLS.
+ */
 import { useMemo } from 'react';
 import { Phone, MessageSquare, Shield, CheckCircle } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
@@ -37,15 +42,20 @@ export function Hero() {
   };
 
   return (
-    <section className="relative pt-32 pb-16 lg:pb-24 overflow-hidden">
+    <section className="relative pt-32 pb-16 lg:pb-24 overflow-hidden hero-min">
       {/* Background image with light overlay */}
       <div className="absolute inset-0">
+        {/* PERF: fetchPriority=high + explicit w/h prevents LCP delay & CLS */}
         <img
           src={heroGateBg}
           alt=""
+          role="presentation"
+          width={1920}
+          height={1080}
           className="w-full h-full object-cover"
           fetchPriority="high"
-          decoding="async" />
+          decoding="sync"
+        />
 
         <div className="absolute inset-0 bg-background/85" />
       </div>

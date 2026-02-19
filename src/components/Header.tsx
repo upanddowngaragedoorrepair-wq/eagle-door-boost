@@ -32,10 +32,15 @@ export function Header() {
             }}
             className="flex items-center gap-3"
           >
+            {/* PERF: explicit w/h prevents CLS from logo image */}
             <img
               alt="Eagle Automatic Gate"
+              width={64}
+              height={64}
               className="w-12 h-12 md:w-16 md:h-16"
               src="/lovable-uploads/9b6ef84e-639b-4196-91f6-4fcec82647cc.webp"
+              fetchPriority="high"
+              decoding="async"
             />
             <div className="hidden sm:block">
               <h1 className="font-display text-lg md:text-2xl font-bold tracking-tight text-foreground uppercase">
