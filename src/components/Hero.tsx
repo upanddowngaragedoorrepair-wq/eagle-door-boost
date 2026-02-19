@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { Phone, MessageSquare, Shield, CheckCircle } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import { HeroForm } from '@/components/HeroForm';
+import heroGateBg from '@/assets/hero-gate-bg.webp';
 
 declare global {
   interface Window {dataLayer: Record<string, unknown>[];}
@@ -36,7 +37,19 @@ export function Hero() {
   };
 
   return (
-    <section className="relative pt-32 pb-16 lg:pb-24 bg-background overflow-hidden">
+    <section className="relative pt-32 pb-16 lg:pb-24 overflow-hidden">
+      {/* Background image with light overlay */}
+      <div className="absolute inset-0">
+        <img
+          src={heroGateBg}
+          alt=""
+          className="w-full h-full object-cover"
+          fetchPriority="high"
+          decoding="async"
+        />
+        <div className="absolute inset-0 bg-background/85" />
+      </div>
+
       {/* Subtle decorative shapes */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[100px] pointer-events-none" />
