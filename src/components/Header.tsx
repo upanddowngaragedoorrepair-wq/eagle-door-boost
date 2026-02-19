@@ -62,7 +62,7 @@ export function Header() {
           </nav>
 
           {/* Right: Open Now + Phone + CTA + Mobile Menu */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-5">
             <div className="hidden xl:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-50 border border-green-200">
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
               <span className="text-xs font-bold text-green-700">Open Now</span>
