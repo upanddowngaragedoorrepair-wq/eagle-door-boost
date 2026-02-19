@@ -19,8 +19,10 @@ import dg5 from '@/assets/driveway-gallery/driveway-5.webp';
 import dg6 from '@/assets/driveway-gallery/driveway-6.webp';
 import dg7 from '@/assets/driveway-gallery/driveway-7.webp';
 import dg8 from '@/assets/driveway-gallery/driveway-8.webp';
+import dg9 from '@/assets/driveway-gallery/driveway-9.webp';
+import dg10 from '@/assets/driveway-gallery/driveway-10.webp';
 
-const drivewayGallery = [dg1, dg2, dg3, dg4, dg5, dg6, dg7, dg8];
+const drivewayGallery = [dg1, dg2, dg3, dg4, dg5, dg6, dg7, dg8, dg9, dg10];
 
 const services = [
 {
