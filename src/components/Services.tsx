@@ -6,6 +6,7 @@ import gateSliding from '@/assets/card-sliding-gate.webp';
 import gateSwing from '@/assets/card-pedestrian-gate.webp';
 import gateAccessControl from '@/assets/card-access-control.webp';
 import gateCommercial from '@/assets/card-commercial-gate.webp';
+import cardFences from '@/assets/card-fences-new.webp';
 
 const services = [
   {
@@ -72,6 +73,20 @@ const services = [
       'High traffic',
       'Industrial grade',
       '24/7 support',
+    ],
+  },
+  {
+    image: cardFences,
+    title: 'Fences & Pillars',
+    bullets: [
+      'Wood, vinyl, chain-link, wrought iron & aluminum fencing',
+      'Custom concrete & steel pillars for a premium entrance look',
+      'Privacy fencing — full height, noise & view blocking',
+      'Ornamental iron & tubular steel for estates and security',
+      'Permit handling — we manage applications & inspections',
+      'Property line guidance to avoid disputes and violations',
+      'Gate integration — fencing matched to your existing gate system',
+      'Residential & commercial, HOA compliant installations',
     ],
   },
 ];
