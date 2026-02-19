@@ -46,7 +46,7 @@ const services = [
   'Professional-grade parts for smooth and secure operation',
   'Metal, Wood, Aluminum, Vinyl',
   'Premium materials',
-  'Expert install'],
+  'Automatic Gates, Smart Systems'],
   gallery: drivewayGallery,
 },
 {
