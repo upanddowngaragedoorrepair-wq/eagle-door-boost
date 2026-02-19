@@ -18,14 +18,23 @@ const projects = [
   { src: project8, alt: 'DoorBird access control system' },
 ];
 
+const getPreviousMonthName = () => {
+  const date = new Date();
+  date.setMonth(date.getMonth() - 1);
+  return date.toLocaleString('en-US', { month: 'long' });
+};
+
 export function RecentProjects() {
+  const prevMonth = getPreviousMonthName();
+
   return (
     <section className="py-[72px] md:py-24 border-t border-border bg-background">
       <div className="container-main">
         <div className="text-center mb-10 md:mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 tracking-tight">
-            <span className="text-foreground">Our Most Recent </span>
-            <span className="gold-text">Projects</span>
+            <span className="text-foreground">Our </span>
+            <span className="gold-text">{prevMonth}</span>
+            <span className="text-foreground"> Projects Gallery</span>
           </h2>
           <p className="text-lg text-muted-foreground">
             Every technician arrives with a tablet showing hundreds of real designs from our recent installs.
