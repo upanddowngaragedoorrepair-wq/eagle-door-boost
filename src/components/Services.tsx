@@ -69,13 +69,10 @@ const services = [
   title: 'Fences & Pillars',
   bullets: [
   'Wood, vinyl, chain-link, wrought iron & aluminum fencing',
-  'Custom concrete & steel pillars for a premium entrance look',
-  'Privacy fencing — full height, noise & view blocking',
-  'Ornamental iron & tubular steel for estates and security',
-  'Permit handling — we manage applications & inspections',
-  'Property line guidance to avoid disputes and violations',
-  'Gate integration — fencing matched to your existing gate system',
-  'Residential & commercial, HOA compliant installations']
+    'Custom concrete & steel pillars for a premium entrance look',
+    'Permit handling — we manage applications & inspections',
+    'Gate integration — fencing matched to your existing gate system',
+    'Residential & commercial, HOA compliant installations']
 
 }];
 
