@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useLocation2 } from '@/contexts/LocationContext';
-import eagleLogo from '@/assets/eagle-logo.webp';
+import eaglePin from '@/assets/eagle-pin.png';
 
 const COUNTY_ANCHOR: Record<string, string> = {
   'Marin': 'San Rafael',
@@ -59,7 +59,7 @@ export function ServiceAreaMap() {
         <h2 className="text-white text-center text-[28px] md:text-[36px] font-display font-bold mb-10">
           Proudly Serving{' '}
           <span className="text-[hsl(var(--primary))]">{displayCity}</span>
-          {' '}& Surrounding Areas
+          {' '}& 30 Miles Around
         </h2>
 
         <div className="relative max-w-[1200px] mx-auto">
@@ -81,7 +81,7 @@ export function ServiceAreaMap() {
             }}
           >
             <img
-              src={eagleLogo}
+              src={eaglePin}
               alt="Eagle Automatic Gate pin"
               className="w-full h-full object-contain"
             />
