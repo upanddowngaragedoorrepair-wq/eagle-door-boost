@@ -121,7 +121,7 @@ function DrivewayGalleryModal({ open, onClose }: { open: boolean; onClose: () =>
           <img
             src={drivewayGallery[activeIndex]}
             alt={`Driveway gate project ${activeIndex + 1}`}
-            className="w-full h-[420px] object-cover"
+            className="w-full h-[420px] object-contain"
           />
           {/* Arrows */}
           <button
