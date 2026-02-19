@@ -15,13 +15,36 @@ declare global {
 
 function getKeywordPrefix(): {prefix: string;kw: string;} {
   const params = new URLSearchParams(window.location.search);
-  const raw = params.get('utm_term') || params.get('keyword') || params.get('kw') || '';
+  // PERF NOTE: covers all Google Ads param variants — kd, utm_term, keyword, kw
+  const raw = params.get('kd') || params.get('utm_term') || params.get('keyword') || params.get('kw') || '';
   const kw = raw.toLowerCase().trim();
 
   if (!kw) return { prefix: '', kw };
-  if (/access|intercom|keypad/.test(kw)) return { prefix: 'Gate Access Control ', kw };
-  if (/automatic|electric|opener|motor/.test(kw)) return { prefix: 'Automatic ', kw };
-  if (/fence/.test(kw)) return { prefix: 'Fence & Gate ', kw };
+
+  // Access control / intercom / keypad / smart entry
+  if (/access|intercom|keypad|smart|entry|buzzer|callbox/.test(kw)) return { prefix: 'Gate Access Control ', kw };
+
+  // Automatic / electric / motorized / opener / LiftMaster / operator
+  if (/automatic|electric|opener|motor|liftmaster|operator|remote|battery/.test(kw)) return { prefix: 'Automatic ', kw };
+
+  // Fence & related
+  if (/fence|fencing|railing|picket|vinyl fence|chain.?link|wrought iron/.test(kw)) return { prefix: 'Fence & Gate ', kw };
+
+  // Driveway gates
+  if (/driveway|driveway gate|residential gate/.test(kw)) return { prefix: 'Driveway ', kw };
+
+  // Sliding gates
+  if (/sliding|slide gate/.test(kw)) return { prefix: 'Sliding ', kw };
+
+  // Swing gates
+  if (/swing|swing gate|pedestrian/.test(kw)) return { prefix: 'Swing ', kw };
+
+  // Commercial / industrial
+  if (/commercial|industrial|warehouse|hoa|business/.test(kw)) return { prefix: 'Commercial ', kw };
+
+  // Repair / broken / fix / maintenance
+  if (/repair|broken|fix|stuck|maintenance|service|emergency/.test(kw)) return { prefix: '', kw };
+
   return { prefix: '', kw };
 }
 
