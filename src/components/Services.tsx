@@ -26,7 +26,7 @@ const services = [
   bullets: [
   'Custom driveway gate installation',
   'Professional-grade parts for smooth and secure operation',
-  'Custom designs',
+  'Metal, Wood, Aluminum, Vinyl',
   'Premium materials',
   'Expert install']
 
