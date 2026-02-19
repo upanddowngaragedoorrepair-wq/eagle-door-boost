@@ -1,5 +1,7 @@
-import { Phone, CheckCircle, Wrench } from 'lucide-react';
+import { useState } from 'react';
+import { Phone, CheckCircle, Wrench, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
 import gateRepair from '@/assets/card-gate-repair.webp';
 import gateDriveway from '@/assets/card-driveway-gate.webp';
 import gateSliding from '@/assets/card-sliding-gate.webp';
@@ -7,6 +9,18 @@ import gateSwing from '@/assets/card-pedestrian-gate.webp';
 import gateAccessControl from '@/assets/card-access-control.webp';
 import gateCommercial from '@/assets/card-commercial-gate.webp';
 import cardFences from '@/assets/card-fences-new.webp';
+
+// Driveway gallery images
+import dg1 from '@/assets/driveway-gallery/driveway-1.webp';
+import dg2 from '@/assets/driveway-gallery/driveway-2.webp';
+import dg3 from '@/assets/driveway-gallery/driveway-3.webp';
+import dg4 from '@/assets/driveway-gallery/driveway-4.webp';
+import dg5 from '@/assets/driveway-gallery/driveway-5.webp';
+import dg6 from '@/assets/driveway-gallery/driveway-6.webp';
+import dg7 from '@/assets/driveway-gallery/driveway-7.webp';
+import dg8 from '@/assets/driveway-gallery/driveway-8.webp';
+
+const drivewayGallery = [dg1, dg2, dg3, dg4, dg5, dg6, dg7, dg8];
 
 const services = [
 {
@@ -17,8 +31,8 @@ const services = [
   'We fix motors, sensors, tracks, and more',
   'Same-day service',
   'All gate types',
-  'Warranty included']
-
+  'Warranty included'],
+  gallery: null,
 },
 {
   image: gateDriveway,
@@ -28,8 +42,8 @@ const services = [
   'Professional-grade parts for smooth and secure operation',
   'Metal, Wood, Aluminum, Vinyl',
   'Premium materials',
-  'Expert install']
-
+  'Expert install'],
+  gallery: drivewayGallery,
 },
 {
   image: gateSwing,
@@ -39,8 +53,8 @@ const services = [
   'Secure access for foot traffic without opening the main gate',
   'Self-closing options',
   'ADA compliant',
-  'Keypad & intercom ready']
-
+  'Keypad & intercom ready'],
+  gallery: null,
 },
 {
   image: gateAccessControl,
@@ -50,8 +64,8 @@ const services = [
   'Total property security',
   'Smart tech',
   'Remote access',
-  'Secure entry']
-
+  'Secure entry'],
+  gallery: null,
 },
 {
   image: gateCommercial,
@@ -61,8 +75,8 @@ const services = [
   'Heavy-duty security',
   'High traffic',
   'Industrial grade',
-  '24/7 support']
-
+  '24/7 support'],
+  gallery: null,
 },
 {
   image: cardFences,
@@ -71,13 +85,86 @@ const services = [
   'Wood, vinyl, chain-link, wrought iron & aluminum fencing',
     'Custom concrete & steel pillars for a premium entrance look',
     'Permit handling — we manage applications & inspections',
-    'Residential & commercial, HOA compliant installations']
-
+    'Residential & commercial, HOA compliant installations'],
+  gallery: null,
 }];
+
+
+function DrivewayGalleryModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const prev = () => setActiveIndex(i => (i - 1 + drivewayGallery.length) % drivewayGallery.length);
+  const next = () => setActiveIndex(i => (i + 1) % drivewayGallery.length);
+
+  return (
+    <Dialog open={open} onOpenChange={onClose}>
+      <DialogContent className="max-w-4xl p-0 overflow-hidden bg-background border-border">
+        {/* Header */}
+        <div className="flex items-center justify-between px-6 py-4 border-b border-border">
+          <div>
+            <h2 className="font-display text-xl font-bold text-foreground">Driveway Gates Gallery</h2>
+            <p className="text-sm text-muted-foreground">Our recent installations</p>
+          </div>
+          <button
+            onClick={onClose}
+            className="rounded-full p-2 hover:bg-muted transition-colors"
+            aria-label="Close gallery"
+          >
+            <X className="w-5 h-5 text-foreground" />
+          </button>
+        </div>
+
+        {/* Main image */}
+        <div className="relative bg-black">
+          <img
+            src={drivewayGallery[activeIndex]}
+            alt={`Driveway gate project ${activeIndex + 1}`}
+            className="w-full h-[420px] object-cover"
+          />
+          {/* Arrows */}
+          <button
+            onClick={prev}
+            className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white rounded-full p-2 transition-colors"
+            aria-label="Previous image"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <button
+            onClick={next}
+            className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white rounded-full p-2 transition-colors"
+            aria-label="Next image"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+          {/* Counter */}
+          <div className="absolute bottom-3 right-4 bg-black/60 text-white text-xs px-3 py-1 rounded-full">
+            {activeIndex + 1} / {drivewayGallery.length}
+          </div>
+        </div>
+
+        {/* Thumbnails */}
+        <div className="flex gap-2 p-4 overflow-x-auto">
+          {drivewayGallery.map((img, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveIndex(i)}
+              className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                i === activeIndex ? 'border-primary opacity-100' : 'border-transparent opacity-60 hover:opacity-90'
+              }`}
+            >
+              <img src={img} alt={`Thumbnail ${i + 1}`} className="w-full h-full object-cover" />
+            </button>
+          ))}
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
 
 
 export function Services() {
   const { phoneLink, phoneFormatted } = useLocation2();
+  const [galleryOpen, setGalleryOpen] = useState(false);
 
   return (
     <section id="services" className="py-[72px] md:py-24 bg-background relative">
@@ -104,7 +191,9 @@ export function Services() {
           {services.map((service, index) =>
           <div
             key={index}
-            className="group bg-card rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-2">
+            className={`group bg-card rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-2 ${service.gallery ? 'cursor-pointer' : ''}`}
+            onClick={() => service.gallery && setGalleryOpen(true)}
+          >
 
               {/* Image */}
               <div className="relative h-48 overflow-hidden">
@@ -117,6 +206,11 @@ export function Services() {
                 height={192}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
 
+                {service.gallery && (
+                  <div className="absolute top-3 right-3 bg-primary text-primary-foreground text-xs font-bold px-2 py-1 rounded-full">
+                    View Gallery
+                  </div>
+                )}
                 
                 <h3 className="absolute bottom-4 left-6 font-display text-2xl md:text-3xl font-bold text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] [text-shadow:_0_0_1px_rgba(0,0,0,0.9),_1px_1px_0_rgba(0,0,0,0.6),-1px_-1px_0_rgba(0,0,0,0.6),_1px_-1px_0_rgba(0,0,0,0.6),-1px_1px_0_rgba(0,0,0,0.6)]">
                   {service.title}
@@ -136,6 +230,7 @@ export function Services() {
 
                 <a
                 href={phoneLink}
+                onClick={e => e.stopPropagation()}
                 className="inline-flex items-center gap-2 text-primary font-bold text-base hover:underline transition-colors">
 
                   <Phone className="w-4 h-4" />
@@ -146,6 +241,8 @@ export function Services() {
           )}
         </div>
       </div>
+
+      <DrivewayGalleryModal open={galleryOpen} onClose={() => setGalleryOpen(false)} />
     </section>);
 
 }
