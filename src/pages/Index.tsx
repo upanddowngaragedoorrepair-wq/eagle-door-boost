@@ -11,7 +11,7 @@ const BrandLogos = lazy(() => import('@/components/BrandLogos').then(m => ({ def
 const RecentProjects = lazy(() => import('@/components/RecentProjects').then(m => ({ default: m.RecentProjects })));
 const ReviewWidget = lazy(() => import('@/components/ReviewWidget').then(m => ({ default: m.ReviewWidget })));
 const TrustBadges = lazy(() => import('@/components/TrustBadges').then(m => ({ default: m.TrustBadges })));
-const ServiceArea = lazy(() => import('@/components/ServiceArea').then(m => ({ default: m.ServiceArea })));
+const ServiceAreaMap = lazy(() => import('@/components/ServiceAreaMap').then(m => ({ default: m.ServiceAreaMap })));
 const FinalCTA = lazy(() => import('@/components/FinalCTA').then(m => ({ default: m.FinalCTA })));
 const ContactForm = lazy(() => import('@/components/ContactForm').then(m => ({ default: m.ContactForm })));
 const Footer = lazy(() => import('@/components/Footer').then(m => ({ default: m.Footer })));
@@ -55,7 +55,7 @@ const Index = () => {
 
         <Suspense fallback={<SectionPlaceholder height={400} />}>
           <LazySection rootMargin="300px">
-            <ServiceArea />
+            <ServiceAreaMap />
           </LazySection>
         </Suspense>
 

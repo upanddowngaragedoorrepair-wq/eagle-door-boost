@@ -392,3 +392,15 @@ img {
 .animate-fade-in {
   animation: fadeIn 0.2s ease-out forwards;
 }
+
+/* Service Area Map Section */
+.service-area-map-section {
+  background: hsl(var(--navy));
+  padding: 72px 20px;
+}
+
+@media (max-width: 768px) {
+  .service-area-map-section {
+    padding: 48px 20px;
+  }
+}
