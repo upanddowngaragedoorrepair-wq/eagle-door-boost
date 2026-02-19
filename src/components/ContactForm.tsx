@@ -43,7 +43,7 @@ export function ContactForm() {
         const params = new URLSearchParams(window.location.search);
         const keepParams = ['city', 'cp', 'utm_source', 'utm_campaign', 'utm_medium', 'utm_term', 'utm_content', 'gclid', 'cd', 'kd'];
         const redirectParams = new URLSearchParams();
-        keepParams.forEach(k => { const v = params.get(k); if (v) redirectParams.set(k, v); });
+        keepParams.forEach((k) => {const v = params.get(k);if (v) redirectParams.set(k, v);});
         const qs = redirectParams.toString();
         navigate(`/form-submitted${qs ? `?${qs}` : ''}`);
         return;
@@ -99,7 +99,7 @@ export function ContactForm() {
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Team Photo */}
           <div className="hidden lg:block">
-            <img alt="Eagle Gate Team" className="w-full h-full object-cover rounded-3xl border border-border shadow-md" src="/lovable-uploads/9f447efa-be7f-4639-8424-0ffbec5d3e2e.png" loading="lazy" decoding="async" />
+            <img alt="Eagle Gate Team" className="w-full h-full object-cover rounded-3xl border border-border shadow-md" loading="lazy" decoding="async" src="/lovable-uploads/b3e45d0d-ebb8-4e10-a44e-2eaab66f2396.webp" />
           </div>
 
           {/* Form Card */}
@@ -117,26 +117,26 @@ export function ContactForm() {
               Fill out the form and we'll get back to you in less than one minute!
             </p>
 
-            {error && (
-              <div className="mb-5 p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm font-medium">
+            {error &&
+            <div className="mb-5 p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm font-medium">
                 {error}
               </div>
-            )}
+            }
 
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid md:grid-cols-2 gap-4">
-                <input type="text" placeholder="Your Name *" required className={inputClass} value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} />
-                <input type="tel" placeholder="Phone Number *" required className={inputClass} value={formData.phone} onChange={e => setFormData({ ...formData, phone: e.target.value })} />
+                <input type="text" placeholder="Your Name *" required className={inputClass} value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
+                <input type="tel" placeholder="Phone Number *" required className={inputClass} value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
               </div>
 
               <div className="grid md:grid-cols-2 gap-4">
-                <input type="email" placeholder="Email Address" className={inputClass} value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} />
-                <input type="text" placeholder="Zip Code *" required className={inputClass} value={formData.zipCode} onChange={e => setFormData({ ...formData, zipCode: e.target.value })} />
+                <input type="email" placeholder="Email Address" className={inputClass} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+                <input type="text" placeholder="Zip Code *" required className={inputClass} value={formData.zipCode} onChange={(e) => setFormData({ ...formData, zipCode: e.target.value })} />
               </div>
 
-              <input type="text" placeholder="Street Address" className={inputClass} value={formData.address} onChange={e => setFormData({ ...formData, address: e.target.value })} />
+              <input type="text" placeholder="Street Address" className={inputClass} value={formData.address} onChange={(e) => setFormData({ ...formData, address: e.target.value })} />
 
-              <textarea placeholder="Tell us about your issue" rows={3} className={`${inputClass} resize-none`} value={formData.message} onChange={e => setFormData({ ...formData, message: e.target.value })} />
+              <textarea placeholder="Tell us about your issue" rows={3} className={`${inputClass} resize-none`} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
 
               <button type="submit" disabled={submitting} className="w-full btn-cta text-lg min-h-[60px]">
                 <Send className="w-5 h-5" />
@@ -151,8 +151,8 @@ export function ContactForm() {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }
 
 export default ContactForm;
