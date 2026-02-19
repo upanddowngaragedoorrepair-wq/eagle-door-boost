@@ -77,32 +77,31 @@ export function FinalCTA() {
           </p>
         </div>
 
-        {/* Two-column layout: image + accordion */}
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Image */}
-          <div className="rounded-3xl overflow-hidden shadow-2xl shadow-black/20 sticky top-28">
+        {/* Horizontal image banner + CTA */}
+        <div className="rounded-2xl overflow-hidden shadow-xl shadow-black/20 mb-10 flex flex-col sm:flex-row">
+          <div className="sm:w-64 md:w-80 flex-shrink-0 h-48 sm:h-auto">
             <img
               src={techWorking}
               alt="Eagle Automatic gate technician working on gate motor"
               className="w-full h-full object-cover"
-              style={{ maxHeight: '620px', objectPosition: 'center top' }}
+              style={{ objectPosition: 'center top' }}
             />
-            {/* CTA overlay */}
-            <div className="bg-card border-t border-border p-6 text-center">
-              <p className="text-muted-foreground mb-4 font-medium">Still have questions? Talk to a tech directly.</p>
-              <a href={phoneLink} className="btn-cta w-full text-lg min-h-[56px]">
-                <Phone className="w-5 h-5" />
-                {phoneFormatted}
-              </a>
-            </div>
           </div>
+          <div className="bg-card border-t sm:border-t-0 sm:border-l border-border p-6 flex flex-col justify-center flex-1">
+            <p className="text-foreground font-display font-bold text-xl mb-1">Still have questions?</p>
+            <p className="text-muted-foreground mb-5">Talk to a technician directly — we're available now.</p>
+            <a href={phoneLink} className="btn-cta w-full sm:w-auto self-start text-lg min-h-[52px]">
+              <Phone className="w-5 h-5" />
+              {phoneFormatted}
+            </a>
+          </div>
+        </div>
 
-          {/* FAQ Accordion */}
-          <div className="bg-card rounded-3xl border border-border shadow-xl shadow-black/10 p-8 md:p-10">
-            {faqs.map((faq, i) => (
-              <FAQItem key={i} q={faq.q} a={faq.a} />
-            ))}
-          </div>
+        {/* FAQ Accordion */}
+        <div className="bg-card rounded-3xl border border-border shadow-xl shadow-black/10 p-8 md:p-10">
+          {faqs.map((faq, i) => (
+            <FAQItem key={i} q={faq.q} a={faq.a} />
+          ))}
         </div>
       </div>
     </section>
