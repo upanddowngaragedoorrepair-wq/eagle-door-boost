@@ -8,6 +8,7 @@ import { LazySection, SectionPlaceholder } from '@/components/LazySection';
 
 // Lazy load below-fold sections
 const BrandLogos = lazy(() => import('@/components/BrandLogos').then(m => ({ default: m.BrandLogos })));
+const CouponSection = lazy(() => import('@/components/CouponSection').then(m => ({ default: m.CouponSection })));
 const RecentProjects = lazy(() => import('@/components/RecentProjects').then(m => ({ default: m.RecentProjects })));
 const ReviewWidget = lazy(() => import('@/components/ReviewWidget').then(m => ({ default: m.ReviewWidget })));
 const TrustBadges = lazy(() => import('@/components/TrustBadges').then(m => ({ default: m.TrustBadges })));
@@ -32,6 +33,12 @@ const Index = () => {
         <Suspense fallback={<SectionPlaceholder height={200} />}>
           <LazySection rootMargin="300px">
             <BrandLogos />
+          </LazySection>
+        </Suspense>
+
+        <Suspense fallback={<SectionPlaceholder height={400} />}>
+          <LazySection rootMargin="300px">
+            <CouponSection />
           </LazySection>
         </Suspense>
 
