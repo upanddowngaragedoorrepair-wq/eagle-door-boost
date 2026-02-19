@@ -71,7 +71,6 @@ const services = [
   'Wood, vinyl, chain-link, wrought iron & aluminum fencing',
     'Custom concrete & steel pillars for a premium entrance look',
     'Permit handling — we manage applications & inspections',
-    'Gate integration — fencing matched to your existing gate system',
     'Residential & commercial, HOA compliant installations']
 
 }];
