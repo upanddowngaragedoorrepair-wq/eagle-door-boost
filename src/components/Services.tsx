@@ -107,7 +107,7 @@ function DrivewayGalleryModal({ open, onClose }: { open: boolean; onClose: () =>
         <div className="flex items-center justify-between px-6 py-4 border-b border-border">
           <div>
             <h2 className="font-display text-xl font-bold text-foreground">Driveway Gates Gallery</h2>
-            <p className="text-sm text-muted-foreground">Our recent installations</p>
+            <p className="text-sm text-muted-foreground">These are only some of our most recent installations. We offer many additional styles, access control systems, and custom configurations not shown. Call Now To see More Design Options</p>
           </div>
           <button
             onClick={onClose}
