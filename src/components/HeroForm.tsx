@@ -63,23 +63,25 @@ export function HeroForm() {
     }
   };
 
+  const inputClass = "w-full px-4 py-3.5 rounded-xl bg-background text-foreground placeholder:text-muted-foreground border border-border focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 text-base font-medium transition-colors";
+
   return (
-    <div className="bg-primary rounded-3xl p-8 md:p-10 shadow-2xl shadow-primary/20 relative">
+    <div className="bg-card rounded-3xl p-8 md:p-10 shadow-lg border border-border relative">
       {/* Online badge */}
-      <div className="absolute top-5 right-5 inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 px-3 py-1">
-        <div className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse" />
-        <span className="font-bold text-primary-foreground text-sm">Online Now</span>
+      <div className="absolute top-5 right-5 inline-flex items-center gap-2 rounded-full bg-green-50 border border-green-200 px-3 py-1">
+        <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
+        <span className="font-bold text-green-700 text-sm">Online Now</span>
       </div>
 
-      <h3 className="font-display text-2xl md:text-3xl font-bold text-primary-foreground mb-2">
+      <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
         Get Your Free Estimate
       </h3>
-      <p className="text-base text-primary-foreground/80 mb-6">
+      <p className="text-base text-muted-foreground mb-6">
         No obligation • Expert advice • Fast response
       </p>
 
       {error && (
-        <div className="mb-4 p-3 rounded-xl bg-red-500/20 border border-red-400/30 text-primary-foreground text-sm">
+        <div className="mb-4 p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm">
           {error}
         </div>
       )}
@@ -89,7 +91,7 @@ export function HeroForm() {
           type="text"
           placeholder="Your Name *"
           required
-          className="w-full px-4 py-3.5 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none text-base font-medium"
+          className={inputClass}
           value={formData.name}
           onChange={e => setFormData({ ...formData, name: e.target.value })}
         />
@@ -97,19 +99,19 @@ export function HeroForm() {
           type="tel"
           placeholder="Phone Number *"
           required
-          className="w-full px-4 py-3.5 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none text-base font-medium"
+          className={inputClass}
           value={formData.phone}
           onChange={e => setFormData({ ...formData, phone: e.target.value })}
         />
         <input
           type="email"
           placeholder="Email Address"
-          className="w-full px-4 py-3.5 rounded-xl bg-primary-foreground/90 text-background placeholder:text-muted-foreground border-2 border-transparent focus:border-background/20 focus:outline-none text-base font-medium"
+          className={inputClass}
           value={formData.email}
           onChange={e => setFormData({ ...formData, email: e.target.value })}
         />
         <select
-          className="w-full px-4 py-3.5 rounded-xl bg-primary-foreground/90 text-background border-2 border-transparent focus:border-background/20 focus:outline-none text-base font-medium appearance-none"
+          className={`${inputClass} appearance-none`}
           value={formData.service}
           onChange={e => setFormData({ ...formData, service: e.target.value })}
         >
@@ -122,14 +124,14 @@ export function HeroForm() {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-background text-foreground font-display font-bold text-lg uppercase tracking-wide hover:bg-background/90 transition-colors border-2 border-background/20 shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
+          className="w-full btn-cta text-lg min-h-[56px]"
         >
           <Send className="w-5 h-5" />
           {submitting ? 'Submitting...' : 'Get Free Estimate'}
         </button>
       </form>
 
-      <p className="flex items-center justify-center gap-2 text-sm text-primary-foreground/60 mt-4">
+      <p className="flex items-center justify-center gap-2 text-sm text-muted-foreground mt-4">
         <Lock className="w-4 h-4" />
         Your information is secure and will never be shared
       </p>

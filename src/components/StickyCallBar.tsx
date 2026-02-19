@@ -18,7 +18,7 @@ export function StickyCallBar() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden sticky-bar-enter">
-      <div className="bg-background/98 backdrop-blur-lg border-t-2 border-primary/40 p-3 shadow-2xl">
+      <div className="bg-card/98 backdrop-blur-lg border-t-2 border-primary/40 p-3 shadow-lg">
         <div className="flex gap-3">
           <a href={phoneLink} className="btn-cta flex-1 text-sm py-3 min-h-[52px]">
             <Phone className="w-5 h-5" />

@@ -20,7 +20,7 @@ export function Header() {
   };
 
   return (
-    <header className="fixed top-8 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-2xl">
+    <header className="fixed top-8 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border shadow-sm">
       <div className="container-main">
         <div className="flex items-center justify-between h-18 md:h-22">
           {/* Logo */}
@@ -54,7 +54,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="text-sm font-bold text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wide cursor-pointer"
+                className="text-sm font-bold text-muted-foreground hover:text-primary transition-colors uppercase tracking-wide cursor-pointer"
               >
                 {item.label}
               </a>
@@ -63,9 +63,9 @@ export function Header() {
 
           {/* Right: Open Now + Phone + CTA + Mobile Menu */}
           <div className="flex items-center gap-4">
-            <div className="hidden xl:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/30">
-              <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              <span className="text-xs font-bold text-green-400">Open Now</span>
+            <div className="hidden xl:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-50 border border-green-200">
+              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              <span className="text-xs font-bold text-green-700">Open Now</span>
               <span className="text-[10px] text-muted-foreground">7AM-8PM</span>
             </div>
 
@@ -91,7 +91,7 @@ export function Header() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-card border-b border-border shadow-2xl animate-fade-in">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-card border-b border-border shadow-lg animate-fade-in">
             <nav className="container-main py-6 space-y-2">
               {navItems.map(item => (
                 <a

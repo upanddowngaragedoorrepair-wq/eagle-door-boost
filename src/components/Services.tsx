@@ -80,23 +80,21 @@ export function Services() {
   const { phoneLink, phoneFormatted } = useLocation2();
 
   return (
-    <section id="services" className="py-24 md:py-32 bg-[hsl(45,30%,95%)] relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-background/5 via-transparent to-background/10 pointer-events-none" />
-
+    <section id="services" className="py-[72px] md:py-24 bg-background relative">
       <div className="container-main relative">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary border-2 border-primary mb-8 shadow-lg shadow-primary/30">
-            <Wrench className="w-5 h-5 text-primary-foreground" />
-            <span className="text-sm font-bold text-primary-foreground uppercase tracking-wider">Professional Services</span>
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 border border-primary/30 mb-8">
+            <Wrench className="w-5 h-5 text-primary" />
+            <span className="text-sm font-bold text-primary uppercase tracking-wider">Professional Services</span>
           </div>
 
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 tracking-tight">
-            <span className="text-background">Expert</span>{' '}
-            <span className="text-primary">Gate</span>{' '}
-            <span className="text-background">Solutions</span>
+            <span className="text-foreground">Expert </span>
+            <span className="gold-text">Gate</span>{' '}
+            <span className="text-foreground">Solutions</span>
           </h2>
-          <p className="text-lg md:text-xl text-background/70 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             From emergency repairs to complete installations, our certified technicians deliver exceptional results every time.
           </p>
         </div>
@@ -106,7 +104,7 @@ export function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group bg-white rounded-3xl overflow-hidden shadow-xl shadow-black/10 hover:shadow-2xl hover:shadow-black/20 transition-all duration-500 hover:-translate-y-3"
+              className="group bg-card rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-2"
             >
               {/* Image */}
               <div className="relative h-48 overflow-hidden">
@@ -119,8 +117,8 @@ export function Services() {
                   height={192}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
-                <h3 className="absolute bottom-4 left-6 font-display text-2xl md:text-3xl font-bold text-foreground">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                <h3 className="absolute bottom-4 left-6 font-display text-2xl md:text-3xl font-bold text-white">
                   {service.title}
                 </h3>
               </div>
@@ -129,7 +127,7 @@ export function Services() {
               <div className="p-7">
                 <ul className="space-y-2.5 mb-6">
                   {service.bullets.map((bullet, i) => (
-                    <li key={i} className="flex items-start gap-2.5 text-background/70 text-sm">
+                    <li key={i} className="flex items-start gap-2.5 text-muted-foreground text-sm">
                       <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                       <span>{bullet}</span>
                     </li>
