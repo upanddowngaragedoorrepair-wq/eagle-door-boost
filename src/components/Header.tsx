@@ -74,8 +74,10 @@ export function Header() {
               <span className="text-sm font-bold">{phoneFormatted}</span>
             </a>
 
-            <a href={phoneLink} className="btn-cta px-6 py-4 md:px-8 md:py-4 text-sm md:text-base min-h-[52px] md:min-h-[60px]">
-              <Phone className="w-5 h-5" />
+            <a href={phoneLink} className="btn-cta px-5 py-3 md:px-7 md:py-3.5 text-sm md:text-base min-h-[48px] md:min-h-[56px]">
+              <span className="w-9 h-9 rounded-full bg-white/90 flex items-center justify-center shrink-0">
+                <Phone className="w-4 h-4 text-primary" />
+              </span>
               <span className="hidden sm:inline">Call Now</span>
               <span className="sm:hidden">{phoneFormatted}</span>
             </a>
