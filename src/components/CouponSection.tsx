@@ -35,7 +35,7 @@ export function CouponSection() {
         src={couponBg}
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover opacity-[0.08]"
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.15]"
         loading="lazy"
         decoding="async"
       />
