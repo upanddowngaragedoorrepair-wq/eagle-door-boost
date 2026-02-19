@@ -1,49 +1,107 @@
-import { Phone, Shield, Clock, ArrowRight, Zap } from 'lucide-react';
+import { Phone, ChevronDown } from 'lucide-react';
+import { useState } from 'react';
 import { useLocation2 } from '@/contexts/LocationContext';
+import techWorking from '@/assets/tech-working.webp';
+
+const faqs = [
+  {
+    q: 'How quickly can you repair my automatic gate?',
+    a: "We understand that a malfunctioning gate isn't just inconvenient — it can be a security risk. In most cases, we offer same-day service, and our technicians arrive fully equipped to diagnose and fix the issue on the first visit.\n\nWhether it's a motor failure, sensor issue, hinge problem, track misalignment, or electrical malfunction — we handle it quickly and professionally.",
+  },
+  {
+    q: "Do you install new driveway gates? What's included?",
+    a: 'Yes. We design, fabricate, and install custom driveway gates for residential and commercial properties.\n\nYour installation includes: site evaluation and measurements, gate design consultation, professional installation, opener integration (if needed), and full system testing and safety check.',
+  },
+  {
+    q: 'Can you fix or install gate openers and motors?',
+    a: "Absolutely. We repair and install all major gate opener brands. If your gate opens halfway, makes grinding noises, doesn't respond to remotes, stops working intermittently, or has battery or control board issues — we can diagnose whether it needs repair or replacement.",
+  },
+  {
+    q: 'Do you install access control systems?',
+    a: 'Yes. We install and service keypads, card readers, intercom systems, telephone entry systems, remote access solutions, and smart access control integrations. Whether you need secure entry for a private home, gated community, or commercial property — we design systems that are secure, user-friendly, and scalable.',
+  },
+  {
+    q: 'Do you also repair fences and gate structures?',
+    a: 'Yes. Beyond motors and electronics, we handle structural gate and fence repairs including sagging gates, broken hinges, damaged frames, welding repairs, wooden fence repair, and metal and iron fence restoration.',
+  },
+  {
+    q: 'What should I expect during my service appointment?',
+    a: 'From the moment you contact us, you can expect clear communication, on-time arrival, professional diagnosis, honest recommendations, clean and organized workmanship, and a safety inspection before we leave. We treat your property with respect.',
+  },
+  {
+    q: 'Do I need a permit for a new gate installation?',
+    a: 'In many cities and counties, yes — especially for driveway gates, automated systems, or structural fence modifications.\n\nThe good news? We handle the permit process for you. Our team determines if a permit is required, prepares and submits applications, provides drawings and documentation, coordinates inspections, and ensures your installation meets local code. You focus on your project — we take care of the paperwork.',
+  },
+];
+
+function FAQItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border-b border-border last:border-0">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between py-5 text-left gap-4 group"
+      >
+        <span className="font-display font-bold text-foreground text-lg leading-snug group-hover:text-primary transition-colors">
+          {q}
+        </span>
+        <ChevronDown
+          className={`w-5 h-5 text-primary flex-shrink-0 transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
+        />
+      </button>
+      <div
+        className={`overflow-hidden transition-all duration-300 ${open ? 'max-h-96 pb-5' : 'max-h-0'}`}
+      >
+        <p className="text-muted-foreground leading-relaxed whitespace-pre-line">{a}</p>
+      </div>
+    </div>
+  );
+}
 
 export function FinalCTA() {
   const { phoneLink, phoneFormatted } = useLocation2();
 
   return (
-    <section className="py-[72px] md:py-24 border-t border-border bg-background relative overflow-hidden">
+    <section className="py-20 md:py-28 border-t border-border bg-background relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/5 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="container-main relative">
-        <div className="text-center max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-green-50 border border-green-200 mb-10">
-            <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
-            <span className="text-base font-bold text-green-700 uppercase tracking-wide">Direct Line • Available Now</span>
+        {/* Header */}
+        <div className="text-center mb-14">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight mb-4">
+            <span className="text-foreground">Common </span>
+            <span className="gold-text">Questions</span>
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Straight answers from technicians who've seen it all.
+          </p>
+        </div>
+
+        {/* Two-column layout: image + accordion */}
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Image */}
+          <div className="rounded-3xl overflow-hidden shadow-2xl shadow-black/20 sticky top-28">
+            <img
+              src={techWorking}
+              alt="Eagle Automatic gate technician working on gate motor"
+              className="w-full h-full object-cover"
+              style={{ maxHeight: '620px', objectPosition: 'center top' }}
+            />
+            {/* CTA overlay */}
+            <div className="bg-card border-t border-border p-6 text-center">
+              <p className="text-muted-foreground mb-4 font-medium">Still have questions? Talk to a tech directly.</p>
+              <a href={phoneLink} className="btn-cta w-full text-lg min-h-[56px]">
+                <Phone className="w-5 h-5" />
+                {phoneFormatted}
+              </a>
+            </div>
           </div>
 
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-8 tracking-tight">
-            Talk Directly With a
-            <br />
-            <span className="gold-text">Field Technician</span>
-          </h2>
-
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed">
-            Skip the call center. Get expert answers immediately from someone who's actually worked on thousands of gates.
-          </p>
-
-          <a href={phoneLink} className="btn-cta text-2xl md:text-3xl px-16 py-7 min-h-[88px] mb-10">
-            <Phone className="w-8 h-8" />
-            {phoneFormatted}
-            <ArrowRight className="w-7 h-7" />
-          </a>
-
-          <div className="flex flex-wrap items-center justify-center gap-10 text-base text-muted-foreground">
-            <span className="flex items-center gap-2">
-              <Shield className="w-6 h-6 text-primary" />
-              No obligation
-            </span>
-            <span className="flex items-center gap-2">
-              <Clock className="w-6 h-6 text-primary" />
-              Free estimates
-            </span>
-            <span className="flex items-center gap-2">
-              <Zap className="w-6 h-6 text-primary" />
-              Same day service
-            </span>
+          {/* FAQ Accordion */}
+          <div className="bg-card rounded-3xl border border-border shadow-xl shadow-black/10 p-8 md:p-10">
+            {faqs.map((faq, i) => (
+              <FAQItem key={i} q={faq.q} a={faq.a} />
+            ))}
           </div>
         </div>
       </div>
