@@ -1,5 +1,6 @@
 import { Phone, Wrench, DoorOpen, Settings } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
+import couponBg from '@/assets/coupon-bg.webp';
 
 const coupons = [
   {
@@ -29,8 +30,17 @@ export function CouponSection() {
   const { phoneFormatted, phoneLink } = useLocation2();
 
   return (
-    <section className="py-16 md:py-20 bg-muted/30">
-      <div className="container-main">
+    <section className="py-16 md:py-20 relative overflow-hidden">
+      <img
+        src={couponBg}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.08]"
+        loading="lazy"
+        decoding="async"
+      />
+      <div className="absolute inset-0 bg-background/80" />
+      <div className="container-main relative z-10">
         <div className="text-center mb-12">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
             Redeem Our Special Coupons
