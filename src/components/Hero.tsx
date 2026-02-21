@@ -21,8 +21,8 @@ function getKeywordPrefix(): {prefix: string;kw: string;} {
 
   if (!kw) return { prefix: '', kw };
 
-  // Access control / intercom / keypad / smart entry
-  if (/access|intercom|keypad|smart|entry|buzzer|callbox/.test(kw)) return { prefix: 'Gate Access Control ', kw };
+  // Access control / intercom / keypad / smart entry system
+  if (/access|intercom|keypad|smart.?entry|buzzer|callbox|entry.?system/.test(kw)) return { prefix: 'Gate Access Control ', kw };
 
   // Automatic / electric / motorized / opener / LiftMaster / operator
   if (/automatic|electric|opener|motor|liftmaster|operator|remote|battery/.test(kw)) return { prefix: 'Automatic ', kw };
