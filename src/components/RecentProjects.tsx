@@ -60,7 +60,7 @@ export function RecentProjects() {
                 decoding="async"
                 width={400}
                 height={300}
-                className="w-full h-full object-cover pointer-events-none select-none"
+                className="w-full h-full object-cover pointer-events-none select-none scale-[0.85]"
                 style={project.objectPosition ? { objectPosition: project.objectPosition } : undefined}
                 draggable={false}
               />
