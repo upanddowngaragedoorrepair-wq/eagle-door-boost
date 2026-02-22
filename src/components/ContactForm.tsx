@@ -114,7 +114,7 @@ export function ContactForm() {
               Request a Free Quote
             </h3>
             <p className="text-lg text-muted-foreground mb-8">
-              Fill out the form and we'll get back to you in less than one minute!
+              Fill out the form and we'll get back to you Shortly ! 
             </p>
 
             {error &&
