@@ -15,8 +15,25 @@ export function Header() {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
     setMobileMenuOpen(false);
+
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+
+    // Section not yet rendered (lazy-loaded) — scroll to bottom to trigger loading, then retry
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    const retryInterval = setInterval(() => {
+      const el = document.querySelector(href);
+      if (el) {
+        clearInterval(retryInterval);
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 150);
+    // Safety: stop retrying after 3s
+    setTimeout(() => clearInterval(retryInterval), 3000);
   };
 
   return (
