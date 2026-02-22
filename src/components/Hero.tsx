@@ -13,44 +13,28 @@ declare global {
   interface Window {dataLayer: Record<string, unknown>[];}
 }
 
-function getKeywordPrefix(): {prefix: string;kw: string;} {
+function getKeywordData(): {prefix: string; kw: string; headlineWord: string;} {
   const params = new URLSearchParams(window.location.search);
-  // PERF NOTE: covers all Google Ads param variants — kd, utm_term, keyword, kw
   const raw = params.get('kd') || params.get('utm_term') || params.get('keyword') || params.get('kw') || '';
   const kw = raw.toLowerCase().trim();
 
-  if (!kw) return { prefix: '', kw };
+  if (!kw) return { prefix: '', kw, headlineWord: 'Gate' };
 
-  // Access control / intercom / keypad / smart entry system
-  if (/access|intercom|keypad|smart.?entry|buzzer|callbox|entry.?system/.test(kw)) return { prefix: 'Gate Access Control ', kw };
+  if (/access|intercom|keypad|smart.?entry|buzzer|callbox|entry.?system/.test(kw)) return { prefix: 'Gate Access Control ', kw, headlineWord: 'Access Control' };
+  if (/automatic|electric|opener|motor|liftmaster|operator|remote|battery/.test(kw)) return { prefix: 'Automatic ', kw, headlineWord: 'Automatic Gate' };
+  if (/fence|fencing|railing|picket|vinyl fence|chain.?link|wrought iron/.test(kw)) return { prefix: 'Fence & Gate ', kw, headlineWord: 'Fence & Gate' };
+  if (/driveway|driveway gate|residential gate/.test(kw)) return { prefix: 'Driveway ', kw, headlineWord: 'Driveway Gate' };
+  if (/sliding|slide gate/.test(kw)) return { prefix: 'Sliding ', kw, headlineWord: 'Sliding Gate' };
+  if (/swing|swing gate|pedestrian/.test(kw)) return { prefix: 'Swing ', kw, headlineWord: 'Swing Gate' };
+  if (/commercial|industrial|warehouse|hoa|business/.test(kw)) return { prefix: 'Commercial ', kw, headlineWord: 'Commercial Gate' };
+  if (/repair|broken|fix|stuck|maintenance|service|emergency/.test(kw)) return { prefix: '', kw, headlineWord: 'Gate Repair' };
 
-  // Automatic / electric / motorized / opener / LiftMaster / operator
-  if (/automatic|electric|opener|motor|liftmaster|operator|remote|battery/.test(kw)) return { prefix: 'Automatic ', kw };
-
-  // Fence & related
-  if (/fence|fencing|railing|picket|vinyl fence|chain.?link|wrought iron/.test(kw)) return { prefix: 'Fence & Gate ', kw };
-
-  // Driveway gates
-  if (/driveway|driveway gate|residential gate/.test(kw)) return { prefix: 'Driveway ', kw };
-
-  // Sliding gates
-  if (/sliding|slide gate/.test(kw)) return { prefix: 'Sliding ', kw };
-
-  // Swing gates
-  if (/swing|swing gate|pedestrian/.test(kw)) return { prefix: 'Swing ', kw };
-
-  // Commercial / industrial
-  if (/commercial|industrial|warehouse|hoa|business/.test(kw)) return { prefix: 'Commercial ', kw };
-
-  // Repair / broken / fix / maintenance
-  if (/repair|broken|fix|stuck|maintenance|service|emergency/.test(kw)) return { prefix: '', kw };
-
-  return { prefix: '', kw };
+  return { prefix: '', kw, headlineWord: 'Gate' };
 }
 
 export function Hero() {
   const { city, phoneLink, phoneFormatted } = useLocation2();
-  const { prefix, kw } = useMemo(() => getKeywordPrefix(), []);
+  const { prefix, kw, headlineWord } = useMemo(() => getKeywordData(), []);
 
   const handleCallClick = () => {
     window.dataLayer = window.dataLayer || [];
@@ -120,7 +104,7 @@ export function Hero() {
 
             {/* Headline */}
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold leading-[1.05] mb-4 tracking-tight text-foreground">
-              {prefix}Gate Repair &amp; Installation
+              Expert <span className="text-primary">{headlineWord}</span> Solutions
             </h1>
 
             <p className="text-2xl md:text-3xl font-display font-semibold relative inline-block headline-underline mb-8 text-sidebar-border">
