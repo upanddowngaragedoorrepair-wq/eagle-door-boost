@@ -20,7 +20,7 @@ const projects = [
   { src: project7, alt: 'Sliding gate motor installation' },
   { src: project8, alt: 'DoorBird access control system' },
   { src: project9, alt: 'Gate installation in progress by technicians' },
-  { src: project10, alt: 'Cellgate intercom access control system', objectPosition: 'center top', scale: '0.7' },
+  { src: project10, alt: 'Cellgate intercom access control system', objectPosition: 'center top' },
   { src: project11, alt: 'Electric gate opener installation' },
 ];
 
@@ -60,11 +60,8 @@ export function RecentProjects() {
                 decoding="async"
                 width={400}
                 height={300}
-                className="w-full h-full object-cover pointer-events-none select-none scale-[0.85]"
-                style={{
-                  ...(project.objectPosition ? { objectPosition: project.objectPosition } : {}),
-                  ...(project.scale ? { transform: `scale(${project.scale})` } : {}),
-                }}
+                className="w-full h-full object-cover pointer-events-none select-none"
+                style={project.objectPosition ? { objectPosition: project.objectPosition } : undefined}
                 draggable={false}
               />
             </div>
