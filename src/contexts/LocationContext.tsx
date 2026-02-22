@@ -81,6 +81,12 @@ const countyFromCity = (c: string): string | null => CITY_TO_COUNTY[c] || null;
 const countyFromPhone = (p: string): string | null => AREACODE_TO_COUNTY[p.replace(/\D/g, '').slice(0, 3)] || null;
 const countyPhone = (c: string | null): string => (c && COUNTY_PHONES[c]) || COUNTY_PHONES.default;
 
+/** Fallback display name: county from cp area code, or DEFAULT_CITY */
+function fallbackCity(cpParam: string): string {
+  const county = countyFromPhone(cpParam);
+  return county ? `${county} County` : DEFAULT_CITY;
+}
+
 function cdVariants(id: string): string[] {
   const out: string[] = [];
   if (id) out.push(id);
@@ -161,7 +167,7 @@ export function LocationProvider({ children }: { children: ReactNode }) {
     
     const phone = cpParam || DEFAULT_PHONE;
     return {
-      city: cityParam ? decodeURIComponent(cityParam) : DEFAULT_CITY,
+      city: cityParam ? decodeURIComponent(cityParam) : fallbackCity(cpParam),
       phone: phone.replace(/\D/g, ''),
       phoneFormatted: formatPhone(phone),
       phoneLink: getPhoneLink(phone),
@@ -208,7 +214,7 @@ export function LocationProvider({ children }: { children: ReactNode }) {
           try {
             const parsed = JSON.parse(stored);
             setState({
-              city: parsed.city || DEFAULT_CITY,
+              city: parsed.city || fallbackCity(cpParam),
               phone: parsed.phone || DEFAULT_PHONE.replace(/\D/g, ''),
               phoneFormatted: parsed.phoneFormatted || DEFAULT_PHONE,
               phoneLink: parsed.phoneLink || getPhoneLink(DEFAULT_PHONE),
@@ -225,7 +231,7 @@ export function LocationProvider({ children }: { children: ReactNode }) {
         
         const phone = cpParam || DEFAULT_PHONE;
         const newState = {
-          city: DEFAULT_CITY,
+          city: fallbackCity(cpParam),
           phone: phone.replace(/\D/g, ''),
           phoneFormatted: formatPhone(phone),
           phoneLink: getPhoneLink(phone),
@@ -306,7 +312,7 @@ export function LocationProvider({ children }: { children: ReactNode }) {
       const phone = cpParam || countyPhone(county);
 
       const newState = {
-        city: city || DEFAULT_CITY,
+        city: city || fallbackCity(cpParam),
         phone: phone.replace(/\D/g, ''),
         phoneFormatted: formatPhone(phone),
         phoneLink: getPhoneLink(phone),
