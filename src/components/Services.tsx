@@ -197,7 +197,7 @@ export function Services() {
           </div>
 
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 tracking-tight">
-            <span className="text-foreground">Premier </span>
+            <span className="text-foreground">Our </span>
             <span className="gold-text">{serviceWord}</span>{' '}
             <span className="text-foreground">Services</span>
           </h2>
