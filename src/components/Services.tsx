@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Phone, CheckCircle, Wrench, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
@@ -170,6 +170,22 @@ export function Services() {
   const { phoneLink, phoneFormatted } = useLocation2();
   const [galleryOpen, setGalleryOpen] = useState(false);
 
+  const serviceWord = useMemo(() => {
+    const params = new URLSearchParams(window.location.search);
+    const raw = params.get('kd') || params.get('utm_term') || params.get('keyword') || params.get('kw') || '';
+    const kw = raw.toLowerCase().trim();
+    if (!kw) return 'Gate';
+    if (/access|intercom|keypad|smart.?entry|buzzer|callbox|entry.?system/.test(kw)) return 'Access Control';
+    if (/automatic|electric|opener|motor|liftmaster|operator|remote|battery/.test(kw)) return 'Automatic Gate';
+    if (/fence|fencing|railing|picket|vinyl fence|chain.?link|wrought iron/.test(kw)) return 'Fence & Gate';
+    if (/driveway|driveway gate|residential gate/.test(kw)) return 'Driveway Gate';
+    if (/sliding|slide gate/.test(kw)) return 'Sliding Gate';
+    if (/swing|swing gate|pedestrian/.test(kw)) return 'Swing Gate';
+    if (/commercial|industrial|warehouse|hoa|business/.test(kw)) return 'Commercial Gate';
+    if (/repair|broken|fix|stuck|maintenance|service|emergency/.test(kw)) return 'Gate Repair';
+    return 'Gate';
+  }, []);
+
   return (
     <section id="services" className="py-[72px] md:py-24 bg-background relative">
       <div className="container-main relative">
@@ -181,9 +197,9 @@ export function Services() {
           </div>
 
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 tracking-tight">
-            <span className="text-foreground">Expert </span>
-            <span className="gold-text">Gate</span>{' '}
-            <span className="text-foreground">Solutions</span>
+            <span className="text-foreground">Premier </span>
+            <span className="gold-text">{serviceWord}</span>{' '}
+            <span className="text-foreground">Services</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             From emergency repairs to complete installations, our certified technicians deliver exceptional results every time.
