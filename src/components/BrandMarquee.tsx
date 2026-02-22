@@ -45,14 +45,14 @@ export function BrandMarquee({ logos, speed = 30 }: BrandMarqueeProps) {
 
           {duplicatedLogos.map((logo, index) =>
           <div key={`${logo.name}-${index}`} className="flex-shrink-0 group">
-              <div className="w-36 h-24 md:w-48 md:h-32 lg:w-56 lg:h-36 rounded-xl bg-background border border-border flex items-center justify-center px-3 transition-all duration-300 group-hover:scale-105 group-hover:border-primary/40 group-hover:shadow-md cursor-pointer overflow-hidden">
+              <div className="w-32 h-20 md:w-44 md:h-28 lg:w-52 lg:h-32 rounded-xl bg-background border border-border flex items-center justify-center px-4 transition-all duration-300 group-hover:scale-105 group-hover:border-primary/40 group-hover:shadow-md cursor-pointer">
                 {logo.image ?
               <img
                 src={logo.image}
                 alt={`${logo.name} logo`}
                 loading="lazy"
                 decoding="async"
-                className="w-[85%] h-[85%] object-contain transition-all duration-300"
+                className="max-w-full max-h-full object-contain transition-all duration-300"
                 draggable={false} /> :
 
 
