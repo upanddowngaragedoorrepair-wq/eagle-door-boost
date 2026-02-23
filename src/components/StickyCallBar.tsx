@@ -1,8 +1,20 @@
-import { Phone } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Phone, MessageSquare } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 
 export function StickyCallBar() {
+  const [isVisible, setIsVisible] = useState(false);
   const { phoneLink } = useLocation2();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsVisible(window.scrollY > 500);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  if (!isVisible) return null;
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden sticky-bar-enter">
