@@ -45,7 +45,21 @@ export function Hero() {
     e.preventDefault();
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'cta_estimate_click', cta_location: 'hero', keyword: kw, modifier: prefix.trim() });
-    document.querySelector('#quote-form')?.scrollIntoView({ behavior: 'smooth' });
+    const target = document.querySelector('#quote-form');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+    // Section not yet rendered (lazy-loaded) — scroll to bottom to trigger loading, then retry
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    const retryInterval = setInterval(() => {
+      const el = document.querySelector('#quote-form');
+      if (el) {
+        clearInterval(retryInterval);
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 150);
+    setTimeout(() => clearInterval(retryInterval), 3000);
   };
 
   return (
