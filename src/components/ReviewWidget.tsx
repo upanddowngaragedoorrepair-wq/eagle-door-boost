@@ -141,7 +141,7 @@ export function ReviewWidget() {
           </h2>
 
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl mx-auto">
-            Real feedback from homeowners in {city} & The Greater Bay Area
+            Real feedback from homeowners in {city} & Surrounding Areas
           </p>
 
           <div className="flex flex-col items-center gap-4 mb-10">
