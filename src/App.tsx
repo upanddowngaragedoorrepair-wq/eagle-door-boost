@@ -9,8 +9,9 @@ import { LocationProvider } from "@/contexts/LocationContext";
 // Eagerly load the homepage
 import Index from "./pages/Index";
 
-// Only keep form-submitted as a separate route
 const FormSubmitted = lazy(() => import("./pages/FormSubmitted"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 
 const queryClient = new QueryClient();
 
