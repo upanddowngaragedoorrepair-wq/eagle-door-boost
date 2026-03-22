@@ -16,6 +16,7 @@ const COUNTY_PHONES: Record<string, string> = {
   "Santa Clara": "408-809-9670",
   "San Francisco": "415-689-8557",
   "Alameda": "510-250-0820",
+  "Contra Costa": "925-291-5716",
   "Sacramento": "916-264-9850",
   "Orange": "949-536-3302",
   "Riverside": "951-631-0241",
