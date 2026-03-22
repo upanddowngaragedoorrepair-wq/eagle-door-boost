@@ -1,5 +1,6 @@
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
+import { Link } from 'react-router-dom';
 
 export function Footer() {
   const { city, phoneFormatted, phoneLink } = useLocation2();
