@@ -21,6 +21,7 @@ const AREACODE_TO_COUNTY: Record<string, string> = {
   '408': 'Santa Clara',
   '415': 'Marin',
   '510': 'Alameda',
+  '925': 'Contra Costa',
   '916': 'Sacramento',
   '949': 'Orange',
   '951': 'Riverside',
