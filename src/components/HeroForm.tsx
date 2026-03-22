@@ -89,6 +89,7 @@ export function HeroForm() {
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
+          name="name"
           placeholder="Your Name *"
           required
           className={inputClass}
@@ -97,6 +98,7 @@ export function HeroForm() {
         />
         <input
           type="tel"
+          name="phone"
           placeholder="Phone Number *"
           required
           className={inputClass}
@@ -105,12 +107,14 @@ export function HeroForm() {
         />
         <input
           type="email"
+          name="email"
           placeholder="Email Address"
           className={inputClass}
           value={formData.email}
           onChange={e => setFormData({ ...formData, email: e.target.value })}
         />
         <select
+          name="service"
           className={`${inputClass} appearance-none`}
           value={formData.service}
           onChange={e => setFormData({ ...formData, service: e.target.value })}
