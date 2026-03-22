@@ -58,7 +58,7 @@ const TermsOfService = () => {
 
             <section>
               <h2 className="font-display text-xl font-bold text-foreground mt-8 mb-3">9. Contact Us</h2>
-              <p>If you have any questions about these Terms of Service, please contact us at {phoneFormatted} or email us at info@eaglegate.com.</p>
+              <p>If you have any questions about these Terms of Service, please contact us at {phoneFormatted} or email us at info@eagleautomaticgate.com.</p>
             </section>
           </div>
         </div>
