@@ -9,8 +9,9 @@ import { LocationProvider } from "@/contexts/LocationContext";
 // Eagerly load the homepage
 import Index from "./pages/Index";
 
-// Only keep form-submitted as a separate route
 const FormSubmitted = lazy(() => import("./pages/FormSubmitted"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,8 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/form-submitted" element={<FormSubmitted />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-of-service" element={<TermsOfService />} />
               {/* Redirect old service routes to home */}
               <Route path="/about" element={<Navigate to="/" replace />} />
               <Route path="/automatic-gates" element={<Navigate to="/" replace />} />
