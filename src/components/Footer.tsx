@@ -76,8 +76,8 @@ export function Footer() {
         <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/50">
           <p>© {currentYear} Eagle Automatic Gate & Door. All rights reserved. License #1138855</p>
           <div className="flex gap-8">
-            <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
+            <Link to="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="hover:text-primary transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

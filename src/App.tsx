@@ -32,6 +32,8 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/form-submitted" element={<FormSubmitted />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-of-service" element={<TermsOfService />} />
               {/* Redirect old service routes to home */}
               <Route path="/about" element={<Navigate to="/" replace />} />
               <Route path="/automatic-gates" element={<Navigate to="/" replace />} />
