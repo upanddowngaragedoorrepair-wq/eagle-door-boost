@@ -86,7 +86,7 @@ export function HeroForm() {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form action="https://formspree.io/f/xdalkyzy" method="POST" onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
           name="name"
