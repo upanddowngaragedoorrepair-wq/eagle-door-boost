@@ -16,6 +16,7 @@ const COUNTY_PHONES: Record<string, string> = {
   "Santa Clara": "408-809-9670",
   "San Francisco": "415-689-8557",
   "Alameda": "510-250-0820",
+  "Contra Costa": "925-291-5716",
   "Sacramento": "916-264-9850",
   "Orange": "949-536-3302",
   "Riverside": "951-631-0241",
@@ -30,6 +31,7 @@ const CITY_TO_COUNTY: Record<string, string> = {
   "San Jose":"Santa Clara","Santa Clara":"Santa Clara","Sunnyvale":"Santa Clara","Mountain View":"Santa Clara","Milpitas":"Santa Clara","Campbell":"Santa Clara","Cupertino":"Santa Clara","Los Gatos":"Santa Clara","Saratoga":"Santa Clara","Los Altos":"Santa Clara","Los Altos Hills":"Santa Clara","Gilroy":"Santa Clara","Morgan Hill":"Santa Clara",
   "San Francisco":"San Francisco","Daly City":"San Mateo","San Mateo":"San Mateo","Redwood City":"San Mateo","San Carlos":"San Mateo","Foster City":"San Mateo","Belmont":"San Mateo","Burlingame":"San Mateo","San Bruno":"San Mateo","Pacifica":"San Mateo","Half Moon Bay":"San Mateo","Millbrae":"San Mateo","Hillsborough":"San Mateo",
   "Oakland":"Alameda","Berkeley":"Alameda","Alameda":"Alameda","Fremont":"Alameda","Hayward":"Alameda","San Leandro":"Alameda","Union City":"Alameda","Newark":"Alameda","Pleasanton":"Alameda","Dublin":"Alameda","Livermore":"Alameda","San Ramon":"Alameda","Emeryville":"Alameda",
+  "Concord":"Contra Costa","Walnut Creek":"Contra Costa","Antioch":"Contra Costa","Martinez":"Contra Costa","Pleasant Hill":"Contra Costa","Pittsburg":"Contra Costa","San Pablo":"Contra Costa","El Cerrito":"Contra Costa","Hercules":"Contra Costa","Pinole":"Contra Costa","Danville":"Contra Costa","Lafayette":"Contra Costa","Orinda":"Contra Costa","Moraga":"Contra Costa","Richmond":"Contra Costa","Brentwood":"Contra Costa","Oakley":"Contra Costa","Bay Point":"Contra Costa","El Sobrante":"Contra Costa","Clayton":"Contra Costa",
   "Sacramento":"Sacramento","Elk Grove":"Sacramento","Rancho Cordova":"Sacramento","Rosemont":"Sacramento","Elverta":"Sacramento","Folsom":"Sacramento","Fair Oaks":"Sacramento",
   "Irvine":"Orange","Costa Mesa":"Orange","Lake Forest":"Orange","Tustin":"Orange","Santa Ana":"Orange","Anaheim":"Orange",
   "Riverside":"Riverside","Corona":"Riverside","Murrieta":"Riverside","Moreno Valley":"Riverside","Eastvale":"Riverside","Perris":"Riverside",
@@ -43,7 +45,7 @@ const CITY_TO_COUNTY: Record<string, string> = {
 };
 
 const AREACODE_TO_COUNTY: Record<string, string> = {
-  "408":"Santa Clara","415":"Marin","510":"Alameda","916":"Sacramento","949":"Orange",
+  "408":"Santa Clara","415":"Marin","510":"Alameda","925":"Contra Costa","916":"Sacramento","949":"Orange",
   "951":"Riverside","650":"San Mateo","805":"Ventura","831":"Santa Cruz"
 };
 
