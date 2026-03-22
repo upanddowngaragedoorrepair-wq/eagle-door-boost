@@ -7,6 +7,7 @@ const COUNTY_ANCHOR: Record<string, string> = {
   'Santa Clara': 'San Jose',
   'San Francisco': 'San Francisco',
   'Alameda': 'Oakland',
+  'Contra Costa': 'Concord',
   'Sacramento': 'Sacramento',
   'Orange': 'Irvine',
   'Riverside': 'Riverside',
