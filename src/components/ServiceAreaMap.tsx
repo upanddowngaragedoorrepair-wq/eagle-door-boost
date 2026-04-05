@@ -55,8 +55,8 @@ export function ServiceAreaMap() {
   const displayCity = city && city !== 'Pros' ? city : 'The Bay Area';
 
   const mapSrc = useMemo(() => {
-    return `https://www.google.com/maps?q=${encodeURIComponent(mapCity)}&output=embed&z=9&t=m`;
-  }, [mapCity]);
+    return `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&output=embed&z=9&t=m`;
+  }, [mapQuery]);
 
   return (
     <section id="service-area" className="service-area-map-section">
