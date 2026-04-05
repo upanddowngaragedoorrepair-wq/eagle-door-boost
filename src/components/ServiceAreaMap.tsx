@@ -33,30 +33,27 @@ const AREACODE_TO_COUNTY: Record<string, string> = {
 export function ServiceAreaMap() {
   const { city, cp } = useLocation2();
 
-  const county = useMemo(() => {
-    if (cp) {
-      const ac = cp.replace(/\D/g, '').slice(0, 3);
-      return AREACODE_TO_COUNTY[ac] || null;
-    }
-    return null;
-  }, [cp]);
-
-  const mapQuery = useMemo(() => {
-    // Priority: county from area code → city → fallback
-    if (county) {
-      return county + ' County, CA';
-    }
+  const mapCity = useMemo(() => {
+    // If we have a real city (not default "Pros"), use it
     if (city && city !== 'Pros' && city !== 'California') {
       return city + ', CA';
     }
+    // Fallback: resolve from cp area code
+    if (cp) {
+      const ac = cp.replace(/\D/g, '').slice(0, 3);
+      const county = AREACODE_TO_COUNTY[ac];
+      if (county && COUNTY_ANCHOR[county]) {
+        return COUNTY_ANCHOR[county] + ', CA';
+      }
+    }
     return 'San Francisco Bay Area, CA';
-  }, [county, city]);
+  }, [city, cp]);
 
   const displayCity = city && city !== 'Pros' ? city : 'The Bay Area';
 
   const mapSrc = useMemo(() => {
-    return `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&output=embed&z=9&t=m`;
-  }, [mapQuery]);
+    return `https://www.google.com/maps?q=${encodeURIComponent(mapCity)}&output=embed&z=8&t=m`;
+  }, [mapCity]);
 
   return (
     <section id="service-area" className="service-area-map-section">
@@ -85,9 +82,9 @@ export function ServiceAreaMap() {
           />
           {/* Eagle pin overlay */}
           <div
-            className="absolute left-1/2 top-[calc(50%+18px)] pointer-events-none w-[110px] h-[110px] md:w-[154px] md:h-[154px]"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 pointer-events-none w-[100px] h-[100px] md:w-[140px] md:h-[140px]"
             style={{
-              transform: 'translate(-50%, -90%)',
+              transform: 'translate(-50%, -65%)',
               filter: 'drop-shadow(0 10px 18px rgba(0, 0, 0, 0.4))',
             }}
           >
