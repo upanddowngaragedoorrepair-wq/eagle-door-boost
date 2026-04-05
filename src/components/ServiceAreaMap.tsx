@@ -33,21 +33,24 @@ const AREACODE_TO_COUNTY: Record<string, string> = {
 export function ServiceAreaMap() {
   const { city, cp } = useLocation2();
 
-  const mapCity = useMemo(() => {
-    // If we have a real city (not default "Pros"), use it
+  const county = useMemo(() => {
+    if (cp) {
+      const ac = cp.replace(/\D/g, '').slice(0, 3);
+      return AREACODE_TO_COUNTY[ac] || null;
+    }
+    return null;
+  }, [cp]);
+
+  const mapQuery = useMemo(() => {
+    // Priority: county from area code → city → fallback
+    if (county) {
+      return county + ' County, CA';
+    }
     if (city && city !== 'Pros' && city !== 'California') {
       return city + ', CA';
     }
-    // Fallback: resolve from cp area code
-    if (cp) {
-      const ac = cp.replace(/\D/g, '').slice(0, 3);
-      const county = AREACODE_TO_COUNTY[ac];
-      if (county && COUNTY_ANCHOR[county]) {
-        return COUNTY_ANCHOR[county] + ', CA';
-      }
-    }
     return 'San Francisco Bay Area, CA';
-  }, [city, cp]);
+  }, [county, city]);
 
   const displayCity = city && city !== 'Pros' ? city : 'The Bay Area';
 
