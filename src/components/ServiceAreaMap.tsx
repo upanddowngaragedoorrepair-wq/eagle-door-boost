@@ -82,7 +82,7 @@ export function ServiceAreaMap() {
           />
           {/* Eagle pin overlay */}
           <div
-            className="absolute left-1/2 top-1/2 pointer-events-none w-[110px] h-[110px] md:w-[154px] md:h-[154px]"
+            className="absolute left-1/2 top-[calc(50%+18px)] pointer-events-none w-[110px] h-[110px] md:w-[154px] md:h-[154px]"
             style={{
               transform: 'translate(-50%, -90%)',
               filter: 'drop-shadow(0 10px 18px rgba(0, 0, 0, 0.4))',
