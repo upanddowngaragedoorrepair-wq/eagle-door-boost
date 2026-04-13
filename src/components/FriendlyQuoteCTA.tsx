@@ -5,10 +5,10 @@ export function FriendlyQuoteCTA() {
   const { phoneLink, phoneFormatted } = useLocation2();
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-primary/10 via-background to-primary/5 relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-secondary relative overflow-hidden">
       {/* Decorative circles */}
-      <div className="absolute top-10 right-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl" />
-      <div className="absolute bottom-10 left-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute top-10 right-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl" />
+      <div className="absolute bottom-10 left-10 w-40 h-40 bg-primary/3 rounded-full blur-3xl" />
 
       <div className="container-main relative text-center max-w-3xl mx-auto">
         {/* Friendly icon */}
