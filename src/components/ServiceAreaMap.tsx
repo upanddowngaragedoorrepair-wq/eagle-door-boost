@@ -114,7 +114,7 @@ export function ServiceAreaMap() {
           ].map((pos, i) => (
             <div
               key={i}
-              className="absolute pointer-events-none w-[32px] h-[32px] md:w-[44px] md:h-[44px]"
+              className="absolute pointer-events-none w-[35px] h-[35px] md:w-[48px] md:h-[48px]"
               style={{
                 top: pos.top,
                 left: pos.left,
