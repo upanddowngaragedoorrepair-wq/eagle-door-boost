@@ -70,15 +70,14 @@ export function TrustProofSection() {
 
           {/* HomeAdvisor Rating Card */}
           <div className="flex flex-row md:flex-col items-center gap-4 md:gap-2 p-4 rounded-xl bg-white/[0.07] border border-white/10 backdrop-blur-sm">
-            <div className="flex items-center gap-2 md:flex-col md:gap-2">
-             <div className="shrink-0">
-                <img
-                  src={homeAdvisorBadge}
-                  alt="HomeAdvisor Elite Service"
-                  className="w-20 h-20 md:w-24 md:h-24 object-contain"
-                  loading="lazy"
-                  decoding="async" />
-              </div>
+            <div className="shrink-0">
+              <img
+                src={homeAdvisorBadge}
+                alt="HomeAdvisor Elite Service"
+                className="w-20 h-20 md:w-24 md:h-24 object-contain"
+                loading="lazy"
+                decoding="async" />
+            </div>
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-1.5">
                 <div className="flex gap-0.5">
@@ -91,7 +90,6 @@ export function TrustProofSection() {
               <span className="text-sm text-white/60">Based on 64 local reviews</span>
             </div>
           </div>
-        </div>
 
 
 
