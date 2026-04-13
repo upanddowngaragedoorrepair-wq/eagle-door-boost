@@ -50,7 +50,7 @@ export function PopupBookingForm() {
     }
     const timer = setTimeout(() => {
       if (!dismissed) setOpen(true);
-    }, 20000);
+    }, 30000);
     return () => clearTimeout(timer);
   }, [dismissed]);
 
