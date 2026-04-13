@@ -19,12 +19,17 @@ export function HeroForm() {
   const navigate = useNavigate();
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
+  const [expanded, setExpanded] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
     service: '',
   });
+
+  const handleFocus = () => {
+    if (!expanded) setExpanded(true);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -95,6 +100,7 @@ export function HeroForm() {
           className={inputClass}
           value={formData.name}
           onChange={e => setFormData({ ...formData, name: e.target.value })}
+          onFocus={handleFocus}
         />
         <input
           type="tel"
@@ -104,26 +110,36 @@ export function HeroForm() {
           className={inputClass}
           value={formData.phone}
           onChange={e => setFormData({ ...formData, phone: e.target.value })}
+          onFocus={handleFocus}
         />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email Address"
-          className={inputClass}
-          value={formData.email}
-          onChange={e => setFormData({ ...formData, email: e.target.value })}
-        />
-        <select
-          name="service"
-          className={`${inputClass} appearance-none`}
-          value={formData.service}
-          onChange={e => setFormData({ ...formData, service: e.target.value })}
+
+        <div
+          className={`grid transition-all duration-300 ease-in-out ${
+            expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+          }`}
         >
-          <option value="">Service Needed</option>
-          {serviceOptions.map(s => (
-            <option key={s} value={s}>{s}</option>
-          ))}
-        </select>
+          <div className="overflow-hidden space-y-4">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              className={inputClass}
+              value={formData.email}
+              onChange={e => setFormData({ ...formData, email: e.target.value })}
+            />
+            <select
+              name="service"
+              className={`${inputClass} appearance-none`}
+              value={formData.service}
+              onChange={e => setFormData({ ...formData, service: e.target.value })}
+            >
+              <option value="">Service Needed</option>
+              {serviceOptions.map(s => (
+                <option key={s} value={s}>{s}</option>
+              ))}
+            </select>
+          </div>
+        </div>
 
         <button
           type="submit"
