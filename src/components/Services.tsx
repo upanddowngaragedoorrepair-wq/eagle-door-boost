@@ -150,7 +150,7 @@ const services: ServiceData[] = [
   expandedItems: ['Wood fences', 'Wrought iron fences', 'Chain-link fencing', 'Vinyl & aluminum', 'Concrete pillars', 'Steel columns'],
   cta: 'Call for Fencing Estimate',
   urgency: 'We handle permits for you.',
-  proofImages: [fencesWood],
+  proofImages: [fencesMetal, fencesWoodLattice],
 }];
 
 
