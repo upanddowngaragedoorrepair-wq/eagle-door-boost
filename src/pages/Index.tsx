@@ -17,6 +17,7 @@ const FinalCTA = lazy(() => import('@/components/FinalCTA').then(m => ({ default
 const ContactForm = lazy(() => import('@/components/ContactForm').then(m => ({ default: m.ContactForm })));
 const Footer = lazy(() => import('@/components/Footer').then(m => ({ default: m.Footer })));
 const StickyCallBar = lazy(() => import('@/components/StickyCallBar').then(m => ({ default: m.StickyCallBar })));
+const PopupBookingForm = lazy(() => import('@/components/PopupBookingForm').then(m => ({ default: m.PopupBookingForm })));
 
 const Index = () => {
   return (
