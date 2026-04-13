@@ -71,11 +71,11 @@ export function TrustProofSection() {
           {/* HomeAdvisor Rating Card */}
           <div className="flex flex-row md:flex-col items-center gap-4 md:gap-2 p-4 rounded-xl bg-white/[0.07] border border-white/10 backdrop-blur-sm">
             <div className="flex items-center gap-2 md:flex-col md:gap-2">
-              <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center shrink-0 overflow-hidden">
+             <div className="shrink-0">
                 <img
                   src={homeAdvisorBadge}
-                  alt="HomeAdvisor"
-                  className="w-12 h-12 object-contain"
+                  alt="HomeAdvisor Elite Service"
+                  className="w-20 h-20 md:w-24 md:h-24 object-contain"
                   loading="lazy"
                   decoding="async" />
               </div>
