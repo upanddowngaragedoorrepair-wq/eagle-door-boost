@@ -19,7 +19,7 @@ export function BrandMarquee({ logos, speed = 30 }: BrandMarqueeProps) {
   return (
     <section className="py-16 md:py-20 bg-card border-t border-border overflow-hidden">
       <div className="container-main mb-10">
-        <p className="text-center text-sm tracking-wide uppercase font-sans md:text-2xl font-extrabold text-primary">
+        <p className="text-center text-sm tracking-wide uppercase font-display md:text-2xl font-extrabold text-primary">
           Authorized Service Provider for Leading Gate Brands
         </p>
       </div>
