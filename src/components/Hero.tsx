@@ -120,11 +120,11 @@ export function Hero() {
             </div>
 
             {/* Headline */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold leading-[1.05] mb-4 tracking-tight text-foreground">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.08] mb-5 tracking-tight text-foreground">
               Local <span className="text-primary">{headlineWord}</span> Experts
             </h1>
 
-            <p className="text-2xl md:text-3xl font-display font-semibold relative inline-block headline-underline mb-8 text-sidebar-border">
+            <p className="text-xl md:text-2xl font-bold relative inline-block headline-underline mb-8 text-sidebar-border">
               Best Price Guarantee
             </p>
 
