@@ -25,6 +25,7 @@ export function HeroForm() {
     phone: '',
     email: '',
     service: '',
+    zip: '',
   });
 
   const handleFocus = () => {
@@ -45,6 +46,7 @@ export function HeroForm() {
           phone: formData.phone,
           email: formData.email,
           message: `Service needed: ${formData.service}`,
+          zip: formData.zip,
           page_url: window.location.href,
           city,
           cp,
@@ -126,6 +128,17 @@ export function HeroForm() {
               className={inputClass}
               value={formData.email}
               onChange={e => setFormData({ ...formData, email: e.target.value })}
+            />
+            <input
+              type="text"
+              name="zip"
+              placeholder="Zip Code"
+              inputMode="numeric"
+              pattern="[0-9]*"
+              maxLength={5}
+              className={inputClass}
+              value={formData.zip}
+              onChange={e => setFormData({ ...formData, zip: e.target.value.replace(/\D/g, '').slice(0, 5) })}
             />
             <select
               name="service"
