@@ -19,7 +19,7 @@ export function FriendlyQuoteCTA() {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-card border border-border shadow-md mb-8">
           <ThumbsUp className="w-4 h-4 text-primary" />
-          <span className="text-sm font-semibold text-white/70">No pressure, just honest pricing</span>
+          <span className="text-sm font-semibold text-navy-light">No pressure, just honest pricing</span>
         </div>
 
         {/* Headline */}
