@@ -119,7 +119,7 @@ export function PopupBookingForm() {
     <Dialog open={open} onOpenChange={(val) => { if (!val) handleClose(); }}>
       <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto p-0 gap-0 rounded-2xl overflow-hidden border-none bg-card shadow-2xl">
         {/* Header */}
-        <div className="bg-primary px-6 pt-6 pb-5 text-center relative">
+        <div className="bg-primary px-4 pt-4 pb-3 md:px-6 md:pt-6 md:pb-5 text-center relative">
           <button
             onClick={handleClose}
             className="absolute top-3 right-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors"
@@ -127,7 +127,7 @@ export function PopupBookingForm() {
           >
             <X className="w-5 h-5" />
           </button>
-          <DialogTitle className="font-display text-2xl md:text-3xl font-bold text-primary-foreground mb-2">
+          <DialogTitle className="font-display text-xl md:text-3xl font-bold text-primary-foreground mb-1.5">
             Get Free Quote
           </DialogTitle>
           <div className="inline-flex items-center gap-2 bg-accent/20 rounded-full px-4 py-1.5 border border-accent/30">
