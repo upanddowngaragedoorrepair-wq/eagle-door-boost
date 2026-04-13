@@ -103,7 +103,7 @@ export function ServiceAreaMap() {
           {[
             { top: '15%', left: '25%' },
             { top: '20%', left: '65%' },
-            
+            { top: '35%', left: '15%' },
             { top: '30%', left: '78%' },
             { top: '60%', left: '20%' },
             { top: '65%', left: '72%' },
