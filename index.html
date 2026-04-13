@@ -42,7 +42,7 @@
         font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
         -webkit-font-smoothing:antialiased
       }
-      h1,h2,h3,h4,h5,h6{font-family:'Oswald',ui-sans-serif,system-ui,sans-serif;font-weight:700}
+      h1,h2,h3,h4,h5,h6{font-family:'Inter',ui-sans-serif,system-ui,sans-serif;font-weight:800;letter-spacing:-0.02em}
       .container-main{width:100%;max-width:75rem;margin:0 auto;padding:0 1rem}
       @media(min-width:640px){.container-main{padding:0 1.5rem}}
       /* Prevent layout shift while JS hydrates */
@@ -59,17 +59,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <!--
-      Fonts: only the exact weights we use.
-      Oswald 700 = headings, Inter 400+600 = body.
+      Fonts: Inter 400/500/700/800 = body+headings, Oswald 700 = CTA buttons only.
       font-display=swap prevents invisible text during load.
       Loaded non-blocking (media=print trick).
     -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;600&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;600&display=swap" media="print" onload="this.media='all'" />
-    <!-- Secondary weights deferred until after paint -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@500;700&display=swap" media="print" onload="this.media='all'" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Oswald:wght@700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Oswald:wght@700&display=swap" media="print" onload="this.media='all'" />
     <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Oswald:wght@700&display=swap" />
     </noscript>
 
     <!-- Preload LCP hero image (WebP, critical path) -->
