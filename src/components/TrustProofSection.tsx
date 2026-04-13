@@ -1,6 +1,7 @@
 import { Star, Shield, Zap, Clock, DollarSign } from 'lucide-react';
 import yelpLogo from '@/assets/yelp-logo.webp';
 import homeAdvisorBadge from '@/assets/homeadvisor-badge.png';
+import cslbBadge from '@/assets/cslb-badge.png';
 
 const promises = [
 { icon: Zap, text: 'Same Day Service' },
