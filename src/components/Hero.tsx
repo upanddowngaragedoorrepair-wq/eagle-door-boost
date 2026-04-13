@@ -7,7 +7,7 @@ import { useMemo, useState } from 'react';
 import { Phone, MessageSquare, Scaling, CheckCircle } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import { HeroForm } from '@/components/HeroForm';
-import heroGateBg from '@/assets/hero-gate-bg.webp';
+import heroGateBg from '@/assets/hero-bg.webp';
 
 declare global {
   interface Window {dataLayer: Record<string, unknown>[];}
