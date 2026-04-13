@@ -33,7 +33,8 @@ import accessControlCallbox from '@/assets/service-proof/access-control-callbox.
 import accessControlKeyFob from '@/assets/service-proof/access-control-keyfob.jpg';
 import commercialCantilever from '@/assets/service-proof/commercial-cantilever.jpg';
 import commercialBarrier from '@/assets/service-proof/commercial-barrier.png';
-import fencesWood from '@/assets/service-proof/fences-wood.jpg';
+import fencesMetal from '@/assets/service-proof/fences-metal.webp';
+import fencesWoodLattice from '@/assets/service-proof/fences-wood-lattice.jpeg';
 
 const drivewayGallery = [dg1, dg2, dg3, dg4, dg5, dg6, dg7, dg8, dg9, dg10, dg11, dg12];
 
@@ -149,7 +150,7 @@ const services: ServiceData[] = [
   expandedItems: ['Wood fences', 'Wrought iron fences', 'Chain-link fencing', 'Vinyl & aluminum', 'Concrete pillars', 'Steel columns'],
   cta: 'Call for Fencing Estimate',
   urgency: 'We handle permits for you.',
-  proofImages: [fencesWood],
+  proofImages: [fencesMetal, fencesWoodLattice],
 }];
 
 
