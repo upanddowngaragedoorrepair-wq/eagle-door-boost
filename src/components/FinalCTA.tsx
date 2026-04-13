@@ -42,7 +42,7 @@ function FAQItem({ q, a }: {q: string;a: string;}) {
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between py-5 text-left gap-4 group">
 
-        <span className="font-display font-bold text-foreground text-lg leading-snug group-hover:text-primary transition-colors">
+        <span className="font-sans font-bold text-foreground text-lg leading-snug group-hover:text-primary transition-colors">
           {q}
         </span>
         <ChevronDown
@@ -68,7 +68,7 @@ export function FinalCTA() {
       <div className="container-main relative">
         {/* Header */}
         <div className="text-center mb-14">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight mb-4">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold tracking-tight mb-4">
             <span className="text-foreground">Common </span>
             <span className="gold-text">Questions</span>
           </h2>
@@ -88,7 +88,7 @@ export function FinalCTA() {
 
           </div>
           <div className="bg-card border-t sm:border-t-0 sm:border-l border-border p-6 flex flex-col justify-center flex-1">
-            <p className="text-foreground font-display font-bold text-xl mb-1">Still have questions?</p>
+            <p className="text-foreground font-sans font-bold text-xl mb-1">Still have questions?</p>
             <p className="text-muted-foreground mb-5">Talk to a technician directly — we're available now.</p>
             <a href={phoneLink} className="btn-cta w-full sm:w-auto self-start text-lg min-h-[52px]">
               <Phone className="w-5 h-5" />

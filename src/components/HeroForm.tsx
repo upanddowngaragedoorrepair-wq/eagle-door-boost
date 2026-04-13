@@ -73,7 +73,7 @@ export function HeroForm() {
         <span className="font-bold text-green-700 text-sm">Online Now</span>
       </div>
 
-      <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
+      <h3 className="font-sans text-2xl md:text-3xl font-bold text-foreground mb-2">
         Get Your Free Estimate
       </h3>
       <p className="text-base text-muted-foreground mb-6">

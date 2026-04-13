@@ -106,7 +106,7 @@ function DrivewayGalleryModal({ open, onClose }: { open: boolean; onClose: () =>
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-border">
           <div>
-            <h2 className="font-display text-xl font-bold text-foreground">Driveway Gates Gallery</h2>
+            <h2 className="font-sans text-xl font-bold text-foreground">Driveway Gates Gallery</h2>
             <p className="text-sm text-muted-foreground">These are only some of our most recent installations. We offer many additional styles, access control systems, and custom configurations not shown. Call Now To see More Design Options</p>
           </div>
           <button
@@ -196,7 +196,7 @@ export function Services() {
             <span className="text-sm font-bold text-primary uppercase tracking-wider">Professional Services</span>
           </div>
 
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 tracking-tight">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-sans font-bold mb-6 tracking-tight">
             <span className="text-foreground">Our </span>
             <span className="gold-text">{serviceWord}</span>{' '}
             <span className="text-foreground">Services</span>
@@ -233,7 +233,7 @@ export function Services() {
                   </div>
                 )}
                 
-                <h3 className="absolute bottom-4 left-6 font-display text-2xl md:text-3xl font-bold text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] [text-shadow:_0_0_1px_rgba(0,0,0,0.9),_1px_1px_0_rgba(0,0,0,0.6),-1px_-1px_0_rgba(0,0,0,0.6),_1px_-1px_0_rgba(0,0,0,0.6),-1px_1px_0_rgba(0,0,0,0.6)]">
+                <h3 className="absolute bottom-4 left-6 font-sans text-2xl md:text-3xl font-bold text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] [text-shadow:_0_0_1px_rgba(0,0,0,0.9),_1px_1px_0_rgba(0,0,0,0.6),-1px_-1px_0_rgba(0,0,0,0.6),_1px_-1px_0_rgba(0,0,0,0.6),-1px_1px_0_rgba(0,0,0,0.6)]">
                   {service.title}
                 </h3>
               </div>

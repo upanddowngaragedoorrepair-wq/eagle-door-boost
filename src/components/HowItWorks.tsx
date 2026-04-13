@@ -44,7 +44,7 @@ export function HowItWorks() {
         </div>
 
         {/* Heading - BIGGER */}
-        <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-center mb-16 tracking-tight text-secondary">
+        <h2 className="text-5xl md:text-6xl lg:text-7xl font-sans font-bold text-center mb-16 tracking-tight text-secondary">
           How It <span className="gold-text">Works</span>
         </h2>
 
@@ -68,7 +68,7 @@ export function HowItWorks() {
                 </div>
 
                 {/* Title - BIGGER */}
-                <h3 className="font-display text-xl md:text-2xl font-bold mb-3 text-secondary">
+                <h3 className="font-sans text-xl md:text-2xl font-bold mb-3 text-secondary">
                   {step.title}
                 </h3>
 

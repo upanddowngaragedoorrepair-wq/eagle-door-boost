@@ -58,7 +58,7 @@ export function ServiceAreaMap() {
   return (
     <section id="service-area" className="service-area-map-section">
       <div className="max-w-[1200px] mx-auto px-5">
-        <h2 className="text-white text-center text-[28px] md:text-[36px] font-display font-bold mb-10">
+        <h2 className="text-white text-center text-[28px] md:text-[36px] font-sans font-bold mb-10">
           Proudly Serving{' '}
           <span className="text-[hsl(var(--primary))]">{displayCity}</span>
           {' '}& 30 Miles Around
