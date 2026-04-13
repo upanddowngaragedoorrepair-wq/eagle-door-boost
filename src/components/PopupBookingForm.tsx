@@ -137,8 +137,27 @@ export function PopupBookingForm() {
             </span>
           </div>
           <p className="text-primary-foreground/80 text-sm mt-2">
-            For a limited time only • Add <span className="font-bold text-accent">10OFF</span> to the notes to get the discount
+            Offer ends today, {today} • Add <span className="font-bold text-accent">10OFF</span> to the notes
           </p>
+          {/* Countdown Timer */}
+          <div className="flex items-center justify-center gap-1.5 mt-3">
+            <Clock className="w-4 h-4 text-accent" />
+            {(() => {
+              const totalSec = Math.floor(msLeft / 1000);
+              const h = String(Math.floor(totalSec / 3600)).padStart(2, '0');
+              const m = String(Math.floor((totalSec % 3600) / 60)).padStart(2, '0');
+              const s = String(totalSec % 60).padStart(2, '0');
+              return (
+                <div className="flex items-center gap-1 font-mono text-sm font-bold text-accent">
+                  <span className="bg-accent/20 rounded px-1.5 py-0.5">{h}</span>
+                  <span>:</span>
+                  <span className="bg-accent/20 rounded px-1.5 py-0.5">{m}</span>
+                  <span>:</span>
+                  <span className="bg-accent/20 rounded px-1.5 py-0.5">{s}</span>
+                </div>
+              );
+            })()}
+          </div>
         </div>
 
         {/* Form */}
