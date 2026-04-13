@@ -117,7 +117,7 @@ export function PopupBookingForm() {
 
   return (
     <Dialog open={open} onOpenChange={(val) => { if (!val) handleClose(); }}>
-      <DialogContent className="max-w-md p-0 gap-0 rounded-2xl overflow-hidden border-none bg-card shadow-2xl">
+      <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto p-0 gap-0 rounded-2xl overflow-hidden border-none bg-card shadow-2xl">
         {/* Header */}
         <div className="bg-primary px-6 pt-6 pb-5 text-center relative">
           <button
