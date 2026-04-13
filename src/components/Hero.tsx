@@ -18,18 +18,21 @@ function getKeywordData(): {prefix: string; kw: string; headlineWord: string;} {
   const raw = params.get('kd') || params.get('utm_term') || params.get('keyword') || params.get('kw') || '';
   const kw = raw.toLowerCase().trim();
 
-  if (!kw) return { prefix: '', kw, headlineWord: 'Gate' };
+  if (!kw) return { prefix: '', kw, headlineWord: 'Gate & Access Control' };
 
-  if (/access|intercom|keypad|smart.?entry|buzzer|callbox|entry.?system/.test(kw)) return { prefix: 'Gate Access Control ', kw, headlineWord: 'Access Control' };
-  if (/automatic|electric|opener|motor|liftmaster|operator|remote|battery/.test(kw)) return { prefix: 'Automatic ', kw, headlineWord: 'Automatic Gate' };
-  if (/fence|fencing|railing|picket|vinyl fence|chain.?link|wrought iron/.test(kw)) return { prefix: 'Fence & Gate ', kw, headlineWord: 'Fence & Gate' };
-  if (/driveway|driveway gate|residential gate/.test(kw)) return { prefix: 'Driveway ', kw, headlineWord: 'Driveway Gate' };
-  if (/sliding|slide gate/.test(kw)) return { prefix: 'Sliding ', kw, headlineWord: 'Sliding Gate' };
-  if (/swing|swing gate|pedestrian/.test(kw)) return { prefix: 'Swing ', kw, headlineWord: 'Swing Gate' };
-  if (/commercial|industrial|warehouse|hoa|business/.test(kw)) return { prefix: 'Commercial ', kw, headlineWord: 'Commercial Gate' };
-  if (/repair|broken|fix|stuck|maintenance|service|emergency/.test(kw)) return { prefix: '', kw, headlineWord: 'Gate Repair' };
+  // Priority order: specific intent first, then broader categories
+  if (/access|intercom|entry.?system/.test(kw)) return { prefix: '', kw, headlineWord: 'Access Control & Gate Systems' };
+  if (/repair|broken|fix|stuck|maintenance|emergency/.test(kw)) return { prefix: '', kw, headlineWord: 'Automatic Gate Repair' };
+  if (/install/.test(kw)) return { prefix: '', kw, headlineWord: 'Gate Installation' };
+  if (/fence|fencing|railing|picket|vinyl fence|chain.?link|wrought iron/.test(kw)) return { prefix: '', kw, headlineWord: 'Fence & Gate' };
+  if (/driveway|residential gate/.test(kw)) return { prefix: '', kw, headlineWord: 'Driveway Gate' };
+  if (/sliding|slide gate/.test(kw)) return { prefix: '', kw, headlineWord: 'Sliding Gate' };
+  if (/swing|swing gate|pedestrian/.test(kw)) return { prefix: '', kw, headlineWord: 'Swing Gate' };
+  if (/commercial|industrial|warehouse|hoa|business/.test(kw)) return { prefix: '', kw, headlineWord: 'Commercial Gate' };
+  if (/automatic|electric|opener|motor|liftmaster|operator|remote|battery/.test(kw)) return { prefix: '', kw, headlineWord: 'Automatic Gate' };
+  if (/service|company|contractor|near me|system/.test(kw)) return { prefix: '', kw, headlineWord: 'Gate & Access Control' };
 
-  return { prefix: '', kw, headlineWord: 'Gate' };
+  return { prefix: '', kw, headlineWord: 'Gate & Access Control' };
 }
 
 export function Hero() {
@@ -118,7 +121,7 @@ export function Hero() {
 
             {/* Headline */}
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold leading-[1.05] mb-4 tracking-tight text-foreground">
-              Expert <span className="text-primary">{headlineWord}</span> Repair & Installation
+              Local <span className="text-primary">{headlineWord}</span> Experts
             </h1>
 
             <p className="text-2xl md:text-3xl font-display font-semibold relative inline-block headline-underline mb-8 text-sidebar-border">
