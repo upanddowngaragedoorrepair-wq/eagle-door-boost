@@ -13,7 +13,7 @@ const promises = [
 
 export function TrustProofSection() {
   return (
-    <section className="py-8 md:py-10 bg-[#f8fafc] relative overflow-hidden">
+    <section className="py-6 md:py-8 bg-[#f8fafc] relative overflow-hidden border-b-2 border-primary">
       <div className="container-main relative">
         {/* Headline */}
         <div className="text-center mb-6 md:mb-8">
