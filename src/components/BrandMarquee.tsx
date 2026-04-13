@@ -20,9 +20,12 @@ export function BrandMarquee({ logos, speed = 30 }: BrandMarqueeProps) {
   return (
     <section className="py-16 md:py-20 bg-card border-t border-border overflow-hidden">
       <div className="container-main mb-10">
-        <p className="text-center text-sm tracking-wide uppercase font-display md:text-2xl font-extrabold text-primary">
-          Authorized Service Provider for Leading Gate Brands
-        </p>
+        <div className="flex items-center justify-center gap-3">
+          <img src={authorizedBadge} alt="Authorized Distributor" className="w-12 h-12 md:w-16 md:h-16 object-contain -rotate-12 drop-shadow-lg" />
+          <p className="text-sm tracking-wide uppercase font-display md:text-2xl font-extrabold text-primary">
+            Authorized Service Provider for Leading Gate Brands
+          </p>
+        </div>
       </div>
 
       <div
