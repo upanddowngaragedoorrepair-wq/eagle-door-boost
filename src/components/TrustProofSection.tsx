@@ -28,17 +28,14 @@ export function TrustProofSection() {
         {/* Horizontal Cards Row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
           {/* Google Guaranteed Badge */}
-          <div className="flex flex-row md:flex-col items-center gap-4 md:gap-2 p-4 rounded-xl bg-white/[0.07] border border-white/10 backdrop-blur-sm">
-            <div className="shrink-0">
-              <img
-                src={cslbBadge}
-                alt="CSLB Contractors State License Board - LIC#1138855"
-                className="w-20 h-20 md:w-24 md:h-24 object-contain"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <p className="text-sm font-semibold text-white">LIC #1138855</p>
+          <div className="flex items-center justify-center p-6 md:p-8 rounded-xl bg-white/[0.07] border border-white/10 backdrop-blur-sm">
+            <img
+              src={cslbBadge}
+              alt="CSLB Contractors State License Board - LIC#1138855"
+              className="w-full max-w-[220px] md:max-w-[260px] object-contain"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
 
           {/* Google Rating Card */}
