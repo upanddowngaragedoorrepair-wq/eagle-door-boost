@@ -105,6 +105,9 @@ export function ServiceAreaMap() {
             { top: '25%', left: '48%' },
             { top: '27%', left: '54%' },
             { top: '23%', left: '51%' },
+            // Close to big pin - above right
+            { top: '38%', left: '55%' },
+            { top: '36%', left: '57%' },
             // Right arc (closer - Walnut Creek/Pleasanton area)
             { top: '40%', left: '60%' },
             { top: '50%', left: '62%' },
