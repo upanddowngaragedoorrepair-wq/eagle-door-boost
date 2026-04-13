@@ -101,14 +101,17 @@ export function ServiceAreaMap() {
           </div>
           {/* Small eagle pins scattered around */}
           {[
-            { top: '30%', left: '35%' },
-            { top: '32%', left: '60%' },
-            { top: '38%', left: '68%' },
-            { top: '58%', left: '62%' },
-            { top: '62%', left: '45%' },
-            { top: '33%', left: '48%' },
-            { top: '58%', left: '53%' },
-            { top: '42%', left: '70%' },
+            // Top arc (no left)
+            { top: '18%', left: '48%' },
+            { top: '20%', left: '58%' },
+            { top: '15%', left: '52%' },
+            // Right arc
+            { top: '35%', left: '72%' },
+            { top: '50%', left: '75%' },
+            { top: '45%', left: '70%' },
+            // Bottom arc (no left)
+            { top: '78%', left: '55%' },
+            { top: '75%', left: '48%' },
           ].map((pos, i) => (
             <div
               key={i}
