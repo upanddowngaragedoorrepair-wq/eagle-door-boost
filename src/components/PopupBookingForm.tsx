@@ -113,42 +113,42 @@ export function PopupBookingForm() {
 
   if (dismissed && !open) return null;
 
-  const inputClass = "w-full px-4 py-3 rounded-xl bg-background text-foreground placeholder:text-muted-foreground border border-border focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 text-base font-medium transition-colors";
+  const inputClass = "w-full px-3 py-2.5 md:px-4 md:py-3 rounded-xl bg-background text-foreground placeholder:text-muted-foreground border border-border focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm md:text-base font-medium transition-colors";
 
   return (
     <Dialog open={open} onOpenChange={(val) => { if (!val) handleClose(); }}>
-      <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto p-0 gap-0 rounded-2xl overflow-hidden border-none bg-card shadow-2xl">
+      <DialogContent className="max-w-md max-h-[85vh] md:max-h-[90vh] overflow-y-auto p-0 gap-0 rounded-2xl border-none bg-card shadow-2xl [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         {/* Header */}
-        <div className="bg-primary px-4 pt-4 pb-3 md:px-6 md:pt-6 md:pb-5 text-center relative">
+        <div className="bg-primary px-3 pt-3 pb-2.5 md:px-6 md:pt-6 md:pb-5 text-center relative sticky top-0 z-10">
           <button
             onClick={handleClose}
-            className="absolute top-3 right-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+            className="absolute top-2 right-2 md:top-3 md:right-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors"
             aria-label="Close"
           >
             <X className="w-5 h-5" />
           </button>
-          <DialogTitle className="font-display text-xl md:text-3xl font-bold text-primary-foreground mb-1.5">
+          <DialogTitle className="font-display text-lg md:text-3xl font-bold text-primary-foreground mb-1">
             Get Free Quote
           </DialogTitle>
-          <div className="inline-flex items-center gap-2 bg-accent/20 rounded-full px-4 py-1.5 border border-accent/30">
-            <Tag className="w-4 h-4 text-accent" />
-            <span className="text-sm font-bold text-accent">
+          <div className="inline-flex items-center gap-1.5 bg-accent/20 rounded-full px-3 py-1 md:px-4 md:py-1.5 border border-accent/30">
+            <Tag className="w-3.5 h-3.5 md:w-4 md:h-4 text-accent" />
+            <span className="text-xs md:text-sm font-bold text-accent">
               10% Off All Services When Booking Online
             </span>
           </div>
-          <p className="text-primary-foreground/80 text-sm mt-2">
+          <p className="text-primary-foreground/80 text-xs md:text-sm mt-1.5">
             Offer ends today, {today} • Add <span className="font-bold text-accent">10OFF</span> to the notes
           </p>
           {/* Countdown Timer */}
-          <div className="flex items-center justify-center gap-1.5 mt-3">
-            <Clock className="w-4 h-4 text-accent" />
+          <div className="flex items-center justify-center gap-1.5 mt-2 md:mt-3">
+            <Clock className="w-3.5 h-3.5 md:w-4 md:h-4 text-accent" />
             {(() => {
               const totalSec = Math.floor(msLeft / 1000);
               const h = String(Math.floor(totalSec / 3600)).padStart(2, '0');
               const m = String(Math.floor((totalSec % 3600) / 60)).padStart(2, '0');
               const s = String(totalSec % 60).padStart(2, '0');
               return (
-                <div className="flex items-center gap-1 font-mono text-sm font-bold text-accent">
+                <div className="flex items-center gap-1 font-mono text-xs md:text-sm font-bold text-accent">
                   <span className="bg-accent/20 rounded px-1.5 py-0.5">{h}</span>
                   <span>:</span>
                   <span className="bg-accent/20 rounded px-1.5 py-0.5">{m}</span>
@@ -161,21 +161,21 @@ export function PopupBookingForm() {
         </div>
 
         {/* Form */}
-        <div className="px-4 py-3 md:px-6 md:py-5">
+        <div className="px-3 py-2.5 md:px-6 md:py-5">
           {error && (
-            <div className="mb-4 p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm">
+            <div className="mb-3 p-2.5 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive text-sm">
               {error}
             </div>
           )}
 
-          <form action="https://formspree.io/f/xdalkyzy" method="POST" onSubmit={handleSubmit} className="space-y-3">
+          <form action="https://formspree.io/f/xdalkyzy" method="POST" onSubmit={handleSubmit} className="space-y-2 md:space-y-3">
             <input type="text" name="name" placeholder="Your Name *" required className={inputClass}
               value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} />
             <input type="tel" name="phone" placeholder="Phone Number *" required className={inputClass}
               value={formData.phone} onChange={e => setFormData({ ...formData, phone: e.target.value })} />
             <input type="email" name="email" placeholder="Email Address" className={inputClass}
               value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} />
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2 md:gap-3">
               <input type="text" name="zip" placeholder="Zip Code" inputMode="numeric" pattern="[0-9]*" maxLength={5} className={inputClass}
                 value={formData.zip} onChange={e => setFormData({ ...formData, zip: e.target.value.replace(/\D/g, '').slice(0, 5) })} />
               <select name="service" className={`${inputClass} appearance-none`}
@@ -189,14 +189,14 @@ export function PopupBookingForm() {
               className={`${inputClass} resize-none`}
               value={formData.notes} onChange={e => setFormData({ ...formData, notes: e.target.value })} />
 
-            <button type="submit" disabled={submitting} className="w-full btn-cta text-lg min-h-[52px]">
-              <Send className="w-5 h-5" />
+            <button type="submit" disabled={submitting} className="w-full btn-cta text-base md:text-lg min-h-[46px] md:min-h-[52px]">
+              <Send className="w-4 h-4 md:w-5 md:h-5" />
               {submitting ? 'Submitting...' : 'Book Now & Save 10%'}
             </button>
           </form>
 
           {/* Divider */}
-          <div className="flex items-center gap-3 my-4">
+          <div className="flex items-center gap-3 my-2.5 md:my-4">
             <div className="flex-1 h-px bg-border" />
             <span className="text-sm text-muted-foreground font-medium">or</span>
             <div className="flex-1 h-px bg-border" />
@@ -206,13 +206,13 @@ export function PopupBookingForm() {
           <a
             href={phoneLink}
             onClick={handleCallClick}
-            className="w-full btn-secondary text-lg min-h-[52px] flex items-center justify-center gap-2"
+            className="w-full btn-secondary text-base md:text-lg min-h-[46px] md:min-h-[52px] flex items-center justify-center gap-2"
           >
-            <Phone className="w-5 h-5" />
+            <Phone className="w-4 h-4 md:w-5 md:h-5" />
             Call Now: {phoneFormatted}
           </a>
 
-          <p className="flex items-center justify-center gap-2 text-xs text-muted-foreground mt-3">
+          <p className="flex items-center justify-center gap-2 text-xs text-muted-foreground mt-2.5 md:mt-3 pb-1">
             <Lock className="w-3.5 h-3.5" />
             Your information is secure and will never be shared
           </p>
