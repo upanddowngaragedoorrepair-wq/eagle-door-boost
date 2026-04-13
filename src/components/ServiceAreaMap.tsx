@@ -80,12 +80,13 @@ export function ServiceAreaMap() {
             style={{ boxShadow: '0 15px 40px rgba(0, 0, 0, 0.35)' }}
             allowFullScreen
           />
-          {/* Eagle pin overlay */}
+          {/* Main eagle pin overlay */}
           <div
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 pointer-events-none w-[100px] h-[100px] md:w-[140px] md:h-[140px]"
+            className="absolute left-1/2 top-1/2 pointer-events-none w-[100px] h-[100px] md:w-[140px] md:h-[140px]"
             style={{
               transform: 'translate(-50%, -65%)',
               filter: 'drop-shadow(0 10px 18px rgba(0, 0, 0, 0.4))',
+              zIndex: 2,
             }}
           >
             <img
@@ -98,6 +99,41 @@ export function ServiceAreaMap() {
               decoding="async"
             />
           </div>
+          {/* Small eagle pins scattered around */}
+          {[
+            { top: '15%', left: '25%' },
+            { top: '20%', left: '65%' },
+            { top: '35%', left: '15%' },
+            { top: '30%', left: '78%' },
+            { top: '60%', left: '20%' },
+            { top: '65%', left: '72%' },
+            { top: '75%', left: '40%' },
+            { top: '18%', left: '45%' },
+            { top: '70%', left: '58%' },
+            { top: '45%', left: '85%' },
+          ].map((pos, i) => (
+            <div
+              key={i}
+              className="absolute pointer-events-none w-[32px] h-[32px] md:w-[44px] md:h-[44px]"
+              style={{
+                top: pos.top,
+                left: pos.left,
+                filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))',
+                opacity: 0.85,
+                zIndex: 1,
+              }}
+            >
+              <img
+                src={eaglePin}
+                alt=""
+                width={44}
+                height={44}
+                className="w-full h-full object-contain"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>
