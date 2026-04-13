@@ -29,6 +29,7 @@ export function PopupBookingForm() {
   const [dismissed, setDismissed] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
+  const [msLeft, setMsLeft] = useState(getTimeUntilEndOfDay());
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -37,6 +38,10 @@ export function PopupBookingForm() {
     zip: '',
     notes: '10OFF',
   });
+
+  const today = useMemo(() => {
+    return new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+  }, []);
 
   useEffect(() => {
     // Don't show again if already dismissed this session
