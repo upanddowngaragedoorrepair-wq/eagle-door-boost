@@ -152,8 +152,9 @@ export function PopupBookingForm() {
               </select>
             </div>
 
-            {/* Hidden notes field with discount code */}
-            <input type="hidden" name="notes" value="10OFF" />
+            <textarea name="notes" placeholder="Notes (add 10OFF for 10% discount)" rows={2}
+              className={`${inputClass} resize-none`}
+              value={formData.notes} onChange={e => setFormData({ ...formData, notes: e.target.value })} />
 
             <button type="submit" disabled={submitting} className="w-full btn-cta text-lg min-h-[52px]">
               <Send className="w-5 h-5" />
