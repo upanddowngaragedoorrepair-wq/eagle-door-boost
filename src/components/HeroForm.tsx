@@ -46,6 +46,7 @@ export function HeroForm() {
           phone: formData.phone,
           email: formData.email,
           message: `Service needed: ${formData.service}`,
+          zip: formData.zip,
           page_url: window.location.href,
           city,
           cp,
