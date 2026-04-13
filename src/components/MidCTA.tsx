@@ -15,7 +15,7 @@ export function MidCTA() {
             <span className="text-base font-bold text-primary uppercase tracking-wide">Fast Response Guaranteed</span>
           </div>
 
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-8 tracking-tight text-white">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-sans font-bold mb-8 tracking-tight text-white">
             Ready to Get Your Gate
             <br />
             <span className="gold-text">Working Perfectly?</span>

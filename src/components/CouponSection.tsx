@@ -42,7 +42,7 @@ export function CouponSection() {
       <div className="absolute inset-0 bg-background/80 opacity-50" />
       <div className="container-main relative z-10">
         <div className="text-center mb-12">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="font-sans text-3xl md:text-4xl font-bold text-foreground mb-4">
             Redeem Our Special Coupons
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
@@ -67,14 +67,14 @@ export function CouponSection() {
                   <Icon className="w-7 h-7 text-primary" />
                 </div>
 
-                <h3 className="font-display text-sm font-bold text-foreground uppercase tracking-wider mb-1">
+                <h3 className="font-sans text-sm font-bold text-foreground uppercase tracking-wider mb-1">
                   {coupon.title}
                 </h3>
                 <p className="text-xs text-muted-foreground mb-3">{coupon.subtitle}</p>
 
                 <div className="flex items-baseline gap-1 mb-3">
-                  <span className="font-display text-5xl font-extrabold text-primary">{coupon.discount}</span>
-                  <span className="font-display text-2xl font-bold text-primary">OFF</span>
+                  <span className="font-sans text-5xl font-extrabold text-primary">{coupon.discount}</span>
+                  <span className="font-sans text-2xl font-bold text-primary">OFF</span>
                 </div>
 
                 <div className="text-primary font-bold text-xs mb-2">

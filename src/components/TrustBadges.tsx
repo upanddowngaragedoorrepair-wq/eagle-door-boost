@@ -23,7 +23,7 @@ export function TrustBadges() {
     <section id="why-choose-us" className="py-[72px] md:py-24 border-t border-border bg-background relative">
       <div className="container-main relative">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-5 tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold mb-5 tracking-tight">
             Why Choose <span className="gold-text">Eagle Gate</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -57,7 +57,7 @@ export function TrustBadges() {
                     <benefit.icon className="w-7 h-7" />
                   </div>
                   <div>
-                    <h3 className="font-display font-bold text-xl text-foreground mb-2">
+                    <h3 className="font-sans font-bold text-xl text-foreground mb-2">
                       {benefit.title}
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">

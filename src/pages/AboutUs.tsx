@@ -53,7 +53,7 @@ const AboutUs = () => {
               <div className="flex items-center gap-4 mb-8">
                 <img alt="Eagle Automatic Gate" className="w-16 h-16" src="/lovable-uploads/5faee6f3-2cb8-4f00-b436-9852128e7ea4.png" />
                 <div>
-                  <h2 className="font-display text-xl font-bold text-foreground uppercase tracking-wide">
+                  <h2 className="font-sans text-xl font-bold text-foreground uppercase tracking-wide">
                     Eagle Automatic
                   </h2>
                   <p className="text-sm text-primary font-bold uppercase tracking-wider">Gate & Door</p>
@@ -65,7 +65,7 @@ const AboutUs = () => {
                 <span className="text-sm font-bold text-primary uppercase tracking-wide">About Our Team</span>
               </div>
 
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold leading-[1.05] mb-8 tracking-tight">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-sans font-bold leading-[1.05] mb-8 tracking-tight">
                 <span className="text-foreground">Licensed & </span>
                 <span className="gradient-text">Family-Operated.</span>
               </h1>
@@ -97,7 +97,7 @@ const AboutUs = () => {
           <div className="container-main relative">
             <div className="grid lg:grid-cols-2 gap-14 items-center">
               <div>
-                <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 tracking-tight">
+                <h2 className="text-5xl md:text-6xl font-sans font-bold mb-8 tracking-tight">
                   <span className="text-background">Our </span>
                   <span className="text-primary">Story</span>
                 </h2>
@@ -114,19 +114,19 @@ const AboutUs = () => {
 
               <div className="grid grid-cols-2 gap-5">
                 <div className="bg-white rounded-3xl p-8 text-center shadow-xl shadow-black/10">
-                  <div className="text-5xl font-display font-bold text-primary mb-3">20+</div>
+                  <div className="text-5xl font-sans font-bold text-primary mb-3">20+</div>
                   <div className="text-lg text-background/70 font-semibold">Years Experience</div>
                 </div>
                 <div className="bg-white rounded-3xl p-8 text-center shadow-xl shadow-black/10">
-                  <div className="text-5xl font-display font-bold text-primary mb-3">2,500+</div>
+                  <div className="text-5xl font-sans font-bold text-primary mb-3">2,500+</div>
                   <div className="text-lg text-background/70 font-semibold">Happy Customers</div>
                 </div>
                 <div className="bg-white rounded-3xl p-8 text-center shadow-xl shadow-black/10">
-                  <div className="text-5xl font-display font-bold text-primary mb-3">5★</div>
+                  <div className="text-5xl font-sans font-bold text-primary mb-3">5★</div>
                   <div className="text-lg text-background/70 font-semibold">Average Rating</div>
                 </div>
                 <div className="bg-white rounded-3xl p-8 text-center shadow-xl shadow-black/10">
-                  <div className="text-4xl font-display font-bold text-primary mb-3">Fast</div>
+                  <div className="text-4xl font-sans font-bold text-primary mb-3">Fast</div>
                   <div className="text-lg text-background/70 font-semibold">Emergency Service</div>
                 </div>
               </div>
@@ -145,7 +145,7 @@ const AboutUs = () => {
           
           <div className="container-main relative">
             <div className="text-center mb-16">
-              <h2 className="text-5xl md:text-6xl font-display font-bold mb-6 tracking-tight">
+              <h2 className="text-5xl md:text-6xl font-sans font-bold mb-6 tracking-tight">
                 <span className="text-foreground">Our </span>
                 <span className="gradient-text">Values</span>
               </h2>
@@ -156,7 +156,7 @@ const AboutUs = () => {
                   <div className="w-18 h-18 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
                     <value.icon className="w-9 h-9 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-display font-bold text-foreground mb-3">{value.title}</h3>
+                  <h3 className="text-2xl font-sans font-bold text-foreground mb-3">{value.title}</h3>
                   <p className="text-muted-foreground text-base leading-relaxed">{value.description}</p>
                 </div>)}
             </div>
@@ -170,7 +170,7 @@ const AboutUs = () => {
           <div className="container-main relative">
             <div className="bg-gradient-to-br from-primary/10 via-background to-primary/5 rounded-3xl p-10 md:p-14 shadow-primary/5 shadow-sm opacity-100 border-solid border-4 border-primary-foreground">
               <div className="text-center mb-12">
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4 tracking-tight">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold mb-4 tracking-tight">
                   <span className="text-foreground">Why </span>
                   <span className="gradient-text">Choose Us</span>
                 </h2>
@@ -205,7 +205,7 @@ const AboutUs = () => {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/5 blur-[100px] rounded-full" />
           
           <div className="container-main relative text-center">
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-8 tracking-tight">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-sans font-bold mb-8 tracking-tight">
               <span className="text-foreground">Ready to Work With </span>
               <span className="gradient-text">The Best?</span>
             </h2>

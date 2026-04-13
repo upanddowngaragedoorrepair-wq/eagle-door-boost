@@ -23,7 +23,7 @@ export function CompareQuoteCTA() {
           </div>
 
           {/* Headline - Large, Bold, Authoritative */}
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-8 tracking-tight text-secondary leading-[1.1]">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-bold mb-8 tracking-tight text-secondary leading-[1.1]">
             Before You Accept Another Quote, Call Us Now —{' '}
             <span className="gold-text">You Could Save More Than Money.</span>
           </h2>
