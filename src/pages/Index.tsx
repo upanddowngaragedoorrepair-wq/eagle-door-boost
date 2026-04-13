@@ -89,6 +89,10 @@ const Index = () => {
       <Suspense fallback={null}>
         <StickyCallBar />
       </Suspense>
+
+      <Suspense fallback={null}>
+        <PopupBookingForm />
+      </Suspense>
     </div>
   );
 };
