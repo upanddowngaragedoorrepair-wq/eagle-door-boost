@@ -90,9 +90,7 @@ export function TrustProofSection() {
               <span className="text-sm text-white/60">Based on 64 local reviews</span>
             </div>
           </div>
-
-
-
+        </div>
       </div>
     </section>);
 
