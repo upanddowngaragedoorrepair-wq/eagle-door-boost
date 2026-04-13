@@ -1,5 +1,6 @@
 import { Star, Shield, Zap, Clock, DollarSign } from 'lucide-react';
 import yelpLogo from '@/assets/yelp-logo.webp';
+import homeAdvisorBadge from '@/assets/homeadvisor-badge.webp';
 
 const promises = [
 { icon: Zap, text: 'Same Day Service' },
@@ -65,24 +66,26 @@ export function TrustProofSection() {
             </div>
           </div>
 
-          {/* Yelp Rating Card */}
+          {/* HomeAdvisor Rating Card */}
           <div className="flex flex-row md:flex-col items-center gap-4 md:gap-2 p-4 rounded-xl bg-white/[0.07] border border-white/10 backdrop-blur-sm">
             <div className="flex items-center gap-2 md:flex-col md:gap-2">
-              <img
-                src={yelpLogo}
-                alt="Yelp"
-                className="w-8 h-8 rounded-lg shrink-0"
-                loading="lazy"
-                decoding="async" />
+              <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 overflow-hidden">
+                <img
+                  src={homeAdvisorBadge}
+                  alt="HomeAdvisor"
+                  className="w-8 h-8 object-contain"
+                  loading="lazy"
+                  decoding="async" />
+              </div>
               <span className="text-2xl font-bold text-white">5.0</span>
             </div>
             <div className="flex flex-col gap-1">
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) =>
-                <Star key={i} className="w-5 h-5 fill-red-500 text-red-500" />
+                <Star key={i} className="w-5 h-5 fill-primary text-primary" />
                 )}
               </div>
-              <span className="text-sm text-white/60">Community rated</span>
+              <span className="text-sm text-white/60">Based on 64 local reviews</span>
             </div>
           </div>
         </div>
