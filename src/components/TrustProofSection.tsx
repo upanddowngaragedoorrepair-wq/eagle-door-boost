@@ -13,22 +13,22 @@ const promises = [
 
 export function TrustProofSection() {
   return (
-    <section className="py-8 md:py-10 bg-[hsl(var(--navy))] relative overflow-hidden">
+    <section className="py-8 md:py-10 bg-[#f8fafc] relative overflow-hidden">
       <div className="container-main relative">
         {/* Headline */}
         <div className="text-center mb-6 md:mb-8">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-white mb-2 tracking-tight">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-[hsl(var(--navy))] mb-2 tracking-tight">
             Trusted & <span className="text-primary">Verified</span>
           </h2>
-          <p className="text-base md:text-lg text-white/80 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-[hsl(var(--navy))]/70 max-w-2xl mx-auto">
             Proudly trusted through the Google Guaranteed program.
           </p>
         </div>
 
         {/* Horizontal Cards Row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
-          {/* Google Guaranteed Badge */}
-          <div className="flex items-center justify-center px-2 py-2 md:px-3 md:py-3 rounded-xl bg-white/[0.07] border border-white/10 backdrop-blur-sm aspect-[2.8/1]">
+          {/* CSLB Badge */}
+          <div className="flex items-center justify-center px-2 py-2 md:px-3 md:py-3 rounded-xl bg-white border border-border/60 shadow-sm aspect-[2.8/1]">
             <img
               src={cslbBadge}
               alt="CSLB Contractors State License Board - LIC#1138855"
@@ -39,7 +39,7 @@ export function TrustProofSection() {
           </div>
 
           {/* Google Rating Card */}
-          <div className="flex flex-row md:flex-col items-center gap-4 md:gap-2 p-4 rounded-xl bg-white/[0.07] border border-white/10 backdrop-blur-sm">
+          <div className="flex flex-row md:flex-col items-center gap-4 md:gap-2 p-4 rounded-xl bg-white border border-border/60 shadow-sm">
             <div className="shrink-0">
               <svg className="w-20 h-20 md:w-24 md:h-24" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
@@ -55,14 +55,14 @@ export function TrustProofSection() {
                   <Star key={i} className="w-5 h-5 fill-primary text-primary" />
                   )}
                 </div>
-                <span className="text-lg font-bold text-white">4.9</span>
+                <span className="text-lg font-bold text-[hsl(var(--navy))]">4.9</span>
               </div>
-              <span className="text-sm text-white/60">Based on 189+ reviews</span>
+              <span className="text-sm text-muted-foreground">Based on 189+ reviews</span>
             </div>
           </div>
 
           {/* HomeAdvisor Rating Card */}
-          <div className="flex flex-row md:flex-col items-center gap-4 md:gap-2 p-4 rounded-xl bg-white/[0.07] border border-white/10 backdrop-blur-sm">
+          <div className="flex flex-row md:flex-col items-center gap-4 md:gap-2 p-4 rounded-xl bg-white border border-border/60 shadow-sm">
             <div className="shrink-0">
               <img
                 src={homeAdvisorBadge}
@@ -78,9 +78,9 @@ export function TrustProofSection() {
                   <Star key={i} className="w-5 h-5 fill-primary text-primary" />
                   )}
                 </div>
-                <span className="text-lg font-bold text-white">5.0</span>
+                <span className="text-lg font-bold text-[hsl(var(--navy))]">5.0</span>
               </div>
-              <span className="text-sm text-white/60">Based on 64 local reviews</span>
+              <span className="text-sm text-muted-foreground">Based on 64 local reviews</span>
             </div>
           </div>
         </div>
