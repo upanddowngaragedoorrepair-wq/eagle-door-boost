@@ -44,18 +44,20 @@ export function PopupBookingForm() {
   }, []);
 
   useEffect(() => {
-    // Don't show again if already dismissed this session
     if (sessionStorage.getItem('popup_dismissed')) {
       setDismissed(true);
       return;
     }
-
     const timer = setTimeout(() => {
       if (!dismissed) setOpen(true);
     }, 20000);
-
     return () => clearTimeout(timer);
   }, [dismissed]);
+
+  useEffect(() => {
+    const interval = setInterval(() => setMsLeft(getTimeUntilEndOfDay()), 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleClose = () => {
     setOpen(false);
