@@ -24,6 +24,17 @@ import dg10 from '@/assets/driveway-gallery/driveway-10.webp';
 import dg11 from '@/assets/driveway-gallery/driveway-11.webp';
 import dg12 from '@/assets/driveway-gallery/driveway-12.webp';
 
+import repairWelding from '@/assets/service-proof/gate-repair-welding.webp';
+import repairTeamwork from '@/assets/service-proof/gate-repair-teamwork.webp';
+import pedestrianModernGate from '@/assets/service-proof/pedestrian-gate-modern.webp';
+import pedestrianFenceGate from '@/assets/service-proof/pedestrian-gate-fence.jpeg';
+import pedestrianEntryGate from '@/assets/service-proof/pedestrian-gate-entry.jpeg';
+import accessControlCallbox from '@/assets/service-proof/access-control-callbox.jpg';
+import accessControlKeyFob from '@/assets/service-proof/access-control-keyfob.jpg';
+import commercialCantilever from '@/assets/service-proof/commercial-cantilever.jpg';
+import commercialBarrier from '@/assets/service-proof/commercial-barrier.png';
+import fencesWood from '@/assets/service-proof/fences-wood.jpg';
+
 const drivewayGallery = [dg1, dg2, dg3, dg4, dg5, dg6, dg7, dg8, dg9, dg10, dg11, dg12];
 
 interface ServiceData {
@@ -51,10 +62,10 @@ const services: ServiceData[] = [
   ],
   gallery: null,
   expandedLabel: 'We repair:',
-  expandedItems: ['Motors & openers', 'Sensors & safety eyes', 'Hinges & rollers', 'Stuck or jammed gates', 'Chains, belts & tracks', 'Remote & keypad issues'],
+  expandedItems: ['Motors & openers', 'Sensors & safety eyes', 'Hinges & rollers', 'Stuck or jammed gates', 'Chains, belts & tracks', 'Welding repairs'],
   cta: 'Call for Gate Repair',
   urgency: 'Same-day service available.',
-  proofImages: [dg1, dg5],
+  proofImages: [repairWelding, repairTeamwork],
 },
 {
   image: gateDriveway,
@@ -85,10 +96,10 @@ const services: ServiceData[] = [
   ],
   gallery: null,
   expandedLabel: 'We handle:',
-  expandedItems: ['Walk-through gates', 'Side entry gates', 'Self-closing gates', 'ADA-compliant gates', 'Keypad & intercom ready', 'Custom designs'],
+  expandedItems: ['Walk-through gates', 'Side entry gates', 'Safe Guard Plates', 'Anti-climb gates', 'Keypad & intercom ready', 'Custom designs'],
   cta: 'Call for Pedestrian Gates',
   urgency: 'Fast quote in minutes.',
-  proofImages: [dg4, dg6],
+  proofImages: [pedestrianModernGate, pedestrianFenceGate, pedestrianEntryGate],
 },
 {
   image: gateAccessControl,
@@ -102,10 +113,10 @@ const services: ServiceData[] = [
   ],
   gallery: null,
   expandedLabel: 'We install & repair:',
-  expandedItems: ['Keypads & pin pads', 'Intercoms & video entry', 'Telephone entry systems', 'Remote controls', 'Smartphone access', 'Call boxes'],
+  expandedItems: ['Keypads & pin pads', 'Intercoms & video entry', 'Telephone entry systems', 'Multi Resident Access', 'Key fobs system', 'Call boxes'],
   cta: 'Call for Access Control',
   urgency: 'Need this exact service? Call now.',
-  proofImages: [dg3, dg7],
+  proofImages: [accessControlCallbox, accessControlKeyFob],
 },
 {
   image: gateCommercial,
@@ -118,11 +129,11 @@ const services: ServiceData[] = [
     '24/7 support',
   ],
   gallery: null,
-  expandedLabel: 'We serve:',
-  expandedItems: ['Business properties', 'HOA communities', 'Warehouses', 'Industrial facilities', 'Parking structures', 'Gated communities'],
+  expandedLabel: 'We install:',
+  expandedItems: ['Parking Lot & Garage Gates', 'Cantilever gates', 'Rollup Gates & Garage', 'Chain-link gates', 'Barrier gate'],
   cta: 'Call for Commercial Gates',
   urgency: '24/7 commercial support.',
-  proofImages: [dg9, dg11],
+  proofImages: [commercialCantilever, commercialBarrier],
 },
 {
   image: cardFences,
@@ -138,7 +149,7 @@ const services: ServiceData[] = [
   expandedItems: ['Wood fences', 'Wrought iron fences', 'Chain-link fencing', 'Vinyl & aluminum', 'Concrete pillars', 'Steel columns'],
   cta: 'Call for Fencing Estimate',
   urgency: 'We handle permits for you.',
-  proofImages: [dg10, dg12],
+  proofImages: [fencesWood],
 }];
 
 
