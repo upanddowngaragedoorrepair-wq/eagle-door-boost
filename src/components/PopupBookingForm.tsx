@@ -1,8 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Send, Lock, Phone, X, Tag } from 'lucide-react';
+import { Send, Lock, Phone, X, Tag, Clock } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
+
+function getTimeUntilEndOfDay() {
+  const now = new Date();
+  const end = new Date(now);
+  end.setHours(23, 59, 59, 999);
+  return Math.max(0, end.getTime() - now.getTime());
+}
 
 const serviceOptions = [
   'Gate Repair',
