@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import authorizedBadge from '@/assets/authorized-distributor-badge.png';
 
 interface Logo {
   name: string;
