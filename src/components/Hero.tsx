@@ -76,12 +76,14 @@ export function Hero() {
           role="presentation"
           width={1920}
           height={1080}
-          className="w-full h-full object-cover opacity-40 md:opacity-50"
+          className="w-full h-full object-cover opacity-50 md:opacity-50"
           fetchPriority="high"
           decoding="sync"
         />
-        {/* Directional overlay: darker left (text), lighter right (image visible) */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(200_45%_10%/0.95)] via-[hsl(200_45%_12%/0.88)] to-[hsl(200_45%_14%/0.75)] md:to-[hsl(200_45%_14%/0.65)]" />
+        {/* Mobile: top-to-bottom gradient (dark top/text, lighter bottom/gate visible) */}
+        <div className="absolute inset-0 md:hidden bg-gradient-to-b from-[hsl(200_45%_10%/0.93)] via-[hsl(200_45%_12%/0.75)] to-[hsl(200_45%_14%/0.55)]" />
+        {/* Desktop: left-to-right gradient (dark left/text, lighter right/gate visible) */}
+        <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-[hsl(200_45%_10%/0.95)] via-[hsl(200_45%_12%/0.88)] to-[hsl(200_45%_14%/0.65)]" />
         {/* Extra top/bottom fade for depth */}
         <div className="absolute inset-0 bg-gradient-to-b from-[hsl(200_45%_10%/0.4)] via-transparent to-[hsl(200_45%_10%/0.5)]" />
       </div>
