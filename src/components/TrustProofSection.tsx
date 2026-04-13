@@ -54,13 +54,15 @@ export function TrustProofSection() {
                 <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
                 <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
               </svg>
-              <span className="text-2xl font-bold text-white">4.9</span>
             </div>
             <div className="flex flex-col gap-1">
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) =>
-                <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                )}
+              <div className="flex items-center gap-1.5">
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) =>
+                  <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                  )}
+                </div>
+                <span className="text-lg font-bold text-white">4.9</span>
               </div>
               <span className="text-sm text-white/60">Based on 189+ reviews</span>
             </div>
@@ -69,21 +71,23 @@ export function TrustProofSection() {
           {/* HomeAdvisor Rating Card */}
           <div className="flex flex-row md:flex-col items-center gap-4 md:gap-2 p-4 rounded-xl bg-white/[0.07] border border-white/10 backdrop-blur-sm">
             <div className="flex items-center gap-2 md:flex-col md:gap-2">
-              <div className="w-11 h-11 rounded-full bg-white flex items-center justify-center shrink-0 overflow-hidden">
+              <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center shrink-0 overflow-hidden">
                 <img
                   src={homeAdvisorBadge}
                   alt="HomeAdvisor"
-                  className="w-9 h-9 object-contain"
+                  className="w-12 h-12 object-contain"
                   loading="lazy"
                   decoding="async" />
               </div>
-              <span className="text-2xl font-bold text-white">5.0</span>
             </div>
             <div className="flex flex-col gap-1">
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) =>
-                <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                )}
+              <div className="flex items-center gap-1.5">
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) =>
+                  <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                  )}
+                </div>
+                <span className="text-lg font-bold text-white">5.0</span>
               </div>
               <span className="text-sm text-white/60">Based on 64 local reviews</span>
             </div>
