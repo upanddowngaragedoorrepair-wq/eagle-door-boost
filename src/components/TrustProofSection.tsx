@@ -1,6 +1,6 @@
 import { Star, Shield, Zap, Clock, DollarSign } from 'lucide-react';
 import yelpLogo from '@/assets/yelp-logo.webp';
-import homeAdvisorBadge from '@/assets/homeadvisor-badge.webp';
+import homeAdvisorBadge from '@/assets/homeadvisor-badge.png';
 
 const promises = [
 { icon: Zap, text: 'Same Day Service' },
@@ -69,11 +69,11 @@ export function TrustProofSection() {
           {/* HomeAdvisor Rating Card */}
           <div className="flex flex-row md:flex-col items-center gap-4 md:gap-2 p-4 rounded-xl bg-white/[0.07] border border-white/10 backdrop-blur-sm">
             <div className="flex items-center gap-2 md:flex-col md:gap-2">
-              <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 overflow-hidden">
+              <div className="w-11 h-11 rounded-full bg-white flex items-center justify-center shrink-0 overflow-hidden">
                 <img
                   src={homeAdvisorBadge}
                   alt="HomeAdvisor"
-                  className="w-8 h-8 object-contain"
+                  className="w-9 h-9 object-contain"
                   loading="lazy"
                   decoding="async" />
               </div>
