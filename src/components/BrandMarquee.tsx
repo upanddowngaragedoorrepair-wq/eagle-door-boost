@@ -57,7 +57,7 @@ export function BrandMarquee({ logos, speed = 30 }: BrandMarqueeProps) {
 
 
               <div className="flex flex-col items-center gap-2">
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-primary/15 flex items-center justify-center text-primary font-sans font-bold text-sm md:text-base">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-primary/15 flex items-center justify-center text-primary font-display font-bold text-sm md:text-base">
                       {logo.name.substring(0, 2).toUpperCase()}
                     </div>
                     <span className="text-xs md:text-sm font-medium text-muted-foreground text-center leading-tight">

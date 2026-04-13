@@ -115,28 +115,11 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    line-height: 1.7;
-    letter-spacing: 0.005em;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', sans-serif;
-    @apply font-extrabold;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-  }
-
-  h1, h2 {
-    font-weight: 800;
-  }
-
-  h3, h4, h5, h6 {
-    font-weight: 700;
-  }
-
-  p, li, span, label, input, textarea, select {
-    line-height: 1.7;
+    font-family: 'Oswald', sans-serif;
+    @apply font-semibold tracking-tight;
   }
 }
 
@@ -206,9 +189,10 @@
   }
 
   .section-heading {
-    @apply text-3xl md:text-4xl lg:text-5xl text-center mb-4 font-extrabold;
-    font-family: 'Inter', sans-serif;
-    letter-spacing: -0.02em;
+    @apply text-3xl md:text-4xl lg:text-5xl text-center mb-4;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
   }
 
   .gold-text {

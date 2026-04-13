@@ -88,7 +88,7 @@ export function CouponCountdown() {
         </div>
 
         {/* Headline - BIGGER */}
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-center mb-6 tracking-tight">
+        <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-center mb-6 tracking-tight">
           <span className="text-foreground">{currentMonth}</span>{' '}
           <span className="gold-text">EXCLUSIVE</span>{' '}
           <span className="text-foreground">COUPONS</span>
@@ -126,7 +126,7 @@ export function CouponCountdown() {
           }].map((item, index) => (
             <div key={index} className="text-center">
               <div className="w-20 h-20 md:w-28 md:h-28 rounded-2xl bg-card border-2 border-border flex items-center justify-center mb-3 shadow-xl shadow-black/20">
-                <span className="text-4xl md:text-5xl font-sans font-bold text-foreground">
+                <span className="text-4xl md:text-5xl font-display font-bold text-foreground">
                   {String(item.value).padStart(2, '0')}
                 </span>
               </div>
@@ -160,7 +160,7 @@ export function CouponCountdown() {
               {/* Content */}
               <div className="absolute bottom-0 left-0 p-6">
                 <p className="text-base text-primary font-bold uppercase tracking-wide mb-2">{coupon.label}</p>
-                <p className="text-4xl md:text-5xl font-sans font-bold text-foreground">{coupon.discount}</p>
+                <p className="text-4xl md:text-5xl font-display font-bold text-foreground">{coupon.discount}</p>
               </div>
             </a>
           ))}

@@ -105,7 +105,7 @@ export function ServicePageLayout({
                 </div>
 
                 {/* Headline - BIGGER */}
-                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-sans font-bold leading-[1.05] mb-8 tracking-tight">
+                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold leading-[1.05] mb-8 tracking-tight">
                   <span className="text-foreground">{title} </span>
                   <span className="gradient-text">Pros</span>
                 </h1>
@@ -134,7 +134,7 @@ export function ServicePageLayout({
               <div className="hidden lg:block animate-scale-in">
                 <div className="bg-card/95 backdrop-blur-lg rounded-3xl p-10 shadow-2xl shadow-black/30 border border-border">
                   <div className="text-center mb-8">
-                    <h3 className="text-3xl font-sans font-bold text-foreground mb-3">
+                    <h3 className="text-3xl font-display font-bold text-foreground mb-3">
                       Get Your Free Estimate
                     </h3>
                     <p className="text-lg text-muted-foreground">No obligation • Expert advice</p>
@@ -170,7 +170,7 @@ export function ServicePageLayout({
           
           <div className="container-main relative">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold mb-6 tracking-tight">
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 tracking-tight">
                 <span className="text-background">Why Choose </span>
                 <span className="text-primary">Eagle Automatic</span>
               </h2>
@@ -184,7 +184,7 @@ export function ServicePageLayout({
                   <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
                     <CheckCircle className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-sans font-bold text-background mb-3">{feature.title}</h3>
+                  <h3 className="text-2xl font-display font-bold text-background mb-3">{feature.title}</h3>
                   <p className="text-lg text-background/70 leading-relaxed">{feature.description}</p>
                 </div>)}
             </div>
@@ -208,7 +208,7 @@ export function ServicePageLayout({
           
           <div className="container-main relative">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold mb-6 tracking-tight">
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 tracking-tight">
                 <span className="text-foreground">Frequently Asked </span>
                 <span className="gradient-text">Questions</span>
               </h2>
@@ -217,7 +217,7 @@ export function ServicePageLayout({
             <div className="max-w-4xl mx-auto space-y-5">
               {faqs.map((faq, index) => <details key={index} className="group bg-card rounded-2xl border border-border overflow-hidden shadow-lg shadow-black/10">
                   <summary className="flex items-center justify-between p-7 cursor-pointer hover:bg-muted/50 transition-colors">
-                    <span className="font-sans font-bold text-foreground text-xl pr-4">{faq.question}</span>
+                    <span className="font-display font-bold text-foreground text-xl pr-4">{faq.question}</span>
                     <ArrowRight className="w-6 h-6 text-primary flex-shrink-0 transition-transform group-open:rotate-90" />
                   </summary>
                   <div className="px-7 pb-7">
@@ -252,7 +252,7 @@ export function ServicePageLayout({
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/5 blur-[100px] rounded-full" />
           
           <div className="container-main relative text-center">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold mb-8 tracking-tight">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-8 tracking-tight">
               <span className="text-foreground">Ready to Get </span>
               <span className="gradient-text">Started?</span>
             </h2>

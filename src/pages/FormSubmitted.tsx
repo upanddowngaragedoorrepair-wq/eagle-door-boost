@@ -13,7 +13,7 @@ const FormSubmitted = () => {
             <CheckCircle className="w-10 h-10 text-primary-foreground" />
           </div>
 
-          <h1 className="font-sans text-3xl md:text-4xl font-bold text-primary-foreground mb-4 leading-tight">
+          <h1 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-4 leading-tight">
             Your Appointment Request Has Been Received!
           </h1>
 
@@ -46,7 +46,7 @@ const FormSubmitted = () => {
           <p className="text-primary-foreground/70 font-semibold text-base mb-4">Need help right away? Call us now</p>
           <a
             href={phoneLink}
-            className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-xl bg-background text-foreground font-sans font-bold text-xl uppercase tracking-wide hover:bg-background/90 transition-colors shadow-lg"
+            className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-xl bg-background text-foreground font-display font-bold text-xl uppercase tracking-wide hover:bg-background/90 transition-colors shadow-lg"
           >
             <Phone className="w-6 h-6" />
             Call {phoneFormatted}

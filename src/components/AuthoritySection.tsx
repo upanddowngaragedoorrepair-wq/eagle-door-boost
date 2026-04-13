@@ -79,7 +79,7 @@ export function AuthoritySection({
       <div className="container-main relative">
         {/* Section Header */}
         <div className="text-center mb-16 md:mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold mb-5 tracking-tight text-white">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-5 tracking-tight text-white">
             {headline.split('[Service Name]')[0]}
             <span className="text-primary">{headline.includes('[Service Name]') ? 'This Service' : ''}</span>
           </h2>
@@ -106,7 +106,7 @@ export function AuthoritySection({
                     <card.icon className="w-7 h-7 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-sans font-bold text-xl text-white mb-2 group-hover:text-primary transition-colors">
+                    <h3 className="font-display font-bold text-xl text-white mb-2 group-hover:text-primary transition-colors">
                       {card.title}
                     </h3>
                     <p className="text-white/70 leading-relaxed text-base">
@@ -120,7 +120,7 @@ export function AuthoritySection({
 
         {/* Related Services Grid */}
         <div className="border-t border-white/10 pt-14">
-          <h3 className="text-2xl md:text-3xl font-sans font-bold text-white text-center mb-10">
+          <h3 className="text-2xl md:text-3xl font-display font-bold text-white text-center mb-10">
             Related <span className="text-primary">Services</span>
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">

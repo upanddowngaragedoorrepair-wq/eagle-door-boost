@@ -15,7 +15,7 @@ export function TrustProofSection() {
       <div className="container-main relative">
         {/* Headline */}
         <div className="text-center mb-6 md:mb-8">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-sans font-bold text-white mb-2 tracking-tight">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-white mb-2 tracking-tight">
             Trusted & <span className="text-primary">Verified</span>
           </h2>
           <p className="text-base md:text-lg text-white/80 max-w-2xl mx-auto">

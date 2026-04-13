@@ -60,7 +60,7 @@ export function Header() {
               decoding="async"
             />
             <div className="hidden sm:block">
-              <h1 className="font-sans text-lg md:text-2xl font-bold tracking-tight text-foreground uppercase">
+              <h1 className="font-display text-lg md:text-2xl font-bold tracking-tight text-foreground uppercase">
                 Eagle Automatic
               </h1>
               <p className="text-xs md:text-sm text-primary font-semibold -mt-0.5 uppercase tracking-wider">

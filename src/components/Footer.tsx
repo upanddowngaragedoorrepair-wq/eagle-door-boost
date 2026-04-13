@@ -19,7 +19,7 @@ export function Footer() {
             >
               <img alt="Eagle Automatic Gate" className="w-16 h-16" src="/lovable-uploads/63204ed7-0e01-4872-934a-d80ac91915ee.png" />
               <div>
-                <h3 className="font-sans text-2xl font-bold text-white uppercase">Eagle Automatic</h3>
+                <h3 className="font-display text-2xl font-bold text-white uppercase">Eagle Automatic</h3>
                 <p className="text-sm text-primary font-bold uppercase tracking-wider">Gate & Door</p>
               </div>
             </a>
@@ -32,7 +32,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-sans font-bold text-lg text-white mb-6 uppercase tracking-wide">Contact Us</h4>
+            <h4 className="font-display font-bold text-lg text-white mb-6 uppercase tracking-wide">Contact Us</h4>
             <ul className="space-y-4">
               <li>
                 <a href={phoneLink} className="flex items-center gap-3 text-lg text-white/70 hover:text-primary transition-colors font-semibold">
@@ -63,7 +63,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-sans font-bold text-lg text-white mb-6 uppercase tracking-wide">Quick Links</h4>
+            <h4 className="font-display font-bold text-lg text-white mb-6 uppercase tracking-wide">Quick Links</h4>
             <ul className="space-y-3 text-white/70">
               <li><a href="#services" onClick={(e) => { e.preventDefault(); document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-primary transition-colors cursor-pointer">Services</a></li>
               <li><a href="#reviews" onClick={(e) => { e.preventDefault(); document.querySelector('#reviews')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-primary transition-colors cursor-pointer">Reviews</a></li>
