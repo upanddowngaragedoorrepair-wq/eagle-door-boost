@@ -72,7 +72,7 @@ export function ContactForm() {
         </div>
 
         {/* Headline */}
-        <h2 className="text-5xl md:text-6xl lg:text-7xl font-sans font-bold text-center mb-6 tracking-tight">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-center mb-6 tracking-tight">
           <span className="text-foreground">Get Your </span>
           <span className="gold-text italic">Free Estimate</span>
         </h2>

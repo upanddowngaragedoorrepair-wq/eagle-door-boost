@@ -135,7 +135,7 @@ export function ReviewWidget() {
             <span className="text-sm font-bold text-primary uppercase tracking-wider">Verified Reviews</span>
           </div>
 
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-sans font-bold mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold mb-6 tracking-tight">
             <span className="text-foreground">Hear From Our </span>
             <span className="gold-text">Happy Customers</span>
           </h2>
@@ -146,7 +146,7 @@ export function ReviewWidget() {
 
           <div className="flex flex-col items-center gap-4 mb-10">
             <div className="flex items-center gap-5">
-              <span className="text-6xl md:text-7xl font-sans font-bold text-foreground">4.9</span>
+              <span className="text-5xl md:text-6xl font-sans font-bold text-foreground">4.9</span>
               <StarRating rating={5} size="large" />
             </div>
             <p className="text-lg text-muted-foreground">

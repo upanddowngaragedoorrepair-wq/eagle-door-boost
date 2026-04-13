@@ -88,7 +88,7 @@ export function CouponCountdown() {
         </div>
 
         {/* Headline - BIGGER */}
-        <h2 className="text-5xl md:text-6xl lg:text-7xl font-sans font-bold text-center mb-6 tracking-tight">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-center mb-6 tracking-tight">
           <span className="text-foreground">{currentMonth}</span>{' '}
           <span className="gold-text">EXCLUSIVE</span>{' '}
           <span className="text-foreground">COUPONS</span>

@@ -170,7 +170,7 @@ export function ServicePageLayout({
           
           <div className="container-main relative">
             <div className="text-center mb-16">
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-sans font-bold mb-6 tracking-tight">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold mb-6 tracking-tight">
                 <span className="text-background">Why Choose </span>
                 <span className="text-primary">Eagle Automatic</span>
               </h2>
@@ -208,7 +208,7 @@ export function ServicePageLayout({
           
           <div className="container-main relative">
             <div className="text-center mb-16">
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-sans font-bold mb-6 tracking-tight">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold mb-6 tracking-tight">
                 <span className="text-foreground">Frequently Asked </span>
                 <span className="gradient-text">Questions</span>
               </h2>
@@ -252,7 +252,7 @@ export function ServicePageLayout({
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/5 blur-[100px] rounded-full" />
           
           <div className="container-main relative text-center">
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-sans font-bold mb-8 tracking-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold mb-8 tracking-tight">
               <span className="text-foreground">Ready to Get </span>
               <span className="gradient-text">Started?</span>
             </h2>
