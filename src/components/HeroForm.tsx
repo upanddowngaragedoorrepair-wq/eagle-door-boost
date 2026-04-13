@@ -63,21 +63,21 @@ export function HeroForm() {
     }
   };
 
-  const inputClass = "w-full px-4 py-3.5 rounded-xl bg-background text-foreground placeholder:text-muted-foreground border border-border focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 text-base font-medium transition-colors";
+  const inputClass = "w-full px-4 py-3.5 rounded-xl bg-white text-foreground placeholder:text-muted-foreground border border-border focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 text-base transition-colors";
 
   return (
-    <div className="bg-card rounded-3xl p-8 md:p-10 shadow-lg border border-border relative">
+    <div className="bg-card rounded-2xl p-7 md:p-8 shadow-2xl border border-border relative">
       {/* Online badge */}
-      <div className="absolute top-5 right-5 inline-flex items-center gap-2 rounded-full bg-green-50 border border-green-200 px-3 py-1">
-        <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
-        <span className="font-bold text-green-700 text-sm">Online Now</span>
+      <div className="absolute top-4 right-4 inline-flex items-center gap-1.5 rounded-full bg-green-50 border border-green-200 px-2.5 py-1">
+        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+        <span className="font-bold text-green-700 text-xs">Online Now</span>
       </div>
 
-      <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
+      <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-1">
         Get Your Free Estimate
       </h3>
-      <p className="text-base text-muted-foreground mb-6">
-        No obligation • Expert advice • Fast response
+      <p className="text-sm text-muted-foreground mb-5">
+        No obligation • Fast response
       </p>
 
       {error && (
@@ -86,58 +86,26 @@ export function HeroForm() {
         </div>
       )}
 
-      <form action="https://formspree.io/f/xdalkyzy" method="POST" onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name *"
-          required
-          className={inputClass}
-          value={formData.name}
-          onChange={e => setFormData({ ...formData, name: e.target.value })}
-        />
-        <input
-          type="tel"
-          name="phone"
-          placeholder="Phone Number *"
-          required
-          className={inputClass}
-          value={formData.phone}
-          onChange={e => setFormData({ ...formData, phone: e.target.value })}
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email Address"
-          className={inputClass}
-          value={formData.email}
-          onChange={e => setFormData({ ...formData, email: e.target.value })}
-        />
-        <select
-          name="service"
-          className={`${inputClass} appearance-none`}
-          value={formData.service}
-          onChange={e => setFormData({ ...formData, service: e.target.value })}
-        >
+      <form action="https://formspree.io/f/xdalkyzy" method="POST" onSubmit={handleSubmit} className="space-y-3">
+        <input type="text" name="name" placeholder="Your Name *" required className={inputClass} value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} />
+        <input type="tel" name="phone" placeholder="Phone Number *" required className={inputClass} value={formData.phone} onChange={e => setFormData({ ...formData, phone: e.target.value })} />
+        <input type="email" name="email" placeholder="Email Address" className={inputClass} value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} />
+        <select name="service" className={`${inputClass} appearance-none`} value={formData.service} onChange={e => setFormData({ ...formData, service: e.target.value })}>
           <option value="">Service Needed</option>
           {serviceOptions.map(s => (
             <option key={s} value={s}>{s}</option>
           ))}
         </select>
 
-        <button
-          type="submit"
-          disabled={submitting}
-          className="w-full btn-cta text-lg min-h-[56px]"
-        >
+        <button type="submit" disabled={submitting} className="w-full btn-cta text-base min-h-[52px]">
           <Send className="w-5 h-5" />
           {submitting ? 'Submitting...' : 'Get Free Estimate'}
         </button>
       </form>
 
-      <p className="flex items-center justify-center gap-2 text-sm text-muted-foreground mt-4">
-        <Lock className="w-4 h-4" />
-        Your information is secure and will never be shared
+      <p className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground mt-3">
+        <Lock className="w-3.5 h-3.5" />
+        Secure — never shared
       </p>
     </div>
   );

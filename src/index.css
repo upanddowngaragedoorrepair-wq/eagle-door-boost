@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    /* Light Theme — Clean Conversion Layout */
+    /* Core palette */
     --background: 216 25% 97%;       /* #F6F8FB */
     --foreground: 222 47% 11%;       /* #0F172A */
 
@@ -18,18 +18,18 @@
     --popover-foreground: 222 47% 11%;
 
     /* Gold Accent — Primary */
-    --primary: 42 74% 46%;           /* #D4A017 */
-    --primary-foreground: 0 0% 100%;
+    --primary: 45 93% 58%;           /* #FBBF24 — strong yellow */
+    --primary-foreground: 222 47% 11%;  /* dark text on yellow */
     --primary-glow: 42 80% 55%;
-    --primary-hover: 42 80% 39%;     /* #B98910 */
+    --primary-hover: 42 90% 50%;
 
     /* Secondary — Soft slate */
-    --secondary: 210 20% 96%;        /* #F1F5F9 */
+    --secondary: 210 20% 96%;
     --secondary-foreground: 222 47% 11%;
 
     /* Muted */
     --muted: 210 20% 96%;
-    --muted-foreground: 215 16% 42%; /* #475569 */
+    --muted-foreground: 215 16% 47%;
 
     /* Accent */
     --accent: 210 20% 96%;
@@ -40,47 +40,47 @@
     --destructive-foreground: 0 0% 100%;
 
     /* Borders & Input */
-    --border: 214 20% 88%;           /* #E2E8F0 */
+    --border: 214 20% 88%;
     --input: 214 20% 88%;
-    --ring: 42 74% 46%;
+    --ring: 45 93% 58%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    /* Custom tokens */
-    --navy: 200 45% 13%;             /* #0B1F2E */
-    --navy-deep: 200 45% 10%;
-    --navy-light: 200 30% 20%;
+    /* Dark surfaces */
+    --navy: 222 47% 11%;             /* #0F172A */
+    --navy-deep: 224 50% 8%;         /* very deep */
+    --navy-light: 222 30% 18%;
     --gold-soft: 42 50% 50%;
-    --gold-bright: 42 80% 55%;
-    --text-subtle: 215 16% 42%;
+    --gold-bright: 45 93% 58%;
+    --text-subtle: 215 16% 47%;
 
     /* Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(42, 74%, 46%) 0%, hsl(42, 80%, 55%) 100%);
-    --gradient-navy: linear-gradient(180deg, hsl(200, 45%, 13%) 0%, hsl(200, 45%, 9%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(45, 93%, 58%) 0%, hsl(38, 90%, 52%) 100%);
+    --gradient-navy: linear-gradient(180deg, hsl(222, 47%, 11%) 0%, hsl(224, 50%, 8%) 100%);
 
-    /* Shadows — light theme */
-    --shadow-sm: 0 6px 18px rgba(15,23,42,0.08);
-    --shadow-md: 0 10px 28px rgba(15,23,42,0.10);
-    --shadow-lg: 0 18px 60px rgba(15,23,42,0.14);
-    --shadow-gold: 0 4px 20px -4px hsl(42 74% 46% / 0.35);
-    --shadow-card: 0 4px 24px -4px rgba(15,23,42,0.08), 0 0 0 1px rgba(226,232,240,0.6);
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(15,23,42,0.06);
+    --shadow-md: 0 4px 16px rgba(15,23,42,0.08);
+    --shadow-lg: 0 12px 40px rgba(15,23,42,0.12);
+    --shadow-gold: 0 4px 20px -4px hsl(45 93% 58% / 0.4);
+    --shadow-card: 0 1px 3px rgba(15,23,42,0.04), 0 0 0 1px rgba(226,232,240,0.5);
 
     /* Sidebar */
-    --sidebar-background: 200 45% 13%;
+    --sidebar-background: 222 47% 11%;
     --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 42 74% 46%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 200 30% 20%;
+    --sidebar-primary: 45 93% 58%;
+    --sidebar-primary-foreground: 222 47% 11%;
+    --sidebar-accent: 222 30% 18%;
     --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 200 30% 25%;
-    --sidebar-ring: 42 74% 46%;
+    --sidebar-border: 222 30% 25%;
+    --sidebar-ring: 45 93% 58%;
 
-    --chart-1: 42 74% 46%;
+    --chart-1: 45 93% 58%;
     --chart-2: 185 40% 50%;
     --chart-3: 260 40% 55%;
     --chart-4: 150 40% 50%;
     --chart-5: 20 60% 55%;
-    --sidebar: 200 45% 13%;
+    --sidebar: 222 47% 11%;
 
     --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
     --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
@@ -109,7 +109,7 @@
   #quote-form,
   #service-area,
   #why-choose-us {
-    scroll-margin-top: 120px;
+    scroll-margin-top: 100px;
   }
 
   body {
@@ -124,51 +124,35 @@
 }
 
 @layer components {
-  /* Primary CTA Button — warm gradient, static */
+  /* Primary CTA Button */
   .btn-cta {
-    @apply inline-flex items-center justify-center gap-3 px-8 py-4 text-lg font-bold rounded-full transition-all duration-300;
+    @apply inline-flex items-center justify-center gap-3 px-8 py-4 text-lg font-bold rounded-full transition-all duration-200;
     font-family: 'Oswald', sans-serif;
-    background: linear-gradient(135deg, hsl(42 90% 70%) 0%, hsl(38 85% 58%) 100%);
+    background: hsl(var(--primary));
     color: hsl(var(--foreground));
-    box-shadow:
-      0 4px 20px -4px hsl(42 74% 46% / 0.35),
-      inset 0 1px 0 0 hsl(42 90% 80% / 0.5);
+    box-shadow: 0 4px 20px -4px hsl(45 93% 58% / 0.45);
     text-transform: uppercase;
     letter-spacing: 0.08em;
     border: none;
-    position: relative;
-    overflow: hidden;
     min-height: 56px;
   }
 
-  .btn-cta::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 60%);
-    pointer-events: none;
-  }
-
   .btn-cta:hover {
-    transform: translateY(-2px);
-    box-shadow:
-      0 8px 30px -6px hsl(42 74% 46% / 0.45),
-      inset 0 1px 0 0 hsl(42 90% 80% / 0.5);
+    transform: translateY(-1px);
+    background: hsl(var(--primary-hover));
+    box-shadow: 0 8px 30px -6px hsl(45 93% 58% / 0.5);
   }
 
   .btn-cta:active {
-    transform: translateY(0px);
-    box-shadow:
-      0 2px 12px -2px hsl(42 74% 46% / 0.3),
-      inset 0 1px 0 0 hsl(42 90% 80% / 0.4);
+    transform: translateY(0);
   }
 
   /* Secondary Button */
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2.5 px-7 py-4 text-base font-semibold rounded-2xl transition-all duration-300;
-    background: hsl(var(--card));
-    color: hsl(var(--foreground));
-    border: 2px solid hsl(var(--border));
+    @apply inline-flex items-center justify-center gap-2.5 px-7 py-4 text-base font-semibold rounded-full transition-all duration-200;
+    background: transparent;
+    color: hsl(0 0% 100%);
+    border: 2px solid hsl(0 0% 100% / 0.3);
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -177,8 +161,24 @@
 
   .btn-secondary:hover {
     border-color: hsl(var(--primary));
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    color: hsl(var(--primary));
+  }
+
+  /* Light variant for secondary on light bgs */
+  .btn-secondary-light {
+    @apply inline-flex items-center justify-center gap-2.5 px-7 py-4 text-base font-semibold rounded-full transition-all duration-200;
+    background: transparent;
+    color: hsl(var(--foreground));
+    border: 2px solid hsl(var(--border));
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    min-height: 56px;
+  }
+
+  .btn-secondary-light:hover {
+    border-color: hsl(var(--primary));
+    color: hsl(var(--primary));
   }
 
   .card-premium {
@@ -219,11 +219,11 @@
   .shine-text {
     background: linear-gradient(
       90deg,
-      hsl(42, 74%, 46%) 0%,
-      hsl(42, 74%, 46%) 40%,
-      hsl(42, 90%, 65%) 50%,
-      hsl(42, 74%, 46%) 60%,
-      hsl(42, 74%, 46%) 100%
+      hsl(45, 93%, 58%) 0%,
+      hsl(45, 93%, 58%) 40%,
+      hsl(45, 93%, 72%) 50%,
+      hsl(45, 93%, 58%) 60%,
+      hsl(45, 93%, 58%) 100%
     );
     background-size: 200% 100%;
     -webkit-background-clip: text;
@@ -231,16 +231,17 @@
     background-clip: text;
     animation: shine-sweep 3.5s ease-in-out infinite;
   }
+
+  /* Dark section utility */
+  .section-dark {
+    background: hsl(var(--navy));
+    color: hsl(0 0% 100%);
+  }
 }
 
 @keyframes shine-sweep {
   0% { background-position: 200% center; }
   100% { background-position: -200% center; }
-}
-
-@keyframes btn-shine-sweep {
-  0%, 100% { left: -100%; }
-  50% { left: 150%; }
 }
 
 @keyframes slideUp {
@@ -274,9 +275,9 @@
   100% { transform: translateX(-50%); }
 }
 
-/* Hero Animations */
+/* Animations */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -286,23 +287,18 @@
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
+  animation: fadeInUp 0.5s ease-out forwards;
 }
 
 .animate-fade-in-scale {
-  animation: fadeInScale 0.5s ease-out forwards;
+  animation: fadeInScale 0.4s ease-out forwards;
 }
 
-/* Animated headline underline */
+/* Headline underline */
 @keyframes underline-grow {
   0% { width: 0%; opacity: 0; }
   20% { opacity: 1; }
   100% { width: 100%; opacity: 1; }
-}
-
-@keyframes underline-shine {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
 }
 
 .headline-underline {
@@ -317,13 +313,9 @@
   left: 0;
   width: 0%;
   height: 4px;
-  background: linear-gradient(90deg, hsl(42, 74%, 46%) 0%, hsl(42, 90%, 65%) 50%, hsl(42, 74%, 46%) 100%);
-  background-size: 200% 100%;
+  background: hsl(45, 93%, 58%);
   border-radius: 2px;
-  box-shadow: 0 0 12px hsl(42 74% 46% / 0.35);
-  animation:
-    underline-grow 0.8s ease-out 0.4s forwards,
-    underline-shine 2.5s ease-in-out 1.2s infinite;
+  animation: underline-grow 0.8s ease-out 0.4s forwards;
 }
 
 /* Performance */
