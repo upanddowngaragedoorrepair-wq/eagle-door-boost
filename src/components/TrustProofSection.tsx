@@ -28,11 +28,11 @@ export function TrustProofSection() {
         {/* Horizontal Cards Row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
           {/* Google Guaranteed Badge */}
-          <div className="flex items-center justify-center p-6 md:p-8 rounded-xl bg-white/[0.07] border border-white/10 backdrop-blur-sm">
+          <div className="flex items-center justify-center px-3 py-3 md:py-4 rounded-xl bg-white/[0.07] border border-white/10 backdrop-blur-sm">
             <img
               src={cslbBadge}
               alt="CSLB Contractors State License Board - LIC#1138855"
-              className="w-full max-w-[220px] md:max-w-[260px] object-contain"
+              className="w-full object-contain"
               loading="lazy"
               decoding="async"
             />
