@@ -4,7 +4,7 @@
  * explicit width/height on img avoids CLS.
  */
 import { useMemo } from 'react';
-import { Phone, MessageSquare, Shield, CheckCircle } from 'lucide-react';
+import { Phone, MessageSquare, Scaling, CheckCircle } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import { HeroForm } from '@/components/HeroForm';
 import heroGateBg from '@/assets/hero-gate-bg.webp';
@@ -110,8 +110,8 @@ export function Hero() {
 
 
               <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-card border border-border shadow-sm">
-                <Shield className="w-5 h-5 text-primary" />
-                <span className="text-sm font-bold text-foreground">Licensed & Insured</span>
+                <Scaling className="w-5 h-5 text-primary" />
+                <span className="text-sm font-bold text-foreground">No Job Is Too Small or Big To Us</span>
               </span>
               <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-green-50 border border-green-200 shadow-sm">
                 <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
