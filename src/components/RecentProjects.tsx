@@ -6,6 +6,9 @@ import project5 from '@/assets/projects/project-5.webp';
 import project6 from '@/assets/projects/project-6.webp';
 import project7 from '@/assets/projects/project-7.webp';
 import project8 from '@/assets/projects/project-8.webp';
+import project9 from '@/assets/projects/project-9.webp';
+import project10 from '@/assets/projects/project-10.webp';
+import project11 from '@/assets/projects/project-11.webp';
 
 const projects = [
   { src: project1, alt: 'Wooden swing gate installation' },
@@ -16,6 +19,9 @@ const projects = [
   { src: project6, alt: 'Wood fence with iron pedestrian gate' },
   { src: project7, alt: 'Sliding gate motor installation' },
   { src: project8, alt: 'DoorBird access control system' },
+  { src: project9, alt: 'Gate installation in progress by technicians' },
+  { src: project10, alt: 'Cellgate intercom access control system', objectPosition: 'center top' },
+  { src: project11, alt: 'Electric gate opener installation' },
 ];
 
 const getPreviousMonthName = () => {
@@ -28,24 +34,24 @@ export function RecentProjects() {
   const prevMonth = getPreviousMonthName();
 
   return (
-    <section className="py-16 md:py-24 bg-background border-t border-border">
+    <section className="py-[72px] md:py-24 border-t border-border bg-background">
       <div className="container-main">
-        <div className="text-center mb-10">
+        <div className="text-center mb-10 md:mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 tracking-tight">
-            <span className="text-foreground">Recent </span>
+            <span className="text-foreground">Our </span>
             <span className="gold-text">{prevMonth}</span>
-            <span className="text-foreground"> Projects</span>
+            <span className="text-foreground"> Projects Gallery</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-lg mx-auto">
-            Real work from our team — every technician arrives with hundreds of design options.
+          <p className="text-lg text-muted-foreground">
+            Every technician arrives with a tablet showing hundreds of real designs from our recent installs.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border shadow-sm"
+              className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02]"
             >
               <img
                 src={project.src}
@@ -55,6 +61,7 @@ export function RecentProjects() {
                 width={400}
                 height={300}
                 className="w-full h-full object-cover pointer-events-none select-none"
+                style={project.objectPosition ? { objectPosition: project.objectPosition } : undefined}
                 draggable={false}
               />
             </div>

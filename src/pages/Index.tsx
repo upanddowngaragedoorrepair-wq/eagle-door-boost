@@ -3,20 +3,18 @@ import { Header } from '@/components/Header';
 import { UrgencyTicker } from '@/components/UrgencyTicker';
 import { Hero } from '@/components/Hero';
 import { TrustProofSection } from '@/components/TrustProofSection';
-import { LazySection, SectionPlaceholder } from '@/components/LazySection';
-
-// Eager load above-fold
-import { TrustBadges } from '@/components/TrustBadges';
 import { Services } from '@/components/Services';
+import { LazySection, SectionPlaceholder } from '@/components/LazySection';
 
 // Lazy load below-fold sections
 const BrandLogos = lazy(() => import('@/components/BrandLogos').then(m => ({ default: m.BrandLogos })));
-const MidCTA = lazy(() => import('@/components/MidCTA').then(m => ({ default: m.MidCTA })));
-const ReviewWidget = lazy(() => import('@/components/ReviewWidget').then(m => ({ default: m.ReviewWidget })));
-const ContactForm = lazy(() => import('@/components/ContactForm').then(m => ({ default: m.ContactForm })));
+const CouponSection = lazy(() => import('@/components/CouponSection').then(m => ({ default: m.CouponSection })));
 const RecentProjects = lazy(() => import('@/components/RecentProjects').then(m => ({ default: m.RecentProjects })));
-const FinalCTA = lazy(() => import('@/components/FinalCTA').then(m => ({ default: m.FinalCTA })));
+const ReviewWidget = lazy(() => import('@/components/ReviewWidget').then(m => ({ default: m.ReviewWidget })));
+const TrustBadges = lazy(() => import('@/components/TrustBadges').then(m => ({ default: m.TrustBadges })));
 const ServiceAreaMap = lazy(() => import('@/components/ServiceAreaMap').then(m => ({ default: m.ServiceAreaMap })));
+const FinalCTA = lazy(() => import('@/components/FinalCTA').then(m => ({ default: m.FinalCTA })));
+const ContactForm = lazy(() => import('@/components/ContactForm').then(m => ({ default: m.ContactForm })));
 const Footer = lazy(() => import('@/components/Footer').then(m => ({ default: m.Footer })));
 const StickyCallBar = lazy(() => import('@/components/StickyCallBar').then(m => ({ default: m.StickyCallBar })));
 
@@ -26,58 +24,57 @@ const Index = () => {
       <UrgencyTicker />
       <Header />
       <main>
-        {/* Hero → Trust Bar → Why Choose Us → Services (above-fold priority) */}
+        {/* Above-fold: Hero with inline form */}
         <Hero />
         <TrustProofSection />
-        <TrustBadges />
         <Services />
 
-        {/* Brand logos marquee */}
-        <Suspense fallback={<SectionPlaceholder height={100} />}>
+        {/* Below-fold: lazy loaded sections */}
+        <Suspense fallback={<SectionPlaceholder height={200} />}>
           <LazySection rootMargin="300px">
             <BrandLogos />
           </LazySection>
         </Suspense>
 
-        {/* CTA Strip */}
-        <Suspense fallback={<SectionPlaceholder height={200} />}>
+        <Suspense fallback={<SectionPlaceholder height={400} />}>
           <LazySection rootMargin="300px">
-            <MidCTA />
+            <CouponSection />
           </LazySection>
         </Suspense>
 
-        {/* Reviews */}
-        <Suspense fallback={<SectionPlaceholder height={500} />}>
-          <LazySection rootMargin="400px">
-            <ReviewWidget />
-          </LazySection>
-        </Suspense>
-
-        {/* Form */}
-        <Suspense fallback={<SectionPlaceholder height={500} />}>
-          <LazySection rootMargin="300px">
-            <ContactForm />
-          </LazySection>
-        </Suspense>
-
-        {/* Gallery */}
         <Suspense fallback={<SectionPlaceholder height={400} />}>
           <LazySection rootMargin="300px">
             <RecentProjects />
           </LazySection>
         </Suspense>
 
-        {/* Service Area Map */}
+        <Suspense fallback={<SectionPlaceholder height={600} />}>
+          <LazySection rootMargin="400px">
+            <ReviewWidget />
+          </LazySection>
+        </Suspense>
+
+        <Suspense fallback={<SectionPlaceholder height={400} />}>
+          <LazySection rootMargin="300px">
+            <TrustBadges />
+          </LazySection>
+        </Suspense>
+
         <Suspense fallback={<SectionPlaceholder height={400} />}>
           <LazySection rootMargin="300px">
             <ServiceAreaMap />
           </LazySection>
         </Suspense>
 
-        {/* FAQ + Final CTA */}
-        <Suspense fallback={<SectionPlaceholder height={600} />}>
+        <Suspense fallback={<SectionPlaceholder height={400} />}>
           <LazySection rootMargin="300px">
             <FinalCTA />
+          </LazySection>
+        </Suspense>
+
+        <Suspense fallback={<SectionPlaceholder height={500} />}>
+          <LazySection rootMargin="300px">
+            <ContactForm />
           </LazySection>
         </Suspense>
       </main>

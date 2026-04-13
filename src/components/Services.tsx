@@ -4,11 +4,13 @@ import { useLocation2 } from '@/contexts/LocationContext';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import gateRepair from '@/assets/card-gate-repair.webp';
 import gateDriveway from '@/assets/card-driveway-gate.webp';
+import gateSliding from '@/assets/card-sliding-gate.webp';
 import gateSwing from '@/assets/card-pedestrian-gate.webp';
 import gateAccessControl from '@/assets/card-access-control.webp';
 import gateCommercial from '@/assets/card-commercial-gate.webp';
 import cardFences from '@/assets/card-fences-new.webp';
 
+// Driveway gallery images
 import dg1 from '@/assets/driveway-gallery/driveway-1.webp';
 import dg2 from '@/assets/driveway-gallery/driveway-2.webp';
 import dg3 from '@/assets/driveway-gallery/driveway-3.webp';
@@ -25,76 +27,135 @@ import dg12 from '@/assets/driveway-gallery/driveway-12.webp';
 const drivewayGallery = [dg1, dg2, dg3, dg4, dg5, dg6, dg7, dg8, dg9, dg10, dg11, dg12];
 
 const services = [
-  {
-    image: gateRepair,
-    title: 'Gate Repair',
-    bullets: ['Same-day motor, sensor & track repair', 'All gate types — residential & commercial', 'Warranty included'],
-    gallery: null,
-  },
-  {
-    image: gateDriveway,
-    title: 'Driveway Gates',
-    bullets: ['Custom design & installation', 'Automatic gates & smart systems', 'Metal, wood, aluminum, vinyl'],
-    gallery: drivewayGallery,
-  },
-  {
-    image: gateAccessControl,
-    title: 'Access Control',
-    bullets: ['Keypads, intercoms & smart entry', 'Remote & smartphone access', 'Total property security'],
-    gallery: null,
-  },
-  {
-    image: gateSwing,
-    title: 'Pedestrian Gates',
-    bullets: ['Custom walkway & side entry gates', 'Self-closing & ADA compliant', 'Keypad & intercom ready'],
-    gallery: null,
-  },
-  {
-    image: gateCommercial,
-    title: 'Commercial Gates',
-    bullets: ['HOA, warehouse & industrial', 'Heavy-duty & high traffic', '24/7 support available'],
-    gallery: null,
-  },
-  {
-    image: cardFences,
-    title: 'Fences & Pillars',
-    bullets: ['Wood, vinyl, iron & aluminum', 'Custom pillars & permit handling', 'Residential & commercial'],
-    gallery: null,
-  },
-];
+{
+  image: gateRepair,
+  title: 'Gate Repair',
+  bullets: [
+  'Complete repair for noisy, stuck, or damaged automatic gates',
+  'We fix motors, sensors, tracks, and more',
+  'Same-day service',
+  'All gate types',
+  'Warranty included'],
+  gallery: null,
+},
+{
+  image: gateDriveway,
+  title: 'Driveway Gates',
+  bullets: [
+  'Custom driveway gate installation',
+  'Professional-grade parts for smooth and secure operation',
+  'Metal, Wood, Aluminum, Vinyl',
+  'Premium materials',
+  'Automatic Gates, Smart Systems'],
+  gallery: drivewayGallery,
+},
+{
+  image: gateSwing,
+  title: 'Pedestrian Gates',
+  bullets: [
+  'Custom pedestrian gate installation for walkways and side entries',
+  'Secure access for foot traffic without opening the main gate',
+  'Self-closing options',
+  'ADA compliant',
+  'Keypad & intercom ready'],
+  gallery: null,
+},
+{
+  image: gateAccessControl,
+  title: 'Access Control',
+  bullets: [
+  'Keypads, intercoms, remotes, and smartphone-controlled access',
+  'Total property security',
+  'Smart tech',
+  'Remote access',
+  'Secure entry'],
+  gallery: null,
+},
+{
+  image: gateCommercial,
+  title: 'Commercial Gates',
+  bullets: [
+  'Solutions for businesses, HOAs, warehouses, and industrial properties',
+  'Heavy-duty security',
+  'High traffic',
+  'Industrial grade',
+  '24/7 support'],
+  gallery: null,
+},
+{
+  image: cardFences,
+  title: 'Fences & Pillars',
+  bullets: [
+  'Wood, vinyl, chain-link, wrought iron & aluminum fencing',
+    'Custom concrete & steel pillars for a premium entrance look',
+    'Permit handling — we manage applications & inspections',
+    'Residential & commercial, HOA compliant installations'],
+  gallery: null,
+}];
+
 
 function DrivewayGalleryModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [activeIndex, setActiveIndex] = useState(0);
+
   const prev = () => setActiveIndex(i => (i - 1 + drivewayGallery.length) % drivewayGallery.length);
   const next = () => setActiveIndex(i => (i + 1) % drivewayGallery.length);
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl p-0 overflow-hidden bg-background border-border">
+        {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-border">
           <div>
             <h2 className="font-display text-xl font-bold text-foreground">Driveway Gates Gallery</h2>
-            <p className="text-sm text-muted-foreground">Recent installations — many more styles available.</p>
+            <p className="text-sm text-muted-foreground">These are only some of our most recent installations. We offer many additional styles, access control systems, and custom configurations not shown. Call Now To see More Design Options</p>
           </div>
-          <button onClick={onClose} className="rounded-full p-2 hover:bg-muted transition-colors" aria-label="Close gallery">
+          <button
+            onClick={onClose}
+            className="rounded-full p-2 hover:bg-muted transition-colors"
+            aria-label="Close gallery"
+          >
             <X className="w-5 h-5 text-foreground" />
           </button>
         </div>
-        <div className="relative bg-[hsl(var(--navy))]">
-          <img src={drivewayGallery[activeIndex]} alt={`Driveway gate project ${activeIndex + 1}`} className="w-full h-[420px] object-contain" />
-          <button onClick={prev} className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white rounded-full p-2 transition-colors" aria-label="Previous image">
+
+        {/* Main image */}
+        <div className="relative bg-black">
+          <img
+            src={drivewayGallery[activeIndex]}
+            alt={`Driveway gate project ${activeIndex + 1}`}
+            className="w-full h-[420px] object-contain"
+          />
+          {/* Arrows */}
+          <button
+            onClick={prev}
+            className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white rounded-full p-2 transition-colors"
+            aria-label="Previous image"
+          >
             <ChevronLeft className="w-6 h-6" />
           </button>
-          <button onClick={next} className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white rounded-full p-2 transition-colors" aria-label="Next image">
+          <button
+            onClick={next}
+            className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white rounded-full p-2 transition-colors"
+            aria-label="Next image"
+          >
             <ChevronRight className="w-6 h-6" />
           </button>
+          {/* Counter */}
           <div className="absolute bottom-3 right-4 bg-black/60 text-white text-xs px-3 py-1 rounded-full">
             {activeIndex + 1} / {drivewayGallery.length}
           </div>
         </div>
+
+        {/* Thumbnails — lazy loaded since they're below the main image */}
         <div className="flex gap-2 p-4 overflow-x-auto">
           {drivewayGallery.map((img, i) => (
-            <button key={i} onClick={() => setActiveIndex(i)} className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${i === activeIndex ? 'border-primary opacity-100' : 'border-transparent opacity-60 hover:opacity-90'}`}>
+            <button
+              key={i}
+              onClick={() => setActiveIndex(i)}
+              className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                i === activeIndex ? 'border-primary opacity-100' : 'border-transparent opacity-60 hover:opacity-90'
+              }`}
+            >
               <img src={img} alt={`Thumbnail ${i + 1}`} className="w-full h-full object-cover" loading="lazy" decoding="async" width={64} height={64} />
             </button>
           ))}
@@ -103,6 +164,7 @@ function DrivewayGalleryModal({ open, onClose }: { open: boolean; onClose: () =>
     </Dialog>
   );
 }
+
 
 export function Services() {
   const { phoneLink, phoneFormatted } = useLocation2();
@@ -125,75 +187,83 @@ export function Services() {
   }, []);
 
   return (
-    <section id="services" className="py-16 md:py-24 bg-background">
-      <div className="container-main">
+    <section id="services" className="py-[72px] md:py-24 bg-background relative">
+      <div className="container-main relative">
         {/* Header */}
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 border border-primary/30 mb-6">
-            <Wrench className="w-4 h-4 text-primary" />
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 border border-primary/30 mb-8">
+            <Wrench className="w-5 h-5 text-primary" />
             <span className="text-sm font-bold text-primary uppercase tracking-wider">Professional Services</span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 tracking-tight">
+
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 tracking-tight">
             <span className="text-foreground">Our </span>
             <span className="gold-text">{serviceWord}</span>{' '}
             <span className="text-foreground">Services</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            From emergency repairs to complete installations — certified technicians, exceptional results.
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+            From emergency repairs to complete installations, our certified technicians deliver exceptional results every time.
           </p>
         </div>
 
         {/* Service Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className={`group bg-card rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-md transition-all duration-300 ${service.gallery ? 'cursor-pointer' : ''}`}
-              onClick={() => service.gallery && setGalleryOpen(true)}
-            >
-              <div className="relative h-44 overflow-hidden">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+          {services.map((service, index) =>
+          <div
+            key={index}
+            className={`group bg-card rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-2 ${service.gallery ? 'cursor-pointer' : ''}`}
+            onClick={() => service.gallery && setGalleryOpen(true)}
+          >
+
+              {/* Image */}
+              <div className="relative h-48 overflow-hidden">
+                {/* PERF: explicit w/h + lazy + decoding=async prevents CLS & defers offscreen images */}
                 <img
-                  src={service.image}
-                  alt={service.title}
-                  loading="lazy"
-                  decoding="async"
-                  width={400}
-                  height={176}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+                src={service.image}
+                alt={service.title}
+                loading="lazy"
+                decoding="async"
+                width={400}
+                height={192}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+
                 {service.gallery && (
-                  <div className="absolute top-3 right-3 bg-primary text-primary-foreground text-xs font-bold px-2.5 py-1 rounded-full">
+                  <div className="absolute top-3 right-3 bg-primary text-primary-foreground text-xs font-bold px-2 py-1 rounded-full">
                     View Gallery
                   </div>
                 )}
-                <h3 className="absolute bottom-3 left-5 font-display text-xl md:text-2xl font-bold text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] [text-shadow:_0_0_1px_rgba(0,0,0,0.9),_1px_1px_0_rgba(0,0,0,0.6)]">
+                
+                <h3 className="absolute bottom-4 left-6 font-display text-2xl md:text-3xl font-bold text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] [text-shadow:_0_0_1px_rgba(0,0,0,0.9),_1px_1px_0_rgba(0,0,0,0.6),-1px_-1px_0_rgba(0,0,0,0.6),_1px_-1px_0_rgba(0,0,0,0.6),-1px_1px_0_rgba(0,0,0,0.6)]">
                   {service.title}
                 </h3>
               </div>
-              <div className="p-6">
-                <ul className="space-y-2 mb-5">
-                  {service.bullets.map((bullet, i) => (
-                    <li key={i} className="flex items-start gap-2 text-muted-foreground text-sm">
+
+              {/* Content */}
+              <div className="p-7">
+                <ul className="space-y-2.5 mb-6">
+                  {service.bullets.map((bullet, i) =>
+                <li key={i} className="flex items-start gap-2.5 text-muted-foreground text-sm">
                       <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                       <span>{bullet}</span>
                     </li>
-                  ))}
+                )}
                 </ul>
+
                 <a
-                  href={phoneLink}
-                  onClick={e => e.stopPropagation()}
-                  className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline transition-colors"
-                >
+                href={phoneLink}
+                onClick={e => e.stopPropagation()}
+                className="inline-flex items-center gap-2 text-primary font-bold text-base hover:underline transition-colors">
+
                   <Phone className="w-4 h-4" />
                   Call Now: {phoneFormatted}
                 </a>
               </div>
             </div>
-          ))}
+          )}
         </div>
       </div>
 
       <DrivewayGalleryModal open={galleryOpen} onClose={() => setGalleryOpen(false)} />
-    </section>
-  );
+    </section>);
+
 }
