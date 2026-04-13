@@ -4,7 +4,7 @@
  * explicit width/height on img avoids CLS.
  */
 import { useMemo } from 'react';
-import { Phone, MessageSquare, Shield, CheckCircle } from 'lucide-react';
+import { Phone, MessageSquare, Scaling, CheckCircle } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import { HeroForm } from '@/components/HeroForm';
 import heroGateBg from '@/assets/hero-gate-bg.webp';
