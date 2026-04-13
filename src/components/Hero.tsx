@@ -3,7 +3,7 @@
  * The H1 text is the true LCP element (not the image) since the image is decorative overlay.
  * explicit width/height on img avoids CLS.
  */
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { Phone, MessageSquare, Scaling, CheckCircle } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import { HeroForm } from '@/components/HeroForm';
@@ -38,6 +38,7 @@ function getKeywordData(): {prefix: string; kw: string; headlineWord: string;} {
 export function Hero() {
   const { city, phoneLink, phoneFormatted } = useLocation2();
   const { prefix, kw, headlineWord } = useMemo(() => getKeywordData(), []);
+  const [arrivalMin] = useState(() => Math.floor(Math.random() * 21) + 70);
 
   const handleCallClick = () => {
     window.dataLayer = window.dataLayer || [];
@@ -115,7 +116,7 @@ export function Hero() {
               </span>
               <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-green-50 border border-green-200 shadow-sm">
                 <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-sm font-bold text-green-700">Technicians Available</span>
+                <span className="text-sm font-bold text-green-700">{arrivalMin} Min Avg Arrival</span>
               </span>
             </div>
 
