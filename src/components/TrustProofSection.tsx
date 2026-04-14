@@ -25,6 +25,8 @@ export function TrustProofSection() {
               src={cslbBadge}
               alt="CSLB Contractors State License Board - LIC#1138855"
               className="w-full h-full object-contain"
+              width={400}
+              height={200}
               loading="lazy"
               decoding="async"
             />
