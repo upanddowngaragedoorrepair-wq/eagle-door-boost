@@ -344,7 +344,7 @@ export function Services() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 border border-primary/30 mb-8">
             <Wrench className="w-5 h-5 text-primary" />
-            <span className="text-sm font-bold text-primary uppercase tracking-wider">Professional Services</span>
+            <span className="text-sm font-bold text-primary uppercase tracking-wider">Affordable Services</span>
           </div>
 
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 tracking-tight">
