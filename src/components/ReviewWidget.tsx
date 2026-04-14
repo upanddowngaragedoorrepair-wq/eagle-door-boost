@@ -109,18 +109,19 @@ const videoTestimonials = [
   '/videos/review-4.mp4',
 ];
 
-function VideoCard({ src }: { src: string }) {
+function VideoCard({ src, index }: { src: string; index: number }) {
   const [playing, setPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handlePlay = () => {
     setPlaying(true);
-    // Small delay to let the element render
     setTimeout(() => videoRef.current?.play(), 50);
   };
 
+  const overlayLabels = ['Watch Story', 'See Review', 'Our Work', 'Happy Client'];
+
   return (
-    <div className="relative aspect-[9/16] rounded-2xl overflow-hidden bg-secondary border border-border shadow-sm">
+    <div className="relative aspect-[9/16] rounded-2xl overflow-hidden bg-secondary border border-border shadow-sm group">
       {playing ? (
         <video
           ref={videoRef}
@@ -133,12 +134,29 @@ function VideoCard({ src }: { src: string }) {
       ) : (
         <button
           onClick={handlePlay}
-          className="w-full h-full flex items-center justify-center bg-secondary hover:bg-muted transition-colors group"
+          className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-b from-secondary via-muted/80 to-secondary relative"
           aria-label="Play video testimonial"
         >
-          <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+          {/* Animated rings */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="w-24 h-24 rounded-full border-2 border-primary/20 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
+          </div>
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="w-32 h-32 rounded-full border border-primary/10 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite_0.5s]" />
+          </div>
+
+          {/* Play button */}
+          <div className="relative z-10 w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center shadow-lg shadow-primary/25 group-hover:scale-110 group-hover:shadow-primary/40 transition-all duration-300">
             <Play className="w-7 h-7 text-primary-foreground ml-1" />
           </div>
+
+          {/* Label */}
+          <span className="relative z-10 mt-4 text-sm font-bold text-foreground/80 tracking-wide uppercase group-hover:text-primary transition-colors duration-300">
+            {overlayLabels[index] || 'Watch'}
+          </span>
+
+          {/* Bottom decorative bar */}
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent group-hover:via-primary transition-colors duration-300" />
         </button>
       )}
     </div>
@@ -255,7 +273,7 @@ export function ReviewWidget() {
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {videoTestimonials.map((src, i) => (
-              <VideoCard key={i} src={src} />
+              <VideoCard key={i} src={src} index={i} />
             ))}
           </div>
         </div>
