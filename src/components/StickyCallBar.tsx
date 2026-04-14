@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Phone, MessageSquare } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 
 export function StickyCallBar() {
