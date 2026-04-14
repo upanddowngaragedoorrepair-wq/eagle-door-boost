@@ -350,7 +350,7 @@ export function Services() {
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 tracking-tight">
             <span className="text-foreground">Our </span>
             <span className="gold-text">{serviceWord}</span>{' '}
-            <span className="text-foreground">Services</span>
+            <span className="text-foreground">{headingSuffix}</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             From emergency repairs to complete installations, our certified technicians deliver exceptional results every time.
