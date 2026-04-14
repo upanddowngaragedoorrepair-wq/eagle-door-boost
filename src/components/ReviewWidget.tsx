@@ -1,4 +1,4 @@
-import { Star, Quote, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, Quote, CheckCircle, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import { useState, useEffect, useCallback } from 'react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import useEmblaCarousel from 'embla-carousel-react';
