@@ -248,6 +248,18 @@ export function ReviewWidget() {
           </div>
         </div>
 
+        {/* Video Testimonials */}
+        <div className="mt-14">
+          <h3 className="text-2xl md:text-3xl font-display font-bold text-center mb-8 text-foreground">
+            Video <span className="gradient-text">Testimonials</span>
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            {videoTestimonials.map((src, i) => (
+              <VideoCard key={i} src={src} />
+            ))}
+          </div>
+        </div>
+
         <div className="text-center mt-10">
           <p className="text-sm text-muted-foreground">
             <CheckCircle className="w-4 h-4 inline mr-2 text-primary" />
