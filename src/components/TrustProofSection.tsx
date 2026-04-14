@@ -2,13 +2,6 @@ import { Star } from 'lucide-react';
 import homeAdvisorBadge from '@/assets/homeadvisor-badge.png';
 import cslbBadge from '@/assets/cslb-badge.png';
 
-const promises = [
-{ icon: Zap, text: 'Same Day Service' },
-{ icon: Shield, text: 'Free Estimates' },
-{ icon: Star, text: '5-Star Rated' },
-{ icon: Clock, text: '30-Min Response' },
-{ icon: DollarSign, text: 'Best Price Guarantee' }];
-
 
 export function TrustProofSection() {
   return (
