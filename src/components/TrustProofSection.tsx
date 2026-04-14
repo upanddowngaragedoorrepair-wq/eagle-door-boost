@@ -1,5 +1,4 @@
-import { Star, Shield, Zap, Clock, DollarSign } from 'lucide-react';
-import yelpLogo from '@/assets/yelp-logo.webp';
+import { Star } from 'lucide-react';
 import homeAdvisorBadge from '@/assets/homeadvisor-badge.png';
 import cslbBadge from '@/assets/cslb-badge.png';
 
