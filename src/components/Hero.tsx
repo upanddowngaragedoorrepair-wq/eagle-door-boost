@@ -35,7 +35,7 @@ export function Hero() {
   const handleEstimateClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'cta_estimate_click', cta_location: 'hero', keyword: kw, modifier: prefix.trim() });
+    window.dataLayer.push({ event: 'cta_estimate_click', cta_location: 'hero', keyword: kw });
     const target = document.querySelector('#quote-form');
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
