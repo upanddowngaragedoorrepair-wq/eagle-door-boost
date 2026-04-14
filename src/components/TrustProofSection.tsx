@@ -1,14 +1,6 @@
-import { Star, Shield, Zap, Clock, DollarSign } from 'lucide-react';
-import yelpLogo from '@/assets/yelp-logo.webp';
+import { Star } from 'lucide-react';
 import homeAdvisorBadge from '@/assets/homeadvisor-badge.png';
 import cslbBadge from '@/assets/cslb-badge.png';
-
-const promises = [
-{ icon: Zap, text: 'Same Day Service' },
-{ icon: Shield, text: 'Free Estimates' },
-{ icon: Star, text: '5-Star Rated' },
-{ icon: Clock, text: '30-Min Response' },
-{ icon: DollarSign, text: 'Best Price Guarantee' }];
 
 
 export function TrustProofSection() {
@@ -33,6 +25,8 @@ export function TrustProofSection() {
               src={cslbBadge}
               alt="CSLB Contractors State License Board - LIC#1138855"
               className="w-full h-full object-contain"
+              width={400}
+              height={200}
               loading="lazy"
               decoding="async"
             />
