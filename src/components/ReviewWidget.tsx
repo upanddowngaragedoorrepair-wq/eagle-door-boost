@@ -273,7 +273,7 @@ export function ReviewWidget() {
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {videoTestimonials.map((src, i) => (
-              <VideoCard key={i} src={src} />
+              <VideoCard key={i} src={src} index={i} />
             ))}
           </div>
         </div>
