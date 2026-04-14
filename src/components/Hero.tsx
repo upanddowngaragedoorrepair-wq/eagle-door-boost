@@ -7,48 +7,35 @@ import { useMemo, useState } from 'react';
 import { Phone, MessageSquare, Scaling, CheckCircle } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import { HeroForm } from '@/components/HeroForm';
+import { getServiceMapping } from '@/lib/serviceMapping';
 import heroGateBg from '@/assets/hero-bg.webp';
 
 declare global {
   interface Window {dataLayer: Record<string, unknown>[];}
 }
 
-function getKeywordData(): {prefix: string; kw: string; headlineWord: string;} {
+function getKeywordData(): {kw: string; headlineWord: string;} {
   const params = new URLSearchParams(window.location.search);
   const raw = params.get('kd') || params.get('utm_term') || params.get('keyword') || params.get('kw') || '';
   const kw = raw.toLowerCase().trim();
-
-  if (!kw) return { prefix: '', kw, headlineWord: 'Gate & Access Control' };
-
-  // Priority order: specific intent first, then broader categories
-  if (/access|intercom|entry.?system/.test(kw)) return { prefix: '', kw, headlineWord: 'Access Control & Gate Systems' };
-  if (/repair|broken|fix|stuck|maintenance|emergency/.test(kw)) return { prefix: '', kw, headlineWord: 'Automatic Gate Repair' };
-  if (/install/.test(kw)) return { prefix: '', kw, headlineWord: 'Gate Installation' };
-  if (/fence|fencing|railing|picket|vinyl fence|chain.?link|wrought iron/.test(kw)) return { prefix: '', kw, headlineWord: 'Fence & Gate' };
-  if (/driveway|residential gate/.test(kw)) return { prefix: '', kw, headlineWord: 'Driveway Gate' };
-  if (/sliding|slide gate/.test(kw)) return { prefix: '', kw, headlineWord: 'Sliding Gate' };
-  if (/swing|swing gate|pedestrian/.test(kw)) return { prefix: '', kw, headlineWord: 'Swing Gate' };
-  if (/commercial|industrial|warehouse|hoa|business/.test(kw)) return { prefix: '', kw, headlineWord: 'Commercial Gate' };
-  if (/automatic|electric|opener|motor|liftmaster|operator|remote|battery/.test(kw)) return { prefix: '', kw, headlineWord: 'Automatic Gate' };
-  if (/service|company|contractor|near me|system/.test(kw)) return { prefix: '', kw, headlineWord: 'Gate & Access Control' };
-
-  return { prefix: '', kw, headlineWord: 'Gate & Access Control' };
+  const mapping = getServiceMapping();
+  return { kw, headlineWord: mapping.label || 'Gate & Access Control' };
 }
 
 export function Hero() {
   const { city, phoneLink, phoneFormatted } = useLocation2();
-  const { prefix, kw, headlineWord } = useMemo(() => getKeywordData(), []);
+  const { kw, headlineWord } = useMemo(() => getKeywordData(), []);
   const [arrivalMin] = useState(() => Math.floor(Math.random() * 21) + 70);
 
   const handleCallClick = () => {
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'cta_call_click', cta_location: 'hero', keyword: kw, modifier: prefix.trim() });
+    window.dataLayer.push({ event: 'cta_call_click', cta_location: 'hero', keyword: kw });
   };
 
   const handleEstimateClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'cta_estimate_click', cta_location: 'hero', keyword: kw, modifier: prefix.trim() });
+    window.dataLayer.push({ event: 'cta_estimate_click', cta_location: 'hero', keyword: kw });
     const target = document.querySelector('#quote-form');
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });

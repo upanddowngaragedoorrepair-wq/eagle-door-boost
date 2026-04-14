@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import { getServiceMapping } from '@/lib/serviceMapping';
 import mapBg from '@/assets/map-bg.png';
 import { Phone, CheckCircle, Wrench, X, ChevronLeft, ChevronRight, ChevronDown, Zap } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
@@ -327,20 +328,12 @@ export function Services() {
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const serviceWord = useMemo(() => {
-    const params = new URLSearchParams(window.location.search);
-    const raw = params.get('kd') || params.get('utm_term') || params.get('keyword') || params.get('kw') || '';
-    const kw = raw.toLowerCase().trim();
-    if (!kw) return 'Gate';
-    if (/access|intercom|keypad|smart.?entry|buzzer|callbox|entry.?system/.test(kw)) return 'Access Control';
-    if (/automatic|electric|opener|motor|liftmaster|operator|remote|battery/.test(kw)) return 'Automatic Gate';
-    if (/fence|fencing|railing|picket|vinyl fence|chain.?link|wrought iron/.test(kw)) return 'Fence & Gate';
-    if (/driveway|driveway gate|residential gate/.test(kw)) return 'Driveway Gate';
-    if (/sliding|slide gate/.test(kw)) return 'Sliding Gate';
-    if (/swing|swing gate|pedestrian/.test(kw)) return 'Swing Gate';
-    if (/commercial|industrial|warehouse|hoa|business/.test(kw)) return 'Commercial Gate';
-    if (/repair|broken|fix|stuck|maintenance|service|emergency/.test(kw)) return 'Gate Repair';
-    return 'Gate';
+  const { serviceWord, headingSuffix } = useMemo(() => {
+    const mapping = getServiceMapping();
+    return {
+      serviceWord: mapping.label,
+      headingSuffix: mapping.isCombined ? 'Solutions' : 'Services',
+    };
   }, []);
 
   return (
@@ -357,7 +350,7 @@ export function Services() {
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 tracking-tight">
             <span className="text-foreground">Our </span>
             <span className="gold-text">{serviceWord}</span>{' '}
-            <span className="text-foreground">Services</span>
+            <span className="text-foreground">{headingSuffix}</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             From emergency repairs to complete installations, our certified technicians deliver exceptional results every time.
