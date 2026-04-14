@@ -15,30 +15,30 @@ import profile9 from '@/assets/reviews/profile-9.webp';
 import profile10 from '@/assets/reviews/profile-10.webp';
 import profile11 from '@/assets/reviews/profile-11.webp';
 import profile12 from '@/assets/reviews/profile-12.webp';
-import yelpLogo from '@/assets/yelp-logo.webp';
+import homeAdvisorLogo from '@/assets/homeadvisor-badge.png';
 
 interface Review {
   id: string;
   name: string;
   rating: number;
   text: string;
-  platform: 'google' | 'yelp';
+  platform: 'google' | 'homeadvisor';
   image: string;
   dateStr: string;
 }
 
 const reviews: Review[] = [
   { id: '1', name: 'Roberto Garcia', rating: 5, text: 'Best gate company in the East Bay! They installed our new access control system perfectly. The whole family is happy.', platform: 'google', image: profile1, dateStr: '01/02/26' },
-  { id: '2', name: 'Priya Sharma', rating: 5, text: 'Fast and professional. They fixed our sliding gate in under an hour. The technician was incredibly knowledgeable.', platform: 'yelp', image: profile4, dateStr: '12/29/25' },
+  { id: '2', name: 'Priya Sharma', rating: 5, text: 'Fast and professional. They fixed our sliding gate in under an hour. The technician was incredibly knowledgeable.', platform: 'homeadvisor', image: profile4, dateStr: '12/29/25' },
   { id: '3', name: 'David Chen', rating: 5, text: "Installed a beautiful wrought iron driveway gate. The team was professional from estimate to final install. Couldn't be happier.", platform: 'google', image: profile3, dateStr: '01/09/26' },
-  { id: '4', name: 'Maria Gonzalez', rating: 5, text: 'Called them for a broken gate motor and they were at my house within 2 hours. Fixed it quickly at a fair price!', platform: 'yelp', image: profile2, dateStr: '11/15/25' },
+  { id: '4', name: 'Maria Gonzalez', rating: 5, text: 'Called them for a broken gate motor and they were at my house within 2 hours. Fixed it quickly at a fair price!', platform: 'homeadvisor', image: profile2, dateStr: '11/15/25' },
   { id: '5', name: 'Rajesh Patel', rating: 5, text: 'Our automatic gate stopped working and they had it fixed the same day. Very impressed with their expertise.', platform: 'google', image: profile5, dateStr: '10/22/25' },
   { id: '6', name: 'James Williams', rating: 5, text: 'Outstanding craftsmanship on our custom iron gate. They understood exactly what we wanted and delivered beyond expectations.', platform: 'google', image: profile6, dateStr: '09/08/25' },
-  { id: '7', name: 'Kim Nguyen', rating: 5, text: 'They came quickly for an emergency gate repair at 9 PM. Excellent work and very reasonable pricing for after-hours service.', platform: 'yelp', image: profile9, dateStr: '08/31/25' },
+  { id: '7', name: 'Kim Nguyen', rating: 5, text: 'They came quickly for an emergency gate repair at 9 PM. Excellent work and very reasonable pricing for after-hours service.', platform: 'homeadvisor', image: profile9, dateStr: '08/31/25' },
   { id: '8', name: 'Carlos Rodriguez', rating: 5, text: 'Great service and fair prices. Highly recommend to anyone needing gate work. They showed up on time and finished quickly.', platform: 'google', image: profile8, dateStr: '07/14/25' },
-  { id: '9', name: 'Anita Desai', rating: 5, text: 'Very professional team. They replaced our old gate with a modern automatic one. Love the new remote access feature!', platform: 'yelp', image: profile7, dateStr: '06/03/25' },
+  { id: '9', name: 'Anita Desai', rating: 5, text: 'Very professional team. They replaced our old gate with a modern automatic one. Love the new remote access feature!', platform: 'homeadvisor', image: profile7, dateStr: '06/03/25' },
   { id: '10', name: 'Mike Johnson', rating: 5, text: 'Had an issue with my intercom system. They diagnosed and fixed it same day. Super knowledgeable technicians.', platform: 'google', image: profile10, dateStr: '05/19/25' },
-  { id: '11', name: 'Hiroshi Tanaka', rating: 5, text: 'Excellent fence installation. Clean work, no mess left behind. The crew was respectful and efficient.', platform: 'yelp', image: profile11, dateStr: '04/27/25' },
+  { id: '11', name: 'Hiroshi Tanaka', rating: 5, text: 'Excellent fence installation. Clean work, no mess left behind. The crew was respectful and efficient.', platform: 'homeadvisor', image: profile11, dateStr: '04/27/25' },
   { id: '12', name: 'Ken B', rating: 5, text: 'They installed a beautiful pedestrian gate for us. The design matches our home perfectly. Thank you!', platform: 'google', image: profile12, dateStr: '03/11/25' },
 ];
 
@@ -53,7 +53,7 @@ function StarRating({ rating, size = 'default' }: { rating: number; size?: 'defa
   );
 }
 
-function PlatformIcon({ platform, showLabel = true }: { platform: 'google' | 'yelp'; showLabel?: boolean }) {
+function PlatformIcon({ platform, showLabel = true }: { platform: 'google' | 'homeadvisor'; showLabel?: boolean }) {
   if (platform === 'google') {
     return (
       <div className="flex items-center gap-1.5">
@@ -69,8 +69,8 @@ function PlatformIcon({ platform, showLabel = true }: { platform: 'google' | 'ye
   }
   return (
     <div className="flex items-center gap-1.5">
-      <img src={yelpLogo} alt="Yelp" className="w-5 h-5 rounded-full object-cover" loading="lazy" decoding="async" />
-      {showLabel && <span className="text-sm font-semibold text-muted-foreground">Yelp</span>}
+      <img src={homeAdvisorLogo} alt="Home Advisor" className="w-5 h-5 rounded object-contain" loading="lazy" decoding="async" />
+      {showLabel && <span className="text-sm font-semibold text-muted-foreground">Home Advisor</span>}
     </div>
   );
 }
@@ -165,8 +165,8 @@ export function ReviewWidget() {
               <span className="text-base font-bold">Google</span>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
-              <img src={yelpLogo} alt="Yelp" className="w-7 h-7 rounded-full object-cover" loading="lazy" decoding="async" />
-              <span className="text-base font-bold">Yelp</span>
+              <img src={homeAdvisorLogo} alt="Home Advisor" className="w-7 h-7 rounded object-contain" loading="lazy" decoding="async" />
+              <span className="text-base font-bold">Home Advisor</span>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
               <div className="w-7 h-7 rounded bg-green-600 flex items-center justify-center text-white text-xs font-bold">A+</div>
@@ -208,7 +208,7 @@ export function ReviewWidget() {
         <div className="text-center mt-10">
           <p className="text-sm text-muted-foreground">
             <CheckCircle className="w-4 h-4 inline mr-2 text-primary" />
-            Reviews are independently verified from Google & Yelp
+            Reviews are independently verified from Google & Home Advisor
           </p>
         </div>
       </div>
