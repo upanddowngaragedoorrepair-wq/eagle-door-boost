@@ -1,5 +1,5 @@
-import { Star, Quote, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useState, useEffect, useCallback } from 'react';
+import { Star, Quote, CheckCircle, ChevronLeft, ChevronRight, Play } from 'lucide-react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import useEmblaCarousel from 'embla-carousel-react';
 
@@ -98,6 +98,49 @@ function ReviewCard({ review, isCenter }: { review: Review; isCenter: boolean })
       <div className="mt-5 pt-4 border-t border-border flex items-center justify-center">
         <PlatformIcon platform={review.platform} showLabel={true} />
       </div>
+    </div>
+  );
+}
+
+const videoTestimonials = [
+  '/videos/review-1.mp4',
+  '/videos/review-2.mp4',
+  '/videos/review-3.mp4',
+  '/videos/review-4.mp4',
+];
+
+function VideoCard({ src }: { src: string }) {
+  const [playing, setPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handlePlay = () => {
+    setPlaying(true);
+    // Small delay to let the element render
+    setTimeout(() => videoRef.current?.play(), 50);
+  };
+
+  return (
+    <div className="relative aspect-[9/16] rounded-2xl overflow-hidden bg-secondary border border-border shadow-sm">
+      {playing ? (
+        <video
+          ref={videoRef}
+          src={src}
+          controls
+          playsInline
+          className="w-full h-full object-cover"
+          onEnded={() => setPlaying(false)}
+        />
+      ) : (
+        <button
+          onClick={handlePlay}
+          className="w-full h-full flex items-center justify-center bg-secondary hover:bg-muted transition-colors group"
+          aria-label="Play video testimonial"
+        >
+          <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+            <Play className="w-7 h-7 text-primary-foreground ml-1" />
+          </div>
+        </button>
+      )}
     </div>
   );
 }
@@ -201,6 +244,18 @@ export function ReviewWidget() {
                 className={`h-2.5 rounded-full transition-all duration-300 ${index === selectedIndex ? 'w-10 bg-primary' : 'w-2.5 bg-border hover:bg-muted-foreground/50'}`}
                 aria-label={`Go to review ${index + 1}`}
               />
+            ))}
+          </div>
+        </div>
+
+        {/* Video Testimonials */}
+        <div className="mt-14">
+          <h3 className="text-2xl md:text-3xl font-display font-bold text-center mb-8 text-foreground">
+            Video <span className="gradient-text">Testimonials</span>
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            {videoTestimonials.map((src, i) => (
+              <VideoCard key={i} src={src} />
             ))}
           </div>
         </div>
