@@ -26,7 +26,7 @@ export function TrustProofSection() {
         </div>
 
         {/* Horizontal Cards Row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto md:auto-rows-[1fr]">
           {/* CSLB Badge */}
           <div className="flex items-center justify-center px-2 py-2 md:px-3 md:py-3 rounded-xl bg-white border border-border/60 shadow-sm aspect-[2.8/1]">
             <img
