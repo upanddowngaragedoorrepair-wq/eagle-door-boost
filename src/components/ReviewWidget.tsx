@@ -1,5 +1,5 @@
 import { Star, Quote, CheckCircle, ChevronLeft, ChevronRight, Play } from 'lucide-react';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import useEmblaCarousel from 'embla-carousel-react';
 
@@ -98,6 +98,49 @@ function ReviewCard({ review, isCenter }: { review: Review; isCenter: boolean })
       <div className="mt-5 pt-4 border-t border-border flex items-center justify-center">
         <PlatformIcon platform={review.platform} showLabel={true} />
       </div>
+    </div>
+  );
+}
+
+const videoTestimonials = [
+  '/videos/review-1.mp4',
+  '/videos/review-2.mp4',
+  '/videos/review-3.mp4',
+  '/videos/review-4.mp4',
+];
+
+function VideoCard({ src }: { src: string }) {
+  const [playing, setPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handlePlay = () => {
+    setPlaying(true);
+    // Small delay to let the element render
+    setTimeout(() => videoRef.current?.play(), 50);
+  };
+
+  return (
+    <div className="relative aspect-[9/16] rounded-2xl overflow-hidden bg-secondary border border-border shadow-sm">
+      {playing ? (
+        <video
+          ref={videoRef}
+          src={src}
+          controls
+          playsInline
+          className="w-full h-full object-cover"
+          onEnded={() => setPlaying(false)}
+        />
+      ) : (
+        <button
+          onClick={handlePlay}
+          className="w-full h-full flex items-center justify-center bg-secondary hover:bg-muted transition-colors group"
+          aria-label="Play video testimonial"
+        >
+          <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+            <Play className="w-7 h-7 text-primary-foreground ml-1" />
+          </div>
+        </button>
+      )}
     </div>
   );
 }
