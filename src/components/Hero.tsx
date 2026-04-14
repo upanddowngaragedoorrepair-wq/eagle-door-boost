@@ -24,12 +24,12 @@ function getKeywordData(): {kw: string; headlineWord: string;} {
 
 export function Hero() {
   const { city, phoneLink, phoneFormatted } = useLocation2();
-  const { prefix, kw, headlineWord } = useMemo(() => getKeywordData(), []);
+  const { kw, headlineWord } = useMemo(() => getKeywordData(), []);
   const [arrivalMin] = useState(() => Math.floor(Math.random() * 21) + 70);
 
   const handleCallClick = () => {
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'cta_call_click', cta_location: 'hero', keyword: kw, modifier: prefix.trim() });
+    window.dataLayer.push({ event: 'cta_call_click', cta_location: 'hero', keyword: kw });
   };
 
   const handleEstimateClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
