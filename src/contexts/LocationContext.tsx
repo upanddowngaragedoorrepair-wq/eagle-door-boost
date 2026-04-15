@@ -246,7 +246,34 @@ export function LocationProvider({ children }: { children: ReactNode }) {
         return;
       }
 
-      // Resolve city from cd parameter
+      // Detect traffic source for location ID routing
+      const isBing = params.has('msclkid') || params.get('utm_source') === 'bing';
+
+      // Bing Ads: try Bing location table first
+      if (isBing) {
+        const bingData = await loadJson('/geo/bing_location_ids.json') as Record<string, string>;
+        const bingCity = bingData[cdRaw] || null;
+        if (bingCity && !badLabel(bingCity)) {
+          const county = countyFromCity(bingCity);
+          const phone = cpParam || countyPhone(county);
+          const newState = {
+            city: bingCity,
+            phone: phone.replace(/\D/g, ''),
+            phoneFormatted: formatPhone(phone),
+            phoneLink: getPhoneLink(phone),
+            cd: cdRaw,
+            cp: cpParam,
+            kd: kdParam,
+            isLoading: false
+          };
+          setState(newState);
+          sessionStorage.setItem(STORAGE_KEY, JSON.stringify(newState));
+          return;
+        }
+        // Bing ID not found — fall through to existing Google logic + fallbacks
+      }
+
+      // Resolve city from cd parameter (existing Google logic)
       const CD_CANDIDATES = cdVariants(cdRaw);
       
       const [critData, cityMapData, cdZipData, zipCityData, nbNameData, nbCdData, cdForceData, zipForceData] = await Promise.all([
