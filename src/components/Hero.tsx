@@ -68,11 +68,11 @@ export function Hero() {
           decoding="sync"
         />
         {/* Mobile: top-to-bottom gradient (dark top/text, lighter bottom/gate visible) */}
-        <div className="absolute inset-0 md:hidden bg-gradient-to-b from-[hsl(200_45%_10%/0.73)] via-[hsl(200_45%_12%/0.55)] to-[hsl(200_45%_14%/0.35)]" />
+        <div className="absolute inset-0 md:hidden bg-gradient-to-b from-[hsl(200_45%_10%/0.63)] via-[hsl(200_45%_12%/0.45)] to-[hsl(200_45%_14%/0.25)]" />
         {/* Desktop: left-to-right gradient (dark left/text, lighter right/gate visible) */}
-        <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-[hsl(200_45%_10%/0.75)] via-[hsl(200_45%_12%/0.68)] to-[hsl(200_45%_14%/0.45)]" />
+        <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-[hsl(200_45%_10%/0.65)] via-[hsl(200_45%_12%/0.58)] to-[hsl(200_45%_14%/0.35)]" />
         {/* Extra top/bottom fade for depth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(200_45%_10%/0.2)] via-transparent to-[hsl(200_45%_10%/0.3)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(200_45%_10%/0.1)] via-transparent to-[hsl(200_45%_10%/0.2)]" />
       </div>
 
       {/* Subtle decorative glows */}
