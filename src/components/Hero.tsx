@@ -63,7 +63,7 @@ export function Hero() {
           role="presentation"
           width={1920}
           height={1080}
-          className="w-full h-full object-cover opacity-50 md:opacity-50"
+          className="w-full h-full object-cover opacity-40 md:opacity-40"
           fetchPriority="high"
           decoding="sync"
         />
