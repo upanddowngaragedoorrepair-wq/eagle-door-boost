@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { getServiceMapping } from '@/lib/serviceMapping';
-import mapBg from '@/assets/map-bg.png';
+import mapBg from '@/assets/services-bg.avif';
 import { Phone, CheckCircle, Wrench, X, ChevronLeft, ChevronRight, ChevronDown, Zap } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
@@ -335,7 +335,7 @@ export function Services() {
 
   return (
     <section id="services" className="py-[72px] md:py-24 bg-background relative" style={{ backgroundImage: `url(${mapBg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
-      <div className="absolute inset-0 bg-background/90" />
+      <div className="absolute inset-0 bg-background/40" />
       <div className="container-main relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
