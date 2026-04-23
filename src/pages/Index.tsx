@@ -4,6 +4,7 @@ import { UrgencyTicker } from '@/components/UrgencyTicker';
 import { Hero } from '@/components/Hero';
 import { TrustProofSection } from '@/components/TrustProofSection';
 import { Services } from '@/components/Services';
+import { VideoTestimonials } from '@/components/VideoTestimonials';
 import { LazySection, SectionPlaceholder } from '@/components/LazySection';
 
 // Lazy load below-fold sections
@@ -30,6 +31,7 @@ const Index = () => {
         <Hero />
         <TrustProofSection />
         <Services />
+        <VideoTestimonials />
 
         {/* Below-fold: lazy loaded sections */}
         <Suspense fallback={<SectionPlaceholder height={200} />}>
