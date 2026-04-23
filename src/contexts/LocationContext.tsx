@@ -141,6 +141,22 @@ const LocationContext = createContext<LocationContextType | undefined>(undefined
 export function LocationProvider({ children }: { children: ReactNode }) {
   const location = useLocation();
   const [state, setState] = useState<Omit<LocationContextType, 'withParams' | 'getQueryString'>>(() => {
+    // Bing visit early-exit (additive — runs BEFORE sessionStorage so Bing always wins on Bing visits)
+    const bingInit = resolveBingLocation(window.location.search);
+    if (bingInit) {
+      const initParams = new URLSearchParams(window.location.search);
+      return {
+        city: bingInit.city,
+        phone: bingInit.phoneDigits,
+        phoneFormatted: bingInit.phoneFormatted,
+        phoneLink: bingInit.phoneLink,
+        cd: initParams.get('cd')?.trim() || '',
+        cp: initParams.get('cp')?.trim() || '',
+        kd: initParams.get('kd')?.trim() || '',
+        isLoading: false,
+      };
+    }
+
     // First check sessionStorage
     const stored = sessionStorage.getItem(STORAGE_KEY);
     if (stored) {
@@ -159,22 +175,6 @@ export function LocationProvider({ children }: { children: ReactNode }) {
       } catch {
         // Fall through to URL params
       }
-    }
-    
-    // Bing visit early-exit (additive, does not affect Google flow)
-    const bingInit = resolveBingLocation(window.location.search);
-    if (bingInit) {
-      const initParams = new URLSearchParams(window.location.search);
-      return {
-        city: bingInit.city,
-        phone: bingInit.phoneDigits,
-        phoneFormatted: bingInit.phoneFormatted,
-        phoneLink: bingInit.phoneLink,
-        cd: initParams.get('cd')?.trim() || '',
-        cp: initParams.get('cp')?.trim() || '',
-        kd: initParams.get('kd')?.trim() || '',
-        isLoading: false,
-      };
     }
 
     // Check URL params
