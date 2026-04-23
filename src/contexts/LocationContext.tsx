@@ -200,6 +200,23 @@ export function LocationProvider({ children }: { children: ReactNode }) {
   // Resolve geo data on mount and when URL changes
   useEffect(() => {
     const resolveGeo = async () => {
+      // Bing visit early-exit (additive — does NOT touch Google logic below)
+      const bingRes = resolveBingLocation(window.location.search);
+      if (bingRes) {
+        const bp = new URLSearchParams(window.location.search);
+        setState({
+          city: bingRes.city,
+          phone: bingRes.phoneDigits,
+          phoneFormatted: bingRes.phoneFormatted,
+          phoneLink: bingRes.phoneLink,
+          cd: bp.get('cd')?.trim() || '',
+          cp: bp.get('cp')?.trim() || '',
+          kd: bp.get('kd')?.trim() || '',
+          isLoading: false,
+        });
+        return;
+      }
+
       const params = new URLSearchParams(window.location.search);
       const cityParam = params.get('city')?.trim() || '';
       const cdRaw = params.get('cd')?.trim() || '';
