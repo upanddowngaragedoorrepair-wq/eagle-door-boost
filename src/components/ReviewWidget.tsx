@@ -16,6 +16,7 @@ import profile10 from '@/assets/reviews/profile-10.webp';
 import profile11 from '@/assets/reviews/profile-11.webp';
 import profile12 from '@/assets/reviews/profile-12.webp';
 import homeAdvisorLogo from '@/assets/homeadvisor-badge.png';
+import bbbLogo from '@/assets/bbb-logo-reviews.avif';
 
 interface Review {
   id: string;
@@ -230,7 +231,7 @@ export function ReviewWidget() {
               <span className="text-base font-bold">Home Advisor</span>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
-              <div className="w-7 h-7 rounded bg-green-600 flex items-center justify-center text-white text-xs font-bold">A+</div>
+              <img src={bbbLogo} alt="BBB Accredited Business" className="w-7 h-7 rounded object-contain" loading="lazy" decoding="async" />
               <span className="text-base font-bold">BBB</span>
             </div>
           </div>
