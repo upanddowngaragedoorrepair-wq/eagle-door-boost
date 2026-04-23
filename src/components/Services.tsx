@@ -5,7 +5,7 @@ import { Phone, CheckCircle, Wrench, X, ChevronLeft, ChevronRight, ChevronDown, 
 import { useLocation2 } from '@/contexts/LocationContext';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import gateRepair from '@/assets/card-gate-repair.webp';
-import gateDriveway from '@/assets/card-driveway-gate.webp';
+import gateDriveway from '@/assets/card-driveway-gate-new.webp';
 import gateSliding from '@/assets/card-sliding-gate.webp';
 import gateSwing from '@/assets/card-pedestrian-gate.webp';
 import gateAccessControl from '@/assets/card-access-control.webp';
@@ -72,7 +72,7 @@ const services: ServiceData[] = [
 },
 {
   image: gateDriveway,
-  title: 'Driveway Gates',
+  title: 'Auto Driveway Gate',
   bullets: [
     'Custom driveway gate installation',
     'Professional-grade parts for smooth and secure operation',
