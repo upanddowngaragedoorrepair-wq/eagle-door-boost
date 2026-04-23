@@ -85,10 +85,14 @@ function VideoCard({ src, index }: { src: string; index: number }) {
 
 export function VideoTestimonials() {
   return (
-    <section className="py-12 md:py-16 bg-background border-t border-border">
-      <div className="container-main">
-        <h3 className="text-2xl md:text-3xl font-display font-bold text-center mb-8 text-foreground">
-          Video <span className="gradient-text">Testimonials</span>
+    <section className="py-12 md:py-16 bg-[hsl(var(--navy))] relative overflow-hidden">
+      {/* Subtle decorative glows to match hero */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/8 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="container-main relative">
+        <h3 className="text-2xl md:text-3xl font-display font-bold text-center mb-8 text-white">
+          Video <span className="text-primary">Testimonials</span>
         </h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
           {videoTestimonials.map((src, i) => (
