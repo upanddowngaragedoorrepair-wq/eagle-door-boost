@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { getServiceMapping } from '@/lib/serviceMapping';
-import mapBg from '@/assets/map-bg.png';
+import mapBg from '@/assets/services-bg.avif';
 import { Phone, CheckCircle, Wrench, X, ChevronLeft, ChevronRight, ChevronDown, Zap } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
