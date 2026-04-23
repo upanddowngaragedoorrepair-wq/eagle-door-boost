@@ -158,7 +158,7 @@ export function VideoTestimonials() {
         <div className="flex justify-center mb-4">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs md:text-sm font-semibold text-white/90">
             <ShieldCheck className="w-4 h-4 text-primary" />
-            Trusted by 200+ homeowners in the Bay Area
+            Customer Satisfaction Is Our 1st Priority
           </span>
         </div>
 
