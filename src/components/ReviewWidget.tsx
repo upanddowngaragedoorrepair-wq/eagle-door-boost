@@ -135,29 +135,45 @@ function VideoCard({ src, index }: { src: string; index: number }) {
       ) : (
         <button
           onClick={handlePlay}
-          className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-b from-secondary via-muted/80 to-secondary relative"
+          className="w-full h-full relative block overflow-hidden"
           aria-label="Play video testimonial"
         >
+          {/* Sneak-peek frame from the actual video (muted, paused) */}
+          <video
+            src={`${src}#t=0.5`}
+            muted
+            playsInline
+            preload="metadata"
+            // @ts-expect-error - non-standard but widely supported
+            disablePictureInPicture
+            className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          />
+
+          {/* Dark gradient for play-button contrast */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/60 pointer-events-none" />
+
           {/* Animated rings */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-24 h-24 rounded-full border-2 border-primary/20 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
+            <div className="w-24 h-24 rounded-full border-2 border-white/40 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
           </div>
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-32 h-32 rounded-full border border-primary/10 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite_0.5s]" />
+            <div className="w-32 h-32 rounded-full border border-white/25 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite_0.5s]" />
           </div>
 
           {/* Play button */}
-          <div className="relative z-10 w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center shadow-lg shadow-primary/25 group-hover:scale-110 group-hover:shadow-primary/40 transition-all duration-300">
-            <Play className="w-7 h-7 text-primary-foreground ml-1" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="relative z-10 w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/40 group-hover:scale-110 transition-all duration-300">
+              <Play className="w-7 h-7 text-primary-foreground ml-1" />
+            </div>
           </div>
 
           {/* Label */}
-          <span className="relative z-10 mt-4 text-sm font-bold text-foreground/80 tracking-wide uppercase group-hover:text-primary transition-colors duration-300">
+          <span className="absolute bottom-3 left-0 right-0 z-10 text-center text-xs font-bold text-white tracking-wide uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
             {overlayLabels[index] || 'Watch'}
           </span>
 
           {/* Bottom decorative bar */}
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent group-hover:via-primary transition-colors duration-300" />
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
         </button>
       )}
     </div>
