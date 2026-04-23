@@ -335,7 +335,7 @@ export function Services() {
 
   return (
     <section id="services" className="py-[72px] md:py-24 bg-background relative" style={{ backgroundImage: `url(${mapBg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
-      <div className="absolute inset-0 bg-background/90" />
+      <div className="absolute inset-0 bg-background/40" />
       <div className="container-main relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
