@@ -7,19 +7,19 @@ import { useMemo, useState } from 'react';
 import { Phone, MessageSquare, Scaling, CheckCircle } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import { HeroForm } from '@/components/HeroForm';
-import { getServiceMapping } from '@/lib/serviceMapping';
+import { getServiceMapping, getHeroHeadline } from '@/lib/serviceMapping';
 import heroGateBg from '@/assets/hero-bg.webp';
 
 declare global {
   interface Window {dataLayer: Record<string, unknown>[];}
 }
 
-function getKeywordData(): {kw: string; headlineWord: string;} {
+function getKeywordData(): {kw: string; headlinePhrase: string;} {
   const params = new URLSearchParams(window.location.search);
   const raw = params.get('kd') || params.get('utm_term') || params.get('keyword') || params.get('kw') || '';
   const kw = raw.toLowerCase().trim();
   const mapping = getServiceMapping();
-  return { kw, headlineWord: mapping.label || 'Gate & Access Control' };
+  return { kw, headlinePhrase: getHeroHeadline(mapping.label) };
 }
 
 export function Hero() {
