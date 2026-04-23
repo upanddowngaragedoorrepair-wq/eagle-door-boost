@@ -104,10 +104,9 @@ function VideoBlock({ src, label }: { src: string; label: string }) {
             </div>
           </div>
 
-          {/* Label pill */}
-          <span className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-sm text-[11px] md:text-xs font-bold tracking-wide text-white whitespace-nowrap max-w-[90%] truncate border border-white/10">
-            {label}
-          </span>
+          {/* Bottom shine bar */}
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
+
         </button>
       )}
     </div>
