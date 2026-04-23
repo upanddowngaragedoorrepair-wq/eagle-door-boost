@@ -231,7 +231,7 @@ export function ReviewWidget() {
               <span className="text-base font-bold">Home Advisor</span>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
-              <img src={bbbLogo} alt="BBB Accredited Business" className="w-7 h-7 rounded object-contain" loading="lazy" decoding="async" />
+              <img src={bbbLogo} alt="BBB Accredited Business" className="w-9 h-9 rounded object-contain" loading="lazy" decoding="async" />
               <span className="text-base font-bold">BBB</span>
             </div>
           </div>
