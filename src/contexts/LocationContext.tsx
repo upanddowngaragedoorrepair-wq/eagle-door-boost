@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
+import { resolveBingLocation } from '@/lib/bingLocation';
 
 interface LocationContextType {
   city: string;
