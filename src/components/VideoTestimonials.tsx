@@ -14,7 +14,7 @@ interface Slide {
 const slides: Slide[] = [
   {
     src: '/videos/review-1.mp4',
-    label: 'Gate Repair – San Jose',
+    label: 'Gate Repair',
     quote: 'I was told by 4 different companies to replace everything… Matt repaired it for a fraction of the cost.',
     highlight: 'fraction of the cost',
     author: 'Verified Customer',
@@ -104,10 +104,9 @@ function VideoBlock({ src, label }: { src: string; label: string }) {
             </div>
           </div>
 
-          {/* Label pill */}
-          <span className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-sm text-[11px] md:text-xs font-bold tracking-wide text-white whitespace-nowrap max-w-[90%] truncate border border-white/10">
-            {label}
-          </span>
+          {/* Bottom shine bar */}
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
+
         </button>
       )}
     </div>
@@ -173,30 +172,30 @@ export function VideoTestimonials() {
 
         {/* Slider */}
         <div className="relative max-w-6xl mx-auto">
-          {/* Desktop arrows */}
+          {/* Arrows - visible on all screens */}
           <button
             onClick={scrollPrev}
             aria-label="Previous testimonial"
-            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-6 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-primary border border-white/20 hover:border-primary text-white items-center justify-center transition-all backdrop-blur-sm"
+            className="flex absolute left-1 md:left-0 top-1/2 -translate-y-1/2 md:-translate-x-4 lg:-translate-x-6 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-foreground/80 hover:bg-primary border border-white/20 hover:border-primary text-white items-center justify-center transition-all backdrop-blur-sm shadow-lg"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
           </button>
           <button
             onClick={scrollNext}
             aria-label="Next testimonial"
-            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-6 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-primary border border-white/20 hover:border-primary text-white items-center justify-center transition-all backdrop-blur-sm"
+            className="flex absolute right-1 md:right-0 top-1/2 -translate-y-1/2 md:translate-x-4 lg:translate-x-6 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-foreground/80 hover:bg-primary border border-white/20 hover:border-primary text-white items-center justify-center transition-all backdrop-blur-sm shadow-lg"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
           </button>
 
           <div className="overflow-hidden rounded-3xl" ref={emblaRef}>
             <div className="flex">
               {slides.map((s, i) => (
                 <div key={s.src} className="flex-[0_0_100%] min-w-0 px-1">
-                  <div className="relative rounded-3xl bg-gradient-to-br from-white/[0.07] via-white/[0.04] to-transparent border border-white/10 overflow-hidden shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)]">
+                  <div className="relative rounded-3xl bg-white border border-border overflow-hidden shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5)]">
                     {/* Big background quote icon */}
                     <Quote
-                      className="absolute -top-6 -right-6 md:top-4 md:right-8 w-40 h-40 md:w-56 md:h-56 text-primary/10 pointer-events-none"
+                      className="absolute -top-6 -right-6 md:top-4 md:right-8 w-40 h-40 md:w-56 md:h-56 text-primary/15 pointer-events-none"
                       strokeWidth={1}
                     />
 
@@ -216,23 +215,21 @@ export function VideoTestimonials() {
                         </div>
 
                         {/* Quote */}
-                        <blockquote className="text-xl sm:text-2xl md:text-3xl lg:text-[2rem] font-display font-bold text-white leading-tight tracking-tight">
+                        <blockquote className="text-xl sm:text-2xl md:text-3xl lg:text-[2rem] font-display font-bold text-foreground leading-tight tracking-tight">
                           <span className="text-primary text-3xl md:text-4xl leading-none mr-1">“</span>
                           {highlightQuote(s.quote, s.highlight)}
                           <span className="text-primary text-3xl md:text-4xl leading-none ml-1">”</span>
                         </blockquote>
 
                         {/* Author */}
-                        <div className="mt-4 flex items-center justify-center lg:justify-start gap-2 text-white/70 text-sm md:text-base">
+                        <div className="mt-4 flex items-center justify-center lg:justify-start gap-2 text-foreground/70 text-sm md:text-base">
                           <ShieldCheck className="w-4 h-4 text-primary" />
                           <span className="font-semibold">{s.author}</span>
-                          <span className="text-white/40">•</span>
-                          <span>{s.label}</span>
                         </div>
 
                         {/* CTA */}
                         <div className="mt-6 md:mt-8 flex flex-col items-center lg:items-start gap-3">
-                          <p className="text-white/90 text-sm md:text-base font-semibold">
+                          <p className="text-foreground/80 text-sm md:text-base font-semibold">
                             Get the same results — call now
                           </p>
                           <a
