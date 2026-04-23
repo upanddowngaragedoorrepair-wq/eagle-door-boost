@@ -229,7 +229,7 @@ export function VideoTestimonials() {
 
                         {/* CTA */}
                         <div className="mt-6 md:mt-8 flex flex-col items-center lg:items-start gap-3">
-                          <p className="text-white/90 text-sm md:text-base font-semibold">
+                          <p className="text-foreground/80 text-sm md:text-base font-semibold">
                             Get the same results — call now
                           </p>
                           <a
