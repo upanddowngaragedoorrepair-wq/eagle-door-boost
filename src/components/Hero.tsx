@@ -24,7 +24,7 @@ function getKeywordData(): {kw: string; headlinePhrase: string;} {
 
 export function Hero() {
   const { city, phoneLink, phoneFormatted } = useLocation2();
-  const { kw, headlineWord } = useMemo(() => getKeywordData(), []);
+  const { kw, headlinePhrase } = useMemo(() => getKeywordData(), []);
   const [arrivalMin] = useState(() => Math.floor(Math.random() * 21) + 70);
 
   const handleCallClick = () => {
