@@ -161,6 +161,22 @@ export function LocationProvider({ children }: { children: ReactNode }) {
       }
     }
     
+    // Bing visit early-exit (additive, does not affect Google flow)
+    const bingInit = resolveBingLocation(window.location.search);
+    if (bingInit) {
+      const initParams = new URLSearchParams(window.location.search);
+      return {
+        city: bingInit.city,
+        phone: bingInit.phoneDigits,
+        phoneFormatted: bingInit.phoneFormatted,
+        phoneLink: bingInit.phoneLink,
+        cd: initParams.get('cd')?.trim() || '',
+        cp: initParams.get('cp')?.trim() || '',
+        kd: initParams.get('kd')?.trim() || '',
+        isLoading: false,
+      };
+    }
+
     // Check URL params
     const params = new URLSearchParams(window.location.search);
     const cityParam = params.get('city')?.trim() || '';
