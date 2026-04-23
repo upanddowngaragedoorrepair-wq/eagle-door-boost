@@ -14,7 +14,7 @@ interface Slide {
 const slides: Slide[] = [
   {
     src: '/videos/review-1.mp4',
-    label: 'Gate Repair – San Jose',
+    label: 'Gate Repair',
     quote: 'I was told by 4 different companies to replace everything… Matt repaired it for a fraction of the cost.',
     highlight: 'fraction of the cost',
     author: 'Verified Customer',
