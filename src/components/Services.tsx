@@ -328,12 +328,9 @@ export function Services() {
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const { serviceWord, headingSuffix } = useMemo(() => {
+  const serviceWord = useMemo(() => {
     const mapping = getServiceMapping();
-    return {
-      serviceWord: mapping.label,
-      headingSuffix: mapping.isCombined ? 'Solutions' : 'Services',
-    };
+    return mapping.label;
   }, []);
 
   return (
