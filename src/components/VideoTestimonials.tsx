@@ -33,43 +33,50 @@ function VideoCard({ src, index }: { src: string; index: number }) {
       ) : (
         <button
           onClick={handlePlay}
-          className="w-full h-full relative block overflow-hidden"
+          className="w-full h-full relative block overflow-hidden bg-gradient-to-br from-secondary via-muted to-secondary"
           aria-label="Play video testimonial"
         >
-          {/* Sneak-peek frame from the actual video (muted, paused at 0.5s) */}
-          <video
-            src={`${src}#t=0.5`}
-            muted
-            playsInline
-            preload="metadata"
-            className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-          />
-
-          {/* Dark gradient for play-button contrast */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/60 pointer-events-none" />
-
-          {/* Animated rings */}
+          {/* Subtle decorative rings in the background */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-24 h-24 rounded-full border-2 border-white/40 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
+            <div className="w-56 h-56 rounded-full border border-primary/10" />
           </div>
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-32 h-32 rounded-full border border-white/25 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite_0.5s]" />
+            <div className="w-44 h-44 rounded-full border border-primary/15" />
           </div>
 
-          {/* Play button */}
+          {/* Circular sneak-peek window with the actual video frame inside */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="relative z-10 w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/40 group-hover:scale-110 transition-all duration-300">
-              <Play className="w-7 h-7 text-primary-foreground ml-1" />
+            <div className="relative w-36 h-36 md:w-40 md:h-40 rounded-full overflow-hidden ring-4 ring-primary/40 shadow-[0_10px_40px_-8px_hsl(var(--primary)/0.5)] group-hover:scale-105 group-hover:ring-primary/70 transition-all duration-300">
+              <video
+                src={`${src}#t=0.5`}
+                muted
+                playsInline
+                preload="metadata"
+                className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+              />
+              {/* Soft inner darkening for play-button contrast */}
+              <div className="absolute inset-0 bg-black/25 pointer-events-none" />
+              {/* Play button centered inside the circle */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center shadow-lg">
+                  <Play className="w-6 h-6 text-primary-foreground ml-0.5" />
+                </div>
+              </div>
             </div>
           </div>
 
+          {/* Animated pulse ring around the circle */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="w-40 h-40 md:w-44 md:h-44 rounded-full border-2 border-primary/40 animate-[pulse_2.2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
+          </div>
+
           {/* Label */}
-          <span className="absolute bottom-3 left-0 right-0 z-10 text-center text-xs font-bold text-white tracking-wide uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+          <span className="absolute bottom-4 left-0 right-0 z-10 text-center text-xs font-bold tracking-wide uppercase text-foreground/80 group-hover:text-primary transition-colors">
             {overlayLabels[index] || 'Watch'}
           </span>
 
           {/* Bottom decorative bar */}
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
         </button>
       )}
     </div>
