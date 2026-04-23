@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
+import { resolveBingLocation } from '@/lib/bingLocation';
 
 interface LocationContextType {
   city: string;
@@ -140,6 +141,22 @@ const LocationContext = createContext<LocationContextType | undefined>(undefined
 export function LocationProvider({ children }: { children: ReactNode }) {
   const location = useLocation();
   const [state, setState] = useState<Omit<LocationContextType, 'withParams' | 'getQueryString'>>(() => {
+    // Bing visit early-exit (additive — runs BEFORE sessionStorage so Bing always wins on Bing visits)
+    const bingInit = resolveBingLocation(window.location.search);
+    if (bingInit) {
+      const initParams = new URLSearchParams(window.location.search);
+      return {
+        city: bingInit.city,
+        phone: bingInit.phoneDigits,
+        phoneFormatted: bingInit.phoneFormatted,
+        phoneLink: bingInit.phoneLink,
+        cd: initParams.get('cd')?.trim() || '',
+        cp: initParams.get('cp')?.trim() || '',
+        kd: initParams.get('kd')?.trim() || '',
+        isLoading: false,
+      };
+    }
+
     // First check sessionStorage
     const stored = sessionStorage.getItem(STORAGE_KEY);
     if (stored) {
@@ -159,7 +176,7 @@ export function LocationProvider({ children }: { children: ReactNode }) {
         // Fall through to URL params
       }
     }
-    
+
     // Check URL params
     const params = new URLSearchParams(window.location.search);
     const cityParam = params.get('city')?.trim() || '';
@@ -183,6 +200,23 @@ export function LocationProvider({ children }: { children: ReactNode }) {
   // Resolve geo data on mount and when URL changes
   useEffect(() => {
     const resolveGeo = async () => {
+      // Bing visit early-exit (additive — does NOT touch Google logic below)
+      const bingRes = resolveBingLocation(window.location.search);
+      if (bingRes) {
+        const bp = new URLSearchParams(window.location.search);
+        setState({
+          city: bingRes.city,
+          phone: bingRes.phoneDigits,
+          phoneFormatted: bingRes.phoneFormatted,
+          phoneLink: bingRes.phoneLink,
+          cd: bp.get('cd')?.trim() || '',
+          cp: bp.get('cp')?.trim() || '',
+          kd: bp.get('kd')?.trim() || '',
+          isLoading: false,
+        });
+        return;
+      }
+
       const params = new URLSearchParams(window.location.search);
       const cityParam = params.get('city')?.trim() || '';
       const cdRaw = params.get('cd')?.trim() || '';
