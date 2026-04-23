@@ -79,3 +79,28 @@ export function getServiceMapping(): ServiceMapping {
 export function getHeadingSuffix(mapping: ServiceMapping): string {
   return mapping.isCombined ? 'Solutions' : 'Services';
 }
+
+/**
+ * Format the hero headline based on the keyword type.
+ * - Categories ("Gate", "Automatic Gates", "Security Gates", "Garage Doors", "Commercial Gate", etc.)
+ *   → "{label} Company" (singularized when needed)
+ * - Services (contains "Repair", "Installation", or "&")
+ *   → "{label} Experts"
+ * Returns the FULL headline phrase (without trailing word like "Experts/Company" duplication).
+ */
+export function getHeroHeadline(label: string): string {
+  const isService = /repair|installation/i.test(label) || label.includes('&');
+
+  if (isService) {
+    return `${label} Experts`;
+  }
+
+  // Category → "Company". Singularize trailing "Gates" → "Gate" so it reads naturally.
+  const singular = label.replace(/Gates\b/g, 'Gate').replace(/Doors\b/g, 'Door');
+  return `${singular} Company`;
+}
+
+/** Services section heading: always "Our {label} Services" */
+export function getServicesHeading(label: string): string {
+  return `Our ${label} Services`;
+}
