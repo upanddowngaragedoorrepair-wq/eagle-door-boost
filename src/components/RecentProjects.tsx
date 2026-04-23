@@ -9,6 +9,7 @@ import project8 from '@/assets/projects/project-8.webp';
 import project9 from '@/assets/projects/project-9.webp';
 import project10 from '@/assets/projects/project-10.webp';
 import project11 from '@/assets/projects/project-11.webp';
+import project12 from '@/assets/projects/project-12.webp';
 
 const projects = [
   { src: project1, alt: 'Wooden swing gate installation' },
@@ -22,6 +23,7 @@ const projects = [
   { src: project9, alt: 'Gate installation in progress by technicians' },
   { src: project10, alt: 'Cellgate intercom access control system', objectPosition: 'center top' },
   { src: project11, alt: 'Electric gate opener installation' },
+  { src: project12, alt: 'Custom wrought iron driveway gate installation' },
 ];
 
 const getPreviousMonthName = () => {
