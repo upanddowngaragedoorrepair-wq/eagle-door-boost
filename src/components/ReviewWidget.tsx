@@ -138,14 +138,12 @@ function VideoCard({ src, index }: { src: string; index: number }) {
           className="w-full h-full relative block overflow-hidden"
           aria-label="Play video testimonial"
         >
-          {/* Sneak-peek frame from the actual video (muted, paused) */}
+          {/* Sneak-peek frame from the actual video (muted, paused at 0.5s) */}
           <video
             src={`${src}#t=0.5`}
             muted
             playsInline
             preload="metadata"
-            // @ts-expect-error - non-standard but widely supported
-            disablePictureInPicture
             className="absolute inset-0 w-full h-full object-cover pointer-events-none"
           />
 
