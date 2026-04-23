@@ -227,19 +227,7 @@ export function VideoTestimonials() {
                           <span className="font-semibold">{s.author}</span>
                         </div>
 
-                        {/* CTA */}
-                        <div className="mt-6 md:mt-8 flex flex-col items-center lg:items-start gap-3">
-                          <p className="text-foreground/80 text-sm md:text-base font-semibold">
-                            Get the same results — call now
-                          </p>
-                          <a
-                            href={phoneLink}
-                            className="btn-cta text-base md:text-lg min-h-[58px] px-7 shadow-[0_4px_30px_-4px_hsl(42_74%_46%/0.5)]"
-                          >
-                            <Phone className="w-5 h-5" />
-                            Call Now: {phoneFormatted}
-                          </a>
-                        </div>
+                      
                       </div>
                     </div>
                   </div>
