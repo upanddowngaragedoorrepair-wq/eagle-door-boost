@@ -1,20 +1,61 @@
-import { useState, useRef } from 'react';
-import { Play, Phone, ShieldCheck, Star } from 'lucide-react';
+import { useState, useRef, useEffect, useCallback } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
+import { Play, Phone, ShieldCheck, Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 
-interface VideoItem {
+interface Slide {
   src: string;
   label: string;
+  quote: string;
+  highlight: string;
+  author: string;
 }
 
-const videoTestimonials: VideoItem[] = [
-  { src: '/videos/review-1.mp4', label: 'Gate Repair – San Jose' },
-  { src: '/videos/review-2.mp4', label: 'Driveway Gate Install' },
-  { src: '/videos/review-3.mp4', label: 'Access Control Upgrade' },
-  { src: '/videos/review-4.mp4', label: '5-Star Customer Review' },
+const slides: Slide[] = [
+  {
+    src: '/videos/review-1.mp4',
+    label: 'Gate Repair – San Jose',
+    quote: 'I was told by 4 different companies to replace everything… Matt repaired it for a fraction of the cost.',
+    highlight: 'fraction of the cost',
+    author: 'Verified Customer',
+  },
+  {
+    src: '/videos/review-2.mp4',
+    label: 'Driveway Gate Install',
+    quote: 'I chose them because of their 5.0 Yelp rating… They absolutely deserve it.',
+    highlight: 'absolutely deserve it',
+    author: 'Verified Customer',
+  },
+  {
+    src: '/videos/review-3.mp4',
+    label: 'Access Control Upgrade',
+    quote: 'I was surprised this was completed in just one day.',
+    highlight: 'just one day',
+    author: 'Verified Customer',
+  },
+  {
+    src: '/videos/review-4.mp4',
+    label: '5-Star Customer Review',
+    quote: 'Called them and they showed up within 45 minutes. Great service, hands down.',
+    highlight: 'within 45 minutes',
+    author: 'Verified Customer',
+  },
 ];
 
-function VideoCard({ src, label }: { src: string; label: string }) {
+function highlightQuote(quote: string, highlight: string) {
+  if (!highlight) return quote;
+  const idx = quote.toLowerCase().indexOf(highlight.toLowerCase());
+  if (idx === -1) return quote;
+  return (
+    <>
+      {quote.slice(0, idx)}
+      <span className="text-primary">{quote.slice(idx, idx + highlight.length)}</span>
+      {quote.slice(idx + highlight.length)}
+    </>
+  );
+}
+
+function VideoBlock({ src, label }: { src: string; label: string }) {
   const [playing, setPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -24,7 +65,7 @@ function VideoCard({ src, label }: { src: string; label: string }) {
   };
 
   return (
-    <div className="relative aspect-[9/16] rounded-2xl overflow-hidden bg-secondary border border-white/10 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] group">
+    <div className="relative w-full aspect-[9/16] sm:aspect-video lg:aspect-[4/5] rounded-2xl overflow-hidden bg-secondary border border-white/10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)] group">
       {playing ? (
         <video
           ref={videoRef}
@@ -37,48 +78,36 @@ function VideoCard({ src, label }: { src: string; label: string }) {
       ) : (
         <button
           onClick={handlePlay}
-          className="w-full h-full relative block overflow-hidden bg-gradient-to-br from-secondary via-muted to-secondary"
+          className="w-full h-full relative block overflow-hidden"
           aria-label={`Play video: ${label}`}
         >
-          {/* Subtle decorative rings */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-56 h-56 rounded-full border border-primary/10" />
-          </div>
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-44 h-44 rounded-full border border-primary/15" />
-          </div>
+          {/* Full video preview as background */}
+          <video
+            src={`${src}#t=0.5`}
+            muted
+            playsInline
+            preload="metadata"
+            className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          />
+          {/* Dark overlay for contrast */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/40 pointer-events-none" />
 
-          {/* Circular sneak-peek window */}
+          {/* Centered play button */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="relative w-36 h-36 md:w-40 md:h-40 rounded-full overflow-hidden ring-4 ring-primary/40 shadow-[0_10px_40px_-8px_hsl(var(--primary)/0.5)] group-hover:scale-105 group-hover:ring-primary/70 transition-all duration-300">
-              <video
-                src={`${src}#t=0.5`}
-                muted
-                playsInline
-                preload="metadata"
-                className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-              />
-              <div className="absolute inset-0 bg-black/35 pointer-events-none" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                  <Play className="w-7 h-7 text-primary-foreground ml-0.5" fill="currentColor" />
-                </div>
+            <div className="relative">
+              <div className="absolute inset-0 rounded-full bg-primary/40 blur-2xl scale-150" />
+              <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full bg-primary flex items-center justify-center shadow-[0_10px_40px_-8px_hsl(var(--primary)/0.7)] group-hover:scale-110 transition-transform duration-300">
+                <Play className="w-9 h-9 md:w-10 md:h-10 text-primary-foreground ml-1" fill="currentColor" />
               </div>
+              {/* Pulse ring */}
+              <div className="absolute inset-0 rounded-full border-2 border-primary/60 animate-[pulse_2.2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
             </div>
           </div>
 
-          {/* Animated pulse ring */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-40 h-40 md:w-44 md:h-44 rounded-full border-2 border-primary/40 animate-[pulse_2.2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
-          </div>
-
-          {/* Contextual label pill */}
+          {/* Label pill */}
           <span className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-sm text-[11px] md:text-xs font-bold tracking-wide text-white whitespace-nowrap max-w-[90%] truncate border border-white/10">
             {label}
           </span>
-
-          {/* Bottom decorative bar */}
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
         </button>
       )}
     </div>
@@ -87,11 +116,42 @@ function VideoCard({ src, label }: { src: string; label: string }) {
 
 export function VideoTestimonials() {
   const { phoneLink, phoneFormatted } = useLocation2();
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center' });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+  const scrollTo = useCallback((i: number) => emblaApi?.scrollTo(i), [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
+    onSelect();
+    emblaApi.on('select', onSelect);
+    return () => {
+      emblaApi.off('select', onSelect);
+    };
+  }, [emblaApi]);
+
+  // Slow autoplay
+  useEffect(() => {
+    if (!emblaApi) return;
+    const id = window.setInterval(() => emblaApi.scrollNext(), 7000);
+    const stop = () => window.clearInterval(id);
+    const root = emblaApi.rootNode();
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('touchstart', stop, { passive: true });
+    return () => {
+      window.clearInterval(id);
+      root.removeEventListener('mouseenter', stop);
+      root.removeEventListener('touchstart', stop);
+    };
+  }, [emblaApi]);
 
   return (
-    <section className="py-12 md:py-16 bg-[hsl(var(--navy))] relative overflow-hidden">
+    <section className="py-12 md:py-20 bg-[hsl(var(--navy))] relative overflow-hidden">
       {/* Decorative glows */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/8 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container-main relative">
@@ -107,31 +167,103 @@ export function VideoTestimonials() {
         <h3 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-center text-white tracking-tight">
           See <span className="text-primary">Real Customers</span> & Real Results
         </h3>
-        <p className="text-center text-white/70 mt-3 mb-8 md:mb-10 text-base md:text-lg">
+        <p className="text-center text-white/70 mt-3 mb-8 md:mb-12 text-base md:text-lg">
           Real work. Real clients. Real results.
         </p>
 
-        {/* Video grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-4xl mx-auto">
-          {videoTestimonials.map((v) => (
-            <VideoCard key={v.src} src={v.src} label={v.label} />
-          ))}
-        </div>
-
-        {/* CTA */}
-        <div className="mt-10 md:mt-12 flex flex-col items-center text-center">
-          <p className="text-white/90 text-base md:text-lg font-semibold mb-4 flex items-center gap-2">
-            <Star className="w-4 h-4 text-primary fill-primary" />
-            Need this done? Talk to a specialist now.
-            <Star className="w-4 h-4 text-primary fill-primary" />
-          </p>
-          <a
-            href={phoneLink}
-            className="btn-cta text-base md:text-lg min-h-[60px] px-8 shadow-[0_4px_30px_-4px_hsl(42_74%_46%/0.5)]"
+        {/* Slider */}
+        <div className="relative max-w-6xl mx-auto">
+          {/* Desktop arrows */}
+          <button
+            onClick={scrollPrev}
+            aria-label="Previous testimonial"
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-6 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-primary border border-white/20 hover:border-primary text-white items-center justify-center transition-all backdrop-blur-sm"
           >
-            <Phone className="w-5 h-5" />
-            Call Now: {phoneFormatted}
-          </a>
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <button
+            onClick={scrollNext}
+            aria-label="Next testimonial"
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-6 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-primary border border-white/20 hover:border-primary text-white items-center justify-center transition-all backdrop-blur-sm"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          <div className="overflow-hidden rounded-3xl" ref={emblaRef}>
+            <div className="flex">
+              {slides.map((s, i) => (
+                <div key={s.src} className="flex-[0_0_100%] min-w-0 px-1">
+                  <div className="relative rounded-3xl bg-gradient-to-br from-white/[0.07] via-white/[0.04] to-transparent border border-white/10 overflow-hidden shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)]">
+                    {/* Big background quote icon */}
+                    <Quote
+                      className="absolute -top-6 -right-6 md:top-4 md:right-8 w-40 h-40 md:w-56 md:h-56 text-primary/10 pointer-events-none"
+                      strokeWidth={1}
+                    />
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 p-5 md:p-8 lg:p-10 items-center relative">
+                      {/* Video */}
+                      <div className="w-full max-w-md mx-auto lg:max-w-none">
+                        <VideoBlock src={s.src} label={s.label} />
+                      </div>
+
+                      {/* Quote side */}
+                      <div className="flex flex-col text-center lg:text-left">
+                        {/* Stars */}
+                        <div className="flex justify-center lg:justify-start gap-1 mb-4">
+                          {Array.from({ length: 5 }).map((_, k) => (
+                            <Star key={k} className="w-5 h-5 md:w-6 md:h-6 text-primary fill-primary" />
+                          ))}
+                        </div>
+
+                        {/* Quote */}
+                        <blockquote className="text-xl sm:text-2xl md:text-3xl lg:text-[2rem] font-display font-bold text-white leading-tight tracking-tight">
+                          <span className="text-primary text-3xl md:text-4xl leading-none mr-1">“</span>
+                          {highlightQuote(s.quote, s.highlight)}
+                          <span className="text-primary text-3xl md:text-4xl leading-none ml-1">”</span>
+                        </blockquote>
+
+                        {/* Author */}
+                        <div className="mt-4 flex items-center justify-center lg:justify-start gap-2 text-white/70 text-sm md:text-base">
+                          <ShieldCheck className="w-4 h-4 text-primary" />
+                          <span className="font-semibold">{s.author}</span>
+                          <span className="text-white/40">•</span>
+                          <span>{s.label}</span>
+                        </div>
+
+                        {/* CTA */}
+                        <div className="mt-6 md:mt-8 flex flex-col items-center lg:items-start gap-3">
+                          <p className="text-white/90 text-sm md:text-base font-semibold">
+                            Get the same results — call now
+                          </p>
+                          <a
+                            href={phoneLink}
+                            className="btn-cta text-base md:text-lg min-h-[58px] px-7 shadow-[0_4px_30px_-4px_hsl(42_74%_46%/0.5)]"
+                          >
+                            <Phone className="w-5 h-5" />
+                            Call Now: {phoneFormatted}
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Dots */}
+          <div className="flex justify-center gap-2 mt-6">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => scrollTo(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                className={`h-2 rounded-full transition-all ${
+                  i === selectedIndex ? 'w-8 bg-primary' : 'w-2 bg-white/30 hover:bg-white/50'
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
