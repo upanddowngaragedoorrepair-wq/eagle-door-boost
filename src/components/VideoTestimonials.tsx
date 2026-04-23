@@ -1,16 +1,20 @@
 import { useState, useRef } from 'react';
-import { Play } from 'lucide-react';
+import { Play, Phone, ShieldCheck, Star } from 'lucide-react';
+import { useLocation2 } from '@/contexts/LocationContext';
 
-const videoTestimonials = [
-  '/videos/review-1.mp4',
-  '/videos/review-2.mp4',
-  '/videos/review-3.mp4',
-  '/videos/review-4.mp4',
+interface VideoItem {
+  src: string;
+  label: string;
+}
+
+const videoTestimonials: VideoItem[] = [
+  { src: '/videos/review-1.mp4', label: 'Gate Repair – San Jose' },
+  { src: '/videos/review-2.mp4', label: 'Driveway Gate Install' },
+  { src: '/videos/review-3.mp4', label: 'Access Control Upgrade' },
+  { src: '/videos/review-4.mp4', label: '5-Star Customer Review' },
 ];
 
-const overlayLabels = ['Watch Story', 'See Review', 'Our Work', 'Happy Client'];
-
-function VideoCard({ src, index }: { src: string; index: number }) {
+function VideoCard({ src, label }: { src: string; label: string }) {
   const [playing, setPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -20,7 +24,7 @@ function VideoCard({ src, index }: { src: string; index: number }) {
   };
 
   return (
-    <div className="relative aspect-[9/16] rounded-2xl overflow-hidden bg-secondary border border-border shadow-sm group">
+    <div className="relative aspect-[9/16] rounded-2xl overflow-hidden bg-secondary border border-white/10 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] group">
       {playing ? (
         <video
           ref={videoRef}
@@ -34,9 +38,9 @@ function VideoCard({ src, index }: { src: string; index: number }) {
         <button
           onClick={handlePlay}
           className="w-full h-full relative block overflow-hidden bg-gradient-to-br from-secondary via-muted to-secondary"
-          aria-label="Play video testimonial"
+          aria-label={`Play video: ${label}`}
         >
-          {/* Subtle decorative rings in the background */}
+          {/* Subtle decorative rings */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="w-56 h-56 rounded-full border border-primary/10" />
           </div>
@@ -44,7 +48,7 @@ function VideoCard({ src, index }: { src: string; index: number }) {
             <div className="w-44 h-44 rounded-full border border-primary/15" />
           </div>
 
-          {/* Circular sneak-peek window with the actual video frame inside */}
+          {/* Circular sneak-peek window */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="relative w-36 h-36 md:w-40 md:h-40 rounded-full overflow-hidden ring-4 ring-primary/40 shadow-[0_10px_40px_-8px_hsl(var(--primary)/0.5)] group-hover:scale-105 group-hover:ring-primary/70 transition-all duration-300">
               <video
@@ -54,29 +58,27 @@ function VideoCard({ src, index }: { src: string; index: number }) {
                 preload="metadata"
                 className="absolute inset-0 w-full h-full object-cover pointer-events-none"
               />
-              {/* Soft inner darkening for play-button contrast */}
-              <div className="absolute inset-0 bg-black/25 pointer-events-none" />
-              {/* Play button centered inside the circle */}
+              <div className="absolute inset-0 bg-black/35 pointer-events-none" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center shadow-lg">
-                  <Play className="w-6 h-6 text-primary-foreground ml-0.5" />
+                <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <Play className="w-7 h-7 text-primary-foreground ml-0.5" fill="currentColor" />
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Animated pulse ring around the circle */}
+          {/* Animated pulse ring */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="w-40 h-40 md:w-44 md:h-44 rounded-full border-2 border-primary/40 animate-[pulse_2.2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
           </div>
 
-          {/* Label */}
-          <span className="absolute bottom-4 left-0 right-0 z-10 text-center text-xs font-bold tracking-wide uppercase text-foreground/80 group-hover:text-primary transition-colors">
-            {overlayLabels[index] || 'Watch'}
+          {/* Contextual label pill */}
+          <span className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-sm text-[11px] md:text-xs font-bold tracking-wide text-white whitespace-nowrap max-w-[90%] truncate border border-white/10">
+            {label}
           </span>
 
           {/* Bottom decorative bar */}
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
         </button>
       )}
     </div>
@@ -84,20 +86,52 @@ function VideoCard({ src, index }: { src: string; index: number }) {
 }
 
 export function VideoTestimonials() {
+  const { phoneLink, phoneFormatted } = useLocation2();
+
   return (
     <section className="py-12 md:py-16 bg-[hsl(var(--navy))] relative overflow-hidden">
-      {/* Subtle decorative glows to match hero */}
+      {/* Decorative glows */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/8 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container-main relative">
-        <h3 className="text-2xl md:text-3xl font-display font-bold text-center mb-8 text-white">
-          Video <span className="text-primary">Testimonials</span>
+        {/* Trust signal */}
+        <div className="flex justify-center mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs md:text-sm font-semibold text-white/90">
+            <ShieldCheck className="w-4 h-4 text-primary" />
+            Trusted by 200+ homeowners in the Bay Area
+          </span>
+        </div>
+
+        {/* Headline */}
+        <h3 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-center text-white tracking-tight">
+          See <span className="text-primary">Real Customers</span> & Real Results
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-          {videoTestimonials.map((src, i) => (
-            <VideoCard key={i} src={src} index={i} />
+        <p className="text-center text-white/70 mt-3 mb-8 md:mb-10 text-base md:text-lg">
+          Real work. Real clients. Real results.
+        </p>
+
+        {/* Video grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-4xl mx-auto">
+          {videoTestimonials.map((v) => (
+            <VideoCard key={v.src} src={v.src} label={v.label} />
           ))}
+        </div>
+
+        {/* CTA */}
+        <div className="mt-10 md:mt-12 flex flex-col items-center text-center">
+          <p className="text-white/90 text-base md:text-lg font-semibold mb-4 flex items-center gap-2">
+            <Star className="w-4 h-4 text-primary fill-primary" />
+            Need this done? Talk to a specialist now.
+            <Star className="w-4 h-4 text-primary fill-primary" />
+          </p>
+          <a
+            href={phoneLink}
+            className="btn-cta text-base md:text-lg min-h-[60px] px-8 shadow-[0_4px_30px_-4px_hsl(42_74%_46%/0.5)]"
+          >
+            <Phone className="w-5 h-5" />
+            Call Now: {phoneFormatted}
+          </a>
         </div>
       </div>
     </section>
