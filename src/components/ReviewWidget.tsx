@@ -175,7 +175,11 @@ function ReviewCard({ review, isCenter, city }: { review: Review; isCenter: bool
 
 
 export function ReviewWidget() {
-  const { city } = useLocation2();
+  const { city, cp } = useLocation2();
+  const reviewCities = useMemo(() => {
+    const county = resolveCounty(cp, city);
+    return buildReviewCities(reviews.length, county, city);
+  }, [city, cp]);
   const [isPaused, setIsPaused] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
