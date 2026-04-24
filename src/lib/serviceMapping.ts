@@ -95,9 +95,9 @@ export function getHeroHeadline(label: string): string {
     return `${label} Experts`;
   }
 
-  // Category → "Company". Singularize trailing "Gates" → "Gate" so it reads naturally.
+  // Category → "Experts". Singularize trailing "Gates" → "Gate" so it reads naturally.
   const singular = label.replace(/Gates\b/g, 'Gate').replace(/Doors\b/g, 'Door');
-  return `${singular} Company`;
+  return `${singular} Experts`;
 }
 
 /** Services section heading: always "Our {label} Services" */
