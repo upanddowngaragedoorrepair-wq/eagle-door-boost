@@ -263,7 +263,7 @@ export function ReviewWidget() {
             <div className="flex will-change-transform">
               {reviews.map((review, index) => (
                 <div key={review.id} className="flex-[0_0_90%] sm:flex-[0_0_48%] lg:flex-[0_0_32%] xl:flex-[0_0_25%] min-w-0 pl-5 first:pl-0">
-                  <ReviewCard review={review} isCenter={index === selectedIndex} />
+                  <ReviewCard review={review} isCenter={index === selectedIndex} city={reviewCities[index]} />
                 </div>
               ))}
             </div>
