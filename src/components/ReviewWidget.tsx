@@ -141,7 +141,7 @@ function PlatformIcon({ platform, showLabel = true }: { platform: 'google' | 'ho
   );
 }
 
-function ReviewCard({ review, isCenter }: { review: Review; isCenter: boolean }) {
+function ReviewCard({ review, isCenter, city }: { review: Review; isCenter: boolean; city: string }) {
   return (
     <div className={`relative flex flex-col h-full p-6 md:p-7 rounded-2xl bg-card border transition-all duration-500 ${
       isCenter ? 'border-primary shadow-md scale-[1.02]' : 'border-border hover:border-primary/30 hover:shadow-md shadow-sm'
@@ -151,7 +151,11 @@ function ReviewCard({ review, isCenter }: { review: Review; isCenter: boolean })
           <img src={review.image} alt={review.name} loading="lazy" decoding="async" className={`w-14 h-14 rounded-full object-cover border-2 ${isCenter ? 'border-primary' : 'border-border'}`} />
           <div>
             <h4 className="font-bold text-foreground">{review.name}</h4>
-            <p className="text-sm text-muted-foreground">{review.dateStr}</p>
+            <p className="text-xs text-muted-foreground inline-flex items-center gap-1 mt-0.5">
+              <MapPin className="w-3 h-3 text-primary" />
+              {city}
+            </p>
+            <p className="text-xs text-muted-foreground/80 mt-0.5">{review.dateStr}</p>
           </div>
         </div>
         <PlatformIcon platform={review.platform} showLabel={false} />
