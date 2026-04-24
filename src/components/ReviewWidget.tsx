@@ -1,7 +1,72 @@
-import { Star, Quote, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useState, useEffect, useCallback } from 'react';
+import { Star, Quote, CheckCircle, ChevronLeft, ChevronRight, MapPin } from 'lucide-react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import useEmblaCarousel from 'embla-carousel-react';
+
+// Cities grouped by county. Each review gets a unique city from the county
+// derived from the cp area code (resolved via LocationContext).
+// At least 2 reviews show the exact resolved city.
+const COUNTY_CITIES: Record<string, string[]> = {
+  "Santa Clara": ["San Jose", "Sunnyvale", "Santa Clara", "Mountain View", "Cupertino", "Milpitas", "Campbell", "Los Gatos", "Saratoga", "Morgan Hill", "Gilroy", "Los Altos"],
+  "Marin": ["San Rafael", "Novato", "Mill Valley", "Sausalito", "Corte Madera", "Larkspur", "Tiburon", "San Anselmo", "Fairfax", "Ross", "Belvedere", "Kentfield"],
+  "Alameda": ["Oakland", "Fremont", "Berkeley", "Hayward", "San Leandro", "Pleasanton", "Dublin", "Livermore", "Union City", "Newark", "Alameda", "Emeryville"],
+  "Contra Costa": ["Concord", "Walnut Creek", "Antioch", "Richmond", "Pittsburg", "Martinez", "Pleasant Hill", "Danville", "Lafayette", "Brentwood", "Orinda", "San Ramon"],
+  "Sacramento": ["Sacramento", "Elk Grove", "Folsom", "Rancho Cordova", "Fair Oaks", "Citrus Heights", "Carmichael", "North Highlands", "Antelope", "Orangevale", "Rosemont", "Arden-Arcade"],
+  "Orange": ["Irvine", "Anaheim", "Santa Ana", "Costa Mesa", "Huntington Beach", "Tustin", "Lake Forest", "Orange", "Fullerton", "Garden Grove", "Newport Beach", "Mission Viejo"],
+  "Riverside": ["Riverside", "Corona", "Murrieta", "Temecula", "Moreno Valley", "Eastvale", "Perris", "Hemet", "Menifee", "Norco", "Lake Elsinore", "Jurupa Valley"],
+  "San Mateo": ["San Mateo", "Redwood City", "Daly City", "South San Francisco", "San Bruno", "Burlingame", "Foster City", "Belmont", "San Carlos", "Pacifica", "Millbrae", "Half Moon Bay"],
+  "Ventura": ["Ventura", "Oxnard", "Thousand Oaks", "Simi Valley", "Camarillo", "Moorpark", "Santa Paula", "Fillmore", "Ojai", "Port Hueneme", "Newbury Park", "Westlake Village"],
+  "Santa Cruz": ["Santa Cruz", "Watsonville", "Capitola", "Scotts Valley", "Aptos", "Soquel", "Felton", "Live Oak", "Ben Lomond", "Boulder Creek", "Freedom", "La Selva Beach"],
+  "Monterey": ["Monterey", "Salinas", "Seaside", "Marina", "Pacific Grove", "Carmel", "Soledad", "Greenfield", "Gonzales", "King City", "Castroville", "Prunedale"],
+  "San Francisco": ["San Francisco", "Mission District", "SoMa", "Sunset District", "Richmond District", "Marina District", "Nob Hill", "Pacific Heights", "North Beach", "Castro", "Bernal Heights", "Excelsior"],
+};
+
+const AREACODE_TO_COUNTY: Record<string, string> = {
+  "408": "Santa Clara", "415": "Marin", "510": "Alameda", "925": "Contra Costa",
+  "916": "Sacramento", "949": "Orange", "951": "Riverside", "650": "San Mateo",
+  "805": "Ventura", "831": "Santa Cruz",
+};
+
+const CITY_TO_COUNTY_LOOKUP: Record<string, string> = (() => {
+  const out: Record<string, string> = {};
+  for (const [county, cities] of Object.entries(COUNTY_CITIES)) {
+    for (const c of cities) out[c.toLowerCase()] = county;
+  }
+  return out;
+})();
+
+function resolveCounty(cp: string, city: string): string {
+  const ac = (cp || '').replace(/\D/g, '').slice(0, 3);
+  if (AREACODE_TO_COUNTY[ac]) return AREACODE_TO_COUNTY[ac];
+  if (city && CITY_TO_COUNTY_LOOKUP[city.toLowerCase()]) return CITY_TO_COUNTY_LOOKUP[city.toLowerCase()];
+  return 'Santa Clara';
+}
+
+/**
+ * Build a per-review city assignment.
+ * Rules:
+ *  - At least 2 reviews show the exact resolved city
+ *  - All other reviews use OTHER cities from the same county (unique where possible)
+ */
+function buildReviewCities(reviewCount: number, county: string, exactCity: string): string[] {
+  const pool = COUNTY_CITIES[county] || COUNTY_CITIES['Santa Clara'];
+  const exactInPool = pool.find(c => c.toLowerCase() === (exactCity || '').toLowerCase());
+  const primary = exactInPool || pool[0];
+  const others = pool.filter(c => c.toLowerCase() !== primary.toLowerCase());
+
+  const result: string[] = new Array(reviewCount).fill('');
+  // Place the exact city at indexes 0 and 2 (visible in initial slider view)
+  result[0] = primary;
+  if (reviewCount > 2) result[2] = primary;
+
+  let oi = 0;
+  for (let i = 0; i < reviewCount; i++) {
+    if (result[i]) continue;
+    result[i] = others[oi % others.length];
+    oi++;
+  }
+  return result;
+}
 
 import profile1 from '@/assets/reviews/profile-1.webp';
 import profile2 from '@/assets/reviews/profile-2.webp';
