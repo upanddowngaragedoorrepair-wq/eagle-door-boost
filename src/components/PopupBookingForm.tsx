@@ -78,13 +78,13 @@ export function PopupBookingForm() {
           name: formData.name,
           phone: formData.phone,
           email: formData.email,
-          message: `Service needed: ${formData.service}\nDiscount code: 10OFF`,
           zip: formData.zip,
-          notes: '10OFF - 10% Online Booking Discount',
+          address: '',
+          message: `[POPUP - 10% OFF DISCOUNT REQUESTED]\nService needed: ${formData.service || 'Not specified'}\nNotes: ${formData.notes || 'N/A'}\nDiscount code: 10OFF`,
           page_url: window.location.href,
           city,
           cp,
-          source: 'popup_booking_form',
+          _subject: `New Popup Lead (10% Off) - ${formData.name} from ${city}`,
         }),
       });
 
