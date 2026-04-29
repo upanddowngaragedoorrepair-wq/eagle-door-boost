@@ -200,13 +200,8 @@ export function VideoTestimonials() {
                     />
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 p-5 md:p-8 lg:p-10 items-center relative">
-                      {/* Video */}
-                      <div className="w-full max-w-md mx-auto lg:max-w-none">
-                        <VideoBlock src={s.src} label={s.label} />
-                      </div>
-
-                      {/* Quote side */}
-                      <div className="flex flex-col text-center lg:text-left">
+                      {/* Quote side - first on mobile, second on desktop */}
+                      <div className="flex flex-col text-center lg:text-left order-1 lg:order-2">
                         {/* Stars */}
                         <div className="flex justify-center lg:justify-start gap-1 mb-4">
                           {Array.from({ length: 5 }).map((_, k) => (
@@ -226,8 +221,11 @@ export function VideoTestimonials() {
                           <ShieldCheck className="w-4 h-4 text-primary" />
                           <span className="font-semibold">{s.author}</span>
                         </div>
+                      </div>
 
-                      
+                      {/* Video - second on mobile, first on desktop */}
+                      <div className="w-full max-w-md mx-auto lg:max-w-none order-2 lg:order-1">
+                        <VideoBlock src={s.src} label={s.label} />
                       </div>
                     </div>
                   </div>
