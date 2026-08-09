@@ -5,65 +5,66 @@
 
 @layer base {
   :root {
-    /* Logo-Derived Theme — Navy / Barn Red / Cream / Gold */
-    --background: 41 38% 94%;        /* logo cream */
-    --foreground: 221 30% 15%;       /* logo navy ink */
+    /* Reference Palette — Deep Navy / Barn Red / White / Gold */
+    --background: 0 0% 100%;         /* clean white */
+    --foreground: 213 45% 14%;       /* navy ink */
 
     /* Cards & Surfaces */
-    --card: 42 45% 98%;              /* warm paper white */
-    --card-foreground: 221 30% 15%;
-    --card-elevated: 41 34% 91%;
+    --card: 0 0% 100%;
+    --card-foreground: 213 45% 14%;
+    --card-elevated: 210 30% 97%;
 
-    --popover: 42 45% 98%;
-    --popover-foreground: 221 30% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 213 45% 14%;
 
     /* Barn Red Accent — Primary */
-    --primary: 219 65% 40%;          /* deep logo blue */
-    --primary-foreground: 40 40% 97%;
-    --primary-glow: 219 68% 50%;
-    --primary-hover: 219 70% 33%;
+    --primary: 358 66% 45%;          /* logo red CTA */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 358 70% 54%;
+    --primary-hover: 358 70% 38%;
 
-    /* Secondary — cream sand */
-    --secondary: 41 34% 91%;
-    --secondary-foreground: 221 30% 15%;
+    /* Secondary */
+    --secondary: 210 30% 96%;
+    --secondary-foreground: 213 45% 14%;
 
     /* Muted */
-    --muted: 41 30% 90%;
-    --muted-foreground: 221 14% 34%;
+    --muted: 210 25% 95%;
+    --muted-foreground: 213 16% 38%;
 
     /* Accent */
-    --accent: 41 34% 91%;
-    --accent-foreground: 221 30% 15%;
+    --accent: 210 30% 96%;
+    --accent-foreground: 213 45% 14%;
 
     /* Destructive */
-    --destructive: 356 68% 44%;
+    --destructive: 358 68% 44%;
     --destructive-foreground: 0 0% 100%;
 
     /* Borders & Input */
-    --border: 40 22% 82%;
-    --input: 40 22% 82%;
-    --ring: 219 65% 40%;
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 358 66% 45%;
 
     --radius: 0.5rem;
 
     /* Custom tokens — dark surfaces are logo navy */
-    --navy: 221 47% 20%;
-    --navy-deep: 221 50% 13%;
-    --navy-light: 220 34% 30%;
-    --gold-soft: 39 78% 48%;
-    --gold-bright: 39 88% 56%;
-    --text-subtle: 221 14% 34%;
+    --navy: 212 72% 19%;
+    --navy-deep: 213 78% 13%;
+    --navy-light: 211 55% 28%;
+    --gold-soft: 39 82% 48%;
+    --gold-bright: 41 90% 56%;
+    --text-subtle: 213 16% 38%;
 
     /* Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(219, 65%, 42%) 0%, hsl(219, 70%, 33%) 100%);
-    --gradient-navy: linear-gradient(180deg, hsl(221, 47%, 20%) 0%, hsl(221, 50%, 12%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(358, 66%, 47%) 0%, hsl(358, 72%, 37%) 100%);
+    --gradient-navy: linear-gradient(180deg, hsl(212, 72%, 19%) 0%, hsl(213, 78%, 12%) 100%);
 
     /* Shadows */
-    --shadow-sm: 0 6px 18px rgba(20,30,55,0.10);
-    --shadow-md: 0 10px 28px rgba(20,30,55,0.14);
-    --shadow-lg: 0 18px 60px rgba(20,30,55,0.20);
-    --shadow-gold: 0 4px 20px -4px hsl(219 65% 40% / 0.40);
-    --shadow-card: 0 6px 24px -6px rgba(20,30,55,0.16), 0 0 0 1px hsl(40 22% 82% / 0.9);
+    --shadow-sm: 0 6px 18px rgba(11,32,64,0.10);
+    --shadow-md: 0 10px 28px rgba(11,32,64,0.14);
+    --shadow-lg: 0 18px 60px rgba(11,32,64,0.20);
+    --shadow-gold: 0 4px 20px -4px hsl(358 66% 45% / 0.40);
+    --shadow-card: 0 6px 24px -6px rgba(11,32,64,0.16), 0 0 0 1px hsl(210 20% 88% / 0.9);
+
 
 
 
