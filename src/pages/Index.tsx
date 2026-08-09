@@ -13,6 +13,7 @@ const BrandLogos = lazy(() => import('@/components/BrandLogos').then(m => ({ def
 const CouponSection = lazy(() => import('@/components/CouponSection').then(m => ({ default: m.CouponSection })));
 const FriendlyQuoteCTA = lazy(() => import('@/components/FriendlyQuoteCTA').then(m => ({ default: m.FriendlyQuoteCTA })));
 const RecentProjects = lazy(() => import('@/components/RecentProjects').then(m => ({ default: m.RecentProjects })));
+const BeforeAfter = lazy(() => import('@/components/BeforeAfter').then(m => ({ default: m.BeforeAfter })));
 const ReviewWidget = lazy(() => import('@/components/ReviewWidget').then(m => ({ default: m.ReviewWidget })));
 const TrustBadges = lazy(() => import('@/components/TrustBadges').then(m => ({ default: m.TrustBadges })));
 const ServiceAreaMap = lazy(() => import('@/components/ServiceAreaMap').then(m => ({ default: m.ServiceAreaMap })));
@@ -54,6 +55,15 @@ const Index = () => {
             <RecentProjects />
           </LazySection>
         </Suspense>
+
+        <Suspense fallback={<SectionPlaceholder height={500} />}>
+          <LazySection rootMargin="300px">
+            <BeforeAfter />
+          </LazySection>
+        </Suspense>
+
+        <CallBand headline="Want this for your driveway? Let's talk." location="band_before_after" />
+
 
         <Suspense fallback={<SectionPlaceholder height={400} />}>
           <LazySection rootMargin="300px">
