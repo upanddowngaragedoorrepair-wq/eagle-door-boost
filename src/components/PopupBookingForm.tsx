@@ -69,6 +69,20 @@ export function PopupBookingForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!isValidUsPhone(formData.phone)) {
+      setError('Please enter a valid 10-digit phone number.');
+      return;
+    }
+    if (!isValidEmail(formData.email)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+    if (!isValidZip(formData.zip)) {
+      setError('Please enter a valid 5-digit zip code.');
+      return;
+    }
+
     setSubmitting(true);
     setError('');
 
@@ -78,7 +92,8 @@ export function PopupBookingForm() {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           name: formData.name,
-          phone: formData.phone,
+          phone: formatPhoneInput(formData.phone),
+          phone_digits: phoneDigits(formData.phone),
           email: formData.email,
           zip: formData.zip,
           address: '',
@@ -89,6 +104,7 @@ export function PopupBookingForm() {
           _subject: `New Popup Lead (10% Off) - ${formData.name} from ${city}`,
         }),
       });
+
 
       if (res.ok) {
         const params = new URLSearchParams(window.location.search);
