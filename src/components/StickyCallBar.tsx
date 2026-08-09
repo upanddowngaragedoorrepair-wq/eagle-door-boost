@@ -1,23 +1,53 @@
+import { useEffect, useState } from 'react';
 import { Phone } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 
 /**
- * Always-visible call bar: full-width on mobile, compact pill bottom-right on desktop.
- * No scroll threshold — the phone number is on screen from the first paint.
+ * Floating call bar. Hidden over the hero (which already has a big call CTA) and
+ * slides in once the visitor scrolls past roughly the first screen.
+ * Scroll handling is passive + rAF-throttled to keep it off the main-thread budget.
  */
 export function StickyCallBar() {
   const { phoneLink, phoneFormatted } = useLocation2();
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    let frame = 0;
+    const threshold = () => {
+      const hero = document.querySelector('section.hero-min') as HTMLElement | null;
+      return hero ? hero.offsetHeight * 0.75 : window.innerHeight * 0.7;
+    };
+
+    const update = () => {
+      frame = 0;
+      setVisible(window.scrollY > threshold());
+    };
+
+    const onScroll = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(update);
+    };
+
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
 
   const handleClick = (place: string) => () => {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'cta_call_click', cta_location: place });
   };
 
+  if (!visible) return null;
+
   return (
     <>
       {/* Mobile: full-width bottom bar */}
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden sticky-bar-enter">
-        <div className="bg-[hsl(var(--navy))] border-t-2 border-primary/50 px-3 pt-2.5 pb-3 shadow-lg">
+        <div className="bg-[hsl(var(--navy))] border-t-2 border-primary/60 px-3 pt-2.5 pb-3 shadow-lg">
           <a
             href={phoneLink}
             onClick={handleClick('sticky')}

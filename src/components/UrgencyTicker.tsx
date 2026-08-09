@@ -1,36 +1,29 @@
 /*
  * PERF: Ticker items duplicated only 2x — same seamless loop, half the DOM nodes.
- * GPU-accelerated via CSS. The tracking phone number is interleaved so the top
- * row always shows a number to call.
+ * GPU-accelerated via CSS. Proof points only — the phone number lives in the
+ * header, the hero CTA and the sticky bar, so it isn't repeated here.
  */
 import { useLocation2 } from '@/contexts/LocationContext';
-import { Wrench, FileCheck, Phone, Star, Clock, Shield, BadgeDollarSign } from 'lucide-react';
+import { Wrench, FileCheck, Ruler, Users, BadgeDollarSign, Clock, Award } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
 
 interface TickerItem {
   Icon: LucideIcon;
   text: string;
-  /** Renders the live tracking number instead of static text */
-  isPhone?: boolean;
 }
 
 const tickerItems: TickerItem[] = [
-  { Icon: Phone, text: 'CALL NOW', isPhone: true },
-  { Icon: Wrench, text: 'SAME-DAY SERVICE' },
-  { Icon: Phone, text: 'CALL NOW', isPhone: true },
-  { Icon: FileCheck, text: 'FREE ESTIMATE' },
-  { Icon: Phone, text: 'CALL NOW', isPhone: true },
-  { Icon: Shield, text: 'LICENSED & INSURED' },
-  { Icon: Phone, text: 'CALL NOW', isPhone: true },
-  { Icon: Star, text: '5-STAR RATED' },
-  { Icon: Phone, text: 'CALL NOW', isPhone: true },
-  { Icon: Clock, text: '30-MIN RESPONSE' },
-  { Icon: Phone, text: 'CALL NOW', isPhone: true },
+  { Icon: Award, text: 'OVER 300 GATES INSTALLED' },
+  { Icon: Users, text: 'SMALL COMPANY, BIG ATTENTION TO DETAIL' },
+  { Icon: Ruler, text: 'FREE DRAWING WITH EVERY ESTIMATE' },
+  { Icon: Wrench, text: 'IN-HOUSE TECHS — NO SUBS' },
+  { Icon: Clock, text: 'SAME-DAY SERVICE' },
+  { Icon: FileCheck, text: 'FREE ESTIMATES' },
   { Icon: BadgeDollarSign, text: 'BEST PRICE GUARANTEED' },
 ];
 
 export function UrgencyTicker() {
-  const { phoneLink, phoneFormatted } = useLocation2();
+  const { phoneLink } = useLocation2();
 
   // 2 copies is sufficient for a seamless infinite loop
   const items = [...tickerItems, ...tickerItems];
@@ -49,12 +42,10 @@ export function UrgencyTicker() {
             key={index}
             href={phoneLink}
             onClick={handleClick}
-            className={`inline-flex items-center gap-1.5 px-6 text-sm font-bold transition-colors ${
-              item.isPhone ? 'text-primary hover:text-white' : 'text-white/90 hover:text-primary'
-            }`}
+            className="inline-flex items-center gap-1.5 px-6 text-sm font-bold text-white/90 transition-colors hover:text-[hsl(var(--gold-bright))]"
           >
-            <item.Icon className="w-4 h-4" strokeWidth={2.5} />
-            <span>{item.isPhone ? `CALL NOW: ${phoneFormatted}` : item.text}</span>
+            <item.Icon className="w-4 h-4 text-[hsl(var(--gold-bright))]" strokeWidth={2.5} />
+            <span>{item.text}</span>
           </a>
         ))}
       </div>
