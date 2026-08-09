@@ -189,13 +189,14 @@ export function PopupBookingForm() {
           <form action="https://formspree.io/f/xdalkyzy" method="POST" onSubmit={handleSubmit} className="space-y-2 md:space-y-3">
             <input type="text" name="name" placeholder="Your Name *" required className={inputClass}
               value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} />
-            <input type="tel" name="phone" placeholder="Phone Number *" required className={inputClass}
-              value={formData.phone} onChange={e => setFormData({ ...formData, phone: e.target.value })} />
-            <input type="email" name="email" placeholder="Email Address" className={inputClass}
+            <input type="tel" name="phone" placeholder="Phone Number *" required inputMode="tel" autoComplete="tel" className={inputClass}
+              value={formData.phone} onChange={e => setFormData({ ...formData, phone: formatPhoneInput(e.target.value) })} />
+            <input type="email" name="email" placeholder="Email Address *" required inputMode="email" autoComplete="email" className={inputClass}
               value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} />
             <div className="grid grid-cols-2 gap-2 md:gap-3">
-              <input type="text" name="zip" placeholder="Zip Code" inputMode="numeric" pattern="[0-9]*" maxLength={5} className={inputClass}
+              <input type="text" name="zip" placeholder="Zip Code *" required inputMode="numeric" pattern="[0-9]{5}" maxLength={5} className={inputClass}
                 value={formData.zip} onChange={e => setFormData({ ...formData, zip: e.target.value.replace(/\D/g, '').slice(0, 5) })} />
+
               <select name="service" className={`${inputClass} appearance-none`}
                 value={formData.service} onChange={e => setFormData({ ...formData, service: e.target.value })}>
                 <option value="">Service Needed</option>
