@@ -93,7 +93,7 @@ export function Header() {
 
             <a href={phoneLink} className="hidden md:flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
               <Phone className="w-5 h-5" />
-              <span className="text-sm font-bold">{phoneFormatted}</span>
+              <span className="text-sm font-bold whitespace-nowrap">{phoneFormatted}</span>
             </a>
 
             <a href={phoneLink} className="btn-cta px-5 py-3 md:px-7 md:py-3.5 text-sm md:text-base min-h-[48px] md:min-h-[56px]">
