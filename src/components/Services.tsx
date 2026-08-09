@@ -257,11 +257,29 @@ function ServiceCard({ service, isOpen, onToggle, phoneLink, phoneFormatted, onG
           ))}
         </ul>
 
+        {/* Always-visible call button */}
+        <a
+          href={phoneLink}
+          onClick={(e) => {
+            e.stopPropagation();
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: 'cta_call_click',
+              cta_location: `card_${service.title.toLowerCase().replace(/\s+/g, '_')}`,
+            });
+          }}
+          className="btn-cta w-full text-base min-h-[52px] mb-3"
+        >
+          <Phone className="w-5 h-5" />
+          {phoneFormatted}
+        </a>
+
         {/* Tap to expand hint */}
         <div className={`flex items-center gap-1.5 text-xs font-semibold transition-colors ${isOpen ? 'text-primary' : 'text-muted-foreground'}`}>
           <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
-          <span>{isOpen ? 'Collapse' : 'Tap for details & call'}</span>
+          <span>{isOpen ? 'Collapse' : 'Tap for details'}</span>
         </div>
+
       </div>
 
       {/* Expanded conversion panel */}

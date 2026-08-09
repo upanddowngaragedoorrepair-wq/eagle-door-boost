@@ -7,7 +7,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-16 md:py-20 border-t border-border relative" style={{ background: 'hsl(200, 45%, 13%)' }}>
+    <footer className="py-16 md:py-20 border-t border-border relative bg-[hsl(var(--navy))]">
       <div className="container-main relative">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-14 mb-14">
           {/* Brand */}

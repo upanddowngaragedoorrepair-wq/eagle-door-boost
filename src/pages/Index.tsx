@@ -5,6 +5,7 @@ import { Hero } from '@/components/Hero';
 import { TrustProofSection } from '@/components/TrustProofSection';
 import { Services } from '@/components/Services';
 import { VideoTestimonials } from '@/components/VideoTestimonials';
+import { CallBand } from '@/components/CallBand';
 import { LazySection, SectionPlaceholder } from '@/components/LazySection';
 
 // Lazy load below-fold sections
@@ -23,20 +24,34 @@ const PopupBookingForm = lazy(() => import('@/components/PopupBookingForm').then
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background pb-20 md:pb-0">
+    <div className="min-h-screen bg-background pb-24 md:pb-0">
       <UrgencyTicker />
       <Header />
       <main>
-        {/* Above-fold: Hero with inline form */}
+        {/* Above-fold: call-first hero */}
         <Hero />
         <TrustProofSection />
         <Services />
+
+        <CallBand headline="Gate acting up? We can be out today." location="band_services" />
+
+        {/* Below-fold: proof first, then projects and offers */}
         <VideoTestimonials />
 
-        {/* Below-fold: lazy loaded sections */}
-        <Suspense fallback={<SectionPlaceholder height={200} />}>
+        <Suspense fallback={<SectionPlaceholder height={600} />}>
+          <LazySection rootMargin="400px">
+            <ReviewWidget />
+          </LazySection>
+        </Suspense>
+
+        <CallBand
+          headline="Talk to a real technician — not a call center."
+          location="band_testimonials"
+        />
+
+        <Suspense fallback={<SectionPlaceholder height={400} />}>
           <LazySection rootMargin="300px">
-            <BrandLogos />
+            <RecentProjects />
           </LazySection>
         </Suspense>
 
@@ -46,21 +61,15 @@ const Index = () => {
           </LazySection>
         </Suspense>
 
-        <Suspense fallback={<SectionPlaceholder height={300} />}>
-          <LazySection rootMargin="300px">
-            <FriendlyQuoteCTA />
-          </LazySection>
-        </Suspense>
+        <CallBand
+          headline="Claim your discount over the phone."
+          location="band_coupon"
+          subline="Free estimates • No obligation"
+        />
 
-        <Suspense fallback={<SectionPlaceholder height={400} />}>
+        <Suspense fallback={<SectionPlaceholder height={200} />}>
           <LazySection rootMargin="300px">
-            <RecentProjects />
-          </LazySection>
-        </Suspense>
-
-        <Suspense fallback={<SectionPlaceholder height={600} />}>
-          <LazySection rootMargin="400px">
-            <ReviewWidget />
+            <BrandLogos />
           </LazySection>
         </Suspense>
 
@@ -73,6 +82,12 @@ const Index = () => {
         <Suspense fallback={<SectionPlaceholder height={400} />}>
           <LazySection rootMargin="300px">
             <ServiceAreaMap />
+          </LazySection>
+        </Suspense>
+
+        <Suspense fallback={<SectionPlaceholder height={300} />}>
+          <LazySection rootMargin="300px">
+            <FriendlyQuoteCTA />
           </LazySection>
         </Suspense>
 

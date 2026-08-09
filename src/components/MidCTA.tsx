@@ -5,7 +5,7 @@ export function MidCTA() {
   const { phoneLink } = useLocation2();
 
   return (
-    <section className="py-[72px] md:py-24 relative overflow-hidden border-t border-border" style={{ background: 'hsl(200, 45%, 13%)' }}>
+    <section className="py-[72px] md:py-24 relative overflow-hidden border-t border-border bg-[hsl(var(--navy))]">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/10 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="container-main relative">

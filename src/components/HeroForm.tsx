@@ -73,27 +73,45 @@ export function HeroForm() {
   const inputClass = "w-full px-4 py-3.5 rounded-xl bg-background text-foreground placeholder:text-muted-foreground border border-border focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 text-base font-medium transition-colors";
 
   return (
-    <div className="bg-card rounded-3xl p-8 md:p-10 shadow-lg border border-border relative">
+    <div className="bg-card rounded-3xl p-5 md:p-8 shadow-lg border border-border relative">
       {/* Online badge */}
-      <div className="absolute top-5 right-5 inline-flex items-center gap-2 rounded-full bg-green-50 border border-green-200 px-3 py-1">
-        <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
-        <span className="font-bold text-green-700 text-sm">Online Now</span>
+      <div className="absolute top-4 right-4 inline-flex items-center gap-2 rounded-full bg-green-50 border border-green-200 px-2.5 py-1">
+        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+        <span className="font-bold text-green-700 text-xs">Online Now</span>
       </div>
 
-      <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
-        Get Your Free Estimate
-      </h3>
-      <p className="text-base text-muted-foreground mb-6">
-        No obligation • Expert advice • Fast response
-      </p>
-
-      {error && (
-        <div className="mb-4 p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm">
-          {error}
-        </div>
+      {/* Mobile: collapsed one-line strip until tapped. Desktop: always open. */}
+      {!expanded && (
+        <button
+          type="button"
+          onClick={() => setExpanded(true)}
+          className="md:hidden w-full text-left"
+        >
+          <p className="font-display text-lg font-bold text-foreground pr-24">
+            Can't talk right now?
+          </p>
+          <p className="text-sm text-muted-foreground mt-0.5">
+            Send your info instead →
+          </p>
+        </button>
       )}
 
-      <form action="https://formspree.io/f/xdalkyzy" method="POST" onSubmit={handleSubmit} className="space-y-4">
+      <div className={expanded ? 'block' : 'hidden md:block'}>
+        <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-1.5 pr-24">
+          Can't talk? Get a Free Estimate
+        </h3>
+        <p className="text-sm text-muted-foreground mb-5">
+          No obligation • Expert advice • Fast response
+        </p>
+
+        {error && (
+          <div className="mb-4 p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm">
+            {error}
+          </div>
+        )}
+
+        <form action="https://formspree.io/f/xdalkyzy" method="POST" onSubmit={handleSubmit} className="space-y-4">
+
         <input
           type="text"
           name="name"
@@ -162,12 +180,13 @@ export function HeroForm() {
           <Send className="w-5 h-5" />
           {submitting ? 'Submitting...' : 'Get Free Estimate'}
         </button>
-      </form>
+        </form>
 
-      <p className="flex items-center justify-center gap-2 text-sm text-muted-foreground mt-4">
-        <Lock className="w-4 h-4" />
-        Your information is secure and will never be shared
-      </p>
+        <p className="flex items-center justify-center gap-2 text-xs text-muted-foreground mt-3">
+          <Lock className="w-4 h-4" />
+          Your information is secure and will never be shared
+        </p>
+      </div>
     </div>
   );
 }
