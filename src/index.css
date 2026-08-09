@@ -5,65 +5,66 @@
 
 @layer base {
   :root {
-    /* Warm Local-Contractor Theme */
-    --background: 34 38% 96%;        /* warm cream */
-    --foreground: 22 24% 12%;        /* warm charcoal */
+    /* Logo-Derived Theme — Navy / Barn Red / Cream / Gold */
+    --background: 41 38% 94%;        /* logo cream */
+    --foreground: 221 30% 15%;       /* logo navy ink */
 
     /* Cards & Surfaces */
-    --card: 40 40% 99%;              /* warm paper white */
-    --card-foreground: 22 24% 12%;
-    --card-elevated: 34 30% 93%;
+    --card: 42 45% 98%;              /* warm paper white */
+    --card-foreground: 221 30% 15%;
+    --card-elevated: 41 34% 91%;
 
-    --popover: 40 40% 99%;
-    --popover-foreground: 22 24% 12%;
+    --popover: 42 45% 98%;
+    --popover-foreground: 221 30% 15%;
 
-    /* Gold Accent — Primary */
-    --primary: 38 78% 46%;           /* warm gold */
-    --primary-foreground: 24 30% 10%;
-    --primary-glow: 40 88% 56%;
-    --primary-hover: 30 84% 44%;     /* amber/orange hover */
+    /* Barn Red Accent — Primary */
+    --primary: 356 65% 40%;          /* logo red */
+    --primary-foreground: 40 40% 97%;
+    --primary-glow: 356 68% 50%;
+    --primary-hover: 356 70% 33%;
 
-    /* Secondary — warm sand */
-    --secondary: 34 30% 93%;
-    --secondary-foreground: 22 24% 12%;
+    /* Secondary — cream sand */
+    --secondary: 41 34% 91%;
+    --secondary-foreground: 221 30% 15%;
 
     /* Muted */
-    --muted: 34 28% 92%;
-    --muted-foreground: 26 12% 34%;
+    --muted: 41 30% 90%;
+    --muted-foreground: 221 14% 34%;
 
     /* Accent */
-    --accent: 34 30% 93%;
-    --accent-foreground: 22 24% 12%;
+    --accent: 41 34% 91%;
+    --accent-foreground: 221 30% 15%;
 
     /* Destructive */
-    --destructive: 4 68% 48%;
+    --destructive: 356 68% 44%;
     --destructive-foreground: 0 0% 100%;
 
     /* Borders & Input */
-    --border: 30 22% 84%;
-    --input: 30 22% 84%;
-    --ring: 38 78% 46%;
+    --border: 40 22% 82%;
+    --input: 40 22% 82%;
+    --ring: 356 65% 40%;
 
     --radius: 0.5rem;
 
-    /* Custom tokens — dark surfaces are warm charcoal-brown now */
-    --navy: 22 28% 14%;
-    --navy-deep: 22 30% 10%;
-    --navy-light: 24 20% 22%;
-    --gold-soft: 38 55% 50%;
-    --gold-bright: 40 88% 56%;
-    --text-subtle: 26 12% 34%;
+    /* Custom tokens — dark surfaces are logo navy */
+    --navy: 221 47% 20%;
+    --navy-deep: 221 50% 13%;
+    --navy-light: 220 34% 30%;
+    --gold-soft: 39 78% 48%;
+    --gold-bright: 39 88% 56%;
+    --text-subtle: 221 14% 34%;
 
     /* Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(38, 78%, 46%) 0%, hsl(30, 88%, 55%) 100%);
-    --gradient-navy: linear-gradient(180deg, hsl(22, 28%, 14%) 0%, hsl(22, 30%, 9%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(356, 65%, 42%) 0%, hsl(356, 70%, 33%) 100%);
+    --gradient-navy: linear-gradient(180deg, hsl(221, 47%, 20%) 0%, hsl(221, 50%, 12%) 100%);
 
-    /* Shadows — warm */
-    --shadow-sm: 0 6px 18px rgba(58,38,22,0.10);
-    --shadow-md: 0 10px 28px rgba(58,38,22,0.13);
-    --shadow-lg: 0 18px 60px rgba(58,38,22,0.18);
-    --shadow-gold: 0 4px 20px -4px hsl(34 84% 46% / 0.40);
-    --shadow-card: 0 6px 24px -6px rgba(58,38,22,0.14), 0 0 0 1px hsl(30 22% 84% / 0.9);
+    /* Shadows */
+    --shadow-sm: 0 6px 18px rgba(20,30,55,0.10);
+    --shadow-md: 0 10px 28px rgba(20,30,55,0.14);
+    --shadow-lg: 0 18px 60px rgba(20,30,55,0.20);
+    --shadow-gold: 0 4px 20px -4px hsl(356 65% 40% / 0.40);
+    --shadow-card: 0 6px 24px -6px rgba(20,30,55,0.16), 0 0 0 1px hsl(40 22% 82% / 0.9);
+
 
 
     /* Sidebar */
