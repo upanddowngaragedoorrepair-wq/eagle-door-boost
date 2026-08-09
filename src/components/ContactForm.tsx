@@ -144,13 +144,14 @@ export function ContactForm() {
             <form action="https://formspree.io/f/xdalkyzy" method="POST" onSubmit={handleSubmit} className="space-y-5">
               <div className="grid md:grid-cols-2 gap-4">
                 <input type="text" name="name" placeholder="Your Name *" required className={inputClass} value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
-                <input type="tel" name="phone" placeholder="Phone Number *" required className={inputClass} value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
+                <input type="tel" name="phone" placeholder="Phone Number *" required inputMode="tel" autoComplete="tel" className={inputClass} value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: formatPhoneInput(e.target.value) })} />
               </div>
 
               <div className="grid md:grid-cols-2 gap-4">
-                <input type="email" name="email" placeholder="Email Address" className={inputClass} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
-                <input type="text" name="zip" placeholder="Zip Code *" required className={inputClass} value={formData.zipCode} onChange={(e) => setFormData({ ...formData, zipCode: e.target.value })} />
+                <input type="email" name="email" placeholder="Email Address *" required inputMode="email" autoComplete="email" className={inputClass} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+                <input type="text" name="zip" placeholder="Zip Code *" required inputMode="numeric" pattern="[0-9]{5}" maxLength={5} className={inputClass} value={formData.zipCode} onChange={(e) => setFormData({ ...formData, zipCode: e.target.value.replace(/\D/g, '').slice(0, 5) })} />
               </div>
+
 
               <input type="text" name="address" placeholder="Street Address" className={inputClass} value={formData.address} onChange={(e) => setFormData({ ...formData, address: e.target.value })} />
 
