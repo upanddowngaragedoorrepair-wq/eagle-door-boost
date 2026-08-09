@@ -57,11 +57,10 @@ export function Hero() {
   };
 
   const bullets = [
-    'Over 300 Gates Installed',
-    'Small Company — Real Attention To Detail',
-    'Free Drawing With Every Estimate',
-    'In-House Techs — No Subcontractors',
     'Same Day Service Available',
+    'Free Estimates — No Obligation',
+    '20+ Years of Experience',
+    'Residential & Commercial',
   ];
 
 
