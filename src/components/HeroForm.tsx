@@ -145,9 +145,11 @@ export function HeroForm() {
           name="phone"
           placeholder="Phone Number *"
           required
+          inputMode="tel"
+          autoComplete="tel"
           className={inputClass}
           value={formData.phone}
-          onChange={e => setFormData({ ...formData, phone: e.target.value })}
+          onChange={e => setFormData({ ...formData, phone: formatPhoneInput(e.target.value) })}
           onFocus={handleFocus}
         />
 
@@ -160,7 +162,10 @@ export function HeroForm() {
             <input
               type="email"
               name="email"
-              placeholder="Email Address"
+              placeholder="Email Address *"
+              required
+              inputMode="email"
+              autoComplete="email"
               className={inputClass}
               value={formData.email}
               onChange={e => setFormData({ ...formData, email: e.target.value })}
@@ -168,10 +173,12 @@ export function HeroForm() {
             <input
               type="text"
               name="zip"
-              placeholder="Zip Code"
+              placeholder="Zip Code *"
+              required
               inputMode="numeric"
-              pattern="[0-9]*"
+              pattern="[0-9]{5}"
               maxLength={5}
+
               className={inputClass}
               value={formData.zip}
               onChange={e => setFormData({ ...formData, zip: e.target.value.replace(/\D/g, '').slice(0, 5) })}
