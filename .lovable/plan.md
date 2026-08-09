@@ -80,7 +80,7 @@ Shift the palette from cool corporate navy toward a warm, work-truck feel while 
 - Frontend/presentation only. No changes to `LocationContext`, `serviceMapping` keyword logic, URL param persistence, Formspree/CallRail submission code, or GTM event names — existing `dataLayer` pushes are preserved and new call CTAs reuse the same `cta_call_click` event with a distinct `cta_location`.
 - Files touched: `Hero.tsx`, `HeroForm.tsx`, `Header.tsx`, `UrgencyTicker.tsx`, `StickyCallBar.tsx`, `Services.tsx`, `MidCTA.tsx` (reused as the slim call band), `pages/Index.tsx` for order, plus small spacing tweaks in `index.css`.
 - Lazy loading, code splitting, and image formats stay as they are; new elements are text/icon only, so no added image weight.
-- Existing colors and fonts are kept (navy / white / gold, Oswald + Inter) — this is a conversion layout pass, not a rebrand.
+- Fonts stay (Oswald + Inter). Colors shift warm via token values only — every dark navy, gray surface, and shadow token is retuned in one place, so no component needs a hardcoded color.
 
 ## Measurement
 
