@@ -151,7 +151,7 @@ export function Hero() {
             <ul className="space-y-2.5 mb-5">
               {bullets.map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-base md:text-lg text-white/90">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-[hsl(var(--gold-bright))] flex-shrink-0" />
                   {item}
                 </li>
               ))}
