@@ -164,7 +164,7 @@ export function VideoTestimonials() {
 
         {/* Headline */}
         <h3 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-center text-white tracking-tight">
-          See <span className="text-primary">Real Customers</span> & Real Results
+          See <span className="text-[hsl(var(--gold-bright))]">Real Customers</span> & Real Results
         </h3>
         <p className="text-center text-white/70 mt-3 mb-8 md:mb-12 text-base md:text-lg">
           Real work. Real clients. Real results.
