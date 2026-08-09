@@ -95,22 +95,23 @@ export function Hero() {
           <div>
             {/* Local badge */}
             <div className="flex flex-wrap items-center gap-2.5 mb-5">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 border border-primary/40">
-                <MapPin className="w-4 h-4 text-primary" />
-                <span className="text-sm font-bold text-primary uppercase tracking-wide">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary border border-primary">
+                <MapPin className="w-4 h-4 text-primary-foreground" />
+                <span className="text-sm font-bold text-primary-foreground uppercase tracking-wide">
                   Family Owned • Serving {city}
                 </span>
               </span>
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15">
-                <Scaling className="w-4 h-4 text-primary" />
+                <Scaling className="w-4 h-4 text-[hsl(var(--gold-bright))]" />
                 <span className="text-sm font-bold text-white">No Job Is Too Small or Big To Us</span>
               </span>
             </div>
 
             {/* Headline */}
             <h1 className="text-[2.75rem] leading-[1.05] sm:text-6xl lg:text-7xl font-display font-extrabold mb-3 tracking-tight text-white">
-              Local <span className="text-primary">{headlinePhrase}</span>
+              Local <span className="text-[hsl(var(--gold-bright))]">{headlinePhrase}</span>
             </h1>
+
 
             <p className="text-xl md:text-2xl font-display font-semibold relative inline-block headline-underline mb-7 text-white/85">
               Best Price Guarantee
