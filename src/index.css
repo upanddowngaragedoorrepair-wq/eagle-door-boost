@@ -69,21 +69,22 @@
 
 
     /* Sidebar */
-    --sidebar-background: 221 47% 20%;
-    --sidebar-foreground: 40 30% 95%;
-    --sidebar-primary: 219 65% 40%;
-    --sidebar-primary-foreground: 40 40% 97%;
-    --sidebar-accent: 220 34% 30%;
-    --sidebar-accent-foreground: 40 30% 95%;
-    --sidebar-border: 220 26% 28%;
-    --sidebar-ring: 219 65% 40%;
+    --sidebar-background: 212 72% 19%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 358 66% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 211 55% 28%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 211 40% 26%;
+    --sidebar-ring: 358 66% 45%;
 
-    --chart-1: 219 65% 40%;
-    --chart-2: 221 47% 30%;
+    --chart-1: 358 66% 45%;
+    --chart-2: 212 72% 25%;
     --chart-3: 39 82% 51%;
-    --chart-4: 220 34% 45%;
-    --chart-5: 219 50% 58%;
-    --sidebar: 221 47% 20%;
+    --chart-4: 211 55% 40%;
+    --chart-5: 213 30% 60%;
+    --sidebar: 212 72% 19%;
+
 
 
     --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
