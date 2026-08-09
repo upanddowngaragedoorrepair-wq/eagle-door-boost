@@ -180,12 +180,13 @@ export function HeroForm() {
           <Send className="w-5 h-5" />
           {submitting ? 'Submitting...' : 'Get Free Estimate'}
         </button>
-      </form>
+        </form>
 
-      <p className="flex items-center justify-center gap-2 text-sm text-muted-foreground mt-4">
-        <Lock className="w-4 h-4" />
-        Your information is secure and will never be shared
-      </p>
+        <p className="flex items-center justify-center gap-2 text-xs text-muted-foreground mt-3">
+          <Lock className="w-4 h-4" />
+          Your information is secure and will never be shared
+        </p>
+      </div>
     </div>
   );
 }
