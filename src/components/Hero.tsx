@@ -102,7 +102,7 @@ export function Hero() {
 
             {/* Headline */}
             <h1 className="text-[2.75rem] leading-[1.05] sm:text-6xl lg:text-7xl font-display font-extrabold mb-3 tracking-tight text-white">
-              Local <span className="text-[hsl(var(--gold-bright))]">{headlinePhrase}</span>
+              Local <span className="text-white">{headlinePhrase}</span>
             </h1>
 
 
