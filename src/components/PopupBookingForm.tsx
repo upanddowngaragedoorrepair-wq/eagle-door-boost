@@ -2,6 +2,8 @@ import { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Send, Lock, Phone, X, Tag, Clock } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
+import { formatPhoneInput, phoneDigits, isValidUsPhone, isValidZip, isValidEmail } from '@/lib/phone';
+
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 
 function getTimeUntilEndOfDay() {
@@ -67,6 +69,20 @@ export function PopupBookingForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!isValidUsPhone(formData.phone)) {
+      setError('Please enter a valid 10-digit phone number.');
+      return;
+    }
+    if (!isValidEmail(formData.email)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+    if (!isValidZip(formData.zip)) {
+      setError('Please enter a valid 5-digit zip code.');
+      return;
+    }
+
     setSubmitting(true);
     setError('');
 
@@ -76,7 +92,8 @@ export function PopupBookingForm() {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           name: formData.name,
-          phone: formData.phone,
+          phone: formatPhoneInput(formData.phone),
+          phone_digits: phoneDigits(formData.phone),
           email: formData.email,
           zip: formData.zip,
           address: '',
@@ -87,6 +104,7 @@ export function PopupBookingForm() {
           _subject: `New Popup Lead (10% Off) - ${formData.name} from ${city}`,
         }),
       });
+
 
       if (res.ok) {
         const params = new URLSearchParams(window.location.search);
@@ -171,13 +189,14 @@ export function PopupBookingForm() {
           <form action="https://formspree.io/f/xdalkyzy" method="POST" onSubmit={handleSubmit} className="space-y-2 md:space-y-3">
             <input type="text" name="name" placeholder="Your Name *" required className={inputClass}
               value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} />
-            <input type="tel" name="phone" placeholder="Phone Number *" required className={inputClass}
-              value={formData.phone} onChange={e => setFormData({ ...formData, phone: e.target.value })} />
-            <input type="email" name="email" placeholder="Email Address" className={inputClass}
+            <input type="tel" name="phone" placeholder="Phone Number *" required inputMode="tel" autoComplete="tel" className={inputClass}
+              value={formData.phone} onChange={e => setFormData({ ...formData, phone: formatPhoneInput(e.target.value) })} />
+            <input type="email" name="email" placeholder="Email Address *" required inputMode="email" autoComplete="email" className={inputClass}
               value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} />
             <div className="grid grid-cols-2 gap-2 md:gap-3">
-              <input type="text" name="zip" placeholder="Zip Code" inputMode="numeric" pattern="[0-9]*" maxLength={5} className={inputClass}
+              <input type="text" name="zip" placeholder="Zip Code *" required inputMode="numeric" pattern="[0-9]{5}" maxLength={5} className={inputClass}
                 value={formData.zip} onChange={e => setFormData({ ...formData, zip: e.target.value.replace(/\D/g, '').slice(0, 5) })} />
+
               <select name="service" className={`${inputClass} appearance-none`}
                 value={formData.service} onChange={e => setFormData({ ...formData, service: e.target.value })}>
                 <option value="">Service Needed</option>

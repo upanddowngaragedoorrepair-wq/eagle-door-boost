@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Send, Lock } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
+import { formatPhoneInput, phoneDigits, isValidUsPhone, isValidZip, isValidEmail } from '@/lib/phone';
+
 
 const serviceOptions = [
   'Gate Repair',
@@ -34,6 +36,20 @@ export function HeroForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!isValidUsPhone(formData.phone)) {
+      setError('Please enter a valid 10-digit phone number.');
+      return;
+    }
+    if (!isValidEmail(formData.email)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+    if (!isValidZip(formData.zip)) {
+      setError('Please enter a valid 5-digit zip code.');
+      return;
+    }
+
     setSubmitting(true);
     setError('');
 
@@ -43,7 +59,8 @@ export function HeroForm() {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           name: formData.name,
-          phone: formData.phone,
+          phone: formatPhoneInput(formData.phone),
+          phone_digits: phoneDigits(formData.phone),
           email: formData.email,
           message: `Service needed: ${formData.service}`,
           zip: formData.zip,
@@ -52,6 +69,7 @@ export function HeroForm() {
           cp,
         }),
       });
+
 
       if (res.ok) {
         const params = new URLSearchParams(window.location.search);
@@ -127,9 +145,11 @@ export function HeroForm() {
           name="phone"
           placeholder="Phone Number *"
           required
+          inputMode="tel"
+          autoComplete="tel"
           className={inputClass}
           value={formData.phone}
-          onChange={e => setFormData({ ...formData, phone: e.target.value })}
+          onChange={e => setFormData({ ...formData, phone: formatPhoneInput(e.target.value) })}
           onFocus={handleFocus}
         />
 
@@ -142,7 +162,10 @@ export function HeroForm() {
             <input
               type="email"
               name="email"
-              placeholder="Email Address"
+              placeholder="Email Address *"
+              required
+              inputMode="email"
+              autoComplete="email"
               className={inputClass}
               value={formData.email}
               onChange={e => setFormData({ ...formData, email: e.target.value })}
@@ -150,10 +173,12 @@ export function HeroForm() {
             <input
               type="text"
               name="zip"
-              placeholder="Zip Code"
+              placeholder="Zip Code *"
+              required
               inputMode="numeric"
-              pattern="[0-9]*"
+              pattern="[0-9]{5}"
               maxLength={5}
+
               className={inputClass}
               value={formData.zip}
               onChange={e => setFormData({ ...formData, zip: e.target.value.replace(/\D/g, '').slice(0, 5) })}

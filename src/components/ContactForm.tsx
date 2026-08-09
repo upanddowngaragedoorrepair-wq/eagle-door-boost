@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Send, MapPin, Zap, Shield, Star, Lock } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
+import { formatPhoneInput, phoneDigits, isValidUsPhone, isValidZip, isValidEmail } from '@/lib/phone';
+
 
 export function ContactForm() {
   const { city, cp, phoneLink, phoneFormatted } = useLocation2();
@@ -19,6 +21,20 @@ export function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!isValidUsPhone(formData.phone)) {
+      setError('Please enter a valid 10-digit phone number.');
+      return;
+    }
+    if (!isValidEmail(formData.email)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+    if (!isValidZip(formData.zipCode)) {
+      setError('Please enter a valid 5-digit zip code.');
+      return;
+    }
+
     setSubmitting(true);
     setError('');
 
@@ -28,7 +44,8 @@ export function ContactForm() {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           name: formData.name,
-          phone: formData.phone,
+          phone: formatPhoneInput(formData.phone),
+          phone_digits: phoneDigits(formData.phone),
           email: formData.email,
           zip: formData.zipCode,
           address: formData.address,
@@ -38,6 +55,7 @@ export function ContactForm() {
           cp: cp
         })
       });
+
 
       if (res.ok) {
         const params = new URLSearchParams(window.location.search);
@@ -126,13 +144,14 @@ export function ContactForm() {
             <form action="https://formspree.io/f/xdalkyzy" method="POST" onSubmit={handleSubmit} className="space-y-5">
               <div className="grid md:grid-cols-2 gap-4">
                 <input type="text" name="name" placeholder="Your Name *" required className={inputClass} value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
-                <input type="tel" name="phone" placeholder="Phone Number *" required className={inputClass} value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
+                <input type="tel" name="phone" placeholder="Phone Number *" required inputMode="tel" autoComplete="tel" className={inputClass} value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: formatPhoneInput(e.target.value) })} />
               </div>
 
               <div className="grid md:grid-cols-2 gap-4">
-                <input type="email" name="email" placeholder="Email Address" className={inputClass} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
-                <input type="text" name="zip" placeholder="Zip Code *" required className={inputClass} value={formData.zipCode} onChange={(e) => setFormData({ ...formData, zipCode: e.target.value })} />
+                <input type="email" name="email" placeholder="Email Address *" required inputMode="email" autoComplete="email" className={inputClass} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+                <input type="text" name="zip" placeholder="Zip Code *" required inputMode="numeric" pattern="[0-9]{5}" maxLength={5} className={inputClass} value={formData.zipCode} onChange={(e) => setFormData({ ...formData, zipCode: e.target.value.replace(/\D/g, '').slice(0, 5) })} />
               </div>
+
 
               <input type="text" name="address" placeholder="Street Address" className={inputClass} value={formData.address} onChange={(e) => setFormData({ ...formData, address: e.target.value })} />
 
