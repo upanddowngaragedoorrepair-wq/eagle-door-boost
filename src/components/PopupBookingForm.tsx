@@ -2,6 +2,8 @@ import { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Send, Lock, Phone, X, Tag, Clock } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
+import { formatPhoneInput, phoneDigits, isValidUsPhone, isValidZip, isValidEmail } from '@/lib/phone';
+
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 
 function getTimeUntilEndOfDay() {
