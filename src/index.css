@@ -252,8 +252,8 @@
 }
 
 @keyframes cta-pulse {
-  0%, 100% { box-shadow: 0 6px 22px -4px hsl(219 70% 28% / 0.45), 0 0 0 0 hsl(219 68% 46% / 0.45); }
-  50% { box-shadow: 0 6px 22px -4px hsl(219 70% 28% / 0.45), 0 0 0 10px hsl(219 68% 46% / 0); }
+  0%, 100% { box-shadow: 0 6px 22px -4px hsl(358 70% 30% / 0.45), 0 0 0 0 hsl(358 70% 50% / 0.45); }
+  50% { box-shadow: 0 6px 22px -4px hsl(358 70% 30% / 0.45), 0 0 0 10px hsl(358 70% 50% / 0); }
 }
 
 
