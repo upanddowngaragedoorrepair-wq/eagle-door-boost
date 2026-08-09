@@ -57,12 +57,13 @@ export function Hero() {
   };
 
   const bullets = [
-    'Licensed & Insured — LIC#1138855',
+    'Over 300 Gates Installed',
+    'Small Company — Real Attention To Detail',
+    'Free Drawing With Every Estimate',
+    'In-House Techs — No Subcontractors',
     'Same Day Service Available',
-    'Free Estimates — No Obligation',
-    '20+ Years of Experience',
-    'Residential & Commercial',
   ];
+
 
   return (
     <section className="relative pt-28 md:pt-32 pb-12 lg:pb-20 overflow-hidden hero-min bg-[hsl(var(--navy))]">
