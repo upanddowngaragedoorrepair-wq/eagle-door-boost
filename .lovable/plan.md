@@ -29,9 +29,15 @@ Move off the amber/brown palette to the logo's own colors so the page reads fami
 - Cream `#EFE7D6` — page background
 - Gold `#E8A21C` — small accents only (stars, ticks, underline shine)
 
-Buttons become a red gradient with cream text, dark bands become navy, headline accent words go red, and stars/checks stay gold. Contrast is checked on both the cream background and navy sections.
+
+## 5. New Before/After section under the projects gallery
+Add a "Before / After" section directly below the Recent Projects gallery. Each item is an interactive comparison: one image with a draggable divider (round arrow handle in the middle) that wipes between the before shot and the after shot, plus small "Before" / "After" corner labels. Grid of 2 across on desktop, 1 across on mobile, with drag and touch support and keyboard arrows for accessibility.
+
+Ships with placeholder pairs using existing project photos so the layout is live; you drop your real before/after pics in later by swapping the image entries in one array. Section ends with a slim call band so viewers can act on what they just saw.
 
 ## Technical notes
+- New `src/components/BeforeAfter.tsx`: local `pairs` array (`before`, `after`, `caption`), clip-path/width wipe driven by pointer position, lazy-loaded images with explicit width/height, no new dependencies. Rendered lazily in `Index.tsx` right after `<RecentProjects />` inside the existing `LazySection` pattern.
+
 - `StickyCallBar.tsx`: add a scroll listener (passive, rAF-throttled) that flips visibility past the hero height; keep the existing tracking `dataLayer` pushes and both mobile/desktop variants.
 - `Hero.tsx`: rewrite the `bullets` array, keep license text in the rating strip only. No changes to `useLocation2`, tracking params, or the form.
 - `UrgencyTicker.tsx`: replace `tickerItems` with the new proof points; drop the `isPhone` phone-number rendering (keeps `href={phoneLink}`).
