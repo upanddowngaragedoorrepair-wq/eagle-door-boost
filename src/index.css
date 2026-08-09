@@ -5,84 +5,86 @@
 
 @layer base {
   :root {
-    /* Logo-Derived Theme — Navy / Barn Red / Cream / Gold */
-    --background: 41 38% 94%;        /* logo cream */
-    --foreground: 221 30% 15%;       /* logo navy ink */
+    /* Reference Palette — Deep Navy / Barn Red / White / Gold */
+    --background: 0 0% 100%;         /* clean white */
+    --foreground: 213 45% 14%;       /* navy ink */
 
     /* Cards & Surfaces */
-    --card: 42 45% 98%;              /* warm paper white */
-    --card-foreground: 221 30% 15%;
-    --card-elevated: 41 34% 91%;
+    --card: 0 0% 100%;
+    --card-foreground: 213 45% 14%;
+    --card-elevated: 210 30% 97%;
 
-    --popover: 42 45% 98%;
-    --popover-foreground: 221 30% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 213 45% 14%;
 
     /* Barn Red Accent — Primary */
-    --primary: 219 65% 40%;          /* deep logo blue */
-    --primary-foreground: 40 40% 97%;
-    --primary-glow: 219 68% 50%;
-    --primary-hover: 219 70% 33%;
+    --primary: 358 66% 45%;          /* logo red CTA */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 358 70% 54%;
+    --primary-hover: 358 70% 38%;
 
-    /* Secondary — cream sand */
-    --secondary: 41 34% 91%;
-    --secondary-foreground: 221 30% 15%;
+    /* Secondary */
+    --secondary: 210 30% 96%;
+    --secondary-foreground: 213 45% 14%;
 
     /* Muted */
-    --muted: 41 30% 90%;
-    --muted-foreground: 221 14% 34%;
+    --muted: 210 25% 95%;
+    --muted-foreground: 213 16% 38%;
 
     /* Accent */
-    --accent: 41 34% 91%;
-    --accent-foreground: 221 30% 15%;
+    --accent: 210 30% 96%;
+    --accent-foreground: 213 45% 14%;
 
     /* Destructive */
-    --destructive: 356 68% 44%;
+    --destructive: 358 68% 44%;
     --destructive-foreground: 0 0% 100%;
 
     /* Borders & Input */
-    --border: 40 22% 82%;
-    --input: 40 22% 82%;
-    --ring: 219 65% 40%;
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 358 66% 45%;
 
     --radius: 0.5rem;
 
     /* Custom tokens — dark surfaces are logo navy */
-    --navy: 221 47% 20%;
-    --navy-deep: 221 50% 13%;
-    --navy-light: 220 34% 30%;
-    --gold-soft: 39 78% 48%;
-    --gold-bright: 39 88% 56%;
-    --text-subtle: 221 14% 34%;
+    --navy: 212 72% 19%;
+    --navy-deep: 213 78% 13%;
+    --navy-light: 211 55% 28%;
+    --gold-soft: 39 82% 48%;
+    --gold-bright: 41 90% 56%;
+    --text-subtle: 213 16% 38%;
 
     /* Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(219, 65%, 42%) 0%, hsl(219, 70%, 33%) 100%);
-    --gradient-navy: linear-gradient(180deg, hsl(221, 47%, 20%) 0%, hsl(221, 50%, 12%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(358, 66%, 47%) 0%, hsl(358, 72%, 37%) 100%);
+    --gradient-navy: linear-gradient(180deg, hsl(212, 72%, 19%) 0%, hsl(213, 78%, 12%) 100%);
 
     /* Shadows */
-    --shadow-sm: 0 6px 18px rgba(20,30,55,0.10);
-    --shadow-md: 0 10px 28px rgba(20,30,55,0.14);
-    --shadow-lg: 0 18px 60px rgba(20,30,55,0.20);
-    --shadow-gold: 0 4px 20px -4px hsl(219 65% 40% / 0.40);
-    --shadow-card: 0 6px 24px -6px rgba(20,30,55,0.16), 0 0 0 1px hsl(40 22% 82% / 0.9);
+    --shadow-sm: 0 6px 18px rgba(11,32,64,0.10);
+    --shadow-md: 0 10px 28px rgba(11,32,64,0.14);
+    --shadow-lg: 0 18px 60px rgba(11,32,64,0.20);
+    --shadow-gold: 0 4px 20px -4px hsl(358 66% 45% / 0.40);
+    --shadow-card: 0 6px 24px -6px rgba(11,32,64,0.16), 0 0 0 1px hsl(210 20% 88% / 0.9);
+
 
 
 
     /* Sidebar */
-    --sidebar-background: 221 47% 20%;
-    --sidebar-foreground: 40 30% 95%;
-    --sidebar-primary: 219 65% 40%;
-    --sidebar-primary-foreground: 40 40% 97%;
-    --sidebar-accent: 220 34% 30%;
-    --sidebar-accent-foreground: 40 30% 95%;
-    --sidebar-border: 220 26% 28%;
-    --sidebar-ring: 219 65% 40%;
+    --sidebar-background: 212 72% 19%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 358 66% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 211 55% 28%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 211 40% 26%;
+    --sidebar-ring: 358 66% 45%;
 
-    --chart-1: 219 65% 40%;
-    --chart-2: 221 47% 30%;
+    --chart-1: 358 66% 45%;
+    --chart-2: 212 72% 25%;
     --chart-3: 39 82% 51%;
-    --chart-4: 220 34% 45%;
-    --chart-5: 219 50% 58%;
-    --sidebar: 221 47% 20%;
+    --chart-4: 211 55% 40%;
+    --chart-5: 213 30% 60%;
+    --sidebar: 212 72% 19%;
+
 
 
     --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
@@ -131,11 +133,11 @@
   .btn-cta {
     @apply inline-flex items-center justify-center gap-3 px-8 py-4 text-lg font-bold rounded-full transition-all duration-300;
     font-family: 'Oswald', sans-serif;
-    background: linear-gradient(135deg, hsl(219 62% 46%) 0%, hsl(219 72% 33%) 100%);
-    color: hsl(40 45% 97%);
+    background: linear-gradient(135deg, hsl(358 66% 48%) 0%, hsl(358 72% 37%) 100%);
+    color: hsl(0 0% 100%);
     box-shadow:
-      0 6px 22px -4px hsl(219 70% 28% / 0.45),
-      inset 0 1px 0 0 hsl(219 60% 70% / 0.45);
+      0 6px 22px -4px hsl(358 70% 30% / 0.45),
+      inset 0 1px 0 0 hsl(358 80% 78% / 0.40);
     text-transform: uppercase;
     letter-spacing: 0.06em;
     border: none;
@@ -154,17 +156,17 @@
 
   .btn-cta:hover {
     transform: translateY(-2px);
-    background: linear-gradient(135deg, hsl(219 66% 42%) 0%, hsl(219 76% 28%) 100%);
+    background: linear-gradient(135deg, hsl(358 70% 43%) 0%, hsl(358 76% 32%) 100%);
     box-shadow:
-      0 10px 32px -6px hsl(219 72% 26% / 0.55),
-      inset 0 1px 0 0 hsl(219 60% 70% / 0.45);
+      0 10px 32px -6px hsl(358 72% 28% / 0.55),
+      inset 0 1px 0 0 hsl(358 80% 78% / 0.40);
   }
 
   .btn-cta:active {
     transform: translateY(0px);
     box-shadow:
-      0 2px 12px -2px hsl(219 70% 28% / 0.35),
-      inset 0 1px 0 0 hsl(219 60% 70% / 0.35);
+      0 2px 12px -2px hsl(358 70% 30% / 0.35),
+      inset 0 1px 0 0 hsl(358 80% 78% / 0.30);
   }
 
 
@@ -250,8 +252,8 @@
 }
 
 @keyframes cta-pulse {
-  0%, 100% { box-shadow: 0 6px 22px -4px hsl(219 70% 28% / 0.45), 0 0 0 0 hsl(219 68% 46% / 0.45); }
-  50% { box-shadow: 0 6px 22px -4px hsl(219 70% 28% / 0.45), 0 0 0 10px hsl(219 68% 46% / 0); }
+  0%, 100% { box-shadow: 0 6px 22px -4px hsl(358 70% 30% / 0.45), 0 0 0 0 hsl(358 70% 50% / 0.45); }
+  50% { box-shadow: 0 6px 22px -4px hsl(358 70% 30% / 0.45), 0 0 0 10px hsl(358 70% 50% / 0); }
 }
 
 
