@@ -50,10 +50,30 @@ Hero (call-first)  →  Rating/trust strip  →  Services  →  Call band
 
 Reviews and video proof move up ahead of projects and coupon; nothing is deleted.
 
-### 6. Copy sharpening
+### 6. Copy: keep your words, reframe them as local
 
-- Replace vague reassurance with specific, checkable claims: response window, license number, years, warranty.
-- Offer clarity: state the coupon value once in the hero trust row rather than only deep in the page.
+All existing copy stays — no rewritten claims, no new offers. Only the framing around it changes:
+
+- Wrap the current hero bullets in local language already used on the site: family owned, {City} / {County} based, LIC#1138855, 20+ years serving the area.
+- Surface the existing city/county name (from your current URL-param logic) in the hero badge and the call bands, so a visitor from Sunnyvale sees Sunnyvale rather than a generic pitch.
+- The existing coupon value appears once in the hero trust row instead of only deep in the page.
+
+### 7. Warmer, local-contractor look
+
+Shift the palette from cool corporate navy toward a warm, work-truck feel while keeping the gold accent and both fonts:
+
+- Deep warm charcoal-brown replaces the cool navy for dark sections; the current gold accent stays as the primary CTA color, with a warmer amber/orange hover.
+- Cream / warm off-white replaces the cool gray section backgrounds, so cards read as paper rather than SaaS panels.
+- Slightly heavier borders and a warm shadow tone on cards; less glass/blur, more solid and tactile.
+- All of it via the existing HSL tokens in `index.css` and `tailwind.config.ts` — components keep using semantic tokens, so nothing hardcodes color.
+
+### 8. Aggressive CTA treatment
+
+- Call buttons get bigger type, uppercase Oswald, a subtle pulse on the sticky bar, and a live "Open now — techs available" dot.
+- Sticky bar is always on (mobile and desktop), full-width on mobile with the tracking number as the label.
+- Every section ends with a call ask; no more than roughly one screen of scrolling between phone prompts.
+- Urgency framing pulled from your existing lines only ("Same Day Service Available", "30-Min Response", "Best Price Guarantee") — repeated more often and more loudly, not invented.
+
 
 ## Technical notes
 
