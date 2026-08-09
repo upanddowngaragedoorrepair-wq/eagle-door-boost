@@ -121,16 +121,17 @@ export function Hero() {
               <span className="flex items-center gap-1.5">
                 <span className="flex">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-primary fill-primary" />
+                    <Star key={i} className="w-4 h-4 text-[hsl(var(--gold-bright))] fill-[hsl(var(--gold-bright))]" />
                   ))}
                 </span>
                 <span className="text-sm font-bold">4.9 Google • 189+ reviews</span>
               </span>
               <span className="flex items-center gap-1.5 text-sm font-bold">
-                <ShieldCheck className="w-4 h-4 text-primary" />
-                LIC#1138855 • BBB Accredited
+                <ShieldCheck className="w-4 h-4 text-[hsl(var(--gold-bright))]" />
+                Licensed & Insured — LIC#1138855
               </span>
             </div>
+
 
             {/* Primary action — the call */}
             <a
