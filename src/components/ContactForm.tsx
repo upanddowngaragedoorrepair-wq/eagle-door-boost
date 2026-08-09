@@ -21,6 +21,20 @@ export function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!isValidUsPhone(formData.phone)) {
+      setError('Please enter a valid 10-digit phone number.');
+      return;
+    }
+    if (!isValidEmail(formData.email)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+    if (!isValidZip(formData.zipCode)) {
+      setError('Please enter a valid 5-digit zip code.');
+      return;
+    }
+
     setSubmitting(true);
     setError('');
 
@@ -30,7 +44,8 @@ export function ContactForm() {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           name: formData.name,
-          phone: formData.phone,
+          phone: formatPhoneInput(formData.phone),
+          phone_digits: phoneDigits(formData.phone),
           email: formData.email,
           zip: formData.zipCode,
           address: formData.address,
@@ -40,6 +55,7 @@ export function ContactForm() {
           cp: cp
         })
       });
+
 
       if (res.ok) {
         const params = new URLSearchParams(window.location.search);
