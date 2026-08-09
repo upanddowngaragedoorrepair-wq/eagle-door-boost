@@ -109,7 +109,7 @@ export function ContactForm() {
             Licensed & Insured
           </span>
           <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-background border border-border text-base font-semibold text-foreground shadow-sm">
-            <Star className="w-5 h-5 text-primary" />
+            <Star className="w-5 h-5 text-[hsl(var(--gold-bright))] fill-[hsl(var(--gold-bright))]" />
             5-Star Rated
           </span>
         </div>
