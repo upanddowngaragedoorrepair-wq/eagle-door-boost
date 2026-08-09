@@ -18,10 +18,10 @@
     --popover-foreground: 213 45% 14%;
 
     /* Barn Red Accent — Primary */
-    --primary: 358 66% 45%;          /* logo red CTA */
+    --primary: 210 100% 20%;         /* logo deep blue CTA */
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 358 70% 54%;
-    --primary-hover: 358 70% 38%;
+    --primary-glow: 210 100% 30%;
+    --primary-hover: 210 100% 15%;
 
     /* Secondary */
     --secondary: 210 30% 96%;
@@ -42,7 +42,7 @@
     /* Borders & Input */
     --border: 210 20% 88%;
     --input: 210 20% 88%;
-    --ring: 358 66% 45%;
+    --ring: 210 100% 20%;
 
     --radius: 0.5rem;
 
@@ -50,19 +50,19 @@
     --navy: 212 72% 19%;
     --navy-deep: 213 78% 13%;
     --navy-light: 211 55% 28%;
-    --gold-soft: 39 82% 48%;
-    --gold-bright: 41 90% 56%;
+    --gold-soft: 38 84% 58%;
+    --gold-bright: 38 84% 64%;
     --text-subtle: 213 16% 38%;
 
     /* Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(358, 66%, 47%) 0%, hsl(358, 72%, 37%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(40, 88%, 68%) 0%, hsl(36, 82%, 55%) 100%);
     --gradient-navy: linear-gradient(180deg, hsl(212, 72%, 19%) 0%, hsl(213, 78%, 12%) 100%);
 
     /* Shadows */
     --shadow-sm: 0 6px 18px rgba(11,32,64,0.10);
     --shadow-md: 0 10px 28px rgba(11,32,64,0.14);
     --shadow-lg: 0 18px 60px rgba(11,32,64,0.20);
-    --shadow-gold: 0 4px 20px -4px hsl(358 66% 45% / 0.40);
+    --shadow-gold: 0 4px 20px -4px hsl(38 84% 55% / 0.45);
     --shadow-card: 0 6px 24px -6px rgba(11,32,64,0.16), 0 0 0 1px hsl(210 20% 88% / 0.9);
 
 
@@ -71,16 +71,16 @@
     /* Sidebar */
     --sidebar-background: 212 72% 19%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 358 66% 45%;
+    --sidebar-primary: 210 100% 20%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 211 55% 28%;
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 211 40% 26%;
-    --sidebar-ring: 358 66% 45%;
+    --sidebar-ring: 210 100% 20%;
 
-    --chart-1: 358 66% 45%;
+    --chart-1: 210 100% 20%;
     --chart-2: 212 72% 25%;
-    --chart-3: 39 82% 51%;
+    --chart-3: 38 84% 58%;
     --chart-4: 211 55% 40%;
     --chart-5: 213 30% 60%;
     --sidebar: 212 72% 19%;
@@ -133,11 +133,11 @@
   .btn-cta {
     @apply inline-flex items-center justify-center gap-3 px-8 py-4 text-lg font-bold rounded-full transition-all duration-300;
     font-family: 'Oswald', sans-serif;
-    background: linear-gradient(135deg, hsl(358 66% 48%) 0%, hsl(358 72% 37%) 100%);
+    background: linear-gradient(135deg, hsl(210 100% 24%) 0%, hsl(212 100% 15%) 100%);
     color: hsl(0 0% 100%);
     box-shadow:
-      0 6px 22px -4px hsl(358 70% 30% / 0.45),
-      inset 0 1px 0 0 hsl(358 80% 78% / 0.40);
+      0 6px 22px -4px hsl(212 100% 12% / 0.45),
+      inset 0 1px 0 0 hsl(210 80% 78% / 0.30);
     text-transform: uppercase;
     letter-spacing: 0.06em;
     border: none;
@@ -156,17 +156,17 @@
 
   .btn-cta:hover {
     transform: translateY(-2px);
-    background: linear-gradient(135deg, hsl(358 70% 43%) 0%, hsl(358 76% 32%) 100%);
+    background: linear-gradient(135deg, hsl(210 100% 20%) 0%, hsl(212 100% 12%) 100%);
     box-shadow:
-      0 10px 32px -6px hsl(358 72% 28% / 0.55),
-      inset 0 1px 0 0 hsl(358 80% 78% / 0.40);
+      0 10px 32px -6px hsl(212 100% 10% / 0.55),
+      inset 0 1px 0 0 hsl(210 80% 78% / 0.30);
   }
 
   .btn-cta:active {
     transform: translateY(0px);
     box-shadow:
-      0 2px 12px -2px hsl(358 70% 30% / 0.35),
-      inset 0 1px 0 0 hsl(358 80% 78% / 0.30);
+      0 2px 12px -2px hsl(212 100% 12% / 0.35),
+      inset 0 1px 0 0 hsl(210 80% 78% / 0.25);
   }
 
 
@@ -209,7 +209,7 @@
   }
 
   .gold-text {
-    color: hsl(var(--primary));
+    color: hsl(36 82% 45%);
   }
 
   .container-main {
@@ -232,11 +232,11 @@
   .shine-text {
     background: linear-gradient(
       90deg,
-      hsl(39, 80%, 44%) 0%,
-      hsl(39, 80%, 44%) 40%,
-      hsl(43, 92%, 62%) 50%,
-      hsl(39, 80%, 44%) 60%,
-      hsl(39, 80%, 44%) 100%
+      hsl(36, 82%, 48%) 0%,
+      hsl(36, 82%, 48%) 40%,
+      hsl(40, 92%, 66%) 50%,
+      hsl(36, 82%, 48%) 60%,
+      hsl(36, 82%, 48%) 100%
     );
     background-size: 200% 100%;
     -webkit-background-clip: text;
@@ -252,8 +252,8 @@
 }
 
 @keyframes cta-pulse {
-  0%, 100% { box-shadow: 0 6px 22px -4px hsl(358 70% 30% / 0.45), 0 0 0 0 hsl(358 70% 50% / 0.45); }
-  50% { box-shadow: 0 6px 22px -4px hsl(358 70% 30% / 0.45), 0 0 0 10px hsl(358 70% 50% / 0); }
+  0%, 100% { box-shadow: 0 6px 22px -4px hsl(212 100% 12% / 0.45), 0 0 0 0 hsl(38 84% 58% / 0.55); }
+  50% { box-shadow: 0 6px 22px -4px hsl(212 100% 12% / 0.45), 0 0 0 10px hsl(38 84% 58% / 0); }
 }
 
 
