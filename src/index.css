@@ -127,15 +127,15 @@
 }
 
 @layer components {
-  /* Primary CTA Button — warm amber gradient, aggressive weight */
+  /* Primary CTA Button — barn red gradient from the logo */
   .btn-cta {
     @apply inline-flex items-center justify-center gap-3 px-8 py-4 text-lg font-bold rounded-full transition-all duration-300;
     font-family: 'Oswald', sans-serif;
-    background: linear-gradient(135deg, hsl(40 92% 62%) 0%, hsl(28 88% 51%) 100%);
-    color: hsl(24 40% 12%);
+    background: linear-gradient(135deg, hsl(356 62% 46%) 0%, hsl(356 72% 33%) 100%);
+    color: hsl(40 45% 97%);
     box-shadow:
-      0 6px 22px -4px hsl(30 84% 42% / 0.45),
-      inset 0 1px 0 0 hsl(44 95% 82% / 0.55);
+      0 6px 22px -4px hsl(356 70% 28% / 0.45),
+      inset 0 1px 0 0 hsl(356 60% 70% / 0.45);
     text-transform: uppercase;
     letter-spacing: 0.06em;
     border: none;
@@ -148,24 +148,25 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(255,255,255,0.22) 0%, transparent 60%);
+    background: linear-gradient(180deg, rgba(255,255,255,0.16) 0%, transparent 60%);
     pointer-events: none;
   }
 
   .btn-cta:hover {
     transform: translateY(-2px);
-    background: linear-gradient(135deg, hsl(38 94% 58%) 0%, hsl(24 88% 48%) 100%);
+    background: linear-gradient(135deg, hsl(356 66% 42%) 0%, hsl(356 76% 28%) 100%);
     box-shadow:
-      0 10px 32px -6px hsl(28 88% 45% / 0.55),
-      inset 0 1px 0 0 hsl(44 95% 82% / 0.55);
+      0 10px 32px -6px hsl(356 72% 26% / 0.55),
+      inset 0 1px 0 0 hsl(356 60% 70% / 0.45);
   }
 
   .btn-cta:active {
     transform: translateY(0px);
     box-shadow:
-      0 2px 12px -2px hsl(30 84% 42% / 0.35),
-      inset 0 1px 0 0 hsl(44 95% 82% / 0.45);
+      0 2px 12px -2px hsl(356 70% 28% / 0.35),
+      inset 0 1px 0 0 hsl(356 60% 70% / 0.35);
   }
+
 
   /* Always-on urgency pulse for the sticky call bar */
   .btn-pulse {
