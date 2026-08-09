@@ -61,7 +61,7 @@ const PrivacyPolicy = () => {
 
             <section>
               <h2 className="font-display text-xl font-bold text-foreground mt-8 mb-3">7. Contact Us</h2>
-              <p>If you have any questions about this Privacy Policy, please contact us at {phoneFormatted} or email us at info@eagleautomaticgate.com.</p>
+              <p>If you have any questions about this Privacy Policy, please contact us at {phoneFormatted} or email us at office@eagleautomaticgate.com.</p>
             </section>
           </div>
         </div>

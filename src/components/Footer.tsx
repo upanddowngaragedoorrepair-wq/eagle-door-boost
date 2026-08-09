@@ -41,9 +41,9 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:info@eagleautomaticgate.com" className="flex items-center gap-3 text-white/70 hover:text-primary transition-colors">
+                <a href="mailto:office@eagleautomaticgate.com" className="flex items-center gap-3 text-white/70 hover:text-primary transition-colors">
                   <Mail className="w-5 h-5 text-primary" />
-                  info@eagleautomaticgate.com
+                  office@eagleautomaticgate.com
                 </a>
               </li>
               <li>
