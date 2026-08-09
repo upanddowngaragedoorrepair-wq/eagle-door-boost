@@ -10,17 +10,16 @@ export function TrustProofSection() {
         <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
           {/* Left: aggregate rating */}
           <div className="flex flex-col items-center text-center shrink-0 md:pr-10 md:border-r md:border-border">
-            <div className="flex items-end justify-center leading-none">
-              <span className="font-display font-bold text-5xl md:text-6xl text-[hsl(var(--navy))]">4.9</span>
-              <span className="font-display font-semibold text-xl md:text-2xl text-[hsl(var(--navy))]/60 mb-1">/5</span>
-            </div>
-            <div className="flex gap-1 mt-1.5">
+            <div className="flex gap-1">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 md:w-6 md:h-6 fill-accent text-accent" />
+                <Star key={i} className="w-8 h-8 md:w-9 md:h-9 text-[hsl(var(--gold-bright))] fill-[hsl(var(--gold-bright))]" />
               ))}
             </div>
-            <p className="mt-2 text-sm md:text-base font-semibold text-[hsl(var(--navy))]/70">
-              Average Across 150+ Reviews
+            <p className="mt-2 text-base md:text-lg font-bold text-[hsl(var(--navy))]">
+              189+ 5 star verified reviews
+            </p>
+            <p className="text-xs md:text-sm text-[hsl(var(--navy))]/60">
+              In trusted platforms
             </p>
           </div>
 
@@ -60,7 +59,7 @@ export function TrustProofSection() {
                 <span className="text-sm font-bold text-[hsl(var(--navy))] leading-none">Google Reviews</span>
                 <div className="flex gap-0.5 mt-1">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3 h-3 fill-accent text-accent" />
+                    <Star key={i} className="w-3 h-3 text-[hsl(var(--gold-bright))] fill-[hsl(var(--gold-bright))]" />
                   ))}
                 </div>
                 <span className="mt-1 text-[10px] text-muted-foreground leading-none">189+ reviews</span>
@@ -79,7 +78,7 @@ export function TrustProofSection() {
                 <span className="text-sm font-bold text-[hsl(var(--navy))] leading-none">HomeAdvisor</span>
                 <div className="flex gap-0.5 mt-1">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3 h-3 fill-accent text-accent" />
+                    <Star key={i} className="w-3 h-3 text-[hsl(var(--gold-bright))] fill-[hsl(var(--gold-bright))]" />
                   ))}
                 </div>
                 <span className="mt-1 text-[10px] text-muted-foreground leading-none">64 local reviews</span>

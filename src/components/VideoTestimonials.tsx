@@ -205,7 +205,7 @@ export function VideoTestimonials() {
                         {/* Stars */}
                         <div className="flex justify-center lg:justify-start gap-1 mb-4">
                           {Array.from({ length: 5 }).map((_, k) => (
-                            <Star key={k} className="w-5 h-5 md:w-6 md:h-6 text-primary fill-primary" />
+                            <Star key={k} className="w-5 h-5 md:w-6 md:h-6 text-[hsl(var(--gold-bright))] fill-[hsl(var(--gold-bright))]" />
                           ))}
                         </div>
 

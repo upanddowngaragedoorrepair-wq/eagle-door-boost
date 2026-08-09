@@ -113,7 +113,7 @@ function StarRating({ rating, size = 'default' }: { rating: number; size?: 'defa
   return (
     <div className="flex gap-0.5">
       {[...Array(5)].map((_, i) => (
-        <Star key={i} className={`${starSize} ${i < rating ? 'fill-primary text-primary' : 'text-border'}`} />
+        <Star key={i} className={`${starSize} ${i < rating ? 'text-[hsl(var(--gold-bright))] fill-[hsl(var(--gold-bright))]' : 'text-border'}`} />
       ))}
     </div>
   );
