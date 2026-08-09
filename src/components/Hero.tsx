@@ -57,12 +57,13 @@ export function Hero() {
   };
 
   const bullets = [
-    'Licensed & Insured — LIC#1138855',
+    'Over 300 Gates Installed',
+    'Small Company — Real Attention To Detail',
+    'Free Drawing With Every Estimate',
+    'In-House Techs — No Subcontractors',
     'Same Day Service Available',
-    'Free Estimates — No Obligation',
-    '20+ Years of Experience',
-    'Residential & Commercial',
   ];
+
 
   return (
     <section className="relative pt-28 md:pt-32 pb-12 lg:pb-20 overflow-hidden hero-min bg-[hsl(var(--navy))]">
@@ -94,22 +95,23 @@ export function Hero() {
           <div>
             {/* Local badge */}
             <div className="flex flex-wrap items-center gap-2.5 mb-5">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 border border-primary/40">
-                <MapPin className="w-4 h-4 text-primary" />
-                <span className="text-sm font-bold text-primary uppercase tracking-wide">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary border border-primary">
+                <MapPin className="w-4 h-4 text-primary-foreground" />
+                <span className="text-sm font-bold text-primary-foreground uppercase tracking-wide">
                   Family Owned • Serving {city}
                 </span>
               </span>
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15">
-                <Scaling className="w-4 h-4 text-primary" />
+                <Scaling className="w-4 h-4 text-[hsl(var(--gold-bright))]" />
                 <span className="text-sm font-bold text-white">No Job Is Too Small or Big To Us</span>
               </span>
             </div>
 
             {/* Headline */}
             <h1 className="text-[2.75rem] leading-[1.05] sm:text-6xl lg:text-7xl font-display font-extrabold mb-3 tracking-tight text-white">
-              Local <span className="text-primary">{headlinePhrase}</span>
+              Local <span className="text-[hsl(var(--gold-bright))]">{headlinePhrase}</span>
             </h1>
+
 
             <p className="text-xl md:text-2xl font-display font-semibold relative inline-block headline-underline mb-7 text-white/85">
               Best Price Guarantee
@@ -120,16 +122,17 @@ export function Hero() {
               <span className="flex items-center gap-1.5">
                 <span className="flex">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-primary fill-primary" />
+                    <Star key={i} className="w-4 h-4 text-[hsl(var(--gold-bright))] fill-[hsl(var(--gold-bright))]" />
                   ))}
                 </span>
                 <span className="text-sm font-bold">4.9 Google • 189+ reviews</span>
               </span>
               <span className="flex items-center gap-1.5 text-sm font-bold">
-                <ShieldCheck className="w-4 h-4 text-primary" />
-                LIC#1138855 • BBB Accredited
+                <ShieldCheck className="w-4 h-4 text-[hsl(var(--gold-bright))]" />
+                Licensed & Insured — LIC#1138855
               </span>
             </div>
+
 
             {/* Primary action — the call */}
             <a
@@ -149,7 +152,7 @@ export function Hero() {
             <ul className="space-y-2.5 mb-5">
               {bullets.map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-base md:text-lg text-white/90">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-[hsl(var(--gold-bright))] flex-shrink-0" />
                   {item}
                 </li>
               ))}
