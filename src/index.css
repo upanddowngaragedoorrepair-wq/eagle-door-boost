@@ -5,65 +5,66 @@
 
 @layer base {
   :root {
-    /* Light Theme — Clean Conversion Layout */
-    --background: 216 25% 97%;       /* #F6F8FB */
-    --foreground: 222 47% 11%;       /* #0F172A */
+    /* Warm Local-Contractor Theme */
+    --background: 34 38% 96%;        /* warm cream */
+    --foreground: 22 24% 12%;        /* warm charcoal */
 
     /* Cards & Surfaces */
-    --card: 0 0% 100%;               /* #FFFFFF */
-    --card-foreground: 222 47% 11%;
-    --card-elevated: 210 20% 96%;    /* #F1F5F9 */
+    --card: 40 40% 99%;              /* warm paper white */
+    --card-foreground: 22 24% 12%;
+    --card-elevated: 34 30% 93%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover: 40 40% 99%;
+    --popover-foreground: 22 24% 12%;
 
     /* Gold Accent — Primary */
-    --primary: 42 74% 46%;           /* #D4A017 */
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 42 80% 55%;
-    --primary-hover: 42 80% 39%;     /* #B98910 */
+    --primary: 38 78% 46%;           /* warm gold */
+    --primary-foreground: 24 30% 10%;
+    --primary-glow: 40 88% 56%;
+    --primary-hover: 30 84% 44%;     /* amber/orange hover */
 
-    /* Secondary — Soft slate */
-    --secondary: 210 20% 96%;        /* #F1F5F9 */
-    --secondary-foreground: 222 47% 11%;
+    /* Secondary — warm sand */
+    --secondary: 34 30% 93%;
+    --secondary-foreground: 22 24% 12%;
 
     /* Muted */
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 16% 42%; /* #475569 */
+    --muted: 34 28% 92%;
+    --muted-foreground: 26 12% 34%;
 
     /* Accent */
-    --accent: 210 20% 96%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 34 30% 93%;
+    --accent-foreground: 22 24% 12%;
 
     /* Destructive */
-    --destructive: 0 65% 50%;
+    --destructive: 4 68% 48%;
     --destructive-foreground: 0 0% 100%;
 
     /* Borders & Input */
-    --border: 214 20% 88%;           /* #E2E8F0 */
-    --input: 214 20% 88%;
-    --ring: 42 74% 46%;
+    --border: 30 22% 84%;
+    --input: 30 22% 84%;
+    --ring: 38 78% 46%;
 
     --radius: 0.5rem;
 
-    /* Custom tokens */
-    --navy: 200 45% 13%;             /* #0B1F2E */
-    --navy-deep: 200 45% 10%;
-    --navy-light: 200 30% 20%;
-    --gold-soft: 42 50% 50%;
-    --gold-bright: 42 80% 55%;
-    --text-subtle: 215 16% 42%;
+    /* Custom tokens — dark surfaces are warm charcoal-brown now */
+    --navy: 22 28% 14%;
+    --navy-deep: 22 30% 10%;
+    --navy-light: 24 20% 22%;
+    --gold-soft: 38 55% 50%;
+    --gold-bright: 40 88% 56%;
+    --text-subtle: 26 12% 34%;
 
     /* Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(42, 74%, 46%) 0%, hsl(42, 80%, 55%) 100%);
-    --gradient-navy: linear-gradient(180deg, hsl(200, 45%, 13%) 0%, hsl(200, 45%, 9%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(38, 78%, 46%) 0%, hsl(30, 88%, 55%) 100%);
+    --gradient-navy: linear-gradient(180deg, hsl(22, 28%, 14%) 0%, hsl(22, 30%, 9%) 100%);
 
-    /* Shadows — light theme */
-    --shadow-sm: 0 6px 18px rgba(15,23,42,0.08);
-    --shadow-md: 0 10px 28px rgba(15,23,42,0.10);
-    --shadow-lg: 0 18px 60px rgba(15,23,42,0.14);
-    --shadow-gold: 0 4px 20px -4px hsl(42 74% 46% / 0.35);
-    --shadow-card: 0 4px 24px -4px rgba(15,23,42,0.08), 0 0 0 1px rgba(226,232,240,0.6);
+    /* Shadows — warm */
+    --shadow-sm: 0 6px 18px rgba(58,38,22,0.10);
+    --shadow-md: 0 10px 28px rgba(58,38,22,0.13);
+    --shadow-lg: 0 18px 60px rgba(58,38,22,0.18);
+    --shadow-gold: 0 4px 20px -4px hsl(34 84% 46% / 0.40);
+    --shadow-card: 0 6px 24px -6px rgba(58,38,22,0.14), 0 0 0 1px hsl(30 22% 84% / 0.9);
+
 
     /* Sidebar */
     --sidebar-background: 200 45% 13%;
