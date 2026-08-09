@@ -8,7 +8,7 @@
  * The estimate form is secondary (collapsed strip on mobile).
  */
 import { useMemo, useState } from 'react';
-import { Phone, Scaling, CheckCircle, Star, ShieldCheck, MapPin } from 'lucide-react';
+import { Phone, Scaling, CheckCircle, Star, ShieldCheck } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import { HeroForm } from '@/components/HeroForm';
 import { getServiceMapping, getHeroHeadline } from '@/lib/serviceMapping';
