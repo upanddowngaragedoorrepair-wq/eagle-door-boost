@@ -221,6 +221,9 @@ export function PopupBookingForm() {
               className={`${inputClass} resize-none`}
               value={formData.notes} onChange={e => setFormData({ ...formData, notes: e.target.value })} />
 
+            <input type="hidden" name="gclid" value={formData.gclid} />
+            <input type="hidden" name="msclkid" value={formData.msclkid} />
+
             <button type="submit" disabled={submitting} className="w-full btn-cta text-base md:text-lg min-h-[46px] md:min-h-[52px]">
               <Send className="w-4 h-4 md:w-5 md:h-5" />
               {submitting ? 'Submitting...' : 'Book Now & Save 10%'}
