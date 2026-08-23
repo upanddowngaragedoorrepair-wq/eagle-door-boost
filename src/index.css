@@ -347,6 +347,17 @@
     underline-shine 2.5s ease-in-out 1.2s infinite;
 }
 
+/* Animated progress bar fill */
+.progress-bar-fill {
+  animation: progress-fill 1.6s ease-out forwards;
+  width: 0%;
+}
+
+@keyframes progress-fill {
+  from { width: 0%; }
+  to { width: var(--progress-target, 92%); }
+}
+
 /* Performance */
 @media (prefers-reduced-motion: no-preference) {
   .animate-ticker,
