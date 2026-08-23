@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Send, MapPin, Zap, Shield, Star, Lock } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
@@ -16,8 +16,19 @@ export function ContactForm() {
     email: '',
     zipCode: '',
     address: '',
-    message: ''
+    message: '',
+    gclid: '',
+    msclkid: '',
   });
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setFormData((prev) => ({
+      ...prev,
+      gclid: params.get('gclid') || '',
+      msclkid: params.get('msclkid') || '',
+    }));
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,7 +63,9 @@ export function ContactForm() {
           message: formData.message,
           page_url: window.location.href,
           city: city,
-          cp: cp
+          cp: cp,
+          gclid: formData.gclid,
+          msclkid: formData.msclkid,
         })
       });
 
@@ -156,6 +169,9 @@ export function ContactForm() {
               <input type="text" name="address" placeholder="Street Address" className={inputClass} value={formData.address} onChange={(e) => setFormData({ ...formData, address: e.target.value })} />
 
               <textarea name="message" placeholder="Tell us about your issue" rows={3} className={`${inputClass} resize-none`} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
+
+              <input type="hidden" name="gclid" value={formData.gclid} />
+              <input type="hidden" name="msclkid" value={formData.msclkid} />
 
               <button type="submit" disabled={submitting} className="w-full btn-cta text-lg min-h-[60px]">
                 <Send className="w-5 h-5" />

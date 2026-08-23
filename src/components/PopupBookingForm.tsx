@@ -39,7 +39,18 @@ export function PopupBookingForm() {
     service: '',
     zip: '',
     notes: '10OFF',
+    gclid: '',
+    msclkid: '',
   });
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setFormData((prev) => ({
+      ...prev,
+      gclid: params.get('gclid') || '',
+      msclkid: params.get('msclkid') || '',
+    }));
+  }, []);
 
   const today = useMemo(() => {
     return new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
@@ -101,6 +112,8 @@ export function PopupBookingForm() {
           page_url: window.location.href,
           city,
           cp,
+          gclid: formData.gclid,
+          msclkid: formData.msclkid,
           _subject: `New Popup Lead (10% Off) - ${formData.name} from ${city}`,
         }),
       });
@@ -207,6 +220,9 @@ export function PopupBookingForm() {
             <textarea name="notes" placeholder="Notes (add 10OFF for 10% discount)" rows={2}
               className={`${inputClass} resize-none`}
               value={formData.notes} onChange={e => setFormData({ ...formData, notes: e.target.value })} />
+
+            <input type="hidden" name="gclid" value={formData.gclid} />
+            <input type="hidden" name="msclkid" value={formData.msclkid} />
 
             <button type="submit" disabled={submitting} className="w-full btn-cta text-base md:text-lg min-h-[46px] md:min-h-[52px]">
               <Send className="w-4 h-4 md:w-5 md:h-5" />

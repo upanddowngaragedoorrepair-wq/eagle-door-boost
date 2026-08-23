@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Send, Lock } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
@@ -28,7 +28,18 @@ export function HeroForm() {
     email: '',
     service: '',
     zip: '',
+    gclid: '',
+    msclkid: '',
   });
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setFormData((prev) => ({
+      ...prev,
+      gclid: params.get('gclid') || '',
+      msclkid: params.get('msclkid') || '',
+    }));
+  }, []);
 
   const handleFocus = () => {
     if (!expanded) setExpanded(true);
@@ -67,6 +78,8 @@ export function HeroForm() {
           page_url: window.location.href,
           city,
           cp,
+          gclid: formData.gclid,
+          msclkid: formData.msclkid,
         }),
       });
 
@@ -196,6 +209,9 @@ export function HeroForm() {
             </select>
           </div>
         </div>
+
+        <input type="hidden" name="gclid" value={formData.gclid} />
+        <input type="hidden" name="msclkid" value={formData.msclkid} />
 
         <button
           type="submit"
