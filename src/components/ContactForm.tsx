@@ -16,8 +16,19 @@ export function ContactForm() {
     email: '',
     zipCode: '',
     address: '',
-    message: ''
+    message: '',
+    gclid: '',
+    msclkid: '',
   });
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setFormData((prev) => ({
+      ...prev,
+      gclid: params.get('gclid') || '',
+      msclkid: params.get('msclkid') || '',
+    }));
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

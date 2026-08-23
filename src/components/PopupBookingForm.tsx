@@ -39,7 +39,18 @@ export function PopupBookingForm() {
     service: '',
     zip: '',
     notes: '10OFF',
+    gclid: '',
+    msclkid: '',
   });
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setFormData((prev) => ({
+      ...prev,
+      gclid: params.get('gclid') || '',
+      msclkid: params.get('msclkid') || '',
+    }));
+  }, []);
 
   const today = useMemo(() => {
     return new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
