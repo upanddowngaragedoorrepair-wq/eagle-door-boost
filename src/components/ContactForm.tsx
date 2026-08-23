@@ -63,7 +63,9 @@ export function ContactForm() {
           message: formData.message,
           page_url: window.location.href,
           city: city,
-          cp: cp
+          cp: cp,
+          gclid: formData.gclid,
+          msclkid: formData.msclkid,
         })
       });
 

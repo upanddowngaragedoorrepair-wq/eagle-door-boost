@@ -78,6 +78,8 @@ export function HeroForm() {
           page_url: window.location.href,
           city,
           cp,
+          gclid: formData.gclid,
+          msclkid: formData.msclkid,
         }),
       });
 

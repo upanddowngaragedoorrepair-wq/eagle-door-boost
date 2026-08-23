@@ -112,6 +112,8 @@ export function PopupBookingForm() {
           page_url: window.location.href,
           city,
           cp,
+          gclid: formData.gclid,
+          msclkid: formData.msclkid,
           _subject: `New Popup Lead (10% Off) - ${formData.name} from ${city}`,
         }),
       });
