@@ -210,6 +210,9 @@ export function HeroForm() {
           </div>
         </div>
 
+        <input type="hidden" name="gclid" value={formData.gclid} />
+        <input type="hidden" name="msclkid" value={formData.msclkid} />
+
         <button
           type="submit"
           disabled={submitting}
