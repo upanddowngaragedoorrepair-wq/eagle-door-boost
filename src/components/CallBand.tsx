@@ -48,7 +48,7 @@ export function CallBand({ headline, location, subline, progress }: CallBandProp
               <div className="h-3 w-full rounded-full bg-white/15 overflow-hidden border border-white/10">
                 <div
                   className="h-full rounded-full bg-gradient-to-r from-[hsl(var(--gold-bright))] to-[hsl(43,92%,62%)] shadow-[0_0_12px_hsl(38_84%_58%_/0.55)] progress-bar-fill"
-                  style={{ width: `${progress.percent}%` }}
+                  style={{ '--progress-target': `${progress.percent}%` } as React.CSSProperties}
                 />
               </div>
             </div>
