@@ -15,15 +15,15 @@ export default {
   	extend: {
   		fontFamily: {
   			display: [
-  				'Oswald',
+  				'Bebas Neue',
   				'sans-serif'
   			],
   			body: [
-  				'Inter',
+  				'Barlow',
   				'sans-serif'
   			],
   			sans: [
-  				'Inter',
+  				'Barlow',
   				'ui-sans-serif',
   				'system-ui',
   				'-apple-system',
