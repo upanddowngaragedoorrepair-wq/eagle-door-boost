@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Send, Lock } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';

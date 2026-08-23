@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Send, MapPin, Zap, Shield, Star, Lock } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
