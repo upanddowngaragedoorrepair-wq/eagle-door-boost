@@ -34,7 +34,12 @@ const Index = () => {
         <TrustProofSection />
         <Services />
 
-        <CallBand headline="Gate acting up? We can be out today." location="band_services" />
+        <CallBand
+          headline="Get Your Free Estimate Today"
+          location="band_services"
+          subline="Free estimates • No obligation"
+          progress={{ percent: 92, label: '92% of repairs done same day' }}
+        />
 
         {/* Below-fold: proof first, then projects and offers */}
         <VideoTestimonials />
