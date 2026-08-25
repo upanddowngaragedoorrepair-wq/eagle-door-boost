@@ -13,28 +13,28 @@ export default {
   		}
   	},
   	extend: {
-  		fontFamily: {
-  			display: [
-  				'Bebas Neue',
-  				'sans-serif'
-  			],
-  			body: [
-  				'Barlow',
-  				'sans-serif'
-  			],
-  			sans: [
-  				'Barlow',
-  				'ui-sans-serif',
-  				'system-ui',
-  				'-apple-system',
-  				'BlinkMacSystemFont',
-  				'Segoe UI',
-  				'Roboto',
-  				'Helvetica Neue',
-  				'Arial',
-  				'Noto Sans',
-  				'sans-serif'
-  			],
+   		fontFamily: {
+   			display: [
+   				'Montserrat',
+   				'sans-serif'
+   			],
+   			body: [
+   				'Inter',
+   				'sans-serif'
+   			],
+   			sans: [
+   				'Inter',
+   				'ui-sans-serif',
+   				'system-ui',
+   				'-apple-system',
+   				'BlinkMacSystemFont',
+   				'Segoe UI',
+   				'Roboto',
+   				'Helvetica Neue',
+   				'Arial',
+   				'Noto Sans',
+   				'sans-serif'
+   			],
   			serif: [
   				'Lora',
   				'ui-serif',
