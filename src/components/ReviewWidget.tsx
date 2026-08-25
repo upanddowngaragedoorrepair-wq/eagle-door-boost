@@ -150,7 +150,7 @@ function ReviewCard({ review, isCenter, city }: { review: Review; isCenter: bool
         <div className="flex items-center gap-3">
           <img src={review.image} alt={review.name} loading="lazy" decoding="async" className={`w-14 h-14 rounded-full object-cover border-2 ${isCenter ? 'border-primary' : 'border-border'}`} />
           <div>
-            <h4 className="font-bold text-foreground">{review.name}</h4>
+            <h4 className="font-medium text-sm text-foreground">{review.name}</h4>
             <p className="text-xs text-muted-foreground inline-flex items-center gap-1 mt-0.5">
               <MapPin className="w-3 h-3 text-primary" />
               {city}
