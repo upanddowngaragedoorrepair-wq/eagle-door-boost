@@ -119,15 +119,13 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     @apply tracking-tight;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
+    font-weight: 700;
   }
 
   h1 { font-size: 3.25rem; line-height: 1; }
@@ -142,14 +140,14 @@
   /* Primary CTA Button — barn red gradient from the logo */
   .btn-cta {
     @apply inline-flex items-center justify-center gap-3 px-8 py-4 text-lg font-bold rounded-full transition-all duration-300;
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background: linear-gradient(135deg, hsl(210 100% 24%) 0%, hsl(212 100% 15%) 100%);
     color: hsl(0 0% 100%);
     box-shadow:
       0 6px 22px -4px hsl(212 100% 12% / 0.45),
       inset 0 1px 0 0 hsl(210 80% 78% / 0.30);
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
     border: none;
     position: relative;
     overflow: hidden;
@@ -192,9 +190,9 @@
     background: hsl(var(--card));
     color: hsl(var(--foreground));
     border: 2px solid hsl(var(--border));
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
     min-height: 56px;
   }
 
@@ -213,10 +211,13 @@
 
   .section-heading {
     @apply text-3xl md:text-4xl lg:text-5xl text-center mb-4;
-    font-family: 'Bebas Neue', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+  }
+
+  /* Hero headline lift — subtle shadow to highlight against busy background */
+  .hero-headline {
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35), 0 1px 4px rgba(0, 0, 0, 0.25);
   }
 
   .gold-text {

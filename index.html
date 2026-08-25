@@ -39,10 +39,10 @@
       *{margin:0;padding:0;box-sizing:border-box}
       body{
         background:hsl(216,25%,97%);color:hsl(222,47%,11%);
-        font-family:'Barlow',ui-sans-serif,system-ui,-apple-system,sans-serif;
+        font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
         -webkit-font-smoothing:antialiased
       }
-      h1,h2,h3,h4,h5,h6{font-family:'Bebas Neue',ui-sans-serif,system-ui,sans-serif;font-weight:400}
+      h1,h2,h3,h4,h5,h6{font-family:'Montserrat',ui-sans-serif,system-ui,sans-serif;font-weight:700}
       .container-main{width:100%;max-width:75rem;margin:0 auto;padding:0 1rem}
       @media(min-width:640px){.container-main{padding:0 1.5rem}}
       /* Prevent layout shift while JS hydrates */
@@ -60,14 +60,14 @@
 
     <!--
       Fonts: only the exact weights we use.
-      Bebas Neue = headings, Barlow 400+700 = body.
+      Montserrat = headings, Inter = body.
       font-display=swap prevents invisible text during load.
       Loaded non-blocking (media=print trick).
     -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
     <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" />
     </noscript>
 
     <!-- Preload LCP hero image (WebP, critical path) -->
