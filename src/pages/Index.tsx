@@ -1,4 +1,5 @@
-import { lazy, Suspense } from 'react';
+import { Suspense } from 'react';
+import { lazyRetry } from '@/lib/lazyRetry';
 import { Header } from '@/components/Header';
 import { UrgencyTicker } from '@/components/UrgencyTicker';
 import { Hero } from '@/components/Hero';
@@ -9,19 +10,19 @@ import { CallBand } from '@/components/CallBand';
 import { LazySection, SectionPlaceholder } from '@/components/LazySection';
 
 // Lazy load below-fold sections
-const BrandLogos = lazy(() => import('@/components/BrandLogos').then(m => ({ default: m.BrandLogos })));
-const CouponSection = lazy(() => import('@/components/CouponSection').then(m => ({ default: m.CouponSection })));
-const FriendlyQuoteCTA = lazy(() => import('@/components/FriendlyQuoteCTA').then(m => ({ default: m.FriendlyQuoteCTA })));
-const RecentProjects = lazy(() => import('@/components/RecentProjects').then(m => ({ default: m.RecentProjects })));
-const BeforeAfter = lazy(() => import('@/components/BeforeAfter').then(m => ({ default: m.BeforeAfter })));
-const ReviewWidget = lazy(() => import('@/components/ReviewWidget').then(m => ({ default: m.ReviewWidget })));
-const TrustBadges = lazy(() => import('@/components/TrustBadges').then(m => ({ default: m.TrustBadges })));
-const ServiceAreaMap = lazy(() => import('@/components/ServiceAreaMap').then(m => ({ default: m.ServiceAreaMap })));
-const FinalCTA = lazy(() => import('@/components/FinalCTA').then(m => ({ default: m.FinalCTA })));
-const ContactForm = lazy(() => import('@/components/ContactForm').then(m => ({ default: m.ContactForm })));
-const Footer = lazy(() => import('@/components/Footer').then(m => ({ default: m.Footer })));
-const StickyCallBar = lazy(() => import('@/components/StickyCallBar').then(m => ({ default: m.StickyCallBar })));
-const PopupBookingForm = lazy(() => import('@/components/PopupBookingForm').then(m => ({ default: m.PopupBookingForm })));
+const BrandLogos = lazyRetry(() => import('@/components/BrandLogos').then(m => ({ default: m.BrandLogos })));
+const CouponSection = lazyRetry(() => import('@/components/CouponSection').then(m => ({ default: m.CouponSection })));
+const FriendlyQuoteCTA = lazyRetry(() => import('@/components/FriendlyQuoteCTA').then(m => ({ default: m.FriendlyQuoteCTA })));
+const RecentProjects = lazyRetry(() => import('@/components/RecentProjects').then(m => ({ default: m.RecentProjects })));
+const BeforeAfter = lazyRetry(() => import('@/components/BeforeAfter').then(m => ({ default: m.BeforeAfter })));
+const ReviewWidget = lazyRetry(() => import('@/components/ReviewWidget').then(m => ({ default: m.ReviewWidget })));
+const TrustBadges = lazyRetry(() => import('@/components/TrustBadges').then(m => ({ default: m.TrustBadges })));
+const ServiceAreaMap = lazyRetry(() => import('@/components/ServiceAreaMap').then(m => ({ default: m.ServiceAreaMap })));
+const FinalCTA = lazyRetry(() => import('@/components/FinalCTA').then(m => ({ default: m.FinalCTA })));
+const ContactForm = lazyRetry(() => import('@/components/ContactForm').then(m => ({ default: m.ContactForm })));
+const Footer = lazyRetry(() => import('@/components/Footer').then(m => ({ default: m.Footer })));
+const StickyCallBar = lazyRetry(() => import('@/components/StickyCallBar').then(m => ({ default: m.StickyCallBar })));
+const PopupBookingForm = lazyRetry(() => import('@/components/PopupBookingForm').then(m => ({ default: m.PopupBookingForm })));
 
 const Index = () => {
   return (
