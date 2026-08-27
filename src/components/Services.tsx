@@ -72,7 +72,7 @@ const services: ServiceData[] = [
 },
 {
   image: gateDriveway,
-  title: 'Auto Driveway Gate',
+  title: 'Automatic\nDriveway Gate',
   bullets: [
     'Custom driveway gate installation',
     'Professional-grade parts for smooth and secure operation',
