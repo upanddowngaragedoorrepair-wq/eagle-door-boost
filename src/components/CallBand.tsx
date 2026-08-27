@@ -21,6 +21,46 @@ interface CallBandProps {
  */
 export function CallBand({ headline, location, subline, progress }: CallBandProps) {
   const { phoneLink, phoneFormatted, city } = useLocation2();
+  const progressRef = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+  const [displayPercent, setDisplayPercent] = useState(0);
+
+  // Start the fill only when the bar scrolls into view (once).
+  useEffect(() => {
+    if (!progress) return;
+    const el = progressRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [progress]);
+
+  // Count the percentage number up in sync with the bar fill (~1.8s).
+  useEffect(() => {
+    if (!inView || !progress) return;
+    const target = progress.percent;
+    const duration = 1800;
+    const start = performance.now();
+    let raf = 0;
+
+    const tick = (now: number) => {
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3); // ease-out cubic
+      setDisplayPercent(Math.round(target * eased));
+      if (t < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [inView, progress]);
 
   const handleClick = () => {
     window.dataLayer = window.dataLayer || [];
