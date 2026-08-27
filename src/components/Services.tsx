@@ -241,7 +241,7 @@ function ServiceCard({ service, isOpen, onToggle, phoneLink, phoneFormatted, onG
             View Gallery
           </button>
         )}
-        <h3 className="absolute bottom-4 left-6 font-display text-2xl md:text-3xl font-bold text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] [text-shadow:_0_0_1px_rgba(0,0,0,0.9),_1px_1px_0_rgba(0,0,0,0.6),-1px_-1px_0_rgba(0,0,0,0.6),_1px_-1px_0_rgba(0,0,0,0.6),-1px_1px_0_rgba(0,0,0,0.6)]">
+        <h3 className="absolute bottom-4 left-6 font-display text-[1.425rem] md:text-[1.78125rem] font-bold text-white whitespace-pre-line drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] [text-shadow:_0_0_1px_rgba(0,0,0,0.9),_1px_1px_0_rgba(0,0,0,0.6),-1px_-1px_0_rgba(0,0,0,0.6),_1px_-1px_0_rgba(0,0,0,0.6),-1px_1px_0_rgba(0,0,0,0.6)]">
           {service.title}
         </h3>
       </div>
