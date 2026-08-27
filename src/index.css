@@ -359,15 +359,54 @@
     underline-shine 2.5s ease-in-out 1.2s infinite;
 }
 
-/* Animated progress bar fill */
+/* Scroll-triggered progress bar fill (CallBand) */
 .progress-bar-fill {
-  animation: progress-fill 1.6s ease-out forwards;
   width: 0%;
+  transition: width 1.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@keyframes progress-fill {
-  from { width: 0%; }
-  to { width: var(--progress-target, 92%); }
+.progress-bar-fill.is-filled {
+  width: var(--progress-target, 92%);
+}
+
+/* Shimmer sweep that plays once after the bar fills */
+.progress-shimmer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 9999px;
+}
+
+.progress-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -40%;
+  width: 35%;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    hsl(0 0% 100% / 0.55) 50%,
+    transparent 100%
+  );
+  transform: skewX(-18deg);
+  opacity: 0;
+}
+
+.is-filled .progress-shimmer::after {
+  animation: progress-shimmer-sweep 1.4s ease-in-out 1.9s 1 forwards;
+}
+
+@keyframes progress-shimmer-sweep {
+  0% { left: -40%; opacity: 1; }
+  100% { left: 115%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress-bar-fill {
+    transition: none;
+  }
 }
 
 /* Performance */
