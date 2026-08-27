@@ -16,7 +16,7 @@ export function TrustProofSection() {
               ))}
             </div>
             <p className="mt-2 text-base md:text-lg font-bold text-[hsl(var(--navy))]">
-              189+ 5 star verified reviews
+              189+ 4.9 star verified reviews
             </p>
             <p className="text-xs md:text-sm text-[hsl(var(--navy))]/60">
               In trusted platforms
