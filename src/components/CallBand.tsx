@@ -1,4 +1,5 @@
 import { Phone, Clock } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation2 } from '@/contexts/LocationContext';
 
 interface CallBandProps {
@@ -20,6 +21,46 @@ interface CallBandProps {
  */
 export function CallBand({ headline, location, subline, progress }: CallBandProps) {
   const { phoneLink, phoneFormatted, city } = useLocation2();
+  const progressRef = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+  const [displayPercent, setDisplayPercent] = useState(0);
+
+  // Start the fill only when the bar scrolls into view (once).
+  useEffect(() => {
+    if (!progress) return;
+    const el = progressRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [progress]);
+
+  // Count the percentage number up in sync with the bar fill (~1.8s).
+  useEffect(() => {
+    if (!inView || !progress) return;
+    const target = progress.percent;
+    const duration = 1800;
+    const start = performance.now();
+    let raf = 0;
+
+    const tick = (now: number) => {
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3); // ease-out cubic
+      setDisplayPercent(Math.round(target * eased));
+      if (t < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [inView, progress]);
 
   const handleClick = () => {
     window.dataLayer = window.dataLayer || [];
@@ -40,16 +81,25 @@ export function CallBand({ headline, location, subline, progress }: CallBandProp
           </p>
 
           {progress && (
-            <div className="mt-4 w-full md:max-w-md">
-              <div className="flex items-center justify-between text-sm font-semibold text-white mb-1.5">
-                <span className="text-[hsl(var(--gold-bright))]">{progress.label}</span>
-                <span className="text-white">{progress.percent}%</span>
+            <div ref={progressRef} className="mt-4 w-full md:max-w-md">
+              <div className="flex items-center justify-between gap-3 mb-2">
+                <span className="text-sm font-semibold text-[hsl(var(--gold-bright))]">
+                  {progress.label}
+                </span>
+                <span
+                  className="inline-flex items-center rounded-full bg-[hsl(var(--gold-bright))] text-[hsl(var(--navy))] text-xs font-extrabold px-2.5 py-1 leading-none shadow-[0_0_14px_hsl(38_84%_58%/0.5)] tabular-nums"
+                  aria-label={`${progress.percent} percent`}
+                >
+                  {displayPercent}%
+                </span>
               </div>
-              <div className="h-3 w-full rounded-full bg-white/15 overflow-hidden border border-white/10">
+              <div className="relative h-4 w-full rounded-full bg-white/10 border border-white/15 shadow-[inset_0_1px_3px_hsl(0_0%_0%/0.35)]">
                 <div
-                  className="h-full rounded-full bg-gradient-to-r from-[hsl(var(--gold-bright))] to-[hsl(43,92%,62%)] shadow-[0_0_12px_hsl(38_84%_58%_/0.55)] progress-bar-fill"
+                  className={`relative h-full rounded-full bg-gradient-to-r from-[hsl(var(--gold-bright))] to-[hsl(43,92%,62%)] shadow-[0_0_16px_hsl(38_84%_58%/0.6)] progress-bar-fill${inView ? ' is-filled' : ''}`}
                   style={{ '--progress-target': `${progress.percent}%` } as React.CSSProperties}
-                />
+                >
+                  <span className="progress-shimmer" aria-hidden="true" />
+                </div>
               </div>
             </div>
           )}
