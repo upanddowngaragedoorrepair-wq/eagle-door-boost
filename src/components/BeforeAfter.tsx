@@ -7,8 +7,8 @@
 import { useCallback, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-import beforeUpload from '@/assets/before-after/gate-before-wooden.jpg.asset.json';
-import afterUpload from '@/assets/before-after/gate-after-swing.jpg.asset.json';
+import beforeUpload from '@/assets/before-after/gate-before-wooden.jpg';
+import afterUpload from '@/assets/before-after/gate-after-swing.jpg';
 import before2 from '@/assets/projects/project-5.webp';
 import after2 from '@/assets/projects/project-6.webp';
 import before3 from '@/assets/service-proof/gate-repair-welding.webp';
