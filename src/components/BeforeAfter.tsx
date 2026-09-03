@@ -11,8 +11,8 @@ import beforeUpload from '@/assets/before-after/gate-before-wooden.jpg';
 import afterUpload from '@/assets/before-after/gate-after-swing.jpg';
 import before2 from '@/assets/before-after/chain-link-before.jpg';
 import after2 from '@/assets/before-after/chain-link-after.jpg';
-import before3 from '@/assets/service-proof/gate-repair-welding.webp';
-import after3 from '@/assets/service-proof/gate-repair-teamwork.webp';
+import before3 from '@/assets/before-after/industrial-fence-before.jpg';
+import after3 from '@/assets/before-after/industrial-fence-after.jpg';
 import before4 from '@/assets/projects/project-9.webp';
 import after4 from '@/assets/projects/project-10.webp';
 
@@ -25,7 +25,7 @@ interface Pair {
 const pairs: Pair[] = [
   { before: beforeUpload, after: afterUpload, caption: 'Swing driveway gate rebuild' },
   { before: before2, after: after2, caption: 'Chain link fence' },
-  { before: before3, after: after3, caption: 'Gate repair & welding' },
+  { before: before3, after: after3, caption: 'Anti climb fence and gate for industrial building' },
   { before: before4, after: after4, caption: 'Custom gate installation' },
 ];
 
