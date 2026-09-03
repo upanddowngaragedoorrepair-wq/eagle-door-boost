@@ -60,6 +60,7 @@ export function HeroForm() {
       return;
     }
 
+    if (submitting) return;
     setSubmitting(true);
     setError('');
 
@@ -74,9 +75,11 @@ export function HeroForm() {
           email: formData.email,
           message: `Service needed: ${formData.service}`,
           zip: formData.zip,
+          address: '',
           city,
           cp,
           ...buildAttributionPayload('hero_form'),
+          _subject: 'New Eagle Website Lead — hero_form',
         }),
 
       });

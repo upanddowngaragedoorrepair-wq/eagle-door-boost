@@ -40,6 +40,7 @@ export function ContactForm() {
       return;
     }
 
+    if (submitting) return;
     setSubmitting(true);
     setError('');
 
@@ -58,7 +59,7 @@ export function ContactForm() {
           city: city,
           cp: cp,
           ...buildAttributionPayload('contact_form'),
-
+          _subject: 'New Eagle Website Lead — contact_form',
         })
       });
 
