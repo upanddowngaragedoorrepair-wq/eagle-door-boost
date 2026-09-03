@@ -15,6 +15,10 @@ import before3 from '@/assets/before-after/industrial-fence-before.jpg';
 import after3 from '@/assets/before-after/industrial-fence-after.jpg';
 import solarBefore from '@/assets/before-after/solar-gate-before.jpg';
 import solarAfter from '@/assets/before-after/solar-gate-after.jpg';
+import laserBefore from '@/assets/before-after/laser-gate-before.jpg';
+import laserAfter from '@/assets/before-after/laser-gate-after.jpg';
+import woodFenceBefore from '@/assets/before-after/wood-fence-before.jpg';
+import woodFenceAfter from '@/assets/before-after/wood-fence-after.jpg';
 
 interface Pair {
   before: string;
@@ -27,6 +31,8 @@ const pairs: Pair[] = [
   { before: before2, after: after2, caption: 'Chain link fence' },
   { before: before3, after: after3, caption: 'Anti climb fence and gate for industrial building' },
   { before: solarBefore, after: solarAfter, caption: 'Solar powered automatic gate' },
+  { before: laserBefore, after: laserAfter, caption: 'Custom laser-cut iron gate & fence' },
+  { before: woodFenceBefore, after: woodFenceAfter, caption: 'Broken wooden fence replacement' },
 ];
 
 function CompareCard({ pair, priority }: { pair: Pair; priority: boolean }) {
