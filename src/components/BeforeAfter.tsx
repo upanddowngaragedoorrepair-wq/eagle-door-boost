@@ -13,8 +13,8 @@ import before2 from '@/assets/before-after/chain-link-before.jpg';
 import after2 from '@/assets/before-after/chain-link-after.jpg';
 import before3 from '@/assets/before-after/industrial-fence-before.jpg';
 import after3 from '@/assets/before-after/industrial-fence-after.jpg';
-import before4 from '@/assets/projects/project-9.webp';
-import after4 from '@/assets/projects/project-10.webp';
+import solarBefore from '@/assets/before-after/solar-gate-before.jpg';
+import solarAfter from '@/assets/before-after/solar-gate-after.jpg';
 
 interface Pair {
   before: string;
