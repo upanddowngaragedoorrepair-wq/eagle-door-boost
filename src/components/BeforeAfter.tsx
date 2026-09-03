@@ -7,8 +7,8 @@
 import { useCallback, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-import before1 from '@/assets/projects/project-1.webp';
-import after1 from '@/assets/projects/project-2.webp';
+import beforeUpload from '@/assets/before-after/gate-before-wooden.jpg.asset.json';
+import afterUpload from '@/assets/before-after/gate-after-swing.jpg.asset.json';
 import before2 from '@/assets/projects/project-5.webp';
 import after2 from '@/assets/projects/project-6.webp';
 import before3 from '@/assets/service-proof/gate-repair-welding.webp';
@@ -23,7 +23,7 @@ interface Pair {
 }
 
 const pairs: Pair[] = [
-  { before: before1, after: after1, caption: 'Driveway gate rebuild' },
+  { before: beforeUpload.url, after: afterUpload.url, caption: 'Swing driveway gate rebuild' },
   { before: before2, after: after2, caption: 'Sliding gate & new operator' },
   { before: before3, after: after3, caption: 'Gate repair & welding' },
   { before: before4, after: after4, caption: 'Custom gate installation' },
