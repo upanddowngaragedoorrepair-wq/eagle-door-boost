@@ -142,15 +142,16 @@
 }
 
 @layer components {
-  /* Primary CTA Button — barn red gradient from the logo */
+  /* Primary CTA Button — Eagle gold with deep navy ink */
   .btn-cta {
     @apply inline-flex items-center justify-center gap-3 px-8 py-4 text-lg font-bold rounded-full transition-all duration-300;
     font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(135deg, hsl(210 100% 24%) 0%, hsl(212 100% 15%) 100%);
-    color: hsl(0 0% 100%);
+    background: linear-gradient(135deg, hsl(45 92% 58%) 0%, hsl(38 90% 47%) 100%);
+    color: hsl(var(--gold-ink));
     box-shadow:
-      0 6px 22px -4px hsl(212 100% 12% / 0.45),
-      inset 0 1px 0 0 hsl(210 80% 78% / 0.30);
+      0 8px 24px -8px hsl(38 90% 30% / 0.55),
+      0 2px 0 0 hsl(38 80% 38% / 0.35),
+      inset 0 1px 0 0 hsl(48 100% 88% / 0.55);
     text-transform: uppercase;
     letter-spacing: 0.04em;
     border: none;
@@ -163,30 +164,42 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(255,255,255,0.16) 0%, transparent 60%);
+    background: linear-gradient(180deg, rgba(255,255,255,0.22) 0%, transparent 62%);
     pointer-events: none;
   }
 
   .btn-cta:hover {
     transform: translateY(-2px);
-    background: linear-gradient(135deg, hsl(210 100% 20%) 0%, hsl(212 100% 12%) 100%);
+    background: linear-gradient(135deg, hsl(43 92% 52%) 0%, hsl(36 90% 42%) 100%);
     box-shadow:
-      0 10px 32px -6px hsl(212 100% 10% / 0.55),
-      inset 0 1px 0 0 hsl(210 80% 78% / 0.30);
+      0 12px 30px -8px hsl(38 90% 28% / 0.6),
+      inset 0 1px 0 0 hsl(48 100% 88% / 0.5);
   }
 
   .btn-cta:active {
     transform: translateY(0px);
     box-shadow:
-      0 2px 12px -2px hsl(212 100% 12% / 0.35),
-      inset 0 1px 0 0 hsl(210 80% 78% / 0.25);
+      0 3px 12px -4px hsl(38 90% 28% / 0.45),
+      inset 0 1px 0 0 hsl(48 100% 88% / 0.4);
   }
 
-
-  /* Always-on urgency pulse for the sticky call bar */
-  .btn-pulse {
-    animation: cta-pulse 2.2s ease-in-out infinite;
+  /* Blue variant for secondary/non-call actions */
+  .btn-cta-blue {
+    background: var(--gradient-blue);
+    color: hsl(0 0% 100%);
+    box-shadow: 0 8px 24px -8px hsl(213 76% 12% / 0.5);
   }
+
+  .btn-cta-blue:hover {
+    background: linear-gradient(135deg, hsl(211 87% 20%) 0%, hsl(213 80% 11%) 100%);
+    box-shadow: 0 12px 30px -8px hsl(213 76% 10% / 0.55);
+  }
+
+  /* One-time emphasis for a CTA after progress completes */
+  .btn-emphasis {
+    animation: cta-emphasis 900ms ease-out 1;
+  }
+
 
 
   /* Secondary Button */
