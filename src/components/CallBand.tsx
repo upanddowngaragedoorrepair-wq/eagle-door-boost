@@ -1,4 +1,4 @@
-import { Phone, Clock } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { useLocation2 } from '@/contexts/LocationContext';
 
@@ -124,11 +124,6 @@ export function CallBand({ headline, location, subline, stat }: CallBandProps) {
         >
           <p className="font-display font-bold text-xl md:text-2xl text-white uppercase tracking-wide leading-tight">
             {headline}
-          </p>
-          <p className="flex items-center justify-center md:justify-start gap-2 text-sm md:text-base font-medium text-white/90 mt-1.5">
-            <span className="w-2 h-2 rounded-full bg-green-400" />
-            <Clock className="w-4 h-4 text-[hsl(var(--gold-bright))]" />
-            {subline ?? `Same day service available in ${city}`}
           </p>
         </div>
 
