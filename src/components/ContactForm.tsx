@@ -163,8 +163,8 @@ export function ContactForm() {
 
               <textarea name="message" placeholder="Tell us about your issue" rows={3} className={`${inputClass} resize-none`} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
 
-              <input type="hidden" name="gclid" value={formData.gclid} />
-              <input type="hidden" name="msclkid" value={formData.msclkid} />
+              <AttributionFields attribution={attribution} landingPageUrl={landingPageUrl} referrerUrl={referrerUrl} />
+
 
               <button type="submit" disabled={submitting} className="w-full btn-cta text-lg min-h-[60px]">
                 <Send className="w-5 h-5" />

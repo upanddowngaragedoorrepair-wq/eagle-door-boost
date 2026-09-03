@@ -3,8 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { Send, Lock, Phone, X, Tag, Clock } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import { formatPhoneInput, phoneDigits, isValidUsPhone, isValidZip, isValidEmail } from '@/lib/phone';
+import { useAttribution } from '@/hooks/useAttribution';
+import { AttributionFields } from '@/components/AttributionFields';
+import { buildAttributionPayload } from '@/lib/attribution';
 
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
+
 
 function getTimeUntilEndOfDay() {
   const now = new Date();
