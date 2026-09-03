@@ -190,8 +190,8 @@ export function HeroForm() {
           </div>
         </div>
 
-        <input type="hidden" name="gclid" value={formData.gclid} />
-        <input type="hidden" name="msclkid" value={formData.msclkid} />
+        <AttributionFields attribution={attribution} landingPageUrl={landingPageUrl} referrerUrl={referrerUrl} />
+
 
         <button
           type="submit"
