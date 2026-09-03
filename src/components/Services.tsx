@@ -57,11 +57,12 @@ const services: ServiceData[] = [
   image: gateRepair,
   title: 'Gate Repair',
   bullets: [
-    'Complete repair for noisy, stuck, or damaged automatic gates',
-    'We fix motors, sensors, tracks, and more',
-    'Same-day service',
-    'All gate types',
-    'Warranty included',
+      'Automatic Gate Repair',
+      'Gate Opener & Motor Repair',
+      'Gate Won’t Open or Close',
+      'Sensor & Safety Eye Repair',
+      'Track, Roller & Chain Repair',
+      'Electrical & Control Board Repair',
   ],
   gallery: null,
   expandedLabel: 'We repair:',
@@ -74,11 +75,12 @@ const services: ServiceData[] = [
   image: gateDriveway,
   title: 'Automatic\nDriveway Gate',
   bullets: [
-    'Custom driveway gate installation',
-    'Professional-grade parts for smooth and secure operation',
-    'Metal, Wood, Aluminum, Vinyl',
-    'Premium materials',
-    'Automatic Gates, Smart Systems',
+      'Automatic Driveway Gate Installation',
+      'Electric Driveway Gates',
+      'Sliding Driveway Gates',
+      'Swing Driveway Gates',
+      'Custom Metal & Wood Gates',
+      'Gate Opener Installation',
   ],
   gallery: drivewayGallery,
   expandedLabel: 'We install:',
@@ -91,11 +93,12 @@ const services: ServiceData[] = [
   image: gateSwing,
   title: 'Pedestrian Gates',
   bullets: [
-    'Custom pedestrian gate installation for walkways and side entries',
-    'Secure access for foot traffic without opening the main gate',
-    'Self-closing options',
-    'ADA compliant',
-    'Keypad & intercom ready',
+      'Pedestrian Gate Installation',
+      'Walk-Through Entry Gates',
+      'Side Yard & Entry Gates',
+      'Self-Closing Gates',
+      'Keypad & Intercom Gates',
+      'Custom Metal Pedestrian Gates',
   ],
   gallery: null,
   expandedLabel: 'We handle:',
@@ -108,11 +111,12 @@ const services: ServiceData[] = [
   image: gateAccessControl,
   title: 'Access Control',
   bullets: [
-    'Keypads, intercoms, remotes, and smartphone-controlled access',
-    'Total property security',
-    'Smart tech',
-    'Remote access',
-    'Secure entry',
+      'Gate Access Control Systems',
+      'Keypad Entry Systems',
+      'Video Intercom Systems',
+      'Telephone Entry Systems',
+      'Key Fob & Card Readers',
+      'Smartphone Gate Access',
   ],
   gallery: null,
   expandedLabel: 'We install & repair:',
@@ -125,11 +129,12 @@ const services: ServiceData[] = [
   image: gateCommercial,
   title: 'Commercial Gates',
   bullets: [
-    'Solutions for businesses, HOAs, warehouses, and industrial properties',
-    'Heavy-duty security',
-    'High traffic',
-    'Industrial grade',
-    '24/7 support',
+      'Commercial Gate Repair',
+      'Commercial Gate Installation',
+      'HOA & Community Gates',
+      'Parking Lot Gates',
+      'Barrier Gate Systems',
+      'High-Traffic Gate Operators',
   ],
   gallery: null,
   expandedLabel: 'We install:',
@@ -142,10 +147,12 @@ const services: ServiceData[] = [
   image: cardFences,
   title: 'Fences & Pillars',
   bullets: [
-    'Wood, vinyl, chain-link, wrought iron & aluminum fencing',
-    'Custom concrete & steel pillars for a premium entrance look',
-    'Permit handling — we manage applications & inspections',
-    'Residential & commercial, HOA compliant installations',
+      'Wood Fence Installation',
+      'Wrought Iron & Metal Fences',
+      'Vinyl Fence Installation',
+      'Chain-Link Fencing',
+      'Custom Gate Pillars',
+      'Fence & Gate Permit Assistance',
   ],
   gallery: null,
   expandedLabel: 'We build:',
@@ -248,9 +255,9 @@ function ServiceCard({ service, isOpen, onToggle, phoneLink, phoneFormatted, onG
 
       {/* Default content */}
       <div className="p-7">
-        <ul className="space-y-2.5 mb-4">
+        <ul className="space-y-1.5 md:space-y-2 mb-4">
           {service.bullets.map((bullet, i) => (
-            <li key={i} className="flex items-start gap-2.5 text-muted-foreground text-sm">
+            <li key={i} className="flex items-start gap-2.5 text-foreground/80 text-[0.9375rem] leading-snug font-medium">
               <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
               <span>{bullet}</span>
             </li>
