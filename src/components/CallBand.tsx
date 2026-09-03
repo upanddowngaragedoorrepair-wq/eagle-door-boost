@@ -1,4 +1,4 @@
-import { Phone, Clock } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { useLocation2 } from '@/contexts/LocationContext';
 
