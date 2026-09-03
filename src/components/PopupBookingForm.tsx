@@ -89,6 +89,7 @@ export function PopupBookingForm() {
       return;
     }
 
+    if (submitting) return;
     setSubmitting(true);
     setError('');
 
@@ -107,8 +108,7 @@ export function PopupBookingForm() {
           city,
           cp,
           ...buildAttributionPayload('popup_booking_form'),
-          _subject: `New Popup Lead (10% Off) - ${formData.name} from ${city}`,
-
+          _subject: 'New Eagle Website Lead — popup_booking_form',
         }),
       });
 
