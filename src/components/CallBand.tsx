@@ -21,9 +21,12 @@ interface CallBandProps {
  */
 export function CallBand({ headline, location, subline, progress }: CallBandProps) {
   const { phoneLink, phoneFormatted, city } = useLocation2();
+  const sectionRef = useRef<HTMLElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
   const [displayPercent, setDisplayPercent] = useState(0);
+  const [emphasize, setEmphasize] = useState(false);
+
 
   // Start the fill only when the bar scrolls into view (once).
   useEffect(() => {
