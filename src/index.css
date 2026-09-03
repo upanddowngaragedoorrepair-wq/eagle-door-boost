@@ -5,65 +5,70 @@
 
 @layer base {
   :root {
-    /* Reference Palette — Deep Navy / Barn Red / White / Gold */
+    /* Eagle Palette — Midnight Navy / Brand Blue / Logo Gold / White */
     --background: 0 0% 100%;         /* clean white */
-    --foreground: 213 45% 14%;       /* navy ink */
+    --foreground: 214 48% 14%;       /* #122033 navy ink */
 
     /* Cards & Surfaces */
     --card: 0 0% 100%;
-    --card-foreground: 213 45% 14%;
-    --card-elevated: 210 30% 97%;
+    --card-foreground: 214 48% 14%;
+    --card-elevated: 210 50% 98%;    /* #F6F9FC cool off-white */
 
     --popover: 0 0% 100%;
-    --popover-foreground: 213 45% 14%;
+    --popover-foreground: 214 48% 14%;
 
-    /* Barn Red Accent — Primary */
-    --primary: 210 100% 20%;         /* logo deep blue CTA */
+    /* Brand Blue — Primary (secondary actions, links, focus) */
+    --primary: 211 87% 24%;          /* #083B72 */
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 210 100% 30%;
-    --primary-hover: 210 100% 15%;
+    --primary-glow: 209 84% 32%;     /* #0D5596 */
+    --primary-hover: 213 76% 16%;
 
     /* Secondary */
-    --secondary: 210 30% 96%;
-    --secondary-foreground: 213 45% 14%;
+    --secondary: 210 50% 98%;
+    --secondary-foreground: 214 48% 14%;
 
     /* Muted */
-    --muted: 210 25% 95%;
-    --muted-foreground: 213 16% 38%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 214 23% 34%; /* #43546A readable secondary text */
 
     /* Accent */
-    --accent: 210 30% 96%;
-    --accent-foreground: 213 45% 14%;
+    --accent: 210 50% 97%;
+    --accent-foreground: 214 48% 14%;
 
     /* Destructive */
     --destructive: 358 68% 44%;
     --destructive-foreground: 0 0% 100%;
 
     /* Borders & Input */
-    --border: 210 20% 88%;
-    --input: 210 20% 88%;
-    --ring: 210 100% 20%;
+    --border: 210 28% 88%;
+    --input: 210 28% 88%;
+    --ring: 209 84% 32%;
 
     --radius: 0.5rem;
 
     /* Custom tokens — dark surfaces are logo navy */
-    --navy: 212 72% 19%;
-    --navy-deep: 213 78% 13%;
-    --navy-light: 211 55% 28%;
-    --gold-soft: 38 84% 58%;
-    --gold-bright: 38 84% 64%;
-    --text-subtle: 213 16% 38%;
+    --navy: 213 76% 12%;             /* #071B34 midnight navy */
+    --navy-deep: 213 80% 9%;
+    --navy-light: 211 87% 24%;       /* #083B72 */
+    --blue-mid: 209 84% 32%;         /* #0D5596 */
+    --gold-soft: 43 89% 48%;
+    --gold-bright: 43 89% 53%;       /* #F2B51D Eagle gold */
+    --gold-deep: 38 88% 44%;
+    --gold-ink: 213 80% 10%;         /* text on gold */
+    --text-subtle: 214 23% 34%;
 
     /* Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(40, 88%, 68%) 0%, hsl(36, 82%, 55%) 100%);
-    --gradient-navy: linear-gradient(180deg, hsl(212, 72%, 19%) 0%, hsl(213, 78%, 12%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(45, 92%, 58%) 0%, hsl(38, 90%, 47%) 100%);
+    --gradient-navy: linear-gradient(180deg, hsl(213, 76%, 14%) 0%, hsl(213, 80%, 9%) 100%);
+    --gradient-blue: linear-gradient(135deg, hsl(211, 87%, 24%) 0%, hsl(213, 78%, 15%) 100%);
 
     /* Shadows */
-    --shadow-sm: 0 6px 18px rgba(11,32,64,0.10);
-    --shadow-md: 0 10px 28px rgba(11,32,64,0.14);
-    --shadow-lg: 0 18px 60px rgba(11,32,64,0.20);
-    --shadow-gold: 0 4px 20px -4px hsl(38 84% 55% / 0.45);
-    --shadow-card: 0 6px 24px -6px rgba(11,32,64,0.16), 0 0 0 1px hsl(210 20% 88% / 0.9);
+    --shadow-sm: 0 6px 18px rgba(7,27,52,0.10);
+    --shadow-md: 0 10px 28px rgba(7,27,52,0.14);
+    --shadow-lg: 0 18px 60px rgba(7,27,52,0.20);
+    --shadow-gold: 0 6px 22px -6px hsl(43 89% 40% / 0.45);
+    --shadow-card: 0 6px 24px -8px rgba(7,27,52,0.14), 0 0 0 1px hsl(210 28% 90% / 0.9);
+
 
 
 
