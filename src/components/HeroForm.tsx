@@ -150,7 +150,7 @@ export function HeroForm() {
           autoComplete="tel"
           className={inputClass}
           value={formData.phone}
-          onChange={e => setFormData({ ...formData, phone: formatPhoneInput(e.target.value })}
+          onChange={e => setFormData({ ...formData, phone: formatPhoneInput(e.target.value) })}
         />
 
         <div
