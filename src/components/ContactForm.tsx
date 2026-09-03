@@ -65,7 +65,7 @@ export function ContactForm() {
 
       if (res.ok) {
         const params = new URLSearchParams(window.location.search);
-        const keepParams = ['city', 'cp', 'utm_source', 'utm_campaign', 'utm_medium', 'utm_term', 'utm_content', 'gclid', 'cd', 'kd'];
+        const keepParams = ['city', 'cp', 'utm_source', 'utm_campaign', 'utm_medium', 'utm_term', 'utm_content', 'gclid', 'msclkid', 'fbclid', 'cd', 'kd'];
         const redirectParams = new URLSearchParams();
         keepParams.forEach((k) => {const v = params.get(k);if (v) redirectParams.set(k, v);});
         const qs = redirectParams.toString();
