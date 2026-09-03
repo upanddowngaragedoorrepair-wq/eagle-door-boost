@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Send, Lock } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { formatPhoneInput, phoneDigits, isValidUsPhone, isValidZip, isValidEmail } from '@/lib/phone';
 
 
@@ -21,7 +22,8 @@ export function HeroForm() {
   const navigate = useNavigate();
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
-  const [expanded, setExpanded] = useState(false);
+  const isMobile = useIsMobile();
+  const [showRest, setShowRest] = useState(!isMobile);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -41,10 +43,6 @@ export function HeroForm() {
     }));
   }, []);
 
-  const handleFocus = () => {
-    if (!expanded) setExpanded(true);
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -52,6 +50,13 @@ export function HeroForm() {
       setError('Please enter a valid 10-digit phone number.');
       return;
     }
+
+    if (isMobile && !showRest) {
+      setError('');
+      setShowRest(true);
+      return;
+    }
+
     if (!isValidEmail(formData.email)) {
       setError('Please enter a valid email address.');
       return;
@@ -111,23 +116,7 @@ export function HeroForm() {
         <span className="font-bold text-green-700 text-xs">Online Now</span>
       </div>
 
-      {/* Mobile: collapsed one-line strip until tapped. Desktop: always open. */}
-      {!expanded && (
-        <button
-          type="button"
-          onClick={() => setExpanded(true)}
-          className="md:hidden w-full text-left"
-        >
-          <p className="font-display text-lg font-bold text-foreground pr-24">
-            Can't talk right now?
-          </p>
-          <p className="text-sm text-muted-foreground mt-0.5">
-            Send your info instead →
-          </p>
-        </button>
-      )}
-
-      <div className={expanded ? 'block' : 'hidden md:block'}>
+      <div className="block">
         <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-1.5 pr-24">
           Can't talk? Get a Free Estimate
         </h3>
@@ -151,7 +140,6 @@ export function HeroForm() {
           className={inputClass}
           value={formData.name}
           onChange={e => setFormData({ ...formData, name: e.target.value })}
-          onFocus={handleFocus}
         />
         <input
           type="tel"
@@ -162,13 +150,12 @@ export function HeroForm() {
           autoComplete="tel"
           className={inputClass}
           value={formData.phone}
-          onChange={e => setFormData({ ...formData, phone: formatPhoneInput(e.target.value) })}
-          onFocus={handleFocus}
+          onChange={e => setFormData({ ...formData, phone: formatPhoneInput(e.target.value })}
         />
 
         <div
           className={`grid transition-all duration-300 ease-in-out ${
-            expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+            showRest ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
           }`}
         >
           <div className="overflow-hidden space-y-4">
@@ -176,7 +163,7 @@ export function HeroForm() {
               type="email"
               name="email"
               placeholder="Email Address *"
-              required
+              required={showRest}
               inputMode="email"
               autoComplete="email"
               className={inputClass}
@@ -187,7 +174,7 @@ export function HeroForm() {
               type="text"
               name="zip"
               placeholder="Zip Code *"
-              required
+              required={showRest}
               inputMode="numeric"
               pattern="[0-9]{5}"
               maxLength={5}
@@ -219,7 +206,7 @@ export function HeroForm() {
           className="w-full btn-cta text-lg min-h-[56px]"
         >
           <Send className="w-5 h-5" />
-          {submitting ? 'Submitting...' : 'Get Free Estimate'}
+          {submitting ? 'Submitting...' : isMobile && !showRest ? 'Continue' : 'Get Free Estimate'}
         </button>
         </form>
 
