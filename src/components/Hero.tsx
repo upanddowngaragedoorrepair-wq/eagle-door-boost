@@ -61,7 +61,9 @@ export function Hero() {
     'Free Estimates — No Obligation',
     '20+ Years of Experience',
     'Residential & Commercial',
+    'Repair & Installation',
   ];
+
 
 
   return (
