@@ -106,10 +106,10 @@ export function HeroForm() {
     }
   };
 
-  const inputClass = "w-full px-4 py-3.5 rounded-xl bg-background text-foreground placeholder:text-muted-foreground border border-border focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 text-base font-medium transition-colors";
+  const inputClass = "w-full px-4 py-3.5 rounded-xl bg-background text-foreground placeholder:text-[hsl(214_18%_45%)] border border-[hsl(210_28%_86%)] focus:border-[hsl(var(--blue-mid))] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--blue-mid))]/25 text-base font-medium transition-colors";
 
   return (
-    <div className="bg-card rounded-3xl p-5 md:p-8 shadow-lg border border-border relative">
+    <div className="bg-card rounded-3xl p-5 md:p-8 border border-[hsl(210_28%_88%)] shadow-[0_18px_50px_-18px_hsl(213_76%_12%/0.35)] relative">
       {/* Online badge */}
       <div className="absolute top-4 right-4 inline-flex items-center gap-2 rounded-full bg-green-50 border border-green-200 px-2.5 py-1">
         <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
@@ -120,7 +120,7 @@ export function HeroForm() {
         <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-1.5 pr-24">
           Can't talk? Get a Free Estimate
         </h3>
-        <p className="text-sm text-muted-foreground mb-5">
+        <p className="text-sm font-medium text-[hsl(var(--text-subtle))] mb-5">
           No obligation • Expert advice • Fast response
         </p>
 
@@ -210,7 +210,7 @@ export function HeroForm() {
         </button>
         </form>
 
-        <p className="flex items-center justify-center gap-2 text-xs text-muted-foreground mt-3">
+        <p className="flex items-center justify-center gap-2 text-xs font-medium text-[hsl(var(--text-subtle))] mt-3">
           <Lock className="w-4 h-4" />
           Your information is secure and will never be shared
         </p>
