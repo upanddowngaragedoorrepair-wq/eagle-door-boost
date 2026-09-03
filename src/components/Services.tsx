@@ -255,9 +255,9 @@ function ServiceCard({ service, isOpen, onToggle, phoneLink, phoneFormatted, onG
 
       {/* Default content */}
       <div className="p-7">
-        <ul className="space-y-2.5 mb-4">
+        <ul className="space-y-1.5 md:space-y-2 mb-4">
           {service.bullets.map((bullet, i) => (
-            <li key={i} className="flex items-start gap-2.5 text-muted-foreground text-sm">
+            <li key={i} className="flex items-start gap-2.5 text-foreground/80 text-[0.9375rem] leading-snug font-medium">
               <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
               <span>{bullet}</span>
             </li>
