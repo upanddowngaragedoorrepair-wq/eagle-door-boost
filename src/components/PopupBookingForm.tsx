@@ -36,6 +36,7 @@ export function PopupBookingForm() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [msLeft, setMsLeft] = useState(getTimeUntilEndOfDay());
+  const { attribution, landingPageUrl, referrerUrl } = useAttribution();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -43,18 +44,8 @@ export function PopupBookingForm() {
     service: '',
     zip: '',
     notes: '10OFF',
-    gclid: '',
-    msclkid: '',
   });
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    setFormData((prev) => ({
-      ...prev,
-      gclid: params.get('gclid') || '',
-      msclkid: params.get('msclkid') || '',
-    }));
-  }, []);
 
   const today = useMemo(() => {
     return new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
