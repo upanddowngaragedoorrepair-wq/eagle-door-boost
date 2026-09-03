@@ -9,8 +9,8 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 import beforeUpload from '@/assets/before-after/gate-before-wooden.jpg';
 import afterUpload from '@/assets/before-after/gate-after-swing.jpg';
-import before2 from '@/assets/projects/project-5.webp';
-import after2 from '@/assets/projects/project-6.webp';
+import before2 from '@/assets/before-after/chain-link-before.jpg';
+import after2 from '@/assets/before-after/chain-link-after.jpg';
 import before3 from '@/assets/service-proof/gate-repair-welding.webp';
 import after3 from '@/assets/service-proof/gate-repair-teamwork.webp';
 import before4 from '@/assets/projects/project-9.webp';
