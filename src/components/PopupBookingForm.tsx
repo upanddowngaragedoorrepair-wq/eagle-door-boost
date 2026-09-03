@@ -3,8 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { Send, Lock, Phone, X, Tag, Clock } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import { formatPhoneInput, phoneDigits, isValidUsPhone, isValidZip, isValidEmail } from '@/lib/phone';
+import { useAttribution } from '@/hooks/useAttribution';
+import { AttributionFields } from '@/components/AttributionFields';
+import { buildAttributionPayload } from '@/lib/attribution';
 
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
+
 
 function getTimeUntilEndOfDay() {
   const now = new Date();
@@ -32,6 +36,7 @@ export function PopupBookingForm() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [msLeft, setMsLeft] = useState(getTimeUntilEndOfDay());
+  const { attribution, landingPageUrl, referrerUrl } = useAttribution();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -39,18 +44,8 @@ export function PopupBookingForm() {
     service: '',
     zip: '',
     notes: '10OFF',
-    gclid: '',
-    msclkid: '',
   });
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    setFormData((prev) => ({
-      ...prev,
-      gclid: params.get('gclid') || '',
-      msclkid: params.get('msclkid') || '',
-    }));
-  }, []);
 
   const today = useMemo(() => {
     return new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
@@ -109,19 +104,18 @@ export function PopupBookingForm() {
           zip: formData.zip,
           address: '',
           message: `[POPUP - 10% OFF DISCOUNT REQUESTED]\nService needed: ${formData.service || 'Not specified'}\nNotes: ${formData.notes || 'N/A'}\nDiscount code: 10OFF`,
-          page_url: window.location.href,
           city,
           cp,
-          gclid: formData.gclid,
-          msclkid: formData.msclkid,
+          ...buildAttributionPayload('popup_booking_form'),
           _subject: `New Popup Lead (10% Off) - ${formData.name} from ${city}`,
+
         }),
       });
 
 
       if (res.ok) {
         const params = new URLSearchParams(window.location.search);
-        const keepParams = ['city', 'cp', 'utm_source', 'utm_campaign', 'utm_medium', 'utm_term', 'utm_content', 'gclid', 'cd', 'kd'];
+        const keepParams = ['city', 'cp', 'utm_source', 'utm_campaign', 'utm_medium', 'utm_term', 'utm_content', 'gclid', 'msclkid', 'fbclid', 'cd', 'kd'];
         const redirectParams = new URLSearchParams();
         keepParams.forEach(k => { const v = params.get(k); if (v) redirectParams.set(k, v); });
         const qs = redirectParams.toString();
@@ -221,8 +215,8 @@ export function PopupBookingForm() {
               className={`${inputClass} resize-none`}
               value={formData.notes} onChange={e => setFormData({ ...formData, notes: e.target.value })} />
 
-            <input type="hidden" name="gclid" value={formData.gclid} />
-            <input type="hidden" name="msclkid" value={formData.msclkid} />
+            <AttributionFields attribution={attribution} landingPageUrl={landingPageUrl} referrerUrl={referrerUrl} />
+
 
             <button type="submit" disabled={submitting} className="w-full btn-cta text-base md:text-lg min-h-[46px] md:min-h-[52px]">
               <Send className="w-4 h-4 md:w-5 md:h-5" />

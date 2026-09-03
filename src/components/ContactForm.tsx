@@ -1,8 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Send, MapPin, Zap, Shield, Star, Lock } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import { formatPhoneInput, phoneDigits, isValidUsPhone, isValidZip, isValidEmail } from '@/lib/phone';
+import { useAttribution } from '@/hooks/useAttribution';
+import { AttributionFields } from '@/components/AttributionFields';
+import { buildAttributionPayload } from '@/lib/attribution';
 
 
 export function ContactForm() {
@@ -10,6 +13,7 @@ export function ContactForm() {
   const navigate = useNavigate();
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
+  const { attribution, landingPageUrl, referrerUrl } = useAttribution();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -17,18 +21,8 @@ export function ContactForm() {
     zipCode: '',
     address: '',
     message: '',
-    gclid: '',
-    msclkid: '',
   });
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    setFormData((prev) => ({
-      ...prev,
-      gclid: params.get('gclid') || '',
-      msclkid: params.get('msclkid') || '',
-    }));
-  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -61,18 +55,17 @@ export function ContactForm() {
           zip: formData.zipCode,
           address: formData.address,
           message: formData.message,
-          page_url: window.location.href,
           city: city,
           cp: cp,
-          gclid: formData.gclid,
-          msclkid: formData.msclkid,
+          ...buildAttributionPayload('contact_form'),
+
         })
       });
 
 
       if (res.ok) {
         const params = new URLSearchParams(window.location.search);
-        const keepParams = ['city', 'cp', 'utm_source', 'utm_campaign', 'utm_medium', 'utm_term', 'utm_content', 'gclid', 'cd', 'kd'];
+        const keepParams = ['city', 'cp', 'utm_source', 'utm_campaign', 'utm_medium', 'utm_term', 'utm_content', 'gclid', 'msclkid', 'fbclid', 'cd', 'kd'];
         const redirectParams = new URLSearchParams();
         keepParams.forEach((k) => {const v = params.get(k);if (v) redirectParams.set(k, v);});
         const qs = redirectParams.toString();
@@ -170,8 +163,8 @@ export function ContactForm() {
 
               <textarea name="message" placeholder="Tell us about your issue" rows={3} className={`${inputClass} resize-none`} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
 
-              <input type="hidden" name="gclid" value={formData.gclid} />
-              <input type="hidden" name="msclkid" value={formData.msclkid} />
+              <AttributionFields attribution={attribution} landingPageUrl={landingPageUrl} referrerUrl={referrerUrl} />
+
 
               <button type="submit" disabled={submitting} className="w-full btn-cta text-lg min-h-[60px]">
                 <Send className="w-5 h-5" />

@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Send, Lock } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { formatPhoneInput, phoneDigits, isValidUsPhone, isValidZip, isValidEmail } from '@/lib/phone';
+import { useAttribution } from '@/hooks/useAttribution';
+import { AttributionFields } from '@/components/AttributionFields';
+import { buildAttributionPayload } from '@/lib/attribution';
 
 
 const serviceOptions = [
@@ -24,24 +27,15 @@ export function HeroForm() {
   const [error, setError] = useState('');
   const isMobile = useIsMobile();
   const [showRest, setShowRest] = useState(!isMobile);
+  const { attribution, landingPageUrl, referrerUrl } = useAttribution();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
     service: '',
     zip: '',
-    gclid: '',
-    msclkid: '',
   });
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    setFormData((prev) => ({
-      ...prev,
-      gclid: params.get('gclid') || '',
-      msclkid: params.get('msclkid') || '',
-    }));
-  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -80,18 +74,17 @@ export function HeroForm() {
           email: formData.email,
           message: `Service needed: ${formData.service}`,
           zip: formData.zip,
-          page_url: window.location.href,
           city,
           cp,
-          gclid: formData.gclid,
-          msclkid: formData.msclkid,
+          ...buildAttributionPayload('hero_form'),
         }),
+
       });
 
 
       if (res.ok) {
         const params = new URLSearchParams(window.location.search);
-        const keepParams = ['city', 'cp', 'utm_source', 'utm_campaign', 'utm_medium', 'utm_term', 'utm_content', 'gclid', 'cd', 'kd'];
+        const keepParams = ['city', 'cp', 'utm_source', 'utm_campaign', 'utm_medium', 'utm_term', 'utm_content', 'gclid', 'msclkid', 'fbclid', 'cd', 'kd'];
         const redirectParams = new URLSearchParams();
         keepParams.forEach(k => { const v = params.get(k); if (v) redirectParams.set(k, v); });
         const qs = redirectParams.toString();
@@ -197,8 +190,8 @@ export function HeroForm() {
           </div>
         </div>
 
-        <input type="hidden" name="gclid" value={formData.gclid} />
-        <input type="hidden" name="msclkid" value={formData.msclkid} />
+        <AttributionFields attribution={attribution} landingPageUrl={landingPageUrl} referrerUrl={referrerUrl} />
+
 
         <button
           type="submit"
