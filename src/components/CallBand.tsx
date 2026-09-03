@@ -31,8 +31,9 @@ export function CallBand({ headline, location, subline, progress }: CallBandProp
   // Start the fill only when the bar scrolls into view (once).
   useEffect(() => {
     if (!progress) return;
-    const el = progressRef.current;
+    const el = progressRef.current ?? sectionRef.current;
     if (!el) return;
+
 
     const observer = new IntersectionObserver(
       (entries) => {
