@@ -55,11 +55,10 @@ export function ContactForm() {
           zip: formData.zipCode,
           address: formData.address,
           message: formData.message,
-          page_url: window.location.href,
           city: city,
           cp: cp,
-          gclid: formData.gclid,
-          msclkid: formData.msclkid,
+          ...buildAttributionPayload('contact_form'),
+
         })
       });
 
