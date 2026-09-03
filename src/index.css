@@ -238,9 +238,11 @@
     text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35), 0 1px 4px rgba(0, 0, 0, 0.25);
   }
 
+  /* Gold heading accent — deepened so it stays readable on white */
   .gold-text {
-    color: hsl(36 82% 45%);
+    color: hsl(38 92% 33%);
   }
+
 
   .container-main {
     @apply w-full mx-auto px-4 sm:px-6 lg:px-8;
