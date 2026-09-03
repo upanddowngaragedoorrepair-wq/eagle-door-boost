@@ -76,19 +76,19 @@ export function Hero() {
           role="presentation"
           width={1920}
           height={1080}
-          className="w-full h-full object-cover opacity-30 md:opacity-30"
+          className="w-full h-full object-cover opacity-40 md:opacity-45"
           fetchPriority="high"
           decoding="sync"
         />
         {/* Mobile: top-to-bottom gradient (dark top/text, lighter bottom/gate visible) */}
-        <div className="absolute inset-0 md:hidden bg-gradient-to-b from-[hsl(22_30%_10%/0.62)] via-[hsl(22_28%_13%/0.34)] to-[hsl(24_25%_16%/0.10)]" />
+        <div className="absolute inset-0 md:hidden bg-gradient-to-b from-[hsl(213_76%_10%/0.80)] via-[hsl(211_80%_16%/0.55)] to-[hsl(209_70%_22%/0.22)]" />
         {/* Desktop: left-to-right gradient (dark left/text, lighter right/gate visible) */}
-        <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-[hsl(22_30%_10%/0.62)] via-[hsl(22_28%_13%/0.40)] to-[hsl(24_25%_16%/0.12)]" />
+        <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-[hsl(213_76%_10%/0.86)] via-[hsl(211_80%_16%/0.58)] to-[hsl(209_70%_22%/0.20)]" />
       </div>
 
       {/* Subtle warm decorative glows */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[hsl(var(--blue-mid))]/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[hsl(var(--navy-light))]/25 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container-main relative">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
@@ -108,12 +108,12 @@ export function Hero() {
             </h1>
 
 
-            <p className="text-xl md:text-2xl font-display font-semibold relative inline-block headline-underline mb-7 text-white/85">
+            <p className="text-xl md:text-2xl font-display font-semibold relative inline-block headline-underline mb-7 text-white/95">
               Best Price Guarantee
             </p>
 
             {/* Rating / trust strip — moved above the fold */}
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mb-6 text-white/85">
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mb-6 text-white/95">
               <span className="flex items-center gap-1.5">
                 <span className="flex">
                   {Array.from({ length: 5 }).map((_, i) => (
@@ -138,7 +138,7 @@ export function Hero() {
               <Phone className="w-7 h-7" />
               Call Now: {phoneFormatted}
             </a>
-            <p className="flex items-center gap-2 text-sm font-semibold text-white/75 mt-3 mb-7">
+            <p className="flex items-center gap-2 text-sm font-semibold text-white/90 mt-3 mb-7">
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
               Avg. answer under 30 sec • Open 7AM–8PM
             </p>
@@ -146,7 +146,7 @@ export function Hero() {
             {/* Bullet promises — below the CTA now */}
             <ul className="space-y-2.5 mb-5">
               {bullets.map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-base md:text-lg text-white/90">
+                <li key={i} className="flex items-center gap-3 text-base md:text-lg text-white/95">
                   <CheckCircle className="w-5 h-5 text-[hsl(var(--gold-bright))] flex-shrink-0" />
                   {item}
                 </li>
@@ -161,7 +161,7 @@ export function Hero() {
             <a
               href="#quote-form"
               onClick={handleEstimateClick}
-              className="inline-block text-sm font-semibold text-white/70 underline decoration-primary/60 underline-offset-4 hover:text-primary transition-colors"
+              className="inline-block text-sm font-semibold text-white/85 underline decoration-[hsl(var(--gold-bright))]/70 underline-offset-4 hover:text-[hsl(var(--gold-bright))] transition-colors"
             >
               Prefer a written quote? Send your info instead →
             </a>
