@@ -24,7 +24,7 @@ interface Pair {
 
 const pairs: Pair[] = [
   { before: beforeUpload, after: afterUpload, caption: 'Swing driveway gate rebuild' },
-  { before: before2, after: after2, caption: 'Sliding gate & new operator' },
+  { before: before2, after: after2, caption: 'Chain link fence' },
   { before: before3, after: after3, caption: 'Gate repair & welding' },
   { before: before4, after: after4, caption: 'Custom gate installation' },
 ];
