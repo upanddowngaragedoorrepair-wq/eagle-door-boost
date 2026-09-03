@@ -60,7 +60,7 @@ export function ServiceAreaMap() {
       <div className="max-w-[1200px] mx-auto px-5">
         <h2 className="text-white text-center text-[28px] md:text-[36px] font-display font-bold mb-10">
           Proudly Serving{' '}
-          <span className="text-[hsl(var(--primary))]">{displayCity}</span>
+          <span className="text-[hsl(var(--gold-bright))]">{displayCity}</span>
           {' '}& 30 Miles Around
         </h2>
 
