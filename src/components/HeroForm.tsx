@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Send, Lock } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { formatPhoneInput, phoneDigits, isValidUsPhone, isValidZip, isValidEmail } from '@/lib/phone';
+import { useAttribution } from '@/hooks/useAttribution';
+import { AttributionFields } from '@/components/AttributionFields';
+import { buildAttributionPayload } from '@/lib/attribution';
 
 
 const serviceOptions = [
@@ -24,24 +27,15 @@ export function HeroForm() {
   const [error, setError] = useState('');
   const isMobile = useIsMobile();
   const [showRest, setShowRest] = useState(!isMobile);
+  const { attribution, landingPageUrl, referrerUrl } = useAttribution();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
     service: '',
     zip: '',
-    gclid: '',
-    msclkid: '',
   });
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    setFormData((prev) => ({
-      ...prev,
-      gclid: params.get('gclid') || '',
-      msclkid: params.get('msclkid') || '',
-    }));
-  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
