@@ -74,12 +74,11 @@ export function HeroForm() {
           email: formData.email,
           message: `Service needed: ${formData.service}`,
           zip: formData.zip,
-          page_url: window.location.href,
           city,
           cp,
-          gclid: formData.gclid,
-          msclkid: formData.msclkid,
+          ...buildAttributionPayload('hero_form'),
         }),
+
       });
 
 
