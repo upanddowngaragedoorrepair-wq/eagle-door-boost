@@ -287,6 +287,35 @@
   100% { transform: scale(1); }
 }
 
+/* TESTIMONIAL PHRASE — one-time gold sweep; inline to preserve text layout */
+.testimonial-phrase {
+  background-image: linear-gradient(hsl(var(--gold-cta) / 0.25), hsl(var(--gold-cta) / 0.25));
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 0% 100%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.testimonial-phrase.is-revealed {
+  background-size: 100% 100%;
+  animation: testimonial-phrase-sweep 800ms ease-out 1 both;
+}
+
+@keyframes testimonial-phrase-sweep {
+  from { background-size: 0% 100%; opacity: 0.85; }
+  to { background-size: 100% 100%; opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-phrase,
+  .testimonial-phrase.is-revealed {
+    background-size: 100% 100%;
+    animation: none;
+    opacity: 1;
+  }
+}
+
 /* Scroll-reveal: small fade + rise, applied when .is-revealed is added */
 .reveal-up {
   opacity: 0;
