@@ -39,7 +39,7 @@ const Index = () => {
           headline="Get Your Free Estimate Today"
           location="band_services"
           subline="Free estimates • No obligation"
-          stat={{ percent: 96, label: 'Repair calls completed on the first visit', caption: 'Same-day service across the Bay Area' }}
+          stat={{ percent: 96, label: 'Repair calls completed on the first visit' }}
         />
 
         {/* Below-fold: proof first, then projects and offers */}
