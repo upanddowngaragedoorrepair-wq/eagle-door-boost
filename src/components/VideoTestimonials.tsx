@@ -1,14 +1,15 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-import { Play, Phone, ShieldCheck, Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
-import { useLocation2 } from '@/contexts/LocationContext';
+import { Play, ShieldCheck, Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 interface Slide {
   src: string;
   label: string;
   quote: string;
   highlight: string;
-  author: string;
+  name?: string;
+  location?: string;
 }
 
 const slides: Slide[] = [
@@ -17,228 +18,148 @@ const slides: Slide[] = [
     label: 'Gate Repair',
     quote: 'I was told by 4 different companies to replace everything… Matt repaired it for a fraction of the cost.',
     highlight: 'fraction of the cost',
-    author: 'Verified Customer',
   },
   {
     src: '/videos/review-2.mp4',
     label: 'Driveway Gate Install',
     quote: 'I chose them because of their 5.0 Yelp rating… They absolutely deserve it.',
     highlight: 'absolutely deserve it',
-    author: 'Verified Customer',
   },
   {
     src: '/videos/review-3.mp4',
     label: 'Access Control Upgrade',
     quote: 'I was surprised this was completed in just one day.',
     highlight: 'just one day',
-    author: 'Verified Customer',
   },
   {
     src: '/videos/review-4.mp4',
     label: '5-Star Customer Review',
     quote: 'Called them and they showed up within 45 minutes. Great service, hands down.',
     highlight: 'within 45 minutes',
-    author: 'Verified Customer',
   },
 ];
 
 function highlightQuote(quote: string, highlight: string) {
-  if (!highlight) return quote;
-  const idx = quote.toLowerCase().indexOf(highlight.toLowerCase());
-  if (idx === -1) return quote;
-  return (
-    <>
-      {quote.slice(0, idx)}
-      <span className="text-primary">{quote.slice(idx, idx + highlight.length)}</span>
-      {quote.slice(idx + highlight.length)}
-    </>
-  );
+  const index = quote.toLowerCase().indexOf(highlight.toLowerCase());
+  if (!highlight || index === -1) return quote;
+  return <>{quote.slice(0, index)}<span className={highlight === 'just one day' ? 'testimonials__highlight' : undefined}>{quote.slice(index, index + highlight.length)}</span>{quote.slice(index + highlight.length)}</>;
 }
 
-function VideoBlock({ src, label }: { src: string; label: string }) {
+function VideoBlock({ src, label, active, onPlayingChange }: {
+  src: string; label: string; active: boolean; onPlayingChange: (playing: boolean) => void;
+}) {
   const [playing, setPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  const handlePlay = () => {
-    setPlaying(true);
-    setTimeout(() => videoRef.current?.play(), 50);
-  };
+  useEffect(() => {
+    if (!active) {
+      videoRef.current?.pause();
+      setPlaying(false);
+    }
+  }, [active]);
 
   return (
-    <div className="relative w-full aspect-[9/16] sm:aspect-video lg:aspect-[4/5] rounded-2xl overflow-hidden bg-secondary border border-border shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)] group">
+    <div className="testimonials__video">
       {playing ? (
-        <video
-          ref={videoRef}
-          src={src}
-          controls
-          playsInline
-          className="w-full h-full object-cover"
-          onEnded={() => setPlaying(false)}
-        />
+        <video ref={videoRef} src={src} controls autoPlay playsInline
+          onPlay={() => onPlayingChange(true)} onPause={() => onPlayingChange(false)}
+          onEnded={() => { setPlaying(false); onPlayingChange(false); }} />
       ) : (
-        <button
-          onClick={handlePlay}
-          className="w-full h-full relative block overflow-hidden"
-          aria-label={`Play video: ${label}`}
-        >
-          {/* Full video preview as background */}
-          <video
-            src={`${src}#t=0.5`}
-            muted
-            playsInline
-            preload="metadata"
-            className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-          />
-          {/* Dark overlay for contrast */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/40 pointer-events-none" />
-
-          {/* Centered play button */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="relative">
-              <div className="absolute inset-0 rounded-full bg-primary/40 blur-2xl scale-150" />
-              <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full bg-primary flex items-center justify-center shadow-[0_10px_40px_-8px_hsl(var(--primary)/0.7)] group-hover:scale-110 transition-transform duration-300">
-                <Play className="w-9 h-9 md:w-10 md:h-10 text-primary-foreground ml-1" fill="currentColor" />
-              </div>
-              {/* Pulse ring */}
-              <div className="absolute inset-0 rounded-full border-2 border-primary/60 animate-[pulse_2.2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
-            </div>
-          </div>
-
-          {/* Bottom shine bar */}
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
-
-        </button>
+        <Button variant="ghost" className="testimonials__video-trigger" aria-label={`Play video: ${label}`}
+          onClick={() => { setPlaying(true); onPlayingChange(true); }}>
+          <img src={src.replace('/videos/', '/videos/thumbnails/').replace('.mp4', '.webp')}
+            alt={`${label} customer video thumbnail`} width={720} height={1280} loading="lazy" />
+          <span className="testimonials__play"><Play aria-hidden="true" fill="currentColor" /></span>
+        </Button>
       )}
     </div>
   );
 }
 
-export function VideoTestimonials() {
-  const { phoneLink, phoneFormatted } = useLocation2();
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center' });
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
-  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
-  const scrollTo = useCallback((i: number) => emblaApi?.scrollTo(i), [emblaApi]);
-
+function TestimonialCard({ slide, active, onPlayingChange }: {
+  slide: Slide; active: boolean; onPlayingChange: (playing: boolean) => void;
+}) {
+  const ref = useRef<HTMLElement>(null);
+  const [revealed, setRevealed] = useState(false);
   useEffect(() => {
-    if (!emblaApi) return;
-    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
-    onSelect();
-    emblaApi.on('select', onSelect);
-    return () => {
-      emblaApi.off('select', onSelect);
-    };
-  }, [emblaApi]);
-
-  // Slow autoplay
-  useEffect(() => {
-    if (!emblaApi) return;
-    const id = window.setInterval(() => emblaApi.scrollNext(), 7000);
-    const stop = () => window.clearInterval(id);
-    const root = emblaApi.rootNode();
-    root.addEventListener('mouseenter', stop);
-    root.addEventListener('touchstart', stop, { passive: true });
-    return () => {
-      window.clearInterval(id);
-      root.removeEventListener('mouseenter', stop);
-      root.removeEventListener('touchstart', stop);
-    };
-  }, [emblaApi]);
+    const card = ref.current;
+    if (!card || !active || revealed) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setRevealed(true);
+      return;
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { setRevealed(true); observer.disconnect(); }
+    }, { threshold: 0.2 });
+    observer.observe(card);
+    return () => observer.disconnect();
+  }, [active, revealed]);
 
   return (
-    <section className="py-12 md:py-20 bg-[hsl(var(--surface-light))] relative overflow-hidden">
-      {/* Decorative glows */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+    <article ref={ref} className={`testimonials__card${revealed ? ' is-revealed' : ''}`} aria-hidden={!active} inert={!active ? '' : undefined}>
+      <div className="testimonials__content">
+        <div className="testimonials__stars" aria-label="5 out of 5 stars">
+          {Array.from({ length: 5 }, (_, i) => <Star key={i} fill="currentColor" aria-hidden="true" />)}
+        </div>
+        <div className="testimonials__quote-wrap">
+          <Quote className="testimonials__decoration" aria-hidden="true" />
+          <blockquote className="testimonials__quote">“{highlightQuote(slide.quote, slide.highlight)}”</blockquote>
+        </div>
+        <div className="testimonials__verified"><ShieldCheck aria-hidden="true" /><span>Verified Customer</span></div>
+        <p className="testimonials__identity">{slide.name || slide.label}{slide.location ? `, ${slide.location}` : ''}</p>
+      </div>
+      <VideoBlock src={slide.src} label={slide.label} active={active} onPlayingChange={onPlayingChange} />
+    </article>
+  );
+}
 
-      <div className="container-main relative">
-        {/* Headline */}
-        <h3 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-center text-foreground tracking-tight">
-          See <span className="gold-text">Real Customers</span> & Real Results
-        </h3>
-        <p className="text-center text-muted-foreground mt-3 mb-8 md:mb-12 text-base md:text-lg">
-          Real work. Real clients. Real results.
-        </p>
+export function VideoTestimonials() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center' });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [interacted, setInteracted] = useState(false);
+  const [playing, setPlaying] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const navigate = useCallback((direction: 'prev' | 'next') => {
+    setInteracted(true);
+    setPlaying(false);
+    if (direction === 'prev') emblaApi?.scrollPrev(); else emblaApi?.scrollNext();
+  }, [emblaApi]);
 
-        {/* Slider */}
-        <div className="relative max-w-6xl mx-auto">
-          {/* Arrows - visible on all screens */}
-          <button
-            onClick={scrollPrev}
-            aria-label="Previous testimonial"
-            className="flex absolute left-1 md:left-0 top-1/2 -translate-y-1/2 md:-translate-x-4 lg:-translate-x-6 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-foreground/80 hover:bg-primary border border-border hover:border-primary text-white items-center justify-center transition-all backdrop-blur-sm shadow-lg"
-          >
-            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
-          </button>
-          <button
-            onClick={scrollNext}
-            aria-label="Next testimonial"
-            className="flex absolute right-1 md:right-0 top-1/2 -translate-y-1/2 md:translate-x-4 lg:translate-x-6 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-foreground/80 hover:bg-primary border border-border hover:border-primary text-white items-center justify-center transition-all backdrop-blur-sm shadow-lg"
-          >
-            <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
-          </button>
+  useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => { setSelectedIndex(emblaApi.selectedScrollSnap()); setPlaying(false); };
+    const onPointer = () => setInteracted(true);
+    onSelect();
+    emblaApi.on('select', onSelect).on('pointerDown', onPointer);
+    return () => { emblaApi.off('select', onSelect).off('pointerDown', onPointer); };
+  }, [emblaApi]);
 
-          <div className="overflow-hidden rounded-3xl" ref={emblaRef}>
-            <div className="flex">
-              {slides.map((s, i) => (
-                <div key={s.src} className="flex-[0_0_100%] min-w-0 px-1">
-                  <div className="relative rounded-3xl bg-white border border-border overflow-hidden shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5)]">
-                    {/* Big background quote icon */}
-                    <Quote
-                      className="absolute -top-6 -right-6 md:top-4 md:right-8 w-40 h-40 md:w-56 md:h-56 text-primary/15 pointer-events-none"
-                      strokeWidth={1}
-                    />
+  useEffect(() => {
+    if (!emblaApi || interacted || playing || hovered || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const id = window.setInterval(() => {
+      if (!document.hidden) emblaApi.scrollNext();
+    }, 7000);
+    return () => window.clearInterval(id);
+  }, [emblaApi, interacted, playing, hovered]);
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 p-5 md:p-8 lg:p-10 items-center relative">
-                      {/* Quote side - first on mobile, second on desktop */}
-                      <div className="flex flex-col text-center lg:text-left order-1 lg:order-2">
-                        {/* Stars */}
-                        <div className="flex justify-center lg:justify-start gap-1 mb-4">
-                          {Array.from({ length: 5 }).map((_, k) => (
-                            <Star key={k} className="w-5 h-5 md:w-6 md:h-6 text-[hsl(var(--gold-bright))] fill-[hsl(var(--gold-bright))]" />
-                          ))}
-                        </div>
-
-                        {/* Quote */}
-                        <blockquote className="text-xl sm:text-2xl md:text-3xl lg:text-[2rem] font-display font-bold text-foreground leading-tight tracking-tight">
-                          <span className="text-primary text-3xl md:text-4xl leading-none mr-1">“</span>
-                          {highlightQuote(s.quote, s.highlight)}
-                          <span className="text-primary text-3xl md:text-4xl leading-none ml-1">”</span>
-                        </blockquote>
-
-                        {/* Author */}
-                        <div className="mt-4 flex items-center justify-center lg:justify-start gap-2 text-foreground/70 text-sm md:text-base">
-                          <ShieldCheck className="w-4 h-4 text-primary" />
-                          <span className="font-semibold">{s.author}</span>
-                        </div>
-                      </div>
-
-                      {/* Video - second on mobile, first on desktop */}
-                      <div className="w-full max-w-md mx-auto lg:max-w-none order-2 lg:order-1">
-                        <VideoBlock src={s.src} label={s.label} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
+  return (
+    <section id="video-testimonials" className="testimonials" aria-labelledby="testimonials-heading">
+      <div className="container-main">
+        <h3 id="testimonials-heading" className="testimonials__heading">See <span className="gold-text">Real Customers</span> & Real Results</h3>
+        <p className="testimonials__subtitle">Real work. Real clients. Real results.</p>
+        <div className="testimonials__slider" role="region" aria-roledescription="carousel" aria-label="Customer video testimonials"
+          onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onFocusCapture={() => setInteracted(true)}>
+          <div className="testimonials__viewport" ref={emblaRef}>
+            <div className="testimonials__track">
+              {slides.map((slide, i) => <div className="testimonials__slide" key={slide.src}>
+                <TestimonialCard slide={slide} active={i === selectedIndex} onPlayingChange={setPlaying} />
+              </div>)}
             </div>
           </div>
-
-          {/* Dots */}
-          <div className="flex justify-center gap-2 mt-6">
-            {slides.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => scrollTo(i)}
-                aria-label={`Go to slide ${i + 1}`}
-                className={`h-2 rounded-full transition-all ${
-                  i === selectedIndex ? 'w-8 bg-primary' : 'w-2 bg-foreground/20 hover:bg-foreground/40'
-                }`}
-              />
-            ))}
-          </div>
+          <nav className="testimonials__navigation" aria-label="Testimonial navigation">
+            <Button variant="outline" size="icon" className="testimonials__arrow" title="Previous testimonial" aria-label="Previous testimonial" onClick={() => navigate('prev')}><ChevronLeft /></Button>
+            <span className="testimonials__counter" aria-live="polite" aria-atomic="true">{selectedIndex + 1} / {slides.length}</span>
+            <Button variant="outline" size="icon" className="testimonials__arrow" title="Next testimonial" aria-label="Next testimonial" onClick={() => navigate('next')}><ChevronRight /></Button>
+          </nav>
         </div>
       </div>
     </section>
