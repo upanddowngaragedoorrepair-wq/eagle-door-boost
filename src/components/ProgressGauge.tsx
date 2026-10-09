@@ -75,20 +75,42 @@ export function ProgressGauge({ label, value, caption, duration = 3500, start, c
       aria-label={label}
     >
       <div className="progress-gauge__dial">
+        <div className="progress-gauge__glow" aria-hidden="true" />
         <svg viewBox="0 0 140 140" aria-hidden="true">
+          <defs>
+            <linearGradient id="gauge-gradient" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="hsl(var(--gold-cta))" />
+              <stop offset="100%" stopColor="hsl(var(--gold-cta-hover))" />
+            </linearGradient>
+          </defs>
+          <circle className="progress-gauge__orbit" cx="70" cy="70" r="67" />
+          {[25, 50, 75, 100].map((p) => {
+            const a = (p / 100) * 2 * Math.PI - Math.PI / 2;
+            return <circle key={p} className="progress-gauge__marker" cx={70 + 67 * Math.cos(a)} cy={70 + 67 * Math.sin(a)} r="1.6" />;
+          })}
+          {Array.from({ length: 10 }, (_, i) => {
+            const a = (i / 10) * 2 * Math.PI - Math.PI / 2;
+            return (
+              <line key={i} className="progress-gauge__tick"
+                x1={70 + 60 * Math.cos(a)} y1={70 + 60 * Math.sin(a)}
+                x2={70 + 63 * Math.cos(a)} y2={70 + 63 * Math.sin(a)} />
+            );
+          })}
           <circle className="progress-gauge__track" cx="70" cy="70" r={R} />
           <circle
             className="progress-gauge__fill"
-            cx="70"
-            cy="70"
-            r={R}
+            cx="70" cy="70" r={R}
             strokeDasharray={C}
             strokeDashoffset={C * (1 - current / 100)}
             transform="rotate(-90 70 70)"
           />
+          {current > 0 && (() => {
+            const a = (current / 100) * 2 * Math.PI - Math.PI / 2;
+            return <circle className="progress-gauge__tip" cx={70 + R * Math.cos(a)} cy={70 + R * Math.sin(a)} r="3.2" />;
+          })()}
         </svg>
         <span className="progress-gauge__value">
-          {shown}
+          <span>{shown}</span>
           <span className="progress-gauge__pct">%</span>
         </span>
       </div>

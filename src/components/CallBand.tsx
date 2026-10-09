@@ -1,4 +1,4 @@
-import { Phone, Check } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import { ProgressGauge } from '@/components/ProgressGauge';
 
@@ -15,12 +15,6 @@ interface CallBandProps {
   };
 }
 
-const CHECKLIST = [
-  'Licensed & insured',
-  'Free estimates',
-  'Same-day service available',
-  'Warranty on repairs',
-];
 
 /**
  * Two layouts:
@@ -39,42 +33,19 @@ export function CallBand({ headline, location, stat }: CallBandProps) {
 
   if (stat) {
     return (
-      <section className="py-12 md:py-20 bg-[hsl(var(--surface-light))]">
+      <section className="py-14 md:py-20 bg-[hsl(var(--surface-light))] overflow-hidden">
         <div className="container-main">
-          <div className="rounded-2xl bg-[hsl(var(--navy-section))] border border-[hsl(var(--gold-cta)/0.3)] shadow-[var(--shadow-lg)] p-8 md:p-12 lg:p-16">
-            <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] items-center gap-10 md:gap-14">
-              {/* Left: proof gauge */}
+          <div className="relative overflow-hidden rounded-2xl border border-[hsl(var(--gold-cta)/0.3)] shadow-[var(--shadow-lg)] bg-[linear-gradient(135deg,hsl(var(--navy-section))_0%,hsl(215_75%_10%)_100%)] px-6 py-10 md:p-12 lg:p-14">
+            <div aria-hidden="true" className="absolute inset-x-0 top-0 h-[2px] bg-[hsl(var(--gold-cta))]" />
+            <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] items-center gap-6 md:gap-12">
               <div className="flex justify-center">
-                <ProgressGauge
-                  className="text-[hsl(var(--text-support))]"
-                  label={stat.label}
-                  caption={stat.caption}
-                  value={stat.percent}
-                  duration={3500}
-                />
+                <ProgressGauge label={stat.label} caption={stat.caption} value={stat.percent} duration={2500} />
               </div>
-
-              {/* Right: headline, checklist, call CTA */}
-              <div className="text-center md:text-left">
-                <h2 className="font-display font-bold text-3xl md:text-4xl text-white tracking-tight leading-tight">
+              <div className="flex flex-col gap-6 text-center md:text-left">
+                <h2 className="font-display font-bold text-3xl lg:text-4xl text-white tracking-tight leading-tight text-balance max-w-[14ch] mx-auto md:max-w-none md:mx-0 lg:whitespace-nowrap">
                   {headline}
                 </h2>
-                <ul className="mt-6 space-y-2.5">
-                  {CHECKLIST.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-center justify-center md:justify-start gap-3 text-[hsl(var(--text-support))] text-base md:text-lg"
-                    >
-                      <Check className="w-5 h-5 text-[hsl(var(--gold-cta))] shrink-0" strokeWidth={3} />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={phoneLink}
-                  onClick={handleClick}
-                  className="btn-cta w-full md:w-auto mt-8 md:mt-10"
-                >
+                <a href={phoneLink} onClick={handleClick} className="btn-cta w-full">
                   <Phone className="w-5 h-5" />
                   {phoneFormatted}
                 </a>

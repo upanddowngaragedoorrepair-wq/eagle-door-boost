@@ -593,42 +593,36 @@ img {
    ========================================================= */
 .progress-gauge {
   --gauge-accent: hsl(var(--gold-cta));
-  --gauge-track: hsl(var(--gold-cta) / 0.15);
-  --gauge-size: clamp(9rem, 38vw, 12rem);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 0.5rem;
-  max-width: 100%;
+  --gauge-accent-deep: hsl(var(--gold-cta-hover));
+  --gauge-track: hsl(var(--gold-cta) / 0.12);
+  --gauge-size: clamp(11rem, 60vw, 15rem);
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: 0.5rem; max-width: 100%;
 }
-.progress-gauge__dial {
-  position: relative;
-  width: var(--gauge-size);
-  aspect-ratio: 1;
-  max-width: 100%;
+.progress-gauge__dial { position: relative; width: var(--gauge-size); aspect-ratio: 1; max-width: 100%; }
+.progress-gauge__glow {
+  position: absolute; inset: -12%; border-radius: 9999px; pointer-events: none;
+  background: radial-gradient(circle, hsl(var(--gold-cta) / 0.18) 0%, hsl(var(--gold-cta) / 0.06) 45%, transparent 70%);
 }
-.progress-gauge__dial svg { width: 100%; height: 100%; overflow: visible; }
-.progress-gauge__track { fill: none; stroke: var(--gauge-track); stroke-width: 4; }
-.progress-gauge__fill {
-  fill: none;
-  stroke: var(--gauge-accent);
-  stroke-width: 4;
-  stroke-linecap: round;
+.progress-gauge__dial svg { position: relative; width: 100%; height: 100%; overflow: visible; }
+.progress-gauge__orbit {
+  fill: none; stroke: hsl(var(--gold-cta) / 0.25); stroke-width: 0.75; stroke-dasharray: 2 4;
+  transform-origin: 70px 70px; animation: gauge-spin 60s linear infinite;
 }
+@keyframes gauge-spin { to { transform: rotate(360deg); } }
+.progress-gauge__marker { fill: var(--gauge-accent); filter: drop-shadow(0 0 3px hsl(var(--gold-cta) / 0.9)); }
+.progress-gauge__tick { stroke: hsl(var(--gold-cta) / 0.35); stroke-width: 1; stroke-linecap: round; }
+.progress-gauge__track { fill: none; stroke: var(--gauge-track); stroke-width: 9; }
+.progress-gauge__fill { fill: none; stroke: url(#gauge-gradient); stroke-width: 9; stroke-linecap: round; }
+.progress-gauge__tip { fill: hsl(48 100% 85%); filter: drop-shadow(0 0 4px hsl(var(--gold-cta))) drop-shadow(0 0 8px hsl(var(--gold-cta) / 0.7)); }
 .progress-gauge__value {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: Montserrat, sans-serif;
-  font-weight: 800;
-  font-size: calc(var(--gauge-size) * 0.27);
-  line-height: 1;
-  color: var(--gauge-accent);
-  font-variant-numeric: tabular-nums;
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-family: Montserrat, sans-serif; font-weight: 800; font-size: calc(var(--gauge-size) * 0.3);
+  line-height: 1; color: var(--gauge-accent); font-variant-numeric: tabular-nums;
 }
-.progress-gauge__pct { font-size: 0.5em; margin-left: 0.08em; opacity: 0.85; }
-.progress-gauge__label { font-size: 0.95rem; font-weight: 500; line-height: 1.35; max-width: 16rem; }
-.progress-gauge__caption { font-size: 0.8rem; opacity: 0.7; max-width: 16rem; }
+.progress-gauge__pct { font-size: 0.4em; align-self: flex-start; margin-top: 0.15em; margin-left: 0.05em; }
+.progress-gauge__value { padding-top: 0; }
+.progress-gauge__value > span:first-child { line-height: 1; }
+.progress-gauge__label { margin-top: 1rem; font-size: 1rem; font-weight: 500; line-height: 1.35; max-width: 17rem; color: hsl(var(--text-support)); }
+.progress-gauge__caption { font-size: 0.75rem; opacity: 0.7; max-width: 17rem; color: hsl(var(--text-support)); }
+@media (prefers-reduced-motion: reduce) { .progress-gauge__orbit { animation: none; } }
