@@ -1,7 +1,7 @@
 import { Phone } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { useLocation2 } from '@/contexts/LocationContext';
-import { SkillBar } from '@/components/SkillBar';
+import { ProgressGauge } from '@/components/ProgressGauge';
 
 interface CallBandProps {
   /** Short line of context shown left of the button */
@@ -69,8 +69,8 @@ export function CallBand({ headline, location, subline, stat }: CallBandProps) {
         }
       >
         {stat && (
-          <SkillBar
-            className={`w-full md:w-[22rem] lg:w-[26rem] shrink-0 text-white/90 reveal-up reveal-up-delay-1${
+          <ProgressGauge
+            className={`shrink-0 text-white/90 reveal-up reveal-up-delay-1${
               inView ? ' is-revealed' : ''
             }`}
             label={stat.label}
