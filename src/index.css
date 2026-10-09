@@ -415,54 +415,109 @@
     underline-shine 2.5s ease-in-out 1.2s infinite;
 }
 
-/* Scroll-triggered progress bar fill (CallBand) */
-.progress-bar-fill {
-  width: 0%;
-  transition: width 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+/* ============================================================
+   SKILL BAR  (src/components/SkillBar.tsx)
+   Label left, large percentage right, bar underneath.
+   All visual styling for the component lives in this block.
+   Per-instance overrides: --skill-bar-accent, --skill-bar-track.
+   ============================================================ */
+.skill-bar {
+  width: 100%;
+  min-width: 0;
 }
 
-.progress-bar-fill.is-filled {
-  width: var(--progress-target, 92%);
+.skill-bar__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  margin-bottom: 0.7rem;
 }
 
-/* Shimmer sweep that plays once after the bar fills */
-.progress-shimmer {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
+.skill-bar__label {
+  color: inherit;                       /* takes the parent's text color */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+}
+
+.skill-bar__value {
+  color: var(--skill-bar-accent, hsl(var(--gold-bright)));
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(3.5rem, 10vw, 5.25rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;   /* no jitter while counting */
+}
+
+.skill-bar__value.is-settled {
+  animation: stat-settle 0.5s ease-out 1 both;
+}
+
+.skill-bar__track {
+  position: relative;
+  width: 100%;
+  height: 0.625rem;
   border-radius: 9999px;
+  background: var(--skill-bar-track, hsl(var(--border)));
+  overflow: hidden;
 }
 
-.progress-shimmer::after {
+.skill-bar__fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  border-radius: 9999px;
+  background: var(--gradient-gold);
+  box-shadow: 0 0 14px hsl(43 89% 40% / 0.35);
+  transition: width var(--skill-bar-duration, 3500ms) cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.skill-bar__fill.is-running {
+  width: var(--skill-bar-target, 0%);
+}
+
+/* One-time light sweep once the bar has filled */
+.skill-bar__fill::after {
   content: '';
   position: absolute;
   top: 0;
   bottom: 0;
   left: -40%;
   width: 35%;
-  background: linear-gradient(
-    100deg,
-    transparent 0%,
-    hsl(0 0% 100% / 0.55) 50%,
-    transparent 100%
-  );
-  transform: skewX(-18deg);
   opacity: 0;
+  transform: skewX(-18deg);
+  background: linear-gradient(100deg, transparent 0%, hsl(0 0% 100% / 0.6) 50%, transparent 100%);
 }
 
-.is-filled .progress-shimmer::after {
-  animation: progress-shimmer-sweep 1.4s ease-in-out 1.9s 1 forwards;
+.skill-bar__fill.is-running::after {
+  animation: skill-bar-sweep 1.2s ease-in-out var(--skill-bar-duration, 3500ms) 1 forwards;
 }
 
-@keyframes progress-shimmer-sweep {
+@keyframes skill-bar-sweep {
   0% { left: -40%; opacity: 1; }
   100% { left: 115%; opacity: 0; }
 }
 
+.skill-bar__caption {
+  margin-top: 0.65rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: inherit;
+  opacity: 0.78;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .progress-bar-fill {
-    transition: none;
-  }
+  .skill-bar__fill { transition: none; }
+  .skill-bar__fill::after { display: none; }
+  .skill-bar__value.is-settled { animation: none; }
 }
 
 /* Performance */
