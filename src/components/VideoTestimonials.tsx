@@ -42,6 +42,43 @@ const slides: Slide[] = [
   },
 ];
 
+function OneDayHighlight({ children }: { children: string }) {
+  const phraseRef = useRef<HTMLSpanElement>(null);
+  const [revealed, setRevealed] = useState(false);
+
+  useEffect(() => {
+    const phrase = phraseRef.current;
+    if (!phrase) return;
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (motion.matches || !('IntersectionObserver' in window)) {
+      setRevealed(true);
+      return;
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry?.isIntersecting) return;
+      setRevealed(true);
+      observer.disconnect();
+    }, { threshold: 0.5 });
+    observer.observe(phrase);
+    const onMotionChange = () => {
+      if (!motion.matches) return;
+      setRevealed(true);
+      observer.disconnect();
+    };
+    motion.addEventListener('change', onMotionChange);
+    return () => {
+      observer.disconnect();
+      motion.removeEventListener('change', onMotionChange);
+    };
+  }, []);
+
+  return (
+    <span ref={phraseRef} className={`text-primary testimonial-phrase${revealed ? ' is-revealed' : ''}`}>
+      {children}
+    </span>
+  );
+}
+
 function highlightQuote(quote: string, highlight: string) {
   if (!highlight) return quote;
   const idx = quote.toLowerCase().indexOf(highlight.toLowerCase());
@@ -49,7 +86,11 @@ function highlightQuote(quote: string, highlight: string) {
   return (
     <>
       {quote.slice(0, idx)}
-      <span className="text-primary">{quote.slice(idx, idx + highlight.length)}</span>
+      {highlight === 'just one day' ? (
+        <OneDayHighlight>{quote.slice(idx, idx + highlight.length)}</OneDayHighlight>
+      ) : (
+        <span className="text-primary">{quote.slice(idx, idx + highlight.length)}</span>
+      )}
       {quote.slice(idx + highlight.length)}
     </>
   );
