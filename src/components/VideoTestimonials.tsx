@@ -60,9 +60,12 @@ function VideoBlock({ src, label, active, onPlayingChange }: {
   return (
     <div className="testimonials__video">
       {playing ? (
-        <video ref={videoRef} src={src} controls autoPlay playsInline
+        <video ref={videoRef} controls autoPlay playsInline
           onPlay={() => onPlayingChange(true)} onPause={() => onPlayingChange(false)}
-          onEnded={() => { setPlaying(false); onPlayingChange(false); }} />
+          onEnded={() => { setPlaying(false); onPlayingChange(false); }}>
+          <source src={src.replace('.mp4', '.webm')} type="video/webm" />
+          <source src={src} type="video/mp4" />
+        </video>
       ) : (
         <Button variant="ghost" className="testimonials__video-trigger" aria-label={`Play video: ${label}`}
           onClick={() => { setPlaying(true); onPlayingChange(true); }}>
