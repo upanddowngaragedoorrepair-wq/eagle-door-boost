@@ -57,8 +57,8 @@ export function CallBand({ headline, location, subline, stat }: CallBandProps) {
       ref={sectionRef}
       className={
         stat
-          ? 'py-9 md:py-12 bg-[hsl(var(--navy))] bg-gradient-to-b from-[hsl(213_70%_16%)] to-[hsl(var(--navy))] border-b border-white/10'
-          : 'py-7 md:py-9 bg-gradient-to-br from-[hsl(var(--navy-light))] to-[hsl(var(--navy))] border-b border-white/10'
+          ? 'py-9 md:py-12 bg-[hsl(var(--navy-section))]'
+          : 'py-7 md:py-9 bg-[hsl(var(--navy-section))]'
       }
     >
       <div
@@ -70,7 +70,7 @@ export function CallBand({ headline, location, subline, stat }: CallBandProps) {
       >
         {stat && (
           <ProgressGauge
-            className={`shrink-0 text-white/90 reveal-up reveal-up-delay-1${
+            className={`shrink-0 text-[hsl(var(--text-support))] reveal-up reveal-up-delay-1${
               inView ? ' is-revealed' : ''
             }`}
             label={stat.label}

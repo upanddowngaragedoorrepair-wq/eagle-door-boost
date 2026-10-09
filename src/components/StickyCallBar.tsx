@@ -47,7 +47,7 @@ export function StickyCallBar() {
     <>
       {/* Mobile: full-width bottom bar */}
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden sticky-bar-enter">
-        <div className="bg-[hsl(var(--navy))] border-t-2 border-[hsl(var(--gold-bright))]/70 px-3 pt-2.5 pb-3 shadow-lg">
+        <div className="bg-[hsl(var(--navy-section))] border-t-2 border-[hsl(var(--gold-cta))] px-3 pt-2.5 pb-3 shadow-lg">
           <a
             href={phoneLink}
             onClick={handleClick('sticky')}

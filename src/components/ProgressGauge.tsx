@@ -14,7 +14,6 @@ interface ProgressGaugeProps {
 
 const R = 52;
 const C = 2 * Math.PI * R;
-const TICKS = 60;
 
 /**
  * Circular progress gauge. Styles live in the "PROGRESS GAUGE" block of src/index.css.
@@ -77,11 +76,6 @@ export function ProgressGauge({ label, value, caption, duration = 3500, start, c
     >
       <div className="progress-gauge__dial">
         <svg viewBox="0 0 140 140" aria-hidden="true">
-          <g className="progress-gauge__ticks">
-            {Array.from({ length: TICKS }).map((_, i) => (
-              <line key={i} x1="70" y1="3" x2="70" y2={i % 5 === 0 ? 9 : 7} transform={`rotate(${(i * 360) / TICKS} 70 70)`} />
-            ))}
-          </g>
           <circle className="progress-gauge__track" cx="70" cy="70" r={R} />
           <circle
             className="progress-gauge__fill"
