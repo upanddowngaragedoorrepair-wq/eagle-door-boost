@@ -595,7 +595,7 @@ img {
    Override per instance: --gauge-accent, --gauge-track, --gauge-size
    ========================================================= */
 .progress-gauge {
-  --gauge-accent: hsl(var(--accent));
+  --gauge-accent: hsl(var(--gold-bright));
   --gauge-track: hsl(0 0% 100% / 0.1);
   --gauge-size: clamp(9rem, 38vw, 12rem);
   display: flex;
