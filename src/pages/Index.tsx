@@ -36,10 +36,13 @@ const Index = () => {
         <Services />
 
         <CallBand
-          headline="Get Your Free Estimate Today"
+          headline="Get your free estimate today"
           location="band_services"
-          subline="Free estimates • No obligation"
-          stat={{ percent: 96, label: 'Repair calls completed on the first visit' }}
+          stat={{
+            percent: 96,
+            label: 'Repair calls completed on the first visit',
+            caption: 'Based on completed repairs in 2025.',
+          }}
         />
 
         {/* Below-fold: proof first, then projects and offers */}
@@ -80,7 +83,6 @@ const Index = () => {
         <CallBand
           headline="Claim your discount over the phone."
           location="band_coupon"
-          subline="Free estimates • No obligation"
         />
 
         <Suspense fallback={<SectionPlaceholder height={200} />}>

@@ -65,7 +65,7 @@ function VideoBlock({ src, label }: { src: string; label: string }) {
   };
 
   return (
-    <div className="relative w-full aspect-[9/16] sm:aspect-video lg:aspect-[4/5] rounded-2xl overflow-hidden bg-secondary border border-white/10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)] group">
+    <div className="relative w-full aspect-[9/16] sm:aspect-video lg:aspect-[4/5] rounded-2xl overflow-hidden bg-secondary border border-border shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)] group">
       {playing ? (
         <video
           ref={videoRef}
@@ -148,25 +148,17 @@ export function VideoTestimonials() {
   }, [emblaApi]);
 
   return (
-    <section className="py-12 md:py-20 bg-[hsl(var(--navy))] relative overflow-hidden">
+    <section className="py-12 md:py-20 bg-[hsl(var(--surface-light))] relative overflow-hidden">
       {/* Decorative glows */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container-main relative">
-        {/* Trust signal */}
-        <div className="flex justify-center mb-4">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs md:text-sm font-semibold text-white/90">
-            <ShieldCheck className="w-4 h-4 text-primary" />
-            Customer Satisfaction Is Our 1st Priority
-          </span>
-        </div>
-
         {/* Headline */}
-        <h3 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-center text-white tracking-tight">
-          See <span className="text-[hsl(var(--gold-bright))]">Real Customers</span> & Real Results
+        <h3 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-center text-foreground tracking-tight">
+          See <span className="gold-text">Real Customers</span> & Real Results
         </h3>
-        <p className="text-center text-white/70 mt-3 mb-8 md:mb-12 text-base md:text-lg">
+        <p className="text-center text-muted-foreground mt-3 mb-8 md:mb-12 text-base md:text-lg">
           Real work. Real clients. Real results.
         </p>
 
@@ -176,14 +168,14 @@ export function VideoTestimonials() {
           <button
             onClick={scrollPrev}
             aria-label="Previous testimonial"
-            className="flex absolute left-1 md:left-0 top-1/2 -translate-y-1/2 md:-translate-x-4 lg:-translate-x-6 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-foreground/80 hover:bg-primary border border-white/20 hover:border-primary text-white items-center justify-center transition-all backdrop-blur-sm shadow-lg"
+            className="flex absolute left-1 md:left-0 top-1/2 -translate-y-1/2 md:-translate-x-4 lg:-translate-x-6 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-foreground/80 hover:bg-primary border border-border hover:border-primary text-white items-center justify-center transition-all backdrop-blur-sm shadow-lg"
           >
             <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
           </button>
           <button
             onClick={scrollNext}
             aria-label="Next testimonial"
-            className="flex absolute right-1 md:right-0 top-1/2 -translate-y-1/2 md:translate-x-4 lg:translate-x-6 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-foreground/80 hover:bg-primary border border-white/20 hover:border-primary text-white items-center justify-center transition-all backdrop-blur-sm shadow-lg"
+            className="flex absolute right-1 md:right-0 top-1/2 -translate-y-1/2 md:translate-x-4 lg:translate-x-6 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-foreground/80 hover:bg-primary border border-border hover:border-primary text-white items-center justify-center transition-all backdrop-blur-sm shadow-lg"
           >
             <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
           </button>
@@ -242,7 +234,7 @@ export function VideoTestimonials() {
                 onClick={() => scrollTo(i)}
                 aria-label={`Go to slide ${i + 1}`}
                 className={`h-2 rounded-full transition-all ${
-                  i === selectedIndex ? 'w-8 bg-primary' : 'w-2 bg-white/30 hover:bg-white/50'
+                  i === selectedIndex ? 'w-8 bg-primary' : 'w-2 bg-foreground/20 hover:bg-foreground/40'
                 }`}
               />
             ))}
