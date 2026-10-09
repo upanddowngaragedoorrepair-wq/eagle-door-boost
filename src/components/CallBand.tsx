@@ -1,5 +1,4 @@
-import { Phone } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import { Phone, Check } from 'lucide-react';
 import { useLocation2 } from '@/contexts/LocationContext';
 import { ProgressGauge } from '@/components/ProgressGauge';
 
@@ -8,8 +7,7 @@ interface CallBandProps {
   headline: string;
   /** GTM cta_location value */
   location: string;
-  subline?: string;
-  /** Optional animated proof statistic shown above the CTA copy */
+  /** Optional animated proof statistic; switches to the contained card layout */
   stat?: {
     percent: number;
     label: string;
@@ -17,86 +15,87 @@ interface CallBandProps {
   };
 }
 
+const CHECKLIST = [
+  'Licensed & insured',
+  'Free estimates',
+  'Same-day service available',
+  'Warranty on repairs',
+];
+
 /**
- * Slim, repeated call ask. Not another hero — one line of context + phone button.
+ * Two layouts:
+ *  - stat variant: a contained navy card on a light background — gauge left,
+ *    headline + checklist + call button right (stacks on mobile, gauge first).
+ *  - default: slim, repeated call ask — one line of context + phone button.
  * Reuses the existing cta_call_click event with a distinct cta_location.
  */
-export function CallBand({ headline, location, subline, stat }: CallBandProps) {
-  const { phoneLink, phoneFormatted, city } = useLocation2();
-  const sectionRef = useRef<HTMLElement>(null);
-  const [inView, setInView] = useState(false);
-
-  // Trigger once, when ~35% of the band is visible.
-  useEffect(() => {
-    if (!stat) return;
-    const el = sectionRef.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          setInView(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.35 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [stat]);
+export function CallBand({ headline, location, stat }: CallBandProps) {
+  const { phoneLink, phoneFormatted } = useLocation2();
 
   const handleClick = () => {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'cta_call_click', cta_location: location });
   };
 
-  const revealed = !stat || inView;
+  if (stat) {
+    return (
+      <section className="py-12 md:py-20 bg-[hsl(var(--surface-light))]">
+        <div className="container-main">
+          <div className="rounded-2xl bg-[hsl(var(--navy-section))] border border-[hsl(var(--gold-cta)/0.3)] shadow-[var(--shadow-lg)] p-8 md:p-12 lg:p-16">
+            <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] items-center gap-10 md:gap-14">
+              {/* Left: proof gauge */}
+              <div className="flex justify-center">
+                <ProgressGauge
+                  className="text-[hsl(var(--text-support))]"
+                  label={stat.label}
+                  caption={stat.caption}
+                  value={stat.percent}
+                  duration={3500}
+                />
+              </div>
+
+              {/* Right: headline, checklist, call CTA */}
+              <div className="text-center md:text-left">
+                <h2 className="font-display font-bold text-3xl md:text-4xl text-white tracking-tight leading-tight">
+                  {headline}
+                </h2>
+                <ul className="mt-6 space-y-2.5">
+                  {CHECKLIST.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-center justify-center md:justify-start gap-3 text-[hsl(var(--text-support))] text-base md:text-lg"
+                    >
+                      <Check className="w-5 h-5 text-[hsl(var(--gold-cta))] shrink-0" strokeWidth={3} />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={phoneLink}
+                  onClick={handleClick}
+                  className="btn-cta w-full md:w-auto mt-8 md:mt-10"
+                >
+                  <Phone className="w-5 h-5" />
+                  {phoneFormatted}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
-    <section
-      ref={sectionRef}
-      className={
-        stat
-          ? 'py-9 md:py-12 bg-[hsl(var(--navy-section))]'
-          : 'py-7 md:py-9 bg-[hsl(var(--navy-section))]'
-      }
-    >
-      <div
-        className={
-          stat
-            ? 'container-main flex flex-col md:flex-row items-center justify-center md:justify-between gap-7 md:gap-10 text-center md:text-left'
-            : 'container-main flex flex-col md:flex-row items-center justify-between gap-5 text-center md:text-left'
-        }
-      >
-        {stat && (
-          <ProgressGauge
-            className={`shrink-0 text-[hsl(var(--text-support))] reveal-up reveal-up-delay-1${
-              inView ? ' is-revealed' : ''
-            }`}
-            label={stat.label}
-            value={stat.percent}
-            caption={stat.caption}
-            duration={3500}
-            start={inView}
-          />
-        )}
-
-        <div
-          className={`w-full md:w-auto reveal-up${stat ? ' reveal-up-delay-2' : ''}${
-            revealed ? ' is-revealed' : ''
-          }`}
-        >
-          <p className="font-display font-bold text-xl md:text-2xl text-white uppercase tracking-wide leading-tight">
-            {headline}
-          </p>
-        </div>
-
+    <section className="py-7 md:py-9 bg-[hsl(var(--navy-section))]">
+      <div className="container-main flex flex-col md:flex-row items-center justify-between gap-5 text-center md:text-left">
+        <p className="font-display font-bold text-xl md:text-2xl text-white uppercase tracking-wide leading-tight">
+          {headline}
+        </p>
         <a
           href={phoneLink}
           onClick={handleClick}
-          className={`btn-cta w-full md:w-auto text-lg min-h-[60px] px-8 shrink-0 reveal-up${
-            stat ? ' reveal-up-delay-3' : ''
-          }${revealed ? ' is-revealed' : ''}`}
+          className="btn-cta w-full md:w-auto text-lg min-h-[60px] px-8 shrink-0"
         >
           <Phone className="w-5 h-5" />
           {phoneFormatted}
