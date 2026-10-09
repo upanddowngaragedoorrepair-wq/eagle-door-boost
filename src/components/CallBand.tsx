@@ -70,7 +70,9 @@ export function CallBand({ headline, location, subline, stat }: CallBandProps) {
       >
         {stat && (
           <SkillBar
-            className="w-full md:w-[22rem] lg:w-[26rem] shrink-0 text-white/90 reveal-up reveal-up-delay-1"
+            className={`w-full md:w-[22rem] lg:w-[26rem] shrink-0 text-white/90 reveal-up reveal-up-delay-1${
+              inView ? ' is-revealed' : ''
+            }`}
             label={stat.label}
             value={stat.percent}
             caption={stat.caption}
