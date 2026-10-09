@@ -428,23 +428,26 @@
 
 .skill-bar__head {
   display: flex;
-  align-items: baseline;
+  align-items: flex-end;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.35rem 1rem;
+  gap: 0.35rem 0.9rem;
   margin-bottom: 0.7rem;
 }
 
 .skill-bar__label {
+  flex: 1 1 auto;
+  min-width: 0;                         /* wraps instead of pushing the number off */
   color: inherit;                       /* takes the parent's text color */
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 0.9375rem;
-  line-height: 1.35;
+  line-height: 1.3;
   letter-spacing: 0.01em;
 }
 
 .skill-bar__value {
+  flex: 0 0 auto;
+  white-space: nowrap;
   color: var(--skill-bar-accent, hsl(var(--gold-bright)));
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
