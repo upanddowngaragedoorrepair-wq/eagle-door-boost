@@ -1,6 +1,7 @@
 import { Phone } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { useLocation2 } from '@/contexts/LocationContext';
+import { SkillBar } from '@/components/SkillBar';
 
 interface CallBandProps {
   /** Short line of context shown left of the button */
@@ -12,6 +13,7 @@ interface CallBandProps {
   stat?: {
     percent: number;
     label: string;
+    caption?: string;
   };
 }
 
@@ -23,8 +25,6 @@ export function CallBand({ headline, location, subline, stat }: CallBandProps) {
   const { phoneLink, phoneFormatted, city } = useLocation2();
   const sectionRef = useRef<HTMLElement>(null);
   const [inView, setInView] = useState(false);
-  const [displayPercent, setDisplayPercent] = useState(0);
-  const [statDone, setStatDone] = useState(false);
 
   // Trigger once, when ~35% of the band is visible.
   useEffect(() => {
@@ -44,36 +44,6 @@ export function CallBand({ headline, location, subline, stat }: CallBandProps) {
     observer.observe(el);
     return () => observer.disconnect();
   }, [stat]);
-
-  // Smooth ease-out count-up, ~1.35s, once.
-  useEffect(() => {
-    if (!inView || !stat) return;
-    const target = stat.percent;
-    const reduced =
-      typeof window !== 'undefined' &&
-      window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-    if (reduced) {
-      setDisplayPercent(target);
-      setStatDone(true);
-      return;
-    }
-    const duration = 1350;
-    const start = performance.now();
-    let raf = 0;
-
-    const tick = (now: number) => {
-      const t = Math.min(1, (now - start) / duration);
-      const eased = 1 - Math.pow(1 - t, 3); // ease-out cubic
-      setDisplayPercent(Math.round(target * eased));
-      if (t < 1) {
-        raf = requestAnimationFrame(tick);
-      } else {
-        setStatDone(true);
-      }
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [inView, stat]);
 
   const handleClick = () => {
     window.dataLayer = window.dataLayer || [];
@@ -99,22 +69,14 @@ export function CallBand({ headline, location, subline, stat }: CallBandProps) {
         }
       >
         {stat && (
-          <div className="w-full md:w-auto text-center md:text-left shrink-0">
-            <div
-              className={`font-display font-extrabold text-[4.25rem] md:text-[5.25rem] leading-[0.9] tracking-tight text-[hsl(var(--gold-bright))] tabular-nums reveal-up${
-                inView ? ' is-revealed' : ''
-              }${statDone ? ' stat-settle' : ''}`}
-            >
-              {displayPercent}%
-            </div>
-            <p
-              className={`mt-2 text-[0.9375rem] md:text-base font-medium text-white/85 max-w-[16rem] mx-auto md:mx-0 reveal-up reveal-up-delay-1${
-                inView ? ' is-revealed' : ''
-              }`}
-            >
-              {stat.label}
-            </p>
-          </div>
+          <SkillBar
+            className="w-full md:w-[22rem] lg:w-[26rem] shrink-0 text-white/90 reveal-up reveal-up-delay-1"
+            label={stat.label}
+            value={stat.percent}
+            caption={stat.caption}
+            duration={3500}
+            start={inView}
+          />
         )}
 
         <div
