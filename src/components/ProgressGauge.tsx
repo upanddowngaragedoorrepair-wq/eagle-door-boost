@@ -14,7 +14,6 @@ interface ProgressGaugeProps {
 
 const R = 52;
 const C = 2 * Math.PI * R;
-const TICKS = 60;
 
 /**
  * Circular progress gauge. Styles live in the "PROGRESS GAUGE" block of src/index.css.
