@@ -95,7 +95,7 @@ function TestimonialCard({ slide, active, onPlayingChange }: {
   }, [active, revealed]);
 
   return (
-    <article ref={ref} className={`testimonials__card${revealed ? ' is-revealed' : ''}`} aria-hidden={!active} inert={!active ? '' : undefined}>
+    <article ref={ref} className={`testimonials__card${revealed ? ' is-revealed' : ''}`} aria-hidden={!active} {...(!active ? { inert: '' } : {})}>
       <div className="testimonials__content">
         <div className="testimonials__stars" aria-label="5 out of 5 stars">
           {Array.from({ length: 5 }, (_, i) => <Star key={i} fill="currentColor" aria-hidden="true" />)}
