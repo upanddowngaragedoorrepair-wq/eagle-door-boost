@@ -26,6 +26,7 @@ import dg10 from '@/assets/driveway-gallery/driveway-10.webp';
 import dg11 from '@/assets/driveway-gallery/driveway-11.webp';
 import dg12 from '@/assets/driveway-gallery/driveway-12.webp';
 import dg13 from '@/assets/driveway-gallery/driveway-13.webp';
+import dg14 from '@/assets/driveway-gallery/driveway-14.webp';
 
 import repairWelding from '@/assets/service-proof/gate-repair-welding.webp';
 import repairTeamwork from '@/assets/service-proof/gate-repair-teamwork.webp';
@@ -39,7 +40,7 @@ import commercialBarrier from '@/assets/service-proof/commercial-barrier.png';
 import fencesMetal from '@/assets/service-proof/fences-metal.webp';
 import fencesWoodLattice from '@/assets/service-proof/fences-wood-lattice.jpeg';
 
-const drivewayGallery = [dg1, dg2, dg3, dg4, dg5, dg6, dg7, dg8, dg9, dg10, dg11, dg12, dg13];
+const drivewayGallery = [dg1, dg2, dg3, dg4, dg5, dg6, dg7, dg8, dg9, dg10, dg11, dg12, dg13, dg14];
 
 interface ServiceData {
   image: string;
