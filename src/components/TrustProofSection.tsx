@@ -81,7 +81,7 @@ export function TrustProofSection() {
                     <Star key={i} className="w-3 h-3 text-[hsl(var(--gold-bright))] fill-[hsl(var(--gold-bright))]" />
                   ))}
                 </div>
-                <span className="mt-1 text-[10px] text-muted-foreground leading-none">64 local reviews</span>
+                <span className="mt-1 text-[10px] text-muted-foreground leading-none">67 local reviews</span>
               </div>
             </div>
           </div>
