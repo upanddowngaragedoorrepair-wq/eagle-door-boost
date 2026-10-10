@@ -42,9 +42,14 @@ const slides: Slide[] = [
   },
 ];
 
+const PHRASE_LOOP_MS = 5000;
+
 function KeyPhraseHighlight({ children, sweep = false }: { children: string; sweep?: boolean }) {
   const phraseRef = useRef<HTMLSpanElement>(null);
+  const inViewRef = useRef(false);
   const [revealed, setRevealed] = useState(false);
+  const [inView, setInView] = useState(false);
+  const [cycle, setCycle] = useState(0);
 
   useEffect(() => {
     const phrase = phraseRef.current;
@@ -55,14 +60,20 @@ function KeyPhraseHighlight({ children, sweep = false }: { children: string; swe
       return;
     }
     const observer = new IntersectionObserver(([entry]) => {
-      if (!entry?.isIntersecting) return;
-      setRevealed(true);
-      observer.disconnect();
+      const visible = Boolean(entry?.isIntersecting);
+      if (visible === inViewRef.current) return;
+      inViewRef.current = visible;
+      setInView(visible);
+      if (visible) {
+        setRevealed(true);
+        setCycle((c) => c + 1);
+      }
     }, { threshold: 0.5 });
     observer.observe(phrase);
     const onMotionChange = () => {
       if (!motion.matches) return;
       setRevealed(true);
+      setInView(false);
       observer.disconnect();
     };
     motion.addEventListener('change', onMotionChange);
@@ -72,9 +83,16 @@ function KeyPhraseHighlight({ children, sweep = false }: { children: string; swe
     };
   }, []);
 
+  // Keep replaying the pop every 5s while the card stays in view.
+  useEffect(() => {
+    if (!revealed || !inView) return;
+    const id = window.setInterval(() => setCycle((c) => c + 1), PHRASE_LOOP_MS);
+    return () => window.clearInterval(id);
+  }, [revealed, inView]);
+
   return (
     <span ref={phraseRef} className={`text-primary testimonial-phrase${revealed ? (sweep ? ' is-revealed' : ' is-popped') : ''}`}>
-      <span className="phrase-inner">{children}</span>
+      <span key={cycle} className="phrase-inner">{children}</span>
     </span>
   );
 }
