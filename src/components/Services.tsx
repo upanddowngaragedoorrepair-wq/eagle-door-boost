@@ -37,6 +37,7 @@ import accessControlCallbox from '@/assets/service-proof/access-control-callbox.
 import accessControlKeyFob from '@/assets/service-proof/access-control-keyfob.jpg';
 import commercialCantilever from '@/assets/service-proof/commercial-cantilever.jpg';
 import commercialBarrier from '@/assets/service-proof/commercial-barrier.png';
+import commercialParkingGarage from '@/assets/service-proof/commercial-parking-garage.webp';
 import fencesMetal from '@/assets/service-proof/fences-metal.webp';
 import fencesWoodLattice from '@/assets/service-proof/fences-wood-lattice.jpeg';
 
@@ -143,7 +144,7 @@ const services: ServiceData[] = [
   expandedItems: ['Parking Lot & Garage Gates', 'Cantilever gates', 'Rollup Gates & Garage', 'Chain-link gates', 'Barrier gate'],
   cta: 'Call for Commercial Gates',
   urgency: '24/7 commercial support.',
-  proofImages: [commercialCantilever, commercialBarrier],
+  proofImages: [commercialCantilever, commercialBarrier, commercialParkingGarage],
 },
 {
   image: cardFences,
