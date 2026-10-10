@@ -297,7 +297,7 @@
   box-decoration-break: clone;
 }
 
-/* One-time pop: the key phrase gently grows past its size, then settles back */
+/* Repeating pop: the key phrase gently grows past its size, then settles back (replayed every 5s) */
 .testimonial-phrase .phrase-inner {
   display: inline-block;
 }
