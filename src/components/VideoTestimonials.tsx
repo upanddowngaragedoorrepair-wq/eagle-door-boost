@@ -23,7 +23,7 @@ const slides: Slide[] = [
     src: '/videos/review-2.mp4',
     label: 'Driveway Gate Install',
     quote: 'I chose them because of their 5.0 Yelp rating… They absolutely deserve it.',
-    highlight: 'absolutely deserve it',
+    highlight: '5.0 Yelp rating',
     author: 'Verified Customer',
   },
   {
@@ -42,7 +42,7 @@ const slides: Slide[] = [
   },
 ];
 
-function OneDayHighlight({ children }: { children: string }) {
+function KeyPhraseHighlight({ children, sweep = false }: { children: string; sweep?: boolean }) {
   const phraseRef = useRef<HTMLSpanElement>(null);
   const [revealed, setRevealed] = useState(false);
 
@@ -73,8 +73,8 @@ function OneDayHighlight({ children }: { children: string }) {
   }, []);
 
   return (
-    <span ref={phraseRef} className={`text-primary testimonial-phrase${revealed ? ' is-revealed' : ''}`}>
-      {children}
+    <span ref={phraseRef} className={`text-primary testimonial-phrase${revealed ? (sweep ? ' is-revealed' : ' is-popped') : ''}`}>
+      <span className="phrase-inner">{children}</span>
     </span>
   );
 }
@@ -86,11 +86,9 @@ function highlightQuote(quote: string, highlight: string) {
   return (
     <>
       {quote.slice(0, idx)}
-      {highlight === 'just one day' ? (
-        <OneDayHighlight>{quote.slice(idx, idx + highlight.length)}</OneDayHighlight>
-      ) : (
-        <span className="text-primary">{quote.slice(idx, idx + highlight.length)}</span>
-      )}
+      <KeyPhraseHighlight sweep={highlight === 'just one day'}>
+        {quote.slice(idx, idx + highlight.length)}
+      </KeyPhraseHighlight>
       {quote.slice(idx + highlight.length)}
     </>
   );

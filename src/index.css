@@ -297,6 +297,16 @@
   box-decoration-break: clone;
 }
 
+/* One-time pop: the key phrase gently grows past its size, then settles back */
+.testimonial-phrase .phrase-inner {
+  display: inline-block;
+}
+
+.testimonial-phrase.is-popped .phrase-inner,
+.testimonial-phrase.is-revealed .phrase-inner {
+  animation: testimonial-phrase-pop 950ms cubic-bezier(0.34, 1.3, 0.64, 1) 1 both;
+}
+
 .testimonial-phrase.is-revealed {
   background-size: 100% 100%;
   animation: testimonial-phrase-sweep 800ms ease-out 1 both;
@@ -307,12 +317,24 @@
   to { background-size: 100% 100%; opacity: 1; }
 }
 
+@keyframes testimonial-phrase-pop {
+  0% { transform: scale(1); }
+  42% { transform: scale(1.16); }
+  100% { transform: scale(1); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .testimonial-phrase,
   .testimonial-phrase.is-revealed {
     background-size: 100% 100%;
     animation: none;
     opacity: 1;
+  }
+
+  .testimonial-phrase.is-popped .phrase-inner,
+  .testimonial-phrase.is-revealed .phrase-inner {
+    animation: none;
+    transform: none;
   }
 }
 
