@@ -25,7 +25,7 @@ interface CallBandProps {
  *  - default: slim, repeated call ask — one line of context + phone button.
  * Reuses the existing cta_call_click event with a distinct cta_location.
  */
-export function CallBand({ headline, location, stat }: CallBandProps) {
+export function CallBand({ headline, subline, location, stat }: CallBandProps) {
   const { phoneLink, phoneFormatted } = useLocation2();
 
   const handleClick = () => {
