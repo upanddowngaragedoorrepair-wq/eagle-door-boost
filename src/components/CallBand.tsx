@@ -5,6 +5,8 @@ import { ProgressGauge } from '@/components/ProgressGauge';
 interface CallBandProps {
   /** Short line of context shown left of the button */
   headline: string;
+  /** Optional small supporting line under the headline */
+  subline?: string;
   /** GTM cta_location value */
   location: string;
   /** Optional animated proof statistic; switches to the contained card layout */
