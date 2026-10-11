@@ -63,7 +63,7 @@ export function CallBand({ headline, subline, location, stat }: CallBandProps) {
     <section className="py-7 md:py-9 bg-[hsl(var(--navy-section))]">
       <div className="container-main flex flex-col md:flex-row items-center justify-between gap-5 text-center md:text-left">
         <div className="flex flex-col gap-2 items-center md:items-start">
-          <p className="font-display font-bold text-xl md:text-2xl text-white uppercase tracking-wide leading-tight text-balance max-w-[22ch] lg:whitespace-nowrap">
+          <p className="font-display font-bold text-xl md:text-2xl text-white uppercase tracking-wide leading-tight text-balance max-w-[26ch] md:max-w-none lg:whitespace-nowrap">
             {headline}
           </p>
           {subline ? (
