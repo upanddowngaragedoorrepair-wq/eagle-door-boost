@@ -71,7 +71,11 @@ const Index = () => {
           </LazySection>
         </Suspense>
 
-        <CallBand headline="Want this for your driveway? Let's talk." location="band_before_after" />
+        <CallBand
+          headline="We completed 15+ gate jobs near you last month."
+          subline="Ask our team about real referrals from homeowners in your area."
+          location="band_before_after"
+        />
 
 
         <Suspense fallback={<SectionPlaceholder height={400} />}>

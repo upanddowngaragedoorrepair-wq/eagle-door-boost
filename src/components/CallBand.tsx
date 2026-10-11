@@ -5,6 +5,8 @@ import { ProgressGauge } from '@/components/ProgressGauge';
 interface CallBandProps {
   /** Short line of context shown left of the button */
   headline: string;
+  /** Optional small supporting line under the headline */
+  subline?: string;
   /** GTM cta_location value */
   location: string;
   /** Optional animated proof statistic; switches to the contained card layout */
@@ -23,7 +25,7 @@ interface CallBandProps {
  *  - default: slim, repeated call ask — one line of context + phone button.
  * Reuses the existing cta_call_click event with a distinct cta_location.
  */
-export function CallBand({ headline, location, stat }: CallBandProps) {
+export function CallBand({ headline, subline, location, stat }: CallBandProps) {
   const { phoneLink, phoneFormatted } = useLocation2();
 
   const handleClick = () => {
@@ -60,9 +62,16 @@ export function CallBand({ headline, location, stat }: CallBandProps) {
   return (
     <section className="py-7 md:py-9 bg-[hsl(var(--navy-section))]">
       <div className="container-main flex flex-col md:flex-row items-center justify-between gap-5 text-center md:text-left">
-        <p className="font-display font-bold text-xl md:text-2xl text-white uppercase tracking-wide leading-tight">
-          {headline}
-        </p>
+        <div className="flex flex-col gap-2 items-center md:items-start">
+          <p className="font-display font-bold text-xl md:text-2xl text-white uppercase tracking-wide leading-tight text-balance max-w-[26ch] md:max-w-none lg:whitespace-nowrap">
+            {headline}
+          </p>
+          {subline ? (
+            <p className="text-sm md:text-base text-[hsl(var(--text-support))] leading-relaxed max-w-[46ch] md:max-w-[64ch]">
+              {subline}
+            </p>
+          ) : null}
+        </div>
         <a
           href={phoneLink}
           onClick={handleClick}
