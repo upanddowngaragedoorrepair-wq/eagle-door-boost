@@ -67,7 +67,7 @@ export function CallBand({ headline, subline, location, stat }: CallBandProps) {
             {headline}
           </p>
           {subline ? (
-            <p className="text-sm md:text-base text-[hsl(var(--text-support))] leading-relaxed max-w-[46ch]">
+            <p className="text-sm md:text-base text-[hsl(var(--text-support))] leading-relaxed max-w-[46ch] md:max-w-[64ch]">
               {subline}
             </p>
           ) : null}
