@@ -62,9 +62,16 @@ export function CallBand({ headline, subline, location, stat }: CallBandProps) {
   return (
     <section className="py-7 md:py-9 bg-[hsl(var(--navy-section))]">
       <div className="container-main flex flex-col md:flex-row items-center justify-between gap-5 text-center md:text-left">
-        <p className="font-display font-bold text-xl md:text-2xl text-white uppercase tracking-wide leading-tight">
-          {headline}
-        </p>
+        <div className="flex flex-col gap-2 items-center md:items-start">
+          <p className="font-display font-bold text-xl md:text-2xl text-white uppercase tracking-wide leading-tight text-balance max-w-[22ch] lg:whitespace-nowrap">
+            {headline}
+          </p>
+          {subline ? (
+            <p className="text-sm md:text-base text-[hsl(var(--text-support))] leading-relaxed max-w-[46ch]">
+              {subline}
+            </p>
+          ) : null}
+        </div>
         <a
           href={phoneLink}
           onClick={handleClick}
